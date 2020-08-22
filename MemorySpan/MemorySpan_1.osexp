@@ -26,7 +26,7 @@ set font_size 18
 set font_italic no
 set font_family mono
 set font_bold no
-set experiment_path "/Users/ethan/Documents/GitHub/OpenSesame"
+set experiment_path "/Users/ethan/Documents/GitHub/OpenSesame/MemorySpan"
 set disable_garbage_collection yes
 set description "The main experiment item"
 set coordinates uniform
@@ -36,97 +36,19 @@ set clock_backend psycho
 set canvas_backend psycho
 set background black
 
-define loop digit_loop
-	set source_file ""
-	set source table
-	set repeat 1
-	set order random
-	set description "Repeatedly runs another item"
-	set cycles 10
-	set continuous no
-	set break_if_on_first yes
-	set break_if never
-	setcycle 0 A 3
-	setcycle 0 B 9
-	setcycle 0 C 5
-	setcycle 0 D "$"
-	setcycle 0 E "$"
-	setcycle 0 F "$"
-	setcycle 0 G "$"
-	setcycle 0 H "$"
-	setcycle 1 A 1
-	setcycle 1 B 8
-	setcycle 1 C 3
-	setcycle 1 D "$"
-	setcycle 1 E "$"
-	setcycle 1 F "$"
-	setcycle 1 G "$"
-	setcycle 1 H "$"
-	setcycle 2 A 6
-	setcycle 2 B 5
-	setcycle 2 C 5
-	setcycle 2 D 4
-	setcycle 2 E "$"
-	setcycle 2 F "$"
-	setcycle 2 G "$"
-	setcycle 2 H "$"
-	setcycle 3 A 5
-	setcycle 3 B 5
-	setcycle 3 C 5
-	setcycle 3 D 1
-	setcycle 3 E "$"
-	setcycle 3 F "$"
-	setcycle 3 G "$"
-	setcycle 3 H "$"
-	setcycle 4 A 5
-	setcycle 4 B 2
-	setcycle 4 C 4
-	setcycle 4 D 1
-	setcycle 4 E 2
-	setcycle 4 F "$"
-	setcycle 4 G "$"
-	setcycle 4 H "$"
-	setcycle 5 A 2
-	setcycle 5 B 9
-	setcycle 5 C 6
-	setcycle 5 D 4
-	setcycle 5 E 6
-	setcycle 5 F "$"
-	setcycle 5 G "$"
-	setcycle 5 H "$"
-	setcycle 6 A 4
-	setcycle 6 B 3
-	setcycle 6 C 3
-	setcycle 6 D 6
-	setcycle 6 E 4
-	setcycle 6 F 5
-	setcycle 6 G "$"
-	setcycle 6 H "$"
-	setcycle 7 A 3
-	setcycle 7 B 1
-	setcycle 7 C 8
-	setcycle 7 D 4
-	setcycle 7 E 4
-	setcycle 7 F 4
-	setcycle 7 G "$"
-	setcycle 7 H "$"
-	setcycle 8 A 6
-	setcycle 8 B 3
-	setcycle 8 C 9
-	setcycle 8 D 9
-	setcycle 8 E 6
-	setcycle 8 F 5
-	setcycle 8 G 4
-	setcycle 8 H "$"
-	setcycle 9 A 9
-	setcycle 9 B 6
-	setcycle 9 C 1
-	setcycle 9 D 8
-	setcycle 9 E 5
-	setcycle 9 F 3
-	setcycle 9 G 4
-	setcycle 9 H "$"
-	run trial_sequence
+define sketchpad ISI
+	set duration "[ISIdur]"
+	set description "Displays stimuli"
+
+define sketchpad Intro
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="In this experiment you will see a sequence of either numbers or letters.<br/><br/>Your job will be to remember those numbers<br/>in order.<br/><br/>Once you enter the numbers into the box<br/> press RETURN to continue." x=0 y=0 z_index=0
+
+define sketchpad digit_intro
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="In this part, you will see numbers.<br /><br />Press any key to continue" x=0 y=32 z_index=0
 
 define loop digit_loop_1
 	set source_file ""
@@ -220,26 +142,30 @@ define loop digit_loop_1
 	setcycle 9 H "$"
 	run trial_sequence_1
 
+define sketchpad dot
+	set duration "[DotDur]"
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
 define sequence experiment
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
+	run set_time_vars always
+	run Intro always
 	run letter_loop_1 always
 	run digit_loop_1 always
 
-define loop get_input_loop
-	set source table
-	set repeat 200
-	set order random
-	set description "Repeatedly runs another item"
-	set cycles 1
-	set continuous no
-	set break_if_on_first no
-	set break_if "[response] = return or [response] = enter"
-	setcycle 0 empty_column ""
-	run get_input_sequence
+define sketchpad get_input_digits
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="Type what you remember<br /><br />Press 'return' when done<br /><br />[multichar_response]" x=0 y=0 z_index=0
+
+define sketchpad get_input_letters
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="Type what you remember<br /><br />Press 'return' when done<br /><br />Response: [multichar_response]" x=0 y=0 z_index=0
 
 define loop get_input_loop_1
-	set source_file ""
 	set source table
 	set repeat 200
 	set order random
@@ -252,7 +178,6 @@ define loop get_input_loop_1
 	run get_input_sequence_1
 
 define loop get_input_loop_2
-	set source_file ""
 	set source table
 	set repeat 200
 	set order random
@@ -264,34 +189,19 @@ define loop get_input_loop_2
 	setcycle 0 empty_column ""
 	run get_input_sequence_2
 
-define sequence get_input_sequence
-	set flush_keyboard yes
-	set description "Runs a number of items in sequence"
-	run show_input always
-	run number_input always
-	run process_input always
-
 define sequence get_input_sequence_1
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
-	run show_input_1 always
+	run get_input_digits always
 	run number_input_1 always
 	run process_input_1 always
 
 define sequence get_input_sequence_2
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
-	run show_input_2 always
+	run get_input_letters always
 	run number_input_2 always
 	run process_input_2 always
-
-define inline_javascript init
-	set description "Executes JavaScript code (ECMA 5.1)"
-	set _run ""
-	___prepare__
-	vars.multichar_response = ''
-	vars.response = ''
-	__end__
 
 define inline_javascript init_1
 	set description "Executes JavaScript code (ECMA 5.1)"
@@ -309,97 +219,10 @@ define inline_javascript init_2
 	vars.response = ''
 	__end__
 
-define loop letter_loop
-	set source_file ""
-	set source table
-	set repeat 1
-	set order random
-	set description "Repeatedly runs another item"
-	set cycles 10
-	set continuous no
-	set break_if_on_first yes
-	set break_if never
-	setcycle 0 A v
-	setcycle 0 B j
-	setcycle 0 C y
-	setcycle 0 D "$"
-	setcycle 0 E "$"
-	setcycle 0 F "$"
-	setcycle 0 G "$"
-	setcycle 0 H "$"
-	setcycle 1 A z
-	setcycle 1 B v
-	setcycle 1 C y
-	setcycle 1 D "$"
-	setcycle 1 E "$"
-	setcycle 1 F "$"
-	setcycle 1 G "$"
-	setcycle 1 H "$"
-	setcycle 2 A z
-	setcycle 2 B x
-	setcycle 2 C m
-	setcycle 2 D y
-	setcycle 2 E "$"
-	setcycle 2 F "$"
-	setcycle 2 G "$"
-	setcycle 2 H "$"
-	setcycle 3 A t
-	setcycle 3 B q
-	setcycle 3 C t
-	setcycle 3 D f
-	setcycle 3 E "$"
-	setcycle 3 F "$"
-	setcycle 3 G "$"
-	setcycle 3 H "$"
-	setcycle 4 A d
-	setcycle 4 B y
-	setcycle 4 C v
-	setcycle 4 D f
-	setcycle 4 E x
-	setcycle 4 F "$"
-	setcycle 4 G "$"
-	setcycle 4 H "$"
-	setcycle 5 A i
-	setcycle 5 B m
-	setcycle 5 C v
-	setcycle 5 D t
-	setcycle 5 E k
-	setcycle 5 F "$"
-	setcycle 5 G "$"
-	setcycle 5 H "$"
-	setcycle 6 A g
-	setcycle 6 B r
-	setcycle 6 C y
-	setcycle 6 D p
-	setcycle 6 E y
-	setcycle 6 F r
-	setcycle 6 G "$"
-	setcycle 6 H "$"
-	setcycle 7 A i
-	setcycle 7 B m
-	setcycle 7 C u
-	setcycle 7 D u
-	setcycle 7 E e
-	setcycle 7 F r
-	setcycle 7 G "$"
-	setcycle 7 H "$"
-	setcycle 8 A v
-	setcycle 8 B e
-	setcycle 8 C z
-	setcycle 8 D g
-	setcycle 8 E s
-	setcycle 8 F q
-	setcycle 8 G l
-	setcycle 8 H "$"
-	setcycle 9 A u
-	setcycle 9 B p
-	setcycle 9 C t
-	setcycle 9 D x
-	setcycle 9 E i
-	setcycle 9 F p
-	setcycle 9 G f
-	setcycle 9 H "$"
-	run trial_sequence
+define sketchpad letter_intro
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="In this part, you will see letters.<br /><br />Press any key to continue" x=0 y=32 z_index=0
 
 define loop letter_loop_1
 	set source_file ""
@@ -503,13 +326,6 @@ define loop letter_loop_1
 	setcycle 9 span 7
 	run trial_sequence_2
 
-define keyboard_response number_input
-	set timeout infinite
-	set flush yes
-	set event_type keypress
-	set duration keypress
-	set description "Collects keyboard responses"
-
 define keyboard_response number_input_1
 	set timeout infinite
 	set flush yes
@@ -523,20 +339,6 @@ define keyboard_response number_input_2
 	set event_type keypress
 	set duration keypress
 	set description "Collects keyboard responses"
-
-define inline_javascript process_input
-	set description "Executes JavaScript code (ECMA 5.1)"
-	___run__
-	console.log(vars.response)
-	if (vars.response != 'backspace') {
-	    vars.multichar_response += vars.response.toString()
-	} else if (vars.response === 'backspace') {
-	    vars.multichar_response = vars.multichar_response.toString().slice(0, vars.multichar_response.toString().length - 1)
-	} else if (vars.response !== 'enter') {
-	    vars.multichar_response += vars.response
-	}
-	__end__
-	set _prepare ""
 
 define inline_javascript process_input_1
 	set description "Executes JavaScript code (ECMA 5.1)"
@@ -555,7 +357,7 @@ define inline_javascript process_input_1
 define inline_javascript process_input_2
 	set description "Executes JavaScript code (ECMA 5.1)"
 	___run__
-	console.log(vars.response)
+	//console.log(vars.response)
 	if (vars.response != 'backspace') {
 	    vars.multichar_response += vars.response.toString()
 	} else if (vars.response === 'backspace') {
@@ -565,11 +367,6 @@ define inline_javascript process_input_2
 	}
 	__end__
 	set _prepare ""
-
-define sequence report
-	set flush_keyboard yes
-	set description "Runs a number of items in sequence"
-	run get_input_loop always
 
 define sequence report_1
 	set flush_keyboard yes
@@ -581,10 +378,6 @@ define sequence report_2
 	set description "Runs a number of items in sequence"
 	run get_input_loop_2 always
 
-define logger response_logger
-	set description "Logs experimental data"
-	set auto_log yes
-
 define logger response_logger_1
 	set description "Logs experimental data"
 	set auto_log yes
@@ -593,168 +386,121 @@ define logger response_logger_2
 	set description "Logs experimental data"
 	set auto_log yes
 
-define sketchpad show_input
-	set duration 0
-	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Tyoe what you remember<br /><br />Press 'return' when done<br /><br />Response: [multichar_response]" x=0 y=0 z_index=0
-
-define sketchpad show_input_1
-	set duration 0
-	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Tyoe what you remember<br /><br />Press 'return' when done<br /><br />Response: [multichar_response]" x=0 y=0 z_index=0
-
-define sketchpad show_input_2
-	set duration 0
-	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Tyoe what you remember<br /><br />Press 'return' when done<br /><br />Response: [multichar_response]" x=0 y=0 z_index=0
-
-define sketchpad stimA
-	set duration 350
-	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[A]" x=0 y=0 z_index=0
+define inline_javascript set_time_vars
+	set description "Executes JavaScript code (ECMA 5.1)"
+	set _run ""
+	___prepare__
+	
+	//Set duration for each number
+	vars.NumDur = 750
+	
+	//Set ISI
+	vars.ISIdur = 500
+	
+	//Set time for participants to hold sequence in WM
+	vars.DotDur = 3000
+	__end__
 
 define sketchpad stimA_1
-	set duration 350
+	set duration "[NumDur]"
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[A]" x=0 y=0 z_index=0
 
 define sketchpad stimA_2
-	set duration 350
+	set duration "[NumDur]"
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[A]" x=0 y=0 z_index=0
 
-define sketchpad stimB
-	set duration 350
-	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[B]" x=0 y=0 z_index=0
-
 define sketchpad stimB_1
-	set duration 350
+	set duration "[NumDur]"
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[B]" x=0 y=0 z_index=0
 
 define sketchpad stimB_2
-	set duration 350
+	set duration "[NumDur]"
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[B]" x=0 y=0 z_index=0
 
-define sketchpad stimC
-	set duration 350
-	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[C]" x=0 y=0 z_index=0
-
 define sketchpad stimC_1
-	set duration 350
+	set duration "[NumDur]"
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[C]" x=0 y=0 z_index=0
 
 define sketchpad stimC_2
-	set duration 350
+	set duration "[NumDur]"
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[C]" x=0 y=0 z_index=0
 
-define sketchpad stimD
-	set duration 350
-	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[D]" x=0 y=0 z_index=0
-
 define sketchpad stimD_1
-	set duration 350
+	set duration "[NumDur]"
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[D]" x=0 y=0 z_index=0
 
 define sketchpad stimD_2
-	set duration 350
+	set duration "[NumDur]"
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[D]" x=0 y=0 z_index=0
 
-define sketchpad stimE
-	set duration 350
-	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[E]" x=0 y=0 z_index=0
-
 define sketchpad stimE_1
-	set duration 350
+	set duration "[NumDur]"
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[E]" x=0 y=0 z_index=0
 
 define sketchpad stimE_2
-	set duration 350
+	set duration "[NumDur]"
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[E]" x=0 y=0 z_index=0
 
-define sketchpad stimF
-	set duration 350
-	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[F]" x=0 y=0 z_index=0
-
 define sketchpad stimF_1
-	set duration 350
+	set duration "[NumDur]"
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[F]" x=0 y=0 z_index=0
 
 define sketchpad stimF_2
-	set duration 350
+	set duration "[NumDur]"
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[F]" x=0 y=0 z_index=0
 
-define sketchpad stimG
-	set duration 350
-	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[G]" x=0 y=0 z_index=0
-
 define sketchpad stimG_1
-	set duration 350
+	set duration "[NumDur]"
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[G]" x=0 y=0 z_index=0
 
 define sketchpad stimG_2
-	set duration 350
+	set duration "[NumDur]"
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[G]" x=0 y=0 z_index=0
 
-define sketchpad stimH
-	set duration 350
-	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[H]" x=0 y=0 z_index=0
-
 define sketchpad stimH_1
-	set duration 350
+	set duration "[NumDur]"
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[H]" x=0 y=0 z_index=0
 
 define sketchpad stimH_2
-	set duration 350
+	set duration "[NumDur]"
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[H]" x=0 y=0 z_index=0
-
-define sequence trial_sequence
-	set flush_keyboard yes
-	set description "Runs a number of items in sequence"
-	run init always
-	run stimA always
-	run stimB always
-	run stimC always
-	run stimD "[D] != \"$\""
-	run stimE "[E] != \"$\""
-	run stimF "[F] != \"$\""
-	run stimG "[G] != \"$\""
-	run stimH "[H] != \"$\""
-	run report always
-	run response_logger always
 
 define sequence trial_sequence_1
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
 	run init_1 always
 	run stimA_1 always
+	run ISI always
 	run stimB_1 always
+	run ISI always
 	run stimC_1 always
+	run ISI always
 	run stimD_1 "[D] != \"$\""
+	run ISI always
 	run stimE_1 "[E] != \"$\""
+	run ISI always
 	run stimF_1 "[F] != \"$\""
+	run ISI always
 	run stimG_1 "[G] != \"$\""
+	run ISI always
 	run stimH_1 "[H] != \"$\""
+	run dot always
 	run report_1 always
 	run response_logger_1 always
 
@@ -763,13 +509,21 @@ define sequence trial_sequence_2
 	set description "Runs a number of items in sequence"
 	run init_2 always
 	run stimA_2 always
+	run ISI always
 	run stimB_2 always
+	run ISI always
 	run stimC_2 always
+	run ISI always
 	run stimD_2 "[D] != \"$\""
+	run ISI always
 	run stimE_2 "[E] != \"$\""
+	run ISI always
 	run stimF_2 "[F] != \"$\""
+	run ISI always
 	run stimG_2 "[G] != \"$\""
+	run ISI always
 	run stimH_2 "[H] != \"$\""
+	run dot always
 	run report_2 always
 	run response_logger_2 always
 
