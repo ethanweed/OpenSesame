@@ -69,5 +69,20 @@ df$correct_answer <- as.character(df$correct_answer)
 df$percent_correct <- as.numeric(partial_correct)
 df$participant_answer <- as.character(participant_answer)
 
+
+df_agg <- aggregate(df, list(df$id, df$span, df$condition), mean)
+df_agg$id <- NULL
+df_agg$condition <- NULL
+df_agg$correct <- NULL
+df_agg$correct_answer <- NULL
+df_agg$span <- NULL
+df_agg$participant_answer <- NULL
+
+colnames(df_agg)[colnames(df_agg) == "Group.1"] <- "ID"
+colnames(df_agg)[colnames(df_agg) == "Group.2"] <- "Span"
+colnames(df_agg)[colnames(df_agg) == "Group.3"] <- "Condition"
+
 # save the wrangled data in a csv file
 write.csv(df, "data.csv")
+write.csv(df_agg, "data_aggregated.csv")
+
