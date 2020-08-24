@@ -13,10 +13,10 @@ set sound_sample_size -16
 set sound_freq 48000
 set sound_channels 2
 set sound_buf_size 1024
-set sampler_backend psycho
+set sampler_backend legacy
 set round_decimals 2
-set mouse_backend psycho
-set keyboard_backend psycho
+set mouse_backend legacy
+set keyboard_backend legacy
 set height 768
 set fullscreen no
 set form_clicks no
@@ -31,9 +31,9 @@ set disable_garbage_collection yes
 set description "The main experiment item"
 set coordinates uniform
 set compensation 0
-set color_backend psycho
-set clock_backend psycho
-set canvas_backend psycho
+set color_backend legacy
+set clock_backend legacy
+set canvas_backend legacy
 set background black
 
 define sketchpad ISI
@@ -51,10 +51,9 @@ define sketchpad digit_intro
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="In this part, you will see numbers.<br /><br />Press any key to continue" x=0 y=32 z_index=0
 
 define loop digit_loop_1
-	set source_file ""
 	set source table
 	set repeat 1
-	set order random
+	set order sequential
 	set description "Repeatedly runs another item"
 	set cycles 10
 	set continuous no
@@ -63,67 +62,67 @@ define loop digit_loop_1
 	setcycle 0 A 3
 	setcycle 0 B 9
 	setcycle 0 C 5
-	setcycle 0 D "$"
-	setcycle 0 E "$"
-	setcycle 0 F "$"
-	setcycle 0 G "$"
-	setcycle 0 H "$"
+	setcycle 0 D w
+	setcycle 0 E w
+	setcycle 0 F w
+	setcycle 0 G w
+	setcycle 0 H w
 	setcycle 1 A 1
 	setcycle 1 B 8
 	setcycle 1 C 3
-	setcycle 1 D "$"
-	setcycle 1 E "$"
-	setcycle 1 F "$"
-	setcycle 1 G "$"
-	setcycle 1 H "$"
+	setcycle 1 D w
+	setcycle 1 E w
+	setcycle 1 F w
+	setcycle 1 G w
+	setcycle 1 H w
 	setcycle 2 A 6
 	setcycle 2 B 5
 	setcycle 2 C 5
 	setcycle 2 D 4
-	setcycle 2 E "$"
-	setcycle 2 F "$"
-	setcycle 2 G "$"
-	setcycle 2 H "$"
+	setcycle 2 E w
+	setcycle 2 F w
+	setcycle 2 G w
+	setcycle 2 H w
 	setcycle 3 A 5
 	setcycle 3 B 5
 	setcycle 3 C 5
 	setcycle 3 D 1
-	setcycle 3 E "$"
-	setcycle 3 F "$"
-	setcycle 3 G "$"
-	setcycle 3 H "$"
+	setcycle 3 E w
+	setcycle 3 F w
+	setcycle 3 G w
+	setcycle 3 H w
 	setcycle 4 A 5
 	setcycle 4 B 2
 	setcycle 4 C 4
 	setcycle 4 D 1
 	setcycle 4 E 2
-	setcycle 4 F "$"
-	setcycle 4 G "$"
-	setcycle 4 H "$"
+	setcycle 4 F w
+	setcycle 4 G w
+	setcycle 4 H w
 	setcycle 5 A 2
 	setcycle 5 B 9
 	setcycle 5 C 6
 	setcycle 5 D 4
 	setcycle 5 E 6
-	setcycle 5 F "$"
-	setcycle 5 G "$"
-	setcycle 5 H "$"
+	setcycle 5 F w
+	setcycle 5 G w
+	setcycle 5 H w
 	setcycle 6 A 4
 	setcycle 6 B 3
 	setcycle 6 C 3
 	setcycle 6 D 6
 	setcycle 6 E 4
 	setcycle 6 F 5
-	setcycle 6 G "$"
-	setcycle 6 H "$"
+	setcycle 6 G w
+	setcycle 6 H w
 	setcycle 7 A 3
 	setcycle 7 B 1
 	setcycle 7 C 8
 	setcycle 7 D 4
 	setcycle 7 E 4
 	setcycle 7 F 4
-	setcycle 7 G "$"
-	setcycle 7 H "$"
+	setcycle 7 G w
+	setcycle 7 H w
 	setcycle 8 A 6
 	setcycle 8 B 3
 	setcycle 8 C 9
@@ -131,7 +130,7 @@ define loop digit_loop_1
 	setcycle 8 E 6
 	setcycle 8 F 5
 	setcycle 8 G 4
-	setcycle 8 H "$"
+	setcycle 8 H w
 	setcycle 9 A 9
 	setcycle 9 B 6
 	setcycle 9 C 1
@@ -139,7 +138,7 @@ define loop digit_loop_1
 	setcycle 9 E 5
 	setcycle 9 F 3
 	setcycle 9 G 4
-	setcycle 9 H "$"
+	setcycle 9 H w
 	run trial_sequence_1
 
 define sketchpad dot
@@ -150,8 +149,8 @@ define sketchpad dot
 define sequence experiment
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
+	run intro_1 always
 	run set_time_vars always
-	run Intro always
 	run letter_loop_1 always
 	run digit_loop_1 always
 
@@ -219,16 +218,20 @@ define inline_javascript init_2
 	vars.response = ''
 	__end__
 
+define sketchpad intro_1
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="In this experiment you will see a sequence of either numbers or letters.<br /><br />Your job will be to remember those numbers or letters in order, and type them in.<br /><br />After you have them in, press RETURN to continue.<br /><br />Press any key to start." x=0 y=0 z_index=0
+
 define sketchpad letter_intro
 	set duration keypress
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="In this part, you will see letters.<br /><br />Press any key to continue" x=0 y=32 z_index=0
 
 define loop letter_loop_1
-	set source_file ""
 	set source table
 	set repeat 1
-	set order random
+	set order sequential
 	set description "Repeatedly runs another item"
 	set cycles 10
 	set continuous no
@@ -237,56 +240,56 @@ define loop letter_loop_1
 	setcycle 0 A v
 	setcycle 0 B j
 	setcycle 0 C y
-	setcycle 0 D "$"
-	setcycle 0 E "$"
-	setcycle 0 F "$"
-	setcycle 0 G "$"
-	setcycle 0 H "$"
+	setcycle 0 D w
+	setcycle 0 E w
+	setcycle 0 F w
+	setcycle 0 G w
+	setcycle 0 H w
 	setcycle 0 span 3
 	setcycle 1 A z
 	setcycle 1 B v
 	setcycle 1 C y
-	setcycle 1 D "$"
-	setcycle 1 E "$"
-	setcycle 1 F "$"
-	setcycle 1 G "$"
-	setcycle 1 H "$"
+	setcycle 1 D w
+	setcycle 1 E w
+	setcycle 1 F w
+	setcycle 1 G w
+	setcycle 1 H w
 	setcycle 1 span 3
 	setcycle 2 A z
 	setcycle 2 B x
 	setcycle 2 C m
 	setcycle 2 D y
-	setcycle 2 E "$"
-	setcycle 2 F "$"
-	setcycle 2 G "$"
-	setcycle 2 H "$"
+	setcycle 2 E w
+	setcycle 2 F w
+	setcycle 2 G w
+	setcycle 2 H w
 	setcycle 2 span 4
 	setcycle 3 A t
 	setcycle 3 B q
 	setcycle 3 C t
 	setcycle 3 D f
-	setcycle 3 E "$"
-	setcycle 3 F "$"
-	setcycle 3 G "$"
-	setcycle 3 H "$"
+	setcycle 3 E w
+	setcycle 3 F w
+	setcycle 3 G w
+	setcycle 3 H w
 	setcycle 3 span 4
 	setcycle 4 A d
 	setcycle 4 B y
 	setcycle 4 C v
 	setcycle 4 D f
 	setcycle 4 E x
-	setcycle 4 F "$"
-	setcycle 4 G "$"
-	setcycle 4 H "$"
+	setcycle 4 F w
+	setcycle 4 G w
+	setcycle 4 H w
 	setcycle 4 span 5
 	setcycle 5 A i
 	setcycle 5 B m
 	setcycle 5 C v
 	setcycle 5 D t
 	setcycle 5 E k
-	setcycle 5 F "$"
-	setcycle 5 G "$"
-	setcycle 5 H "$"
+	setcycle 5 F w
+	setcycle 5 G w
+	setcycle 5 H w
 	setcycle 5 span 5
 	setcycle 6 A g
 	setcycle 6 B r
@@ -294,8 +297,8 @@ define loop letter_loop_1
 	setcycle 6 D p
 	setcycle 6 E y
 	setcycle 6 F r
-	setcycle 6 G "$"
-	setcycle 6 H "$"
+	setcycle 6 G w
+	setcycle 6 H w
 	setcycle 6 span 6
 	setcycle 7 A i
 	setcycle 7 B m
@@ -303,8 +306,8 @@ define loop letter_loop_1
 	setcycle 7 D u
 	setcycle 7 E e
 	setcycle 7 F r
-	setcycle 7 G "$"
-	setcycle 7 H "$"
+	setcycle 7 G w
+	setcycle 7 H w
 	setcycle 7 span 6
 	setcycle 8 A v
 	setcycle 8 B e
@@ -313,7 +316,7 @@ define loop letter_loop_1
 	setcycle 8 E s
 	setcycle 8 F q
 	setcycle 8 G l
-	setcycle 8 H "$"
+	setcycle 8 H w
 	setcycle 8 span 7
 	setcycle 9 A u
 	setcycle 9 B p
@@ -322,7 +325,7 @@ define loop letter_loop_1
 	setcycle 9 E i
 	setcycle 9 F p
 	setcycle 9 G f
-	setcycle 9 H "$"
+	setcycle 9 H w
 	setcycle 9 span 7
 	run trial_sequence_2
 
@@ -357,7 +360,7 @@ define inline_javascript process_input_1
 define inline_javascript process_input_2
 	set description "Executes JavaScript code (ECMA 5.1)"
 	___run__
-	//console.log(vars.response)
+	console.log(vars.response)
 	if (vars.response != 'backspace') {
 	    vars.multichar_response += vars.response.toString()
 	} else if (vars.response === 'backspace') {
@@ -491,15 +494,15 @@ define sequence trial_sequence_1
 	run ISI always
 	run stimC_1 always
 	run ISI always
-	run stimD_1 "[D] != \"$\""
+	run stimD_1 "[D] != w"
 	run ISI always
-	run stimE_1 "[E] != \"$\""
+	run stimE_1 "[E] != w"
 	run ISI always
-	run stimF_1 "[F] != \"$\""
+	run stimF_1 "[F] != w"
 	run ISI always
-	run stimG_1 "[G] != \"$\""
+	run stimG_1 "[G] != w"
 	run ISI always
-	run stimH_1 "[H] != \"$\""
+	run stimH_1 "[H] != w"
 	run dot always
 	run report_1 always
 	run response_logger_1 always
@@ -514,15 +517,15 @@ define sequence trial_sequence_2
 	run ISI always
 	run stimC_2 always
 	run ISI always
-	run stimD_2 "[D] != \"$\""
+	run stimD_2 "[D] != w"
 	run ISI always
-	run stimE_2 "[E] != \"$\""
+	run stimE_2 "[E] != w"
 	run ISI always
-	run stimF_2 "[F] != \"$\""
+	run stimF_2 "[F] != w"
 	run ISI always
-	run stimG_2 "[G] != \"$\""
+	run stimG_2 "[G] != w"
 	run ISI always
-	run stimH_2 "[H] != \"$\""
+	run stimH_2 "[H] != w"
 	run dot always
 	run report_2 always
 	run response_logger_2 always
