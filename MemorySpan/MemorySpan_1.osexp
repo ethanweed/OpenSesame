@@ -67,6 +67,9 @@ define loop digit_loop_1
 	setcycle 0 F w
 	setcycle 0 G w
 	setcycle 0 H w
+	setcycle 0 span 3
+	setcycle 0 condition numbers
+	setcycle 0 correct 395
 	setcycle 1 A 1
 	setcycle 1 B 8
 	setcycle 1 C 3
@@ -75,6 +78,9 @@ define loop digit_loop_1
 	setcycle 1 F w
 	setcycle 1 G w
 	setcycle 1 H w
+	setcycle 1 span 3
+	setcycle 1 condition numbers
+	setcycle 1 correct 183
 	setcycle 2 A 6
 	setcycle 2 B 5
 	setcycle 2 C 5
@@ -83,6 +89,9 @@ define loop digit_loop_1
 	setcycle 2 F w
 	setcycle 2 G w
 	setcycle 2 H w
+	setcycle 2 span 4
+	setcycle 2 condition numbers
+	setcycle 2 correct 6554
 	setcycle 3 A 5
 	setcycle 3 B 5
 	setcycle 3 C 5
@@ -91,6 +100,9 @@ define loop digit_loop_1
 	setcycle 3 F w
 	setcycle 3 G w
 	setcycle 3 H w
+	setcycle 3 span 4
+	setcycle 3 condition numbers
+	setcycle 3 correct 5551
 	setcycle 4 A 5
 	setcycle 4 B 2
 	setcycle 4 C 4
@@ -99,6 +111,9 @@ define loop digit_loop_1
 	setcycle 4 F w
 	setcycle 4 G w
 	setcycle 4 H w
+	setcycle 4 span 5
+	setcycle 4 condition numbers
+	setcycle 4 correct 52412
 	setcycle 5 A 2
 	setcycle 5 B 9
 	setcycle 5 C 6
@@ -107,6 +122,9 @@ define loop digit_loop_1
 	setcycle 5 F w
 	setcycle 5 G w
 	setcycle 5 H w
+	setcycle 5 span 5
+	setcycle 5 condition numbers
+	setcycle 5 correct 29646
 	setcycle 6 A 4
 	setcycle 6 B 3
 	setcycle 6 C 3
@@ -115,6 +133,9 @@ define loop digit_loop_1
 	setcycle 6 F 5
 	setcycle 6 G w
 	setcycle 6 H w
+	setcycle 6 span 6
+	setcycle 6 condition numbers
+	setcycle 6 correct 433645
 	setcycle 7 A 3
 	setcycle 7 B 1
 	setcycle 7 C 8
@@ -123,6 +144,9 @@ define loop digit_loop_1
 	setcycle 7 F 4
 	setcycle 7 G w
 	setcycle 7 H w
+	setcycle 7 span 6
+	setcycle 7 condition numbers
+	setcycle 7 correct 318444
 	setcycle 8 A 6
 	setcycle 8 B 3
 	setcycle 8 C 9
@@ -131,6 +155,9 @@ define loop digit_loop_1
 	setcycle 8 F 5
 	setcycle 8 G 4
 	setcycle 8 H w
+	setcycle 8 span 7
+	setcycle 8 condition numbers
+	setcycle 8 correct 6399654
 	setcycle 9 A 9
 	setcycle 9 B 6
 	setcycle 9 C 1
@@ -139,6 +166,9 @@ define loop digit_loop_1
 	setcycle 9 F 3
 	setcycle 9 G 4
 	setcycle 9 H w
+	setcycle 9 span 7
+	setcycle 9 condition numbers
+	setcycle 9 correct 9618534
 	run trial_sequence_1
 
 define sketchpad dot
@@ -162,7 +192,7 @@ define sketchpad get_input_digits
 define sketchpad get_input_letters
 	set duration 0
 	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="Type what you remember<br /><br />Press 'return' when done<br /><br />Response: [multichar_response]" x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="Type what you remember<br /><br />Press 'return' when done<br /><br />[multichar_response]" x=0 y=0 z_index=0
 
 define loop get_input_loop_1
 	set source table
@@ -246,6 +276,8 @@ define loop letter_loop_1
 	setcycle 0 G w
 	setcycle 0 H w
 	setcycle 0 span 3
+	setcycle 0 condition letters
+	setcycle 0 correct vjy
 	setcycle 1 A z
 	setcycle 1 B v
 	setcycle 1 C y
@@ -255,6 +287,8 @@ define loop letter_loop_1
 	setcycle 1 G w
 	setcycle 1 H w
 	setcycle 1 span 3
+	setcycle 1 condition letters
+	setcycle 1 correct zvy
 	setcycle 2 A z
 	setcycle 2 B x
 	setcycle 2 C m
@@ -264,6 +298,8 @@ define loop letter_loop_1
 	setcycle 2 G w
 	setcycle 2 H w
 	setcycle 2 span 4
+	setcycle 2 condition letters
+	setcycle 2 correct zxmy
 	setcycle 3 A t
 	setcycle 3 B q
 	setcycle 3 C t
@@ -273,6 +309,8 @@ define loop letter_loop_1
 	setcycle 3 G w
 	setcycle 3 H w
 	setcycle 3 span 4
+	setcycle 3 condition letters
+	setcycle 3 correct tqtf
 	setcycle 4 A d
 	setcycle 4 B y
 	setcycle 4 C v
@@ -282,6 +320,8 @@ define loop letter_loop_1
 	setcycle 4 G w
 	setcycle 4 H w
 	setcycle 4 span 5
+	setcycle 4 condition letters
+	setcycle 4 correct dyvf
 	setcycle 5 A i
 	setcycle 5 B m
 	setcycle 5 C v
@@ -291,6 +331,8 @@ define loop letter_loop_1
 	setcycle 5 G w
 	setcycle 5 H w
 	setcycle 5 span 5
+	setcycle 5 condition letters
+	setcycle 5 correct imvtk
 	setcycle 6 A g
 	setcycle 6 B r
 	setcycle 6 C y
@@ -300,6 +342,8 @@ define loop letter_loop_1
 	setcycle 6 G w
 	setcycle 6 H w
 	setcycle 6 span 6
+	setcycle 6 condition letters
+	setcycle 6 correct grypyr
 	setcycle 7 A i
 	setcycle 7 B m
 	setcycle 7 C u
@@ -309,6 +353,8 @@ define loop letter_loop_1
 	setcycle 7 G w
 	setcycle 7 H w
 	setcycle 7 span 6
+	setcycle 7 condition letters
+	setcycle 7 correct imuuer
 	setcycle 8 A v
 	setcycle 8 B e
 	setcycle 8 C z
@@ -318,6 +364,8 @@ define loop letter_loop_1
 	setcycle 8 G l
 	setcycle 8 H w
 	setcycle 8 span 7
+	setcycle 8 condition letters
+	setcycle 8 correct vezgsql
 	setcycle 9 A u
 	setcycle 9 B p
 	setcycle 9 C t
@@ -327,6 +375,8 @@ define loop letter_loop_1
 	setcycle 9 G f
 	setcycle 9 H w
 	setcycle 9 span 7
+	setcycle 9 condition letters
+	setcycle 9 correct uptxipf
 	run trial_sequence_2
 
 define keyboard_response number_input_1

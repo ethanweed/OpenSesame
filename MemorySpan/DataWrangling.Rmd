@@ -1,0 +1,72 @@
+---
+title: "Untitled"
+author: "Ethan Weed"
+date: "8/24/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+rm(list = ls())
+data <- read.csv("/Users/ethan/Documents/GitHub/OpenSesame/MemorySpan/sample_data.csv")
+
+data$A <- as.character(data$A)
+data$B <- as.character(data$B)
+data$C <- as.character(data$C)
+data$D <- as.character(data$D)
+data$E <- as.character(data$E)
+data$F <- as.character(data$F)
+data$G <- as.character(data$G)
+data$H <- as.character(data$H)
+
+
+# get correct answer
+cr <- vector(mode="character", length=nrow(data))
+for (i in 1:nrow(data)){
+  cr[i] <- paste0(data$A[i], data$B[i], data$C[i], data$D[i], data$E[i], data$E[i], data$G[i])
+}
+cr <- gsub("w", "", cr, fixed = TRUE)
+
+
+# get actual answer
+ans <- data$multichar_response
+ans <- gsub("enter", "", ans)
+
+#compare answers
+correct <- vector(mode="character", length=nrow(data))
+for(i in 1:nrow(data)){
+  correct[i] <- identical(cr[i], ans[i])
+}
+
+partial_correct <- vector(mode="character", length=nrow(data))
+for(i in 1:nrow(data)){
+  aa <- unlist(strsplit(cr[i],""))
+  bb <- unlist(strsplit(ans[i],""))
+  partial_correct[i] <- round(length(intersect(aa, bb))/length(aa) *100, digits = 2)
+}
+
+
+id <- data$subject_nr
+condition <- data$condition
+span <- data$span
+correct_answer <- cr
+participant_answer <- ans
+rt <- data$response_time
+
+
+
+df <- data.frame(id, condition, span, correct_answer, participant_answer, correct, rt)
+df$id <- as.factor(id)
+df$span <- as.factor(span)
+df$correct_answer <- as.character(df$correct_answer)
+df$percent_correct <- partial_correct
+df$participant_answer <- as.character(participant_answer)
+
+
+
+
+```
+
