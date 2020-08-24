@@ -66,7 +66,7 @@ df <- data.frame(id, condition, span, correct_answer, participant_answer, correc
 df$id <- as.factor(id)
 df$span <- as.factor(span)
 df$correct_answer <- as.character(df$correct_answer)
-df$percent_correct <- partial_correct
+df$percent_correct <- as.numeric(partial_correct)
 df$participant_answer <- as.character(participant_answer)
 
 # save the wrangled data in a csv file
