@@ -90,12 +90,115 @@ define loop Naming_Int_loop
 	setcycle 11 correct_response RIGHT
 	run Naming_int_Sequence
 
+define loop Naming_NoInt
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 12
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 Naming_NoInt xxx
+	setcycle 0 Color blue
+	setcycle 0 correct_response DOWN
+	setcycle 1 Naming_NoInt mmmmmmm
+	setcycle 1 Color red
+	setcycle 1 correct_response UP
+	setcycle 2 Naming_NoInt hhhh
+	setcycle 2 Color yellow
+	setcycle 2 correct_response RIGHT
+	setcycle 3 Naming_NoInt sssss
+	setcycle 3 Color blue
+	setcycle 3 correct_response DOWN
+	setcycle 4 Naming_NoInt hhhh
+	setcycle 4 Color green
+	setcycle 4 correct_response LEFT
+	setcycle 5 Naming_NoInt xxx
+	setcycle 5 Color yellow
+	setcycle 5 correct_response RIGHT
+	setcycle 6 Naming_NoInt sssss
+	setcycle 6 Color red
+	setcycle 6 correct_response UP
+	setcycle 7 Naming_NoInt xxx
+	setcycle 7 Color green
+	setcycle 7 correct_response LEFT
+	setcycle 8 Naming_NoInt mmmmmmm
+	setcycle 8 Color yellow
+	setcycle 8 correct_response RIGHT
+	setcycle 9 Naming_NoInt sssss
+	setcycle 9 Color yellow
+	setcycle 9 correct_response RIGHT
+	setcycle 10 Naming_NoInt mmmmmmm
+	setcycle 10 Color green
+	setcycle 10 correct_response LEFT
+	setcycle 11 Naming_NoInt hhhh
+	setcycle 11 Color red
+	setcycle 11 correct_response UP
+	run Naming_NoInt_Sequence
+
+define sequence Naming_NoInt_Sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run dot_3 always
+	run stim_3 always
+	run new_keyboard_response always
+
 define sequence Naming_int_Sequence
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
 	run dot_2 always
 	run stim_2 always
 	run Naming_Int_Response always
+
+define loop Reading_Int
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 12
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 Reading_NoInt grøn
+	setcycle 0 Color red
+	setcycle 0 correct_response UP
+	setcycle 1 Reading_NoInt blå
+	setcycle 1 Color yellow
+	setcycle 1 correct_response RIGHT
+	setcycle 2 Reading_NoInt gul
+	setcycle 2 Color green
+	setcycle 2 correct_response LEFT
+	setcycle 3 Reading_NoInt grøn
+	setcycle 3 Color blue
+	setcycle 3 correct_response DOWN
+	setcycle 4 Reading_NoInt rød
+	setcycle 4 Color blue
+	setcycle 4 correct_response DOWN
+	setcycle 5 Reading_NoInt blå
+	setcycle 5 Color yellow
+	setcycle 5 correct_response RIGHT
+	setcycle 6 Reading_NoInt gul
+	setcycle 6 Color red
+	setcycle 6 correct_response UP
+	setcycle 7 Reading_NoInt rød
+	setcycle 7 Color green
+	setcycle 7 correct_response LEFT
+	setcycle 8 Reading_NoInt grøn
+	setcycle 8 Color blue
+	setcycle 8 correct_response DOWN
+	setcycle 9 Reading_NoInt rød
+	setcycle 9 Color yellow
+	setcycle 9 correct_response RIGHT
+	setcycle 10 Reading_NoInt blå
+	setcycle 10 Color green
+	setcycle 10 correct_response GREEN
+	setcycle 11 Reading_NoInt gul
+	setcycle 11 Color red
+	setcycle 11 correct_response UP
+	run new_sequence
 
 define keyboard_response Reading_NoInt_Response
 	set timeout 2000
@@ -157,11 +260,29 @@ define sketchpad dot_2
 	set description "Displays stimuli"
 	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
 
+define sketchpad dot_3
+	set duration keypress
+	set description "Displays stimuli"
+
 define sequence experiment
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
 	run Reading_NoInt_loop always
 	run Naming_Int_loop always
+	run Naming_NoInt always
+	run Reading_Int always
+
+define keyboard_response new_keyboard_response
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses "UP;DOWN;LEFT;RIGHT"
+
+define sequence new_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
 
 define sketchpad stim_1
 	set duration keypress
@@ -171,5 +292,9 @@ define sketchpad stim_1
 define sketchpad stim_2
 	set duration keypress
 	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[NamingInt]" x=0 y=0 z_index=0
+	draw textline center=1 color="[Color]" font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[NamingInt]" x=0 y=0 z_index=0
+
+define sketchpad stim_3
+	set duration keypress
+	set description "Displays stimuli"
 
