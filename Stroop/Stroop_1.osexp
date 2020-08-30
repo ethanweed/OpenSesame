@@ -1,0 +1,175 @@
+---
+API: 2.1
+OpenSesame: 3.3.3
+Platform: posix
+---
+set width 1024
+set uniform_coordinates yes
+set title Stroop_1
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set sampler_backend psycho
+set round_decimals 2
+set mouse_backend psycho
+set keyboard_backend psycho
+set height 768
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 18
+set font_italic no
+set font_family mono
+set font_bold no
+set disable_garbage_collection yes
+set description "The main experiment item"
+set coordinates uniform
+set compensation 0
+set color_backend psycho
+set clock_backend psycho
+set canvas_backend psycho
+set background black
+
+define keyboard_response Naming_Int_Response
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses "UP;LEFT;RIGHT;DOWN"
+
+define loop Naming_Int_loop
+	set source table
+	set repeat 1
+	set order sequential
+	set description "Repeatedly runs another item"
+	set cycles 12
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 NamingInt blå
+	setcycle 0 Color red
+	setcycle 0 correct_response UP
+	setcycle 1 NamingInt grøn
+	setcycle 1 Color blue
+	setcycle 1 correct_response DOWN
+	setcycle 2 NamingInt rød
+	setcycle 2 Color green
+	setcycle 2 correct_response LEFT
+	setcycle 3 NamingInt blå
+	setcycle 3 Color red
+	setcycle 3 correct_response UP
+	setcycle 4 NamingInt gul
+	setcycle 4 Color blue
+	setcycle 4 correct_response DOWN
+	setcycle 5 NamingInt blå
+	setcycle 5 Color yellow
+	setcycle 5 correct_response RIGHT
+	setcycle 6 NamingInt grøn
+	setcycle 6 Color blue
+	setcycle 6 correct_response DOWN
+	setcycle 7 NamingInt rød
+	setcycle 7 Color green
+	setcycle 7 correct_response LEFT
+	setcycle 8 NamingInt gul
+	setcycle 8 Color red
+	setcycle 8 correct_response UP
+	setcycle 9 NamingInt grøn
+	setcycle 9 Color yellow
+	setcycle 9 correct_response RIGHT
+	setcycle 10 NamingInt gul
+	setcycle 10 Color green
+	setcycle 10 correct_response LEFT
+	setcycle 11 NamingInt rød
+	setcycle 11 Color yellow
+	setcycle 11 correct_response RIGHT
+	run Naming_int_Sequence
+
+define sequence Naming_int_Sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run dot_2 always
+	run stim_2 always
+	run Naming_Int_Response always
+
+define keyboard_response Reading_NoInt_Response
+	set timeout 2000
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses "UP;LEFT;RIGHT;DOWN"
+
+define sequence Reading_NoInt_Sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run dot_1 always
+	run stim_1 always
+	run Reading_NoInt_Response always
+
+define loop Reading_NoInt_loop
+	set source table
+	set repeat 1
+	set order sequential
+	set description "Repeatedly runs another item"
+	set cycles 12
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 ReadNoInt rød
+	setcycle 0 correct_response UP
+	setcycle 1 ReadNoInt grøn
+	setcycle 1 correct_response LEFT
+	setcycle 2 ReadNoInt gul
+	setcycle 2 correct_response RIGHT
+	setcycle 3 ReadNoInt rød
+	setcycle 3 correct_response UP
+	setcycle 4 ReadNoInt blå
+	setcycle 4 correct_response DOWN
+	setcycle 5 ReadNoInt grøn
+	setcycle 5 correct_response LEFT
+	setcycle 6 ReadNoInt blå
+	setcycle 6 correct_response DOWN
+	setcycle 7 ReadNoInt rød
+	setcycle 7 correct_response UP
+	setcycle 8 ReadNoInt gul
+	setcycle 8 correct_response RIGHT
+	setcycle 9 ReadNoInt blå
+	setcycle 9 correct_response DOWN
+	setcycle 10 ReadNoInt gul
+	setcycle 10 correct_response RIGHT
+	setcycle 11 ReadNoInt grøn
+	setcycle 11 correct_response LEFT
+	run Reading_NoInt_Sequence
+
+define sketchpad dot_1
+	set duration keypress
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define sketchpad dot_2
+	set duration keypress
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run Reading_NoInt_loop always
+	run Naming_Int_loop always
+
+define sketchpad stim_1
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[ReadNoInt]" x=0 y=0 z_index=0
+
+define sketchpad stim_2
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[NamingInt]" x=0 y=0 z_index=0
+
