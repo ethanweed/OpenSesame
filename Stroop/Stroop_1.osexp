@@ -26,6 +26,7 @@ set font_size 18
 set font_italic no
 set font_family mono
 set font_bold no
+set experiment_path "/Users/ethan/Documents/GitHub/OpenSesame/Stroop"
 set disable_garbage_collection yes
 set description "The main experiment item"
 set coordinates uniform
@@ -34,6 +35,31 @@ set color_backend psycho
 set clock_backend psycho
 set canvas_backend psycho
 set background black
+
+define sketchpad Instructions_1
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Du bliver præsenteret for nogle ord eller tegn. <br /><br />Din opgave er at bruge piletastene til svare enten på hvad ordet siger, eller hvilken farve den er skrevet i." x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Tryk på en tast for at fortsætte" x=0 y=192 z_index=0
+
+define sketchpad Instructions_2
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Tastene betyder: " x=0 y=-288 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="OP: rød<br /><br />NED: blå<br /><br />VENSTRE: grøn<br /><br />HØJRE: gul" x=0 y=-96 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Tryk på en tast for at fortsætte" x=0 y=192 z_index=0
+
+define sketchpad Instructions_3
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Lad os lige tjekke. Bruge den korrekte tast til at svare på hvad teksten siger:" x=0 y=-224 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text=rød x=0 y=0 z_index=0
+
+define sketchpad Instructions_4
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Fint. <br /><br />Du brugte op pilen fordi du skulle svare på hvad ordet <em>sagde</em>.<br /><br />Brug nu den korrekte tast til at svare på hvilken farve teksten er skrevet i:" x=0 y=-224 z_index=0
+	draw textline center=1 color=green font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text=rød x=0 y=0 z_index=0
 
 define keyboard_response Naming_Int_Response
 	set timeout infinite
@@ -44,6 +70,7 @@ define keyboard_response Naming_Int_Response
 	set allowed_responses "UP;LEFT;RIGHT;DOWN"
 
 define loop Naming_Int_loop
+	set source_file ""
 	set source table
 	set repeat 1
 	set order sequential
@@ -141,16 +168,16 @@ define loop Naming_NoInt
 define sequence Naming_NoInt_Sequence
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
-	run dot_3 always
 	run stim_3 always
 	run new_keyboard_response always
+	run new_logger_2 always
 
 define sequence Naming_int_Sequence
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
-	run dot_2 always
 	run stim_2 always
 	run Naming_Int_Response always
+	run new_logger_1 always
 
 define loop Reading_Int
 	set source_file ""
@@ -198,7 +225,22 @@ define loop Reading_Int
 	setcycle 11 Reading_NoInt gul
 	setcycle 11 Color red
 	setcycle 11 correct_response UP
-	run new_sequence
+	run Reading_Int_1
+
+define sequence Reading_Int_1
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run stim_4 always
+	run Reading_Int_response always
+	run new_logger_3 always
+
+define keyboard_response Reading_Int_response
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses "UP;DOWN;LEFT;RIGHT"
 
 define keyboard_response Reading_NoInt_Response
 	set timeout 2000
@@ -211,11 +253,12 @@ define keyboard_response Reading_NoInt_Response
 define sequence Reading_NoInt_Sequence
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
-	run dot_1 always
 	run stim_1 always
 	run Reading_NoInt_Response always
+	run new_logger always
 
 define loop Reading_NoInt_loop
+	set source_file ""
 	set source table
 	set repeat 1
 	set order sequential
@@ -250,23 +293,17 @@ define loop Reading_NoInt_loop
 	setcycle 11 correct_response LEFT
 	run Reading_NoInt_Sequence
 
-define sketchpad dot_1
-	set duration keypress
-	set description "Displays stimuli"
-	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
-
-define sketchpad dot_2
-	set duration keypress
-	set description "Displays stimuli"
-	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
-
-define sketchpad dot_3
-	set duration keypress
-	set description "Displays stimuli"
-
 define sequence experiment
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
+	run Instructions_1 always
+	run Instructions_2 always
+	run Instructions_3 always
+	run new_keyboard_response_1 always
+	run Instructions_4 always
+	run new_keyboard_response_2 always
+	run new_sketchpad always
+	run new_sketchpad_1 always
 	run Reading_NoInt_loop always
 	run Naming_Int_loop always
 	run Naming_NoInt always
@@ -280,21 +317,68 @@ define keyboard_response new_keyboard_response
 	set description "Collects keyboard responses"
 	set allowed_responses "UP;DOWN;LEFT;RIGHT"
 
-define sequence new_sequence
-	set flush_keyboard yes
-	set description "Runs a number of items in sequence"
+define keyboard_response new_keyboard_response_1
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses UP
+
+define keyboard_response new_keyboard_response_2
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses LEFT
+
+define logger new_logger
+	set description "Logs experimental data"
+	set auto_log yes
+
+define logger new_logger_1
+	set description "Logs experimental data"
+	set auto_log yes
+
+define logger new_logger_2
+	set description "Logs experimental data"
+	set auto_log yes
+
+define logger new_logger_3
+	set description "Logs experimental data"
+	set auto_log yes
+
+define sketchpad new_sketchpad
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Super! <br> </br> Du brugte venstre pil, fordi ordet var <em>skrevet</em> i grøn tekst. <br> </br>  <br> </br> Husk: <br /><br />Nogle gange skal du svare på hvad ordet siger,<br /><br />Nogle gang skal du svare på tekstens farve." x=0 y=-224 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Tryk på en tast for at fortsætte" x=0 y=192 z_index=0
+
+define sketchpad new_sketchpad_1
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Tastene betyder: " x=0 y=-288 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="OP: rød<br /><br />NED: blå<br /><br />VENSTRE: grøn<br /><br />HØJRE: gul" x=0 y=-96 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Tryk på en tast når du er klar til at starte." x=0 y=192 z_index=0
 
 define sketchpad stim_1
-	set duration keypress
+	set duration 0
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[ReadNoInt]" x=0 y=0 z_index=0
 
 define sketchpad stim_2
-	set duration keypress
+	set duration 0
 	set description "Displays stimuli"
 	draw textline center=1 color="[Color]" font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[NamingInt]" x=0 y=0 z_index=0
 
 define sketchpad stim_3
-	set duration keypress
+	set duration 0
 	set description "Displays stimuli"
+	draw textline center=1 color="[Color]" font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[Naming_NoInt]" x=0 y=0 z_index=0
+
+define sketchpad stim_4
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color="[Color]" font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[Reading_Int]" x=0 y=0 z_index=0
 
