@@ -40,19 +40,19 @@ define sketchpad Instructions_1
 	set duration keypress
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Du bliver præsenteret for noget tekst. <br /><br />Din opgave er at bruge piletastene til svare på enten:<br /><br />- hvad teksten siger<br />- hvilken farve den er skrevet i" x=0 y=0 z_index=0
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Tryk på en tast for at fortsætte" x=0 y=192 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Tryk på mellemrum for at fortsætte" x=0 y=192 z_index=0
 
 define sketchpad Instructions_10
-	set duration keypress
+	set duration 0
 	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Nu skal du svare på hvad teksten <em>siger</em>.<br /><br />Tryk på en tast når du er klar til at begynde." x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Nu skal du svare på hvad teksten <em>siger</em>.<br /><br />Tryk på mellemrum når du er klar til at begynde." x=0 y=0 z_index=0
 
 define sketchpad Instructions_2
 	set duration keypress
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Tastene betyder: " x=0 y=-288 z_index=0
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Op: r&#248;d<br /><br />Ned: bl&#229;<br /><br />Venstre: gr&#248;n<br /><br />H&#248;jre: gul" x=0 y=-96 z_index=0
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Tryk på en tast for at fortsætte" x=0 y=192 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Tryk på mellemrum for at fortsætte" x=0 y=192 z_index=0
 
 define sketchpad Instructions_3
 	set duration keypress
@@ -70,29 +70,29 @@ define sketchpad Instructions_5
 	set duration keypress
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Super! <br /><br />Du brugte venstre pil, fordi ordet var <em>skrevet</em> i gr&#248;n tekst. <br> </br>  <br> </br> Husk: <br /><br />Nogle gange skal du svare på hvad teksten siger,<br /><br />Nogle gang skal du svare på tekstens farve." x=0 y=-224 z_index=0
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Tryk på en tast for at fortsætte" x=0 y=192 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Tryk på mellemrum for at fortsætte" x=0 y=192 z_index=0
 
 define sketchpad Instructions_6
 	set duration keypress
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Tastene betyder: " x=0 y=-288 z_index=0
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Op: r&#248;d<br /><br />Ned: bl&#229;<br /><br />Venstre: gr&#248;n<br /><br />H&#248;jre: gul" x=0 y=-96 z_index=0
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Tryk på en tast når du er klar til at starte." x=0 y=192 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Tryk på mellemrum for at fortsætte" x=0 y=192 z_index=0
 
 define sketchpad Instructions_7
-	set duration keypress
+	set duration 0
 	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Nu skal du svare på hvad teksten <em>siger</em>.<br /><br />Tryk på en tast når du er klar til at begynde." x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Nu skal du svare på hvad teksten <em>siger</em>.<br /><br />Tryk på mellemrum når du er klar til at begynde." x=0 y=0 z_index=0
 
 define sketchpad Instructions_8
-	set duration keypress
+	set duration 0
 	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Nu skal du svare på hvilken farve teksten er <em>skrevet i</em>.<br /><br />Tryk på en tast når du er klar til at begynde." x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Nu skal du svare på hvilken farve teksten er <em>skrevet i</em>.<br /><br />Tryk på mellemrum når du er klar til at begynde." x=0 y=0 z_index=0
 
 define sketchpad Instructions_9
-	set duration keypress
+	set duration 0
 	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Nu skal du igen svare på hvilken farve teksten er <em>skrevet i</em>.<br /><br />Tryk på en tast når du er klar til at begynde." x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Nu skal du igen svare på hvilken farve teksten er <em>skrevet i</em>.<br /><br />Tryk på mellemrum når du er klar til at begynde." x=0 y=0 z_index=0
 
 define keyboard_response Naming_Int_Response
 	set timeout infinite
@@ -106,6 +106,7 @@ define sequence Naming_Int_Sequence
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
 	run Instructions_8 always
+	run new_keyboard_response_3 always
 	run Naming_Int_loop always
 
 define loop Naming_Int_loop
@@ -208,13 +209,22 @@ define sequence Naming_NoInt_Sequence
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
 	run Instructions_9 always
+	run new_keyboard_response_4 always
 	run Naming_NoInt always
+
+define keyboard_response Naming_NoInt_response
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses "UP;DOWN;LEFT;RIGHT"
 
 define sequence Naming_NoInt_trials
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
 	run stim_3 always
-	run new_keyboard_response always
+	run Naming_NoInt_response always
 	run new_logger_2 always
 
 define sequence Naming_int_trials
@@ -276,6 +286,7 @@ define sequence Reading_Int_Sequence
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
 	run Instructions_10 always
+	run new_keyboard_response_5 always
 	run Reading_Int always
 
 define keyboard_response Reading_Int_response
@@ -305,6 +316,7 @@ define sequence Reading_NoInt_Sequence
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
 	run Instructions_7 always
+	run new_keyboard_response always
 	run Reading_NoInt_loop always
 
 define loop Reading_NoInt_loop
@@ -378,7 +390,7 @@ define keyboard_response new_keyboard_response
 	set event_type keypress
 	set duration keypress
 	set description "Collects keyboard responses"
-	set allowed_responses "UP;DOWN;LEFT;RIGHT"
+	set allowed_responses SPACE
 
 define keyboard_response new_keyboard_response_1
 	set timeout infinite
@@ -396,21 +408,49 @@ define keyboard_response new_keyboard_response_2
 	set description "Collects keyboard responses"
 	set allowed_responses LEFT
 
+define keyboard_response new_keyboard_response_3
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses SPACE
+
+define keyboard_response new_keyboard_response_4
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses SPACE
+
+define keyboard_response new_keyboard_response_5
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses SPACE
+
 define logger new_logger
 	set description "Logs experimental data"
-	set auto_log yes
+	set auto_log no
+	log response_time_Reading_NoInt_Response
 
 define logger new_logger_1
 	set description "Logs experimental data"
-	set auto_log yes
+	set auto_log no
+	log response_time_Naming_Int_Response
 
 define logger new_logger_2
 	set description "Logs experimental data"
-	set auto_log yes
+	set auto_log no
+	log response_time_Naming_NoInt_response
 
 define logger new_logger_3
 	set description "Logs experimental data"
-	set auto_log yes
+	set auto_log no
+	log response_time_Reading_Int_response
 
 define sketchpad stim_1
 	set duration 0
