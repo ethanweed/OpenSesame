@@ -1,16 +1,13 @@
 # Just in case, remove all variables from the global environment
-rm(list = ls())
+#rm(list = ls())
 
 # Script for wrangling OpenSesame/JATOS data from "MemorySpan_1"
 
-# Critical! 
-# I have not yet added a way to automatically identify each particpant in the data file, so you **must** do this manually before running this script!!
-
 # input the path to the folder where your data are stored here
-setwd("/Users/ethan/Documents/GitHub/OpenSesame/MemorySpan/")
+#setwd("/Users/ethan/Documents/GitHub/OpenSesame/MemorySpan/")
 
 # input name of data file here (after you have exported from JATOS and converted JATOS output to CSV using OSweb tool in OpenSesame)
-data <- read.csv("sample_data.csv")
+#data <- read.csv("test_results.csv")
 
 
 # get correct answer
@@ -30,7 +27,7 @@ cr <- vector(mode="character", length=nrow(data))
 for (i in 1:nrow(data)){
   cr[i] <- paste0(data$A[i], data$B[i], data$C[i], data$D[i], data$E[i], data$E[i], data$G[i])
 }
-cr <- gsub("w", "", cr, fixed = TRUE)
+cr <- gsub("w", "", cr)
 
 
 # get participant's actual answer
@@ -53,8 +50,13 @@ for(i in 1:nrow(data)){
   partial_correct[i] <- round(length(intersect(aa, bb))/length(aa) *100, digits = 2)
 }
 
+# generate subject id's from timestamps
+data$id <- data$datetime
+levels(data$id) <- seq(1, length(levels(data$id)))
+
+
 # create vectors with the data we want
-id <- data$subject_nr
+id <- data$id
 condition <- data$condition
 span <- data$span
 correct_answer <- cr
@@ -86,3 +88,4 @@ colnames(df_agg)[colnames(df_agg) == "Group.3"] <- "Condition"
 write.csv(df, "data.csv")
 write.csv(df_agg, "data_aggregated.csv")
 
+paste0("You can find your data here: ", getwd())
