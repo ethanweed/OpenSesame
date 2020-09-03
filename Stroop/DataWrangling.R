@@ -1,7 +1,11 @@
 #rm(list = ls())
+#
+#setwd ("path")
+#data <- read.csv("filename.csv")
 
-#setwd ("/Users/ethan/Documents/GitHub/OpenSesame/Stroop/")
-#data <- read.csv("test_results.csv")
+# You can copy and paste this code into the R module in JASP to correctly format your data for analysis.
+# After the code runs, look in the R console in JASP for an instruction on where to find you formatted data.
+# Close JASP, find the newly-formatted data, load it into a new JASP window, and you should be ready to go.
 
 
 Reading_NoInt <- data$response_time_Reading_NoInt_Response[!is.na(data$response_time_Reading_NoInt_Response)]
