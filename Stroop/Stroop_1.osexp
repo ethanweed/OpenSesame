@@ -55,16 +55,16 @@ define sketchpad Instructions_2
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Tryk på mellemrum for at fortsætte" x=0 y=192 z_index=0
 
 define sketchpad Instructions_3
-	set duration keypress
+	set duration 0
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Lad os lige tjekke. <br /><br />Brug den korrekte tast til at svare på hvad teksten siger:" x=0 y=-224 z_index=0
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="r&#248;d" x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="r&#248;d" x=0 y=0 z_index=0
 
 define sketchpad Instructions_4
-	set duration keypress
+	set duration 0
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Fint. <br /><br />Du brugte op pilen fordi du skulle svare på hvad ordet <em>sagde</em>.<br /><br />Brug nu den korrekte tast til at svare på hvilken farve teksten er skrevet i:" x=0 y=-224 z_index=0
-	draw textline center=1 color=green font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="r&#248;d" x=0 y=0 z_index=0
+	draw textline center=1 color=green font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="r&#248;d" x=0 y=0 z_index=0
 
 define sketchpad Instructions_5
 	set duration keypress
@@ -455,20 +455,20 @@ define logger new_logger_3
 define sketchpad stim_1
 	set duration 0
 	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[ReadNoInt]" x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="[ReadNoInt]" x=0 y=0 z_index=0
 
 define sketchpad stim_2
 	set duration 0
 	set description "Displays stimuli"
-	draw textline center=1 color="[Color]" font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[NamingInt]" x=0 y=0 z_index=0
+	draw textline center=1 color="[Color]" font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="[NamingInt]" x=0 y=0 z_index=0
 
 define sketchpad stim_3
 	set duration 0
 	set description "Displays stimuli"
-	draw textline center=1 color="[Color]" font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[Naming_NoInt]" x=0 y=0 z_index=0
+	draw textline center=1 color="[Color]" font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="[Naming_NoInt]" x=0 y=0 z_index=0
 
 define sketchpad stim_4
 	set duration 0
 	set description "Displays stimuli"
-	draw textline center=1 color="[Color]" font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[Reading_Int]" x=0 y=0 z_index=0
+	draw textline center=1 color="[Color]" font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="[Reading_Int]" x=0 y=0 z_index=0
 

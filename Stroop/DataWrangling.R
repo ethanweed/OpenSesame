@@ -1,7 +1,7 @@
-rm(list = ls())
+#rm(list = ls())
 
-setwd ("/Users/ethan/Documents/GitHub/OpenSesame/Stroop/")
-data <- read.csv("test_results.csv")
+#setwd ("/Users/ethan/Documents/GitHub/OpenSesame/Stroop/")
+#data <- read.csv("test_results.csv")
 
 
 Reading_NoInt <- data$response_time_Reading_NoInt_Response[!is.na(data$response_time_Reading_NoInt_Response)]
@@ -22,3 +22,5 @@ df$ID <- as.factor(c)
 
 
 write.csv(df, "test_results_ID.csv")
+
+paste0("You can find your data here: ", getwd())
