@@ -11,8 +11,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 rm(list = ls())
-setwd()
-data <- read.csv("/Users/ethan/Documents/GitHub/OpenSesame/MemorySpan/L_all_results.csv")
+
+# set this to the path to the data on your computer
+data <- read.csv("/Users/ethan/Documents/GitHub/OpenSesame/MemorySpan/data/L_all_results.csv")
 
 # convert correct answer data to characters (strings)
 data$A <- as.character(data$A)
@@ -89,10 +90,13 @@ colnames(df_agg)[colnames(df_agg) == "Group.3"] <- "Condition"
 df_letters.V.numbers <- aggregate(rt ~ Condition + ID, df_agg, mean)
 df_letters.V.numbers <- tidyr::spread(df_letters.V.numbers, Condition, rt)
 
+df_Span <- aggregate(rt ~ Span + ID + Condition, df_agg, mean)
+
 # save the wrangled data in a csv file
 write.csv(df, "data.csv")
 write.csv(df_agg, "data_aggregated.csv")
 write.csv(df_letters.V.numbers, "data_Letters_V_Numbers.csv")
+write.csv(df_Span, "data_span.csv")
 
 paste0("You can find your data here: ", getwd())
 
@@ -101,9 +105,11 @@ paste0("You can find your data here: ", getwd())
 
 ```{r}
 
-
-df_wide <- aggregate(rt ~ Condition + ID, df_agg, mean)
-df_wide <- tidyr::spread(df_wide, Condition, rt)
+library(ggplot2)
+df_Span$Span <- as.numeric(levels(df_Span$Span))[df_Span$Span] 
+ggplot(df_Span, aes(Span, rt, color = Condition)) +
+  geom_smooth(method = "lm") +
+  geom_point()
 
 
 ```
