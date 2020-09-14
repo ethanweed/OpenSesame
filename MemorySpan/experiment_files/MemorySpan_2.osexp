@@ -5,7 +5,7 @@ Platform: posix
 ---
 set width 1024
 set uniform_coordinates yes
-set title MemorySpan_1
+set title MemorySpan_2
 set subject_parity even
 set subject_nr 0
 set start experiment
@@ -22,7 +22,7 @@ set fullscreen no
 set form_clicks no
 set foreground white
 set font_underline no
-set font_size 18
+set font_size 20
 set font_italic no
 set font_family mono
 set font_bold no
@@ -34,7 +34,7 @@ set compensation 0
 set color_backend legacy
 set clock_backend legacy
 set canvas_backend legacy
-set background black
+set background "#706f71"
 
 define sketchpad ISI
 	set duration "[ISIdur]"
@@ -44,6 +44,11 @@ define sketchpad Intro
 	set duration keypress
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="In this experiment you will see a sequence of either numbers or letters.<br/><br/>Your job will be to remember those numbers<br/>in order.<br/><br/>Once you enter the numbers into the box<br/> press RETURN to continue." x=0 y=0 z_index=0
+
+define sketchpad cue
+	set duration "[Cue]"
+	set description "Displays stimuli"
+	draw rect color="#0878ff" fill=1 h=96 penwidth=1 show_if=always w=96 x=-32 y=-32 z_index=0
 
 define sketchpad digit_intro
 	set duration keypress
@@ -183,7 +188,14 @@ define sequence experiment
 	run intro_1 always
 	run set_time_vars always
 	run letter_loop_1 always
+	run feedback always
 	run digit_loop_1 always
+
+define feedback feedback
+	set reset_variables yes
+	set duration keypress
+	set description "Provides feedback to the participant"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="Done with the first block.<br /><br />Your average time was [avg_rt] ms." x=0 y=0 z_index=0
 
 define sketchpad get_input_digits
 	set duration 0
@@ -381,6 +393,21 @@ define loop letter_loop_1
 	setcycle 9 correct uptxipf
 	run trial_sequence_2
 
+define sketchpad new_sketchpad
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="[avg_rt]" x=0 y=0 z_index=0
+
+define sketchpad new_sketchpad_1
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="[avg_rt]" x=0 y=0 z_index=0
+
+define sketchpad new_sketchpad_2
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="[avg_rt]" x=0 y=0 z_index=0
+
 define keyboard_response number_input_1
 	set timeout infinite
 	set flush yes
@@ -454,6 +481,9 @@ define inline_javascript set_time_vars
 	
 	//Set time for participants to hold sequence in WM
 	vars.DotDur = 3000
+	
+	//Set time for cue
+	vars.Cue = 1000
 	__end__
 
 define sketchpad stimA_1
@@ -540,6 +570,7 @@ define sequence trial_sequence_1
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
 	run init_1 always
+	run cue always
 	run stimA_1 always
 	run ISI always
 	run stimB_1 always
@@ -563,6 +594,7 @@ define sequence trial_sequence_2
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
 	run init_2 always
+	run cue always
 	run stimA_2 always
 	run ISI always
 	run stimB_2 always
