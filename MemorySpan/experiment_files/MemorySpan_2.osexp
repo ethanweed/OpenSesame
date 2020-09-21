@@ -5,7 +5,7 @@ Platform: posix
 ---
 set width 1024
 set uniform_coordinates yes
-set title MemorySpan_2
+set title MemorySpan_1
 set subject_parity even
 set subject_nr 0
 set start experiment
@@ -22,7 +22,7 @@ set fullscreen no
 set form_clicks no
 set foreground white
 set font_underline no
-set font_size 20
+set font_size 18
 set font_italic no
 set font_family mono
 set font_bold no
@@ -34,7 +34,17 @@ set compensation 0
 set color_backend legacy
 set clock_backend legacy
 set canvas_backend legacy
-set background "#706f71"
+set background "#818082"
+
+define sketchpad Feedback
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Your average response time was ms<br /><br />You had [antal_rigtige] right answers<br /><br /><br /><br />Press any key to continue" x=0 y=0 z_index=0
+
+define sequence Feedback_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run letter_feedback always
 
 define sketchpad ISI
 	set duration "[ISIdur]"
@@ -45,10 +55,16 @@ define sketchpad Intro
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="In this experiment you will see a sequence of either numbers or letters.<br/><br/>Your job will be to remember those numbers<br/>in order.<br/><br/>Once you enter the numbers into the box<br/> press RETURN to continue." x=0 y=0 z_index=0
 
-define sketchpad cue
-	set duration "[Cue]"
+define sketchpad PauseDot
+	set duration "[Dot2Dur]"
 	set description "Displays stimuli"
-	draw rect color="#0878ff" fill=1 h=96 penwidth=1 show_if=always w=96 x=-32 y=-32 z_index=0
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define feedback digit_feedback
+	set reset_variables yes
+	set duration keypress
+	set description "Provides feedback to the participant"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Done with round 2. Congratz!<br /><br />Your average response time was [avg_rt] ms<br /><br />You got [antal_rigtige] / 10 correct<br /><br /><br />Press any key to exit the experiment" x=0 y=0 z_index=0
 
 define sketchpad digit_intro
 	set duration keypress
@@ -75,7 +91,7 @@ define loop digit_loop_1
 	setcycle 0 H w
 	setcycle 0 span 3
 	setcycle 0 condition numbers
-	setcycle 0 correct 395
+	setcycle 0 correct_response 395
 	setcycle 1 A 1
 	setcycle 1 B 8
 	setcycle 1 C 3
@@ -86,7 +102,7 @@ define loop digit_loop_1
 	setcycle 1 H w
 	setcycle 1 span 3
 	setcycle 1 condition numbers
-	setcycle 1 correct 183
+	setcycle 1 correct_response 183
 	setcycle 2 A 6
 	setcycle 2 B 5
 	setcycle 2 C 5
@@ -97,7 +113,7 @@ define loop digit_loop_1
 	setcycle 2 H w
 	setcycle 2 span 4
 	setcycle 2 condition numbers
-	setcycle 2 correct 6554
+	setcycle 2 correct_response 6554
 	setcycle 3 A 5
 	setcycle 3 B 5
 	setcycle 3 C 5
@@ -108,7 +124,7 @@ define loop digit_loop_1
 	setcycle 3 H w
 	setcycle 3 span 4
 	setcycle 3 condition numbers
-	setcycle 3 correct 5551
+	setcycle 3 correct_response 5551
 	setcycle 4 A 5
 	setcycle 4 B 2
 	setcycle 4 C 4
@@ -119,7 +135,7 @@ define loop digit_loop_1
 	setcycle 4 H w
 	setcycle 4 span 5
 	setcycle 4 condition numbers
-	setcycle 4 correct 52412
+	setcycle 4 correct_response 52412
 	setcycle 5 A 2
 	setcycle 5 B 9
 	setcycle 5 C 6
@@ -130,7 +146,7 @@ define loop digit_loop_1
 	setcycle 5 H w
 	setcycle 5 span 5
 	setcycle 5 condition numbers
-	setcycle 5 correct 29646
+	setcycle 5 correct_response 29646
 	setcycle 6 A 4
 	setcycle 6 B 3
 	setcycle 6 C 3
@@ -141,7 +157,7 @@ define loop digit_loop_1
 	setcycle 6 H w
 	setcycle 6 span 6
 	setcycle 6 condition numbers
-	setcycle 6 correct 433645
+	setcycle 6 correct_response 433645
 	setcycle 7 A 3
 	setcycle 7 B 1
 	setcycle 7 C 8
@@ -152,7 +168,7 @@ define loop digit_loop_1
 	setcycle 7 H w
 	setcycle 7 span 6
 	setcycle 7 condition numbers
-	setcycle 7 correct 318444
+	setcycle 7 correct_response 318444
 	setcycle 8 A 6
 	setcycle 8 B 3
 	setcycle 8 C 9
@@ -163,7 +179,7 @@ define loop digit_loop_1
 	setcycle 8 H w
 	setcycle 8 span 7
 	setcycle 8 condition numbers
-	setcycle 8 correct 6399654
+	setcycle 8 correct_response 6399654
 	setcycle 9 A 9
 	setcycle 9 B 6
 	setcycle 9 C 1
@@ -174,7 +190,7 @@ define loop digit_loop_1
 	setcycle 9 H w
 	setcycle 9 span 7
 	setcycle 9 condition numbers
-	setcycle 9 correct 9618534
+	setcycle 9 correct_response 9618534
 	run trial_sequence_1
 
 define sketchpad dot
@@ -188,14 +204,14 @@ define sequence experiment
 	run intro_1 always
 	run set_time_vars always
 	run letter_loop_1 always
-	run feedback always
+	run Feedback_sequence always
 	run digit_loop_1 always
+	run feedback_sequence_1 always
 
-define feedback feedback
-	set reset_variables yes
-	set duration keypress
-	set description "Provides feedback to the participant"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="Done with the first block.<br /><br />Your average time was [avg_rt] ms." x=0 y=0 z_index=0
+define sequence feedback_sequence_1
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run digit_feedback always
 
 define sketchpad get_input_digits
 	set duration 0
@@ -266,6 +282,12 @@ define sketchpad intro_1
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="In this experiment you will see a sequence of either numbers or letters.<br /><br />Your job will be to remember those numbers or letters in order, and type them in.<br /><br />After you have them in, press RETURN to continue.<br /><br />Press any key to start." x=0 y=0 z_index=0
 
+define feedback letter_feedback
+	set reset_variables yes
+	set duration keypress
+	set description "Provides feedback to the participant"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Done with the first round. Congratz!<br /><br />Your average response time was [avg_rt] ms<br /><br />You got [antal_rigtige] / 10 correct<br /><br /><br />Press any key to continue" x=0 y=0 z_index=0
+
 define sketchpad letter_intro
 	set duration keypress
 	set description "Displays stimuli"
@@ -291,7 +313,7 @@ define loop letter_loop_1
 	setcycle 0 H w
 	setcycle 0 span 3
 	setcycle 0 condition letters
-	setcycle 0 correct vjy
+	setcycle 0 correct_response vjy
 	setcycle 1 A z
 	setcycle 1 B v
 	setcycle 1 C y
@@ -302,7 +324,7 @@ define loop letter_loop_1
 	setcycle 1 H w
 	setcycle 1 span 3
 	setcycle 1 condition letters
-	setcycle 1 correct zvy
+	setcycle 1 correct_response zvy
 	setcycle 2 A z
 	setcycle 2 B x
 	setcycle 2 C m
@@ -313,7 +335,7 @@ define loop letter_loop_1
 	setcycle 2 H w
 	setcycle 2 span 4
 	setcycle 2 condition letters
-	setcycle 2 correct zxmy
+	setcycle 2 correct_response zxmy
 	setcycle 3 A t
 	setcycle 3 B q
 	setcycle 3 C t
@@ -324,7 +346,7 @@ define loop letter_loop_1
 	setcycle 3 H w
 	setcycle 3 span 4
 	setcycle 3 condition letters
-	setcycle 3 correct tqtf
+	setcycle 3 correct_response tqtf
 	setcycle 4 A d
 	setcycle 4 B y
 	setcycle 4 C v
@@ -335,7 +357,7 @@ define loop letter_loop_1
 	setcycle 4 H w
 	setcycle 4 span 5
 	setcycle 4 condition letters
-	setcycle 4 correct dyvf
+	setcycle 4 correct_response dyvf
 	setcycle 5 A i
 	setcycle 5 B m
 	setcycle 5 C v
@@ -346,7 +368,7 @@ define loop letter_loop_1
 	setcycle 5 H w
 	setcycle 5 span 5
 	setcycle 5 condition letters
-	setcycle 5 correct imvtk
+	setcycle 5 correct_response imvtk
 	setcycle 6 A g
 	setcycle 6 B r
 	setcycle 6 C y
@@ -357,7 +379,7 @@ define loop letter_loop_1
 	setcycle 6 H w
 	setcycle 6 span 6
 	setcycle 6 condition letters
-	setcycle 6 correct grypyr
+	setcycle 6 correct_response grypyr
 	setcycle 7 A i
 	setcycle 7 B m
 	setcycle 7 C u
@@ -368,7 +390,7 @@ define loop letter_loop_1
 	setcycle 7 H w
 	setcycle 7 span 6
 	setcycle 7 condition letters
-	setcycle 7 correct imuuer
+	setcycle 7 correct_response imuuer
 	setcycle 8 A v
 	setcycle 8 B e
 	setcycle 8 C z
@@ -379,7 +401,7 @@ define loop letter_loop_1
 	setcycle 8 H w
 	setcycle 8 span 7
 	setcycle 8 condition letters
-	setcycle 8 correct vezgsql
+	setcycle 8 correct_response vezgsql
 	setcycle 9 A u
 	setcycle 9 B p
 	setcycle 9 C t
@@ -390,23 +412,17 @@ define loop letter_loop_1
 	setcycle 9 H w
 	setcycle 9 span 7
 	setcycle 9 condition letters
-	setcycle 9 correct uptxipf
+	setcycle 9 correct_response uptxipf
 	run trial_sequence_2
+
+define inline_javascript new_inline_javascript_1
+	set description "Executes JavaScript code (ECMA 5.1)"
+	set _run ""
+	set _prepare ""
 
 define sketchpad new_sketchpad
 	set duration keypress
 	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="[avg_rt]" x=0 y=0 z_index=0
-
-define sketchpad new_sketchpad_1
-	set duration keypress
-	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="[avg_rt]" x=0 y=0 z_index=0
-
-define sketchpad new_sketchpad_2
-	set duration keypress
-	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="[avg_rt]" x=0 y=0 z_index=0
 
 define keyboard_response number_input_1
 	set timeout infinite
@@ -443,7 +459,8 @@ define inline_javascript process_input_2
 	if (vars.response != 'backspace') {
 	    vars.multichar_response += vars.response.toString()
 	} else if (vars.response === 'backspace') {
-	    vars.multichar_response = vars.multichar_response.toString().slice(0, vars.multichar_response.toString().length - 1)
+	    vars.multichar_response = vars.multichar_response.toString().slice(0,
+	vars.multichar_response.toString().length - 1)
 	} else if (vars.response !== 'enter') {
 	    vars.multichar_response += vars.response
 	}
@@ -482,8 +499,12 @@ define inline_javascript set_time_vars
 	//Set time for participants to hold sequence in WM
 	vars.DotDur = 3000
 	
-	//Set time for cue
-	vars.Cue = 1000
+	//set time for pause
+	vars.Dot2Dur = 1500
+	
+	//define the variable antal_rigtige
+	//used to keep score
+	vars.antal_rigtige = 0
 	__end__
 
 define sketchpad stimA_1
@@ -566,11 +587,33 @@ define sketchpad stimH_2
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[H]" x=0 y=0 z_index=0
 
+define inline_javascript tjek_rigtige
+	set description "Executes JavaScript code (ECMA 5.1)"
+	___run__
+	vars.multichar_response = vars.multichar_response.toString().slice(0,
+	vars.multichar_response.toString().length - 6)
+	if (vars.multichar_response == vars.correct_response){
+	    vars.antal_rigtige = vars.antal_rigtige + 1
+	}
+	__end__
+	set _prepare ""
+
+define inline_javascript tjek_rigtige2
+	set description "Executes JavaScript code (ECMA 5.1)"
+	___run__
+	vars.multichar_response = vars.multichar_response.toString().slice(0,
+	vars.multichar_response.toString().length - 6)
+	if (vars.multichar_response == vars.correct_response){
+	    vars.antal_rigtige = vars.antal_rigtige + 1
+	}
+	__end__
+	set _prepare ""
+
 define sequence trial_sequence_1
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
 	run init_1 always
-	run cue always
+	run PauseDot always
 	run stimA_1 always
 	run ISI always
 	run stimB_1 always
@@ -588,13 +631,14 @@ define sequence trial_sequence_1
 	run stimH_1 "[H] != w"
 	run dot always
 	run report_1 always
+	run tjek_rigtige2 always
 	run response_logger_1 always
 
 define sequence trial_sequence_2
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
 	run init_2 always
-	run cue always
+	run PauseDot always
 	run stimA_2 always
 	run ISI always
 	run stimB_2 always
@@ -612,5 +656,6 @@ define sequence trial_sequence_2
 	run stimH_2 "[H] != w"
 	run dot always
 	run report_2 always
+	run tjek_rigtige always
 	run response_logger_2 always
 
