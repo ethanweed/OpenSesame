@@ -50,6 +50,4 @@ ggplot(correct, aes(setSize, rt, color = present)) +
 
 write.csv(correct, file = "/Users/ethan/Documents/GitHub/OpenSesame/Sternberg/data/Sternberg_data_correct.csv")
 
-present_absent <- select(correct, id,  present, rt)
-present_absent %>%
-  group_by(present)
+write.csv(dfMeans, file = "/Users/ethan/Documents/GitHub/OpenSesame/Sternberg/data/Sternberg_data_present_absent.csv")
