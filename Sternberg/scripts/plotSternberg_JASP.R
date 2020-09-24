@@ -13,8 +13,7 @@ library(dplyr)
 library(tidyr)
 
 # Read raw data from csv file into an R dataframe
-df <- read.csv("/Users/ethan/Documents/GitHub/OpenSesame/Sternberg/data/jatos_results_20200923231208.csv")
-# df <- read.csv("/path/to/data/file.csv")
+df <- read.csv("/path/to/data/file.csv")
 
 # generate subject id's from timestamps
 
@@ -70,11 +69,9 @@ dfMeans_long <- dfMeans %>%
 #  theme_classic()
 
 # save the data in a csv file
-#write.csv(correct, file = "/Users/ethan/Documents/GitHub/OpenSesame/Sternberg/data/Sternberg_data_correct.csv")
 write.csv(correct, file = "/path/to/data/file.csv")
 
 # save only the means for present/absent and setsize in a csv file
-#write.csv(dfMeans, file = "/Users/ethan/Documents/GitHub/OpenSesame/Sternberg/data/Sternberg_data_present_absent.csv")
 write.csv(correct, file = "/path/to/data/file.csv")
 
 # Plot the data, showing points for all values at each set size
