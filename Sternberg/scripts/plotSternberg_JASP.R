@@ -7,8 +7,10 @@
 # Clear global environment. Not really necessary, but it is an old habit
 rm(list = ls())
 
-# Load extra functions to makeour life easier
-library(tidyverse)
+# Load plotting functions to make pretty plots
+library(ggplot2)
+library(dplyr)
+library(tidyr)
 
 # Read raw data from csv file into an R dataframe
 df <- read.csv("/Users/ethan/Documents/GitHub/OpenSesame/Sternberg/data/jatos_results_20200923231208.csv")
@@ -24,6 +26,7 @@ levels(df$id) <- seq(1, length(levels(df$id)))
 
 # Make a new dataframe with just the variables we are interested in
 d <- select(df, id, block, correct, present, setSize, response_time)
+#d <-data.frame(df$id, df$block, df$correct, df$present, df$response_time)
 
 # change "n" and "y" to 
 d$present <- ifelse(d$present == "n", "NotPresent", "Present")
@@ -58,27 +61,29 @@ dfMeans_long <- dfMeans %>%
   gather(key = Present, value = RT, -setSize)
 
 # Plot the data, showing points for mean values at each set size
-ggplot(dfMeans_long, aes(setSize, RT, color = Present)) +
-  geom_point() +
-  geom_smooth(method = "lm") +
-  labs(title = "Sternberg Task (means)",
-       y = "RT",
-       x = "SetSize") +
-  theme_classic()
+#ggplot(dfMeans_long, aes(setSize, RT, color = Present)) +
+#  geom_point() +
+#  geom_smooth(method = "lm") +
+#  labs(title = "Sternberg Task (means)",
+#       y = "RT",
+#       x = "SetSize") +
+#  theme_classic()
+
+# save the data in a csv file
+#write.csv(correct, file = "/Users/ethan/Documents/GitHub/OpenSesame/Sternberg/data/Sternberg_data_correct.csv")
+write.csv(correct, file = "/path/to/data/file.csv")
+
+# save only the means for present/absent and setsize in a csv file
+#write.csv(dfMeans, file = "/Users/ethan/Documents/GitHub/OpenSesame/Sternberg/data/Sternberg_data_present_absent.csv")
+write.csv(correct, file = "/path/to/data/file.csv")
 
 # Plot the data, showing points for all values at each set size
 ggplot(correct, aes(setSize, rt, color = present)) +
   geom_point() + 
   geom_smooth(method = "lm") +
-  labs(title = "Sternberg Task (all data",
+  labs(title = "Sternberg Task (all data)",
        y = "RT",
        x = "SetSize") +
   theme_classic()
 
-# save the data in a csv file
-#write.csv(correct, file = "/Users/ethan/Documents/GitHub/OpenSesame/Sternberg/data/Sternberg_data_correct.csv")
-write.csv(correct, file = "/Users/ethan/Desktop/blah1.csv")
 
-# save only the means for present/absent and setsize in a csv file
-#write.csv(dfMeans, file = "/Users/ethan/Documents/GitHub/OpenSesame/Sternberg/data/Sternberg_data_present_absent.csv")
-write.csv(dfMeans, file = "/Users/ethan/Desktop/blah2.csv")
