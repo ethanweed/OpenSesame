@@ -72,7 +72,7 @@ dfMeans_long <- dfMeans %>%
 write.csv(correct, file = "/path/to/data/file.csv")
 
 # save only the means for present/absent and setsize in a csv file
-write.csv(correct, file = "/path/to/data/file.csv")
+write.csv(dfMeans, file = "/path/to/data/file.csv")
 
 # Plot the data, showing points for all values at each set size
 ggplot(correct, aes(setSize, rt, color = present)) +
