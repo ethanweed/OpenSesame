@@ -1,0 +1,209 @@
+---
+API: 2.1
+OpenSesame: 3.3.3
+Platform: posix
+---
+set width 1024
+set uniform_coordinates yes
+set title Stroop_2
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set sampler_backend psycho
+set round_decimals 2
+set mouse_backend psycho
+set keyboard_backend psycho
+set height 768
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 30
+set font_italic no
+set font_family mono
+set font_bold no
+set experiment_path "/Users/ethan/Documents/GitHub/OpenSesame/Stroop_2"
+set disable_garbage_collection yes
+set description "The main experiment item"
+set coordinates uniform
+set compensation 0
+set color_backend psycho
+set clock_backend psycho
+set canvas_backend psycho
+set background black
+
+define sketchpad ISI
+	set duration 1000
+	set description "Displays stimuli"
+
+define loop Naming
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 9
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 letterColor red
+	setcycle 0 text rød
+	setcycle 0 cong 1
+	setcycle 0 correct_response left
+	setcycle 0 block naming
+	setcycle 1 letterColor yellow
+	setcycle 1 text rød
+	setcycle 1 cong 0
+	setcycle 1 correct_response right
+	setcycle 1 block naming
+	setcycle 2 letterColor blue
+	setcycle 2 text rød
+	setcycle 2 cong 0
+	setcycle 2 correct_response down
+	setcycle 2 block naming
+	setcycle 3 letterColor red
+	setcycle 3 text gul
+	setcycle 3 cong 0
+	setcycle 3 correct_response left
+	setcycle 3 block naming
+	setcycle 4 letterColor yellow
+	setcycle 4 text gul
+	setcycle 4 cong 1
+	setcycle 4 correct_response right
+	setcycle 4 block naming
+	setcycle 5 letterColor blue
+	setcycle 5 text gul
+	setcycle 5 cong 0
+	setcycle 5 correct_response down
+	setcycle 5 block naming
+	setcycle 6 letterColor red
+	setcycle 6 text blå
+	setcycle 6 cong 0
+	setcycle 6 correct_response left
+	setcycle 6 block naming
+	setcycle 7 letterColor yellow
+	setcycle 7 text blå
+	setcycle 7 cong 0
+	setcycle 7 correct_response right
+	setcycle 7 block naming
+	setcycle 8 letterColor blue
+	setcycle 8 text blå
+	setcycle 8 cong 1
+	setcycle 8 correct_response down
+	setcycle 8 block naming
+	run trial_sequence
+
+define loop Reading
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 9
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 letterColor red
+	setcycle 0 text rød
+	setcycle 0 cong 1
+	setcycle 0 correct_response left
+	setcycle 0 block reading
+	setcycle 1 letterColor yellow
+	setcycle 1 text rød
+	setcycle 1 cong 0
+	setcycle 1 correct_response left
+	setcycle 1 block reading
+	setcycle 2 letterColor blue
+	setcycle 2 text rød
+	setcycle 2 cong 0
+	setcycle 2 correct_response left
+	setcycle 2 block reading
+	setcycle 3 letterColor red
+	setcycle 3 text gul
+	setcycle 3 cong 0
+	setcycle 3 correct_response right
+	setcycle 3 block reading
+	setcycle 4 letterColor yellow
+	setcycle 4 text gul
+	setcycle 4 cong 1
+	setcycle 4 correct_response right
+	setcycle 4 block reading
+	setcycle 5 letterColor blue
+	setcycle 5 text gul
+	setcycle 5 cong 0
+	setcycle 5 correct_response right
+	setcycle 5 block reading
+	setcycle 6 letterColor red
+	setcycle 6 text blå
+	setcycle 6 cong 0
+	setcycle 6 correct_response down
+	setcycle 6 block reading
+	setcycle 7 letterColor yellow
+	setcycle 7 text blå
+	setcycle 7 cong 0
+	setcycle 7 correct_response down
+	setcycle 7 block reading
+	setcycle 8 letterColor blue
+	setcycle 8 text blå
+	setcycle 8 cong 1
+	setcycle 8 correct_response down
+	setcycle 8 block reading
+	run trial_sequence
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run instructions1 always
+	run instructions2 always
+	run Reading always
+	run instructions3 always
+	run Naming always
+
+define sketchpad fixation
+	set duration 1000
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define sketchpad instructions1
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="Du bliver præsenteret for nogle ord<br />og skal give en respons.<br /><br />Nogle gange skal du svare på hvad ordet siger,<br />og andre gange skal du svare<br />på ordets farve.<br /><br />Tryk på en tast for at fortsætte" x=0 y=0 z_index=0
+
+define sketchpad instructions2
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="Svar på hvad ordet <em>siger</em>.<br /><br />Rød: venstre<br />Gul: højre<br />Blå: ned<br /><br />Tryk på op pilen når du er klar." x=0 y=0 z_index=0
+
+define sketchpad instructions3
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="Svar på hvad ordets <em>farve</em>.<br /><br />Rød: venstre<br />Gul: højre<br />Blå: ned<br /><br />Tryk på op pilen når du er klar." x=0 y=0 z_index=0
+
+define keyboard_response new_keyboard_response
+	set timeout 2000
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses "left;right;down"
+
+define logger new_logger
+	set description "Logs experimental data"
+	set auto_log yes
+
+define sketchpad stim
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color="[letterColor]" font_bold=no font_family=mono font_italic=no font_size=36 html=yes show_if=always text="[text]" x=0 y=0 z_index=0
+
+define sequence trial_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run fixation always
+	run stim always
+	run new_keyboard_response always
+	run new_logger always
+	run ISI always
+

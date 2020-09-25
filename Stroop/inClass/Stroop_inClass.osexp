@@ -1,0 +1,119 @@
+---
+API: 2.1
+OpenSesame: 3.3.3
+Platform: posix
+---
+set width 1024
+set uniform_coordinates yes
+set title Stroop_inClass
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set sampler_backend legacy
+set round_decimals 2
+set mouse_backend legacy
+set keyboard_backend legacy
+set height 768
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 18
+set font_italic no
+set font_family mono
+set font_bold no
+set disable_garbage_collection yes
+set description "The main experiment item"
+set coordinates uniform
+set compensation 0
+set color_backend legacy
+set clock_backend legacy
+set canvas_backend legacy
+set background black
+
+define sketchpad ISI
+	set duration 1000
+	set description "Displays stimuli"
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run reading_loop always
+
+define sketchpad fixation
+	set duration 750
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define loop reading_loop
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 9
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 color red
+	setcycle 0 word rød
+	setcycle 0 interference 0
+	setcycle 0 correct_response left
+	setcycle 0 task reading
+	setcycle 1 color blue
+	setcycle 1 word rød
+	setcycle 1 interference 1
+	setcycle 1 correct_response left
+	setcycle 1 task reading
+	setcycle 2 color yellow
+	setcycle 2 word rød
+	setcycle 2 interference 1
+	setcycle 2 correct_response left
+	setcycle 2 task reading
+	setcycle 3 color red
+	setcycle 3 word blå
+	setcycle 3 interference 1
+	setcycle 3 correct_response down
+	setcycle 3 task reading
+	setcycle 4 color blue
+	setcycle 4 word blå
+	setcycle 4 interference 0
+	setcycle 4 correct_response down
+	setcycle 4 task reading
+	setcycle 5 color yellow
+	setcycle 5 word blå
+	setcycle 5 interference 1
+	setcycle 5 correct_response down
+	setcycle 5 task reading
+	setcycle 6 color red
+	setcycle 6 word gul
+	setcycle 6 interference 1
+	setcycle 6 correct_response right
+	setcycle 6 task reading
+	setcycle 7 color blue
+	setcycle 7 word gul
+	setcycle 7 interference 1
+	setcycle 7 correct_response right
+	setcycle 7 task reading
+	setcycle 8 color yellow
+	setcycle 8 word gul
+	setcycle 8 interference 0
+	setcycle 8 correct_response right
+	setcycle 8 task reading
+	run trial_sequence
+
+define sketchpad stim
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color="[color]" font_bold=no font_family=mono font_italic=no font_size=32 html=yes show_if=always text="[word]" x=0 y=0 z_index=0
+
+define sequence trial_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run fixation always
+	run stim always
+	run ISI always
+
