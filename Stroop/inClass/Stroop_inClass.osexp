@@ -26,6 +26,7 @@ set font_size 18
 set font_italic no
 set font_family mono
 set font_bold no
+set experiment_path "/Users/ethan/Documents/GitHub/OpenSesame/Stroop/inClass"
 set disable_garbage_collection yes
 set description "The main experiment item"
 set coordinates uniform
@@ -42,12 +43,99 @@ define sketchpad ISI
 define sequence experiment
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
+	run instructions always
+	run reading_instructions always
 	run reading_loop always
+	run naming_instructions always
+	run naming_loop always
 
 define sketchpad fixation
 	set duration 750
 	set description "Displays stimuli"
 	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define sketchpad instructions
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="Venstre = rød<br />Højre = gul<br />Ned = blå" x=0 y=0 z_index=0
+
+define keyboard_response keyboard_response
+	set timeout 2000
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses "left;right;down"
+
+define logger logger
+	set description "Logs experimental data"
+	set auto_log yes
+
+define sketchpad naming_instructions
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Nu starter naming" x=0 y=0 z_index=0
+
+define loop naming_loop
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 9
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 color red
+	setcycle 0 word rød
+	setcycle 0 interference 0
+	setcycle 0 correct_response left
+	setcycle 0 task naming
+	setcycle 1 color blue
+	setcycle 1 word rød
+	setcycle 1 interference 1
+	setcycle 1 correct_response down
+	setcycle 1 task naming
+	setcycle 2 color yellow
+	setcycle 2 word rød
+	setcycle 2 interference 1
+	setcycle 2 correct_response right
+	setcycle 2 task naming
+	setcycle 3 color red
+	setcycle 3 word blå
+	setcycle 3 interference 1
+	setcycle 3 correct_response left
+	setcycle 3 task naming
+	setcycle 4 color blue
+	setcycle 4 word blå
+	setcycle 4 interference 0
+	setcycle 4 correct_response down
+	setcycle 4 task naming
+	setcycle 5 color yellow
+	setcycle 5 word blå
+	setcycle 5 interference 1
+	setcycle 5 correct_response right
+	setcycle 5 task naming
+	setcycle 6 color red
+	setcycle 6 word gul
+	setcycle 6 interference 1
+	setcycle 6 correct_response left
+	setcycle 6 task naming
+	setcycle 7 color blue
+	setcycle 7 word gul
+	setcycle 7 interference 1
+	setcycle 7 correct_response down
+	setcycle 7 task naming
+	setcycle 8 color yellow
+	setcycle 8 word gul
+	setcycle 8 interference 0
+	setcycle 8 correct_response right
+	setcycle 8 task naming
+	run trial_sequence
+
+define sketchpad reading_instructions
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="Nu starter reading" x=0 y=0 z_index=0
 
 define loop reading_loop
 	set source table
@@ -106,7 +194,7 @@ define loop reading_loop
 	run trial_sequence
 
 define sketchpad stim
-	set duration keypress
+	set duration 0
 	set description "Displays stimuli"
 	draw textline center=1 color="[color]" font_bold=no font_family=mono font_italic=no font_size=32 html=yes show_if=always text="[word]" x=0 y=0 z_index=0
 
@@ -115,5 +203,7 @@ define sequence trial_sequence
 	set description "Runs a number of items in sequence"
 	run fixation always
 	run stim always
+	run keyboard_response always
+	run logger always
 	run ISI always
 
