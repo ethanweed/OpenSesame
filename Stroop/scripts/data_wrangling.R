@@ -9,6 +9,7 @@ for (n in 1: length(files)){
   file <- paste0(path,files[n])
   print(file)
   temp <- read.csv(file, sep = ",")
+  rownames(temp) <- NULL
   d <- select(temp, task, interference, response_time)
   d$ID <- n
   rawdata <- rbind(rawdata,d)
@@ -24,8 +25,18 @@ collapsed <- rawdata %>%
   group_by(task, interference, ID) %>%
   summarize(mRT = mean(rt))
 
+RNI <- subset(collapsed, task == "reading" & interference == 0)
+RI <- subset(collapsed, task == "reading" & interference == 1)
+NNI <- subset(collapsed, task == "naming" & interference == 0)
+NI <- subset(collapsed, task == "naming" & interference == 1)
 
-collapsed$task[collapsed$task == 'Reading'] <- 'reading'
+ReadingNoInt <- RNI$mRT
+ReadingInt <- RI$mRT
+NamingNoInt <- NNI$mRT
+NamingInt <- NI$mRT
 
-write.csv(rawdata, "/Users/ethan/Documents/GitHub/OpenSesame/Stroop/data/data.csv", row.names=FALSE)
+data <- data.frame(cbind(ReadingNoInt,ReadingInt,NamingNoInt,NamingInt))
 
+
+write.csv(rawdata, "/Users/ethan/Documents/GitHub/OpenSesame/Stroop/data/rawdata.csv", row.names=FALSE)
+write.csv(data, "/Users/ethan/Documents/GitHub/OpenSesame/Stroop/data/data.csv", row.names=FALSE)
