@@ -1,0 +1,135 @@
+---
+API: 2.1
+OpenSesame: 3.3.5
+Platform: posix
+---
+set width 1024
+set uniform_coordinates yes
+set title "New experiment"
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set sampler_backend legacy
+set round_decimals 2
+set mouse_backend legacy
+set keyboard_backend legacy
+set height 768
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 18
+set font_italic no
+set font_family mono
+set font_bold no
+set experiment_path "/Users/ethan/Desktop"
+set disable_garbage_collection yes
+set description "The main experiment item"
+set coordinates uniform
+set compensation 0
+set color_backend legacy
+set clock_backend legacy
+set canvas_backend legacy
+set background black
+
+define sketchpad alldone
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="All done!" x=0 y=0 z_index=0
+
+define inline_javascript count_incorrect
+	set description "Executes JavaScript code (ECMA 5.1)"
+	___run__
+	if(vars.correct == 0) {
+	vars.incorrect = vars.incorrect + 1}
+	__end__
+	set _prepare ""
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run part1 always
+	run part2 always
+
+define keyboard_response keyboard_response
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses "y;n"
+
+define logger logger
+	set description "Logs experimental data"
+	set auto_log yes
+
+define loop loop1
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 3
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 Danish kat
+	setcycle 0 English cat
+	setcycle 0 correct_response y
+	setcycle 1 Danish hund
+	setcycle 1 English dog
+	setcycle 1 correct_response y
+	setcycle 2 Danish gris
+	setcycle 2 English horse
+	setcycle 2 correct_response n
+	run stim_sequence
+
+define loop loop2
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 text ""
+	run ""
+
+define inline_javascript new_inline_javascript
+	set description "Executes JavaScript code (ECMA 5.1)"
+	___run__
+	vars.correct = 1
+	vars.incorrect = 0
+	__end__
+	set _prepare ""
+
+define sequence part1
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run new_inline_javascript always
+	run loop1 always
+
+define sequence part2
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run alldone always
+
+define sketchpad stim
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="The Danish word for [English] is [Danish].<br /><br />Press Y or N" x=0 y=0 z_index=0
+
+define sequence stim_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run stim "[incorrect] < 2"
+	run keyboard_response "[incorrect] < 2"
+	run logger "[incorrect] < 2"
+	run count_incorrect "[incorrect] < 2"
+

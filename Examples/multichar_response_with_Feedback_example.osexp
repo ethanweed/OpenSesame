@@ -1,0 +1,143 @@
+---
+API: 2.1
+OpenSesame: 3.3.5
+Platform: posix
+---
+set width 1024
+set uniform_coordinates yes
+set title "New experiment"
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set round_decimals 2
+set height 768
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 18
+set font_italic no
+set font_family mono
+set font_bold no
+set experiment_path "/Users/ethan/Desktop"
+set disable_garbage_collection yes
+set description "The main experiment item"
+set coordinates uniform
+set compensation 0
+set canvas_backend psycho
+set background black
+
+define sketchpad correct
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="That's right!" x=0 y=0 z_index=0
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run init always
+	run prompts always
+
+define loop get_input_loop
+	set source table
+	set repeat 200
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if "[response] = return or [response] = enter"
+	setcycle 0 empty_column ""
+	run get_input_sequence
+
+define sequence get_input_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run show_input always
+	run number_input always
+	run process_input always
+
+define sketchpad incorrect
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Nope, sorry, that's not right!" x=0 y=0 z_index=0
+
+define inline_javascript init
+	set description "Executes JavaScript code (ECMA 5.1)"
+	set _run ""
+	___prepare__
+	vars.multichar_response = ''
+	vars.response = ''
+	__end__
+
+define inline_javascript new_inline_javascript
+	set description "Executes JavaScript code (ECMA 5.1)"
+	___run__
+	vars.res = vars.multichar_response.replace("return", "")
+	vars.res = vars.res.replace("enter", "")
+	__end__
+	set _prepare ""
+
+define logger new_logger
+	set description "Logs experimental data"
+	set auto_log yes
+
+define sequence new_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run get_input_loop always
+	run new_inline_javascript always
+	run correct "[res] = [Prompt]"
+	run incorrect "[res] != [Prompt]"
+	run new_logger always
+	run init always
+
+define sketchpad new_sketchpad
+	set duration keypress
+	set description "Displays stimuli"
+
+define keyboard_response number_input
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define inline_javascript process_input
+	set description "Executes JavaScript code (ECMA 5.1)"
+	___run__
+	console.log(vars.response)
+	if (vars.response in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]) {
+	    vars.multichar_response += vars.response.toString()
+	} else if (vars.response === 'backspace') {
+	    vars.multichar_response = vars.multichar_response.toString().slice(0, vars.multichar_response.toString().length - 1)
+	} else if (vars.response !== 'enter') {
+	    vars.multichar_response += vars.response
+	}
+	__end__
+	set _prepare ""
+
+define loop prompts
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 3
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 Prompt cat
+	setcycle 1 Prompt dog
+	setcycle 2 Prompt pig
+	run new_sequence
+
+define sketchpad show_input
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Please write '[Prompt]'<br /><br />Press 'return' to accept<br /><br />Response: [multichar_response]" x=0 y=0 z_index=0
+

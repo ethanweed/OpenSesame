@@ -2,7 +2,7 @@ rm(list = ls())
 library(dplyr)
 library(tidyr)
 rawdata <- data.frame()
-path <- '/Users/ethan/Desktop/Stroop_student_data_self copy/'
+path <- '/Users/ethan/Documents/GitHub/OpenSesame/Stroop/data/Stroop_student_data/'
 files <- list.files(path)
 
 for (n in 1: length(files)){

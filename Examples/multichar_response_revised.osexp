@@ -1,0 +1,316 @@
+---
+API: 2.1
+OpenSesame: 3.2.8
+Platform: nt
+---
+set width 1280
+set uniform_coordinates yes
+set title "Practice Experiment"
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set sampler_backend legacy
+set round_decimals 2
+set mouse_backend xpyriment
+set keyboard_backend legacy
+set height 720
+set fullscreen no
+set form_clicks no
+set foreground "#bcbcbc"
+set font_underline no
+set font_size 26
+set font_italic no
+set font_family "Times New Roman"
+set font_bold no
+set experiment_path "Z:\\eyelink\\PhonologicalProcessingLab\\Experiments\\Online Experiments\\Flap Study\\opensesame_experiments\\non_python"
+set disable_garbage_collection yes
+set description "The main experiment item"
+set coordinates uniform
+set compensation 0
+set color_backend legacy
+set clock_backend legacy
+set canvas_backend xpyriment
+set background "#4f4f4f"
+
+define loop char_lp
+	set source_file ""
+	set source table
+	set repeat 1
+	set order sequential
+	set description "Repeatedly runs another item"
+	set cycles 35
+	set continuous no
+	set break_if_on_first yes
+	set break_if "[response_t1] = enter"
+	setcycle 0 num 1
+	setcycle 1 num 2
+	setcycle 2 num 3
+	setcycle 3 num 4
+	setcycle 4 num 5
+	setcycle 5 num 6
+	setcycle 6 num 7
+	setcycle 7 num 8
+	setcycle 8 num 9
+	setcycle 9 num 10
+	setcycle 10 num 11
+	setcycle 11 num 12
+	setcycle 12 num 13
+	setcycle 13 num 14
+	setcycle 14 num 15
+	setcycle 15 num 16
+	setcycle 16 num 17
+	setcycle 17 num 18
+	setcycle 18 num 19
+	setcycle 19 num 20
+	setcycle 20 num 21
+	setcycle 21 num 22
+	setcycle 22 num 23
+	setcycle 23 num 24
+	setcycle 24 num 25
+	setcycle 25 num 26
+	setcycle 26 num 27
+	setcycle 27 num 28
+	setcycle 28 num 29
+	setcycle 29 num 30
+	setcycle 30 num 31
+	setcycle 31 num 32
+	setcycle 32 num 33
+	setcycle 33 num 34
+	setcycle 34 num 35
+	run char_seq
+
+define sequence char_seq
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run t1 always
+	run text_js_1 always
+	run t_feed_1 always
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run multichar_lp always
+
+define logger log_2
+	set description "Logs experimental data"
+	set auto_log no
+	log f_name
+	log num_9
+
+define loop multichar_lp
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 f_name " <<"
+	setcycle 0 num_9 "_"
+	setcycle 0 response_t1 x
+	setcycle 0 response_t3 x
+	run multichar_seq
+
+define sequence multichar_seq
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run t_feed_1 always
+	run char_lp always
+	run num_lp always
+	run log_2 always
+
+define loop num_lp
+	set source_file ""
+	set source table
+	set repeat 1
+	set order sequential
+	set description "Repeatedly runs another item"
+	set cycles 35
+	set continuous no
+	set break_if_on_first yes
+	set break_if "[response_t3] = enter"
+	setcycle 0 num 1
+	setcycle 1 num 2
+	setcycle 2 num 3
+	setcycle 3 num 4
+	setcycle 4 num 5
+	setcycle 5 num 6
+	setcycle 6 num 7
+	setcycle 7 num 8
+	setcycle 8 num 9
+	setcycle 9 num 10
+	setcycle 10 num 11
+	setcycle 11 num 12
+	setcycle 12 num 13
+	setcycle 13 num 14
+	setcycle 14 num 15
+	setcycle 15 num 16
+	setcycle 16 num 17
+	setcycle 17 num 18
+	setcycle 18 num 19
+	setcycle 19 num 20
+	setcycle 20 num 21
+	setcycle 21 num 22
+	setcycle 22 num 23
+	setcycle 23 num 24
+	setcycle 24 num 25
+	setcycle 25 num 26
+	setcycle 26 num 27
+	setcycle 27 num 28
+	setcycle 28 num 29
+	setcycle 29 num 30
+	setcycle 30 num 31
+	setcycle 31 num 32
+	setcycle 32 num 33
+	setcycle 33 num 34
+	setcycle 34 num 35
+	run num_seq
+
+define sequence num_seq
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run t3 always
+	run text_js_3 always
+	run t_feed_1 always
+
+define keyboard_response t1
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses "a;b;c;d;e;f;g;h;i;j;k;l;m;n;o;p;q;r;s;t;u;v;w;x;y;z;0;1;2;3;4;5;6;7;8;9;backspace;enter"
+
+define keyboard_response t3
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses "0;1;2;3;4;5;6;7;8;9;backspace;enter"
+
+define feedback t_feed_1
+	set reset_variables yes
+	set duration 0
+	set description "Provides feedback to the participant"
+	draw textline center=0 color="#bcbcbc" font_bold=no font_family="Times New Roman" font_italic=no font_size=30 html=yes show_if=always text="<b>Multicharacter Response for OSWeb</b>" x=-224 y=-320 z_index=0
+	draw textline center=0 color="#bcbcbc" font_bold=no font_family="Times New Roman" font_italic=no font_size=22 html=yes show_if=always text="First Name: [f_name]" x=-475 y=-28 z_index=0
+	draw textline center=0 color="#bcbcbc" font_bold=no font_family="Times New Roman" font_italic=no font_size=22 html=yes show_if=always text="9 Digit Number Input: [num_9]" x=-475 y=102 z_index=0
+	draw textline center=0 color="#bcbcbc" font_bold=no font_family="Times New Roman" font_italic=no font_size=22 html=yes show_if=always text="Press <b>enter</b> to continue to the next input. " x=39 y=37 z_index=0
+	draw textline center=0 color="#bcbcbc" font_bold=no font_family="Times New Roman" font_italic=no font_size=22 html=yes show_if=always text="<b>WARNING:</b> There are no spaces or capital letters available. And, once you hit <b>enter</b> you cannot" x=-475 y=-110 z_index=0
+	draw textline center=0 color="#bcbcbc" font_bold=no font_family="Times New Roman" font_italic=no font_size=22 html=yes show_if=always text="go back to change your response. The mouse, the num-pad, and TAB do not function." x=-475 y=-85 z_index=0
+	draw textline center=0 color="#bcbcbc" font_bold=no font_family="Times New Roman" font_italic=no font_size=22 html=yes show_if=always text="Press <b>enter</b> when finished." x=-107 y=250 z_index=0
+	draw rect color="#bcbcbc" fill=0 h=32 penwidth=1 show_if=always w=484 x=-480 y=-28 z_index=0
+	draw rect color="#bcbcbc" fill=0 h=32 penwidth=1 show_if=always w=484 x=-480 y=102 z_index=0
+
+define inline_javascript text_js_1
+	set description "Executes JavaScript code (ECMA 5.1)"
+	___run__
+	vars.f_name = vars.f_name.slice(0, -3); 
+	
+	//BACKSPACE FUNCTION
+	if (vars.response_t1 != 'backspace') { 
+		if (vars.f_name == '0') { 
+			vars.f_name = vars.response_t1.toString() + ' <<';
+		}
+		else{
+			vars.f_name = vars.f_name.toString() + vars.response_t1.toString() + ' <<'; 
+		}
+	}
+	else{ 
+		if (vars.f_name == '0') { 
+			vars.f_name = ' <<'; 
+		}
+		else{
+			vars.f_name = vars.f_name.toString().slice(0, -1); 
+			if (vars.f_name == '0') { 
+				vars.f_name = ' <<'; 
+			}
+			else{
+				vars.f_name = vars.f_name + ' <<'; 
+			}
+		}
+	}
+	
+	//ENTER FUNCTION
+	if (vars.response_t1.toString() == 'enter') { 
+		vars.f_name = vars.f_name.toString().slice(0, -8);
+		vars.num_9 = ' <<' 
+		if (vars.f_name == '0') {
+			vars.f_name = 'NO RESPONSE'; 
+		}
+	}
+	
+	//NO MORE KEYPRESSES FUNCTION
+	//The number of keypresses is set in the char_lp
+	if (vars.num == 35 && vars.response_t1.toString() != 'enter') { 
+		vars.f_name = vars.f_name.toString().slice(0, -3); 
+		vars.num_9 = ' <<' 
+		if (vars.f_name == '0') { 
+			vars.f_name = 'NO RESPONSE';
+		}
+	}
+	__end__
+	set _prepare ""
+
+define inline_javascript text_js_3
+	set description "Executes JavaScript code (ECMA 5.1)"
+	___run__
+	//Things are different with numbers, because they don't operate as strings
+	//This is a numeric only input
+	//Although most things are analogous to the char_seq
+	
+	//BACKSPACE FUNCTION
+	if (vars.response_t3 != 'backspace') {
+		if (vars.num_9.toString().length > 11 && vars.response_t3.toString() != 'enter'){ //Set length to the character amount desired and + 2 
+			vars.num_9 = vars.num_9.slice(0, -1);
+		}
+		vars.num_9 = vars.num_9.slice(0, -3); 
+		if (vars.num_9 == '0') { 
+			vars.num_9 = vars.response_t3.toString() + ' <<';
+		}
+		else{ 
+			vars.num_9 = vars.num_9 + vars.response_t3.toString() + ' <<';
+		}
+	}
+	else{ 
+		vars.num_9 = vars.num_9.toString().slice(0, -3);
+		if (vars.num_9 == '0') {
+			vars.num_9 = ' <<';
+		}
+		else{
+			vars.num_9 = vars.num_9.toString().slice(0, -1);
+			if (vars.num_9 == '0') {
+				vars.num_9 = ' <<';
+			}
+			else{
+				vars.num_9 = vars.num_9 + ' <<';
+			}
+		}
+	}
+	
+	//ENTER FUNCTION
+	if (vars.response_t3 == 'enter') {
+		vars.num_9 = vars.num_9.toString().slice(0, -8);
+		if (vars.num_9 == '0') {
+			vars.num_9 = 'NO RESPONSE'; 
+		}
+	}
+	
+	//NO MORE KEYPRESSES FUNCTION
+	//The number of keypresses is set in the num_lp
+	if (vars.num == 35 && vars.response_t3 != 'enter') {
+		vars.num_9 = vars.num_9.toString().slice(0, -3);
+		if (vars.num_9 == '0') {
+			vars.num_9 = 'NO RESPONSE';
+		}
+	}
+	__end__
+	set _prepare ""
+
