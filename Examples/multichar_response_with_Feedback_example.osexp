@@ -13,7 +13,10 @@ set sound_sample_size -16
 set sound_freq 48000
 set sound_channels 2
 set sound_buf_size 1024
+set sampler_backend legacy
 set round_decimals 2
+set mouse_backend legacy
+set keyboard_backend legacy
 set height 768
 set fullscreen no
 set form_clicks no
@@ -23,12 +26,14 @@ set font_size 18
 set font_italic no
 set font_family mono
 set font_bold no
-set experiment_path "/Users/ethan/Desktop"
+set experiment_path "/Users/ethan/Documents/GitHub/OpenSesame/Examples"
 set disable_garbage_collection yes
 set description "The main experiment item"
 set coordinates uniform
 set compensation 0
-set canvas_backend psycho
+set color_backend legacy
+set clock_backend legacy
+set canvas_backend legacy
 set background black
 
 define sketchpad correct
@@ -43,6 +48,7 @@ define sequence experiment
 	run prompts always
 
 define loop get_input_loop
+	set source_file ""
 	set source table
 	set repeat 200
 	set order random
