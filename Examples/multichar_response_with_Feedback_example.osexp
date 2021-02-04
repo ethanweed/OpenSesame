@@ -80,14 +80,6 @@ define inline_javascript init
 	vars.response = ''
 	__end__
 
-define inline_javascript new_inline_javascript
-	set description "Executes JavaScript code (ECMA 5.1)"
-	___run__
-	vars.res = vars.multichar_response.replace("return", "")
-	vars.res = vars.res.replace("enter", "")
-	__end__
-	set _prepare ""
-
 define logger new_logger
 	set description "Logs experimental data"
 	set auto_log yes
@@ -96,7 +88,7 @@ define sequence new_sequence
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
 	run get_input_loop always
-	run new_inline_javascript always
+	run remove_enter_return always
 	run correct "[res] = [Prompt]"
 	run incorrect "[res] != [Prompt]"
 	run new_logger always
@@ -141,6 +133,14 @@ define loop prompts
 	setcycle 1 Prompt dog
 	setcycle 2 Prompt pig
 	run new_sequence
+
+define inline_javascript remove_enter_return
+	set description "Executes JavaScript code (ECMA 5.1)"
+	___run__
+	// remove the "enter" or "return" at the end of the multichar_response so that it can be compared with the correct response
+	vars.res = vars.multichar_response.replace(/enter|return|/gi, "")
+	__end__
+	set _prepare ""
 
 define sketchpad show_input
 	set duration 0
