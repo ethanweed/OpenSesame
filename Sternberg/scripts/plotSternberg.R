@@ -70,10 +70,23 @@ ggplot(dfMeans_long, aes(setSize, RT, color = Present)) +
 ggplot(correct, aes(setSize, rt, color = present)) +
   geom_point() + 
   geom_smooth(method = "lm") +
-  labs(title = "Sternberg Task (all data",
+  labs(title = "Sternberg Task (all data)",
        y = "RT",
        x = "SetSize") +
   theme_classic()
+
+# Model comparison
+
+## Null hypothesis model
+mod0 <- lm(rt ~ setSize, data = correct)
+
+
+## Alternative hypothesis model
+mod1 <- lm(rt ~ setSize + present, data = correct)
+summary(mod1)
+
+## Model comparison
+anova(mod0, mod1)
 
 # save the data in a csv file
 #write.csv(correct, file = "/Users/ethan/Documents/GitHub/OpenSesame/Sternberg/data/Sternberg_data_correct.csv")
