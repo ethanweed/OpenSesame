@@ -1094,7 +1094,7 @@ define keyboard_response keyboard_response
 	set event_type keypress
 	set duration keypress
 	set description "Collects keyboard responses"
-	set correct_response "left;right"
+	set allowed_responses "LEFT;RIGHT"
 
 define loop practice_loop
 	set source_file ""
@@ -1132,7 +1132,7 @@ define sketchpad second_break
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="Break time again!<br /><br />Press any key when you are ready for the last set.." x=0 y=0 z_index=0
 
 define sketchpad stimulus
-	set duration keypress
+	set duration 0
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[stim]" x=0 y=0 z_index=0
 
@@ -1144,9 +1144,9 @@ define sketchpad thank_you
 define sequence trial_sequence
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
+	run ISI always
 	run fixation always
 	run stimulus always
 	run keyboard_response always
 	run keyboard_logger always
-	run ISI always
 
