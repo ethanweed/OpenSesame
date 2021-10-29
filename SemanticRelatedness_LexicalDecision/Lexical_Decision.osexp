@@ -55,16 +55,10 @@ define sequence experiment
 	run instructions5 always
 	run instructions6 always
 	run instructions7 always
-	run practice_loop always
-	run end_of_practice always
-	run experiment_loop_1 always
-	run first_break always
-	run experiment_loop_2 always
-	run second_break always
-	run experiment_loop_3 always
+	run set_distribution_sequence always
 	run thank_you always
 
-define loop experiment_loop_1
+define loop experiment_loop_0
 	set source table
 	set repeat 1
 	set order random
@@ -371,7 +365,7 @@ define loop experiment_loop_1
 	setcycle 73 correct_response right
 	run trial_sequence
 
-define loop experiment_loop_2
+define loop experiment_loop_1
 	set source table
 	set repeat 1
 	set order random
@@ -694,7 +688,8 @@ define loop experiment_loop_2
 	setcycle 77 correct_response right
 	run trial_sequence
 
-define loop experiment_loop_3
+define loop experiment_loop_2
+	set source_file ""
 	set source table
 	set repeat 1
 	set order random
@@ -1075,7 +1070,7 @@ define sketchpad instructions6
 	set reset_variables no
 	set duration keypress
 	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=serif font_italic=no font_size=32 html=yes show_if=always text="You will get two breaks during the experiment.<br /><br />The whole experiment take about<br />XXX minutes<br /><br /><br /><br />Press any key to continue..<br /><br />" x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=serif font_italic=no font_size=32 html=yes show_if=always text="You will get two breaks during the experiment.<br /><br />The whole experiment takes about<br />15 minutes<br /><br /><br /><br />Press any key to continue..<br /><br />" x=0 y=0 z_index=0
 
 define sketchpad instructions7
 	set start_response_interval no
@@ -1086,7 +1081,13 @@ define sketchpad instructions7
 
 define logger keyboard_logger
 	set description "Logs experimental data"
-	set auto_log yes
+	set auto_log no
+	log block
+	log stim
+	log correct_response
+	log response
+	log condition
+	log response_time
 
 define keyboard_response keyboard_response
 	set timeout infinite
@@ -1109,27 +1110,42 @@ define loop practice_loop
 	setcycle 0 stim "buy-sell"
 	setcycle 0 condition Related
 	setcycle 0 block practice
+	setcycle 0 correct_response LEFT
 	setcycle 1 stim "table-chair"
 	setcycle 1 condition Related
 	setcycle 1 block practice
+	setcycle 1 correct_response LEFT
 	setcycle 2 stim "shark-dull"
 	setcycle 2 condition Unrelated
 	setcycle 2 block practice
+	setcycle 2 correct_response LEFT
 	setcycle 3 stim "sand-pepper"
 	setcycle 3 condition Unrelated
 	setcycle 3 block practice
+	setcycle 3 correct_response RIGHT
 	setcycle 4 stim "ip-bown"
 	setcycle 4 condition Nonword
 	setcycle 4 block practice
+	setcycle 4 correct_response RIGHT
 	setcycle 5 stim "hort-sain"
 	setcycle 5 condition Nonword
 	setcycle 5 block practice
+	setcycle 5 correct_response RIGHT
 	run trial_sequence
 
 define sketchpad second_break
 	set duration keypress
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="Break time again!<br /><br />Press any key when you are ready for the last set.." x=0 y=0 z_index=0
+
+define sequence set_distribution_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run practice_loop always
+	run end_of_practice always
+	run experiment_loop_0 "subject_nr = 0"
+	run experiment_loop_1 "subject_nr = 1"
+	run experiment_loop_2 "subject_nr = 2"
 
 define sketchpad stimulus
 	set duration 0
