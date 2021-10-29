@@ -1,0 +1,29 @@
+Besner
+
+Lexical decision task
+
+ISI: 500 ms
+fixation: 500 ms
+stimulus: inf
+keyboard response: yes/no
+
+---------------------------------------- 
+
+60 critical items + 20 filler items
+20 related word pairs, 20 unrelated word pairs, 20 nonword pairs
+
+---------------------------------------- 
+
+Stimuli taken from Besner et al (1990)
+Changed: 
+
+"sko" to "sku"
+"lort" to "lont"
+"suet" to "soet"
+
+removed: 
+"lige"
+"frue"
+"halse"
+
+---------------------------------------- 

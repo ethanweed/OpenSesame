@@ -1,0 +1,1152 @@
+---
+API: 2.1
+OpenSesame: 3.3.10
+Platform: posix
+---
+set width 1024
+set uniform_coordinates yes
+set title "New experiment"
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set sampler_backend legacy
+set round_decimals 2
+set mouse_backend legacy
+set keyboard_backend legacy
+set height 768
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 18
+set font_italic no
+set font_family mono
+set font_bold no
+set experiment_path "/Users/ethan/Documents/GitHub/OpenSesame/SemanticRelatedness_LexicalDecision"
+set disable_garbage_collection yes
+set description "The main experiment item"
+set coordinates uniform
+set compensation 0
+set color_backend legacy
+set clock_backend legacy
+set canvas_backend legacy
+set background black
+
+define sketchpad ISI
+	set duration 500
+	set description "Displays stimuli"
+
+define sketchpad end_of_practice
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="Ok, practice is over! <br /><br />Time for the real experiment.<br /><br />Remember:<br /><br />left arrow = two real words<br />right arrow = one or two nonwords<br /><br />Press any key to begin the experiment.." x=0 y=0 z_index=0
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run instructions1 always
+	run instructions2 always
+	run instructions3 always
+	run instructions4 always
+	run instructions5 always
+	run instructions6 always
+	run instructions7 always
+	run practice_loop always
+	run end_of_practice always
+	run experiment_loop_1 always
+	run first_break always
+	run experiment_loop_2 always
+	run second_break always
+	run experiment_loop_3 always
+	run thank_you always
+
+define loop experiment_loop_1
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 74
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 stim "hot-cold"
+	setcycle 0 condition Related
+	setcycle 0 block A
+	setcycle 0 correct_response left
+	setcycle 1 stim "young-old"
+	setcycle 1 condition Related
+	setcycle 1 block A
+	setcycle 1 correct_response left
+	setcycle 2 stim "lion-tiger"
+	setcycle 2 condition Related
+	setcycle 2 block A
+	setcycle 2 correct_response left
+	setcycle 3 stim "wash-rinse"
+	setcycle 3 condition Related
+	setcycle 3 block A
+	setcycle 3 correct_response left
+	setcycle 4 stim "lost-found"
+	setcycle 4 condition Related
+	setcycle 4 block A
+	setcycle 4 correct_response left
+	setcycle 5 stim "dusk-dawn"
+	setcycle 5 condition Related
+	setcycle 5 block A
+	setcycle 5 correct_response left
+	setcycle 6 stim "lock-key"
+	setcycle 6 condition Related
+	setcycle 6 block A
+	setcycle 6 correct_response left
+	setcycle 7 stim "circle-round"
+	setcycle 7 condition Related
+	setcycle 7 block A
+	setcycle 7 correct_response left
+	setcycle 8 stim "plant-flower"
+	setcycle 8 condition Related
+	setcycle 8 block A
+	setcycle 8 correct_response left
+	setcycle 9 stim "army-soldier"
+	setcycle 9 condition Related
+	setcycle 9 block A
+	setcycle 9 correct_response left
+	setcycle 10 stim "tall-short"
+	setcycle 10 condition Related
+	setcycle 10 block A
+	setcycle 10 correct_response left
+	setcycle 11 stim "spider-web"
+	setcycle 11 condition Related
+	setcycle 11 block A
+	setcycle 11 correct_response left
+	setcycle 12 stim "hammer-nail"
+	setcycle 12 condition Related
+	setcycle 12 block A
+	setcycle 12 correct_response left
+	setcycle 13 stim "life-death"
+	setcycle 13 condition Related
+	setcycle 13 block A
+	setcycle 13 correct_response left
+	setcycle 14 stim "true-false"
+	setcycle 14 condition Related
+	setcycle 14 block A
+	setcycle 14 correct_response left
+	setcycle 15 stim "earth-ground"
+	setcycle 15 condition Related
+	setcycle 15 block A
+	setcycle 15 correct_response left
+	setcycle 16 stim "joy-happy"
+	setcycle 16 condition Related
+	setcycle 16 block A
+	setcycle 16 correct_response left
+	setcycle 17 stim "leaf-stem"
+	setcycle 17 condition Related
+	setcycle 17 block A
+	setcycle 17 correct_response left
+	setcycle 18 stim "pot-cold"
+	setcycle 18 condition Unrelated
+	setcycle 18 block A
+	setcycle 18 correct_response right
+	setcycle 19 stim "yours-old"
+	setcycle 19 condition Unrelated
+	setcycle 19 block A
+	setcycle 19 correct_response right
+	setcycle 20 stim "limp-tiger"
+	setcycle 20 condition Unrelated
+	setcycle 20 block A
+	setcycle 20 correct_response right
+	setcycle 21 stim "cash-rinse"
+	setcycle 21 condition Unrelated
+	setcycle 21 block A
+	setcycle 21 correct_response right
+	setcycle 22 stim "cost-found"
+	setcycle 22 condition Unrelated
+	setcycle 22 block A
+	setcycle 22 correct_response right
+	setcycle 23 stim "dish-dawn"
+	setcycle 23 condition Unrelated
+	setcycle 23 block A
+	setcycle 23 correct_response right
+	setcycle 24 stim "luck-key"
+	setcycle 24 condition Unrelated
+	setcycle 24 block A
+	setcycle 24 correct_response right
+	setcycle 25 stim "carves-round"
+	setcycle 25 condition Unrelated
+	setcycle 25 block A
+	setcycle 25 correct_response right
+	setcycle 26 stim "slant-flower"
+	setcycle 26 condition Unrelated
+	setcycle 26 block A
+	setcycle 26 correct_response right
+	setcycle 27 stim "till-short"
+	setcycle 27 condition Unrelated
+	setcycle 27 block A
+	setcycle 27 correct_response right
+	setcycle 28 stim "sing-queen"
+	setcycle 28 condition Unrelated
+	setcycle 28 block A
+	setcycle 28 correct_response right
+	setcycle 29 stim "glider-web"
+	setcycle 29 condition Unrelated
+	setcycle 29 block A
+	setcycle 29 correct_response right
+	setcycle 30 stim "farmer-nail"
+	setcycle 30 condition Unrelated
+	setcycle 30 block A
+	setcycle 30 correct_response right
+	setcycle 31 stim "purse-doctor"
+	setcycle 31 condition Unrelated
+	setcycle 31 block A
+	setcycle 31 correct_response right
+	setcycle 32 stim "wife-death"
+	setcycle 32 condition Unrelated
+	setcycle 32 block A
+	setcycle 32 correct_response right
+	setcycle 33 stim "tune-false"
+	setcycle 33 condition Related
+	setcycle 33 block A
+	setcycle 33 correct_response right
+	setcycle 34 stim "early-ground"
+	setcycle 34 condition Related
+	setcycle 34 block A
+	setcycle 34 correct_response right
+	setcycle 35 stim "boy-happy"
+	setcycle 35 condition Related
+	setcycle 35 block A
+	setcycle 35 correct_response right
+	setcycle 36 stim "rable-chait"
+	setcycle 36 condition Nonword
+	setcycle 36 block A
+	setcycle 36 correct_response right
+	setcycle 37 stim "slom-wast"
+	setcycle 37 condition Nonword
+	setcycle 37 block A
+	setcycle 37 correct_response right
+	setcycle 38 stim "yot-colp"
+	setcycle 38 condition Nonword
+	setcycle 38 block A
+	setcycle 38 correct_response right
+	setcycle 39 stim "boung-oid"
+	setcycle 39 condition Nonword
+	setcycle 39 block A
+	setcycle 39 correct_response right
+	setcycle 40 stim "fion-siger"
+	setcycle 40 condition Nonword
+	setcycle 40 block A
+	setcycle 40 correct_response right
+	setcycle 41 stim "jash-ronse"
+	setcycle 41 condition Nonword
+	setcycle 41 block A
+	setcycle 41 correct_response right
+	setcycle 42 stim "lont-gound"
+	setcycle 42 condition Nonword
+	setcycle 42 block A
+	setcycle 42 correct_response right
+	setcycle 43 stim "dosk-dawl"
+	setcycle 43 condition Nonword
+	setcycle 43 block A
+	setcycle 43 correct_response right
+	setcycle 44 stim "nock-kry"
+	setcycle 44 condition Nonword
+	setcycle 44 block A
+	setcycle 44 correct_response right
+	setcycle 45 stim "bircle-rount"
+	setcycle 45 condition Nonword
+	setcycle 45 block A
+	setcycle 45 correct_response right
+	setcycle 46 stim "plang-fluwer"
+	setcycle 46 condition Nonword
+	setcycle 46 block A
+	setcycle 46 correct_response right
+	setcycle 47 stim "arsy-goldier"
+	setcycle 47 condition Nonword
+	setcycle 47 block A
+	setcycle 47 correct_response right
+	setcycle 48 stim "talp-chort"
+	setcycle 48 condition Nonword
+	setcycle 48 block A
+	setcycle 48 correct_response right
+	setcycle 49 stim "fing-sueen"
+	setcycle 49 condition Nonword
+	setcycle 49 block A
+	setcycle 49 correct_response right
+	setcycle 50 stim "spiler-heb"
+	setcycle 50 condition Nonword
+	setcycle 50 block A
+	setcycle 50 correct_response right
+	setcycle 51 stim "gammer-yail"
+	setcycle 51 condition Nonword
+	setcycle 51 block A
+	setcycle 51 correct_response right
+	setcycle 52 stim "furse-loctor"
+	setcycle 52 condition Nonword
+	setcycle 52 block A
+	setcycle 52 correct_response right
+	setcycle 53 stim "barth-groond"
+	setcycle 53 condition Nonword
+	setcycle 53 block A
+	setcycle 53 correct_response right
+	setcycle 54 stim "man-wotar"
+	setcycle 54 condition Filler
+	setcycle 54 block A
+	setcycle 54 correct_response right
+	setcycle 55 stim "rough-smoat"
+	setcycle 55 condition Filler
+	setcycle 55 block A
+	setcycle 55 correct_response right
+	setcycle 56 stim "bread-bottin"
+	setcycle 56 condition Filler
+	setcycle 56 block A
+	setcycle 56 correct_response right
+	setcycle 57 stim "bitter-sweax"
+	setcycle 57 condition Filler
+	setcycle 57 block A
+	setcycle 57 correct_response right
+	setcycle 58 stim "green-gliss"
+	setcycle 58 condition Filler
+	setcycle 58 block A
+	setcycle 58 correct_response right
+	setcycle 59 stim "large-smipo"
+	setcycle 59 condition Filler
+	setcycle 59 block A
+	setcycle 59 correct_response right
+	setcycle 60 stim "bed-slorg"
+	setcycle 60 condition Filler
+	setcycle 60 block A
+	setcycle 60 correct_response right
+	setcycle 61 stim "afraid-scobet"
+	setcycle 61 condition Filler
+	setcycle 61 block A
+	setcycle 61 correct_response right
+	setcycle 62 stim "cabbage-lottir"
+	setcycle 62 condition Filler
+	setcycle 62 block A
+	setcycle 62 correct_response right
+	setcycle 63 stim "door-wingew"
+	setcycle 63 condition Filler
+	setcycle 63 block A
+	setcycle 63 correct_response right
+	setcycle 64 stim "moship-father"
+	setcycle 64 condition Filler
+	setcycle 64 block A
+	setcycle 64 correct_response right
+	setcycle 65 stim "neibon-thread"
+	setcycle 65 condition Filler
+	setcycle 65 block A
+	setcycle 65 correct_response right
+	setcycle 66 stim "brothog-sister"
+	setcycle 66 condition Filler
+	setcycle 66 block A
+	setcycle 66 correct_response right
+	setcycle 67 stim "capsute-pill"
+	setcycle 67 condition Filler
+	setcycle 67 block A
+	setcycle 67 correct_response right
+	setcycle 68 stim "boeh-ale"
+	setcycle 68 condition Filler
+	setcycle 68 block A
+	setcycle 68 correct_response right
+	setcycle 69 stim "bosh-water"
+	setcycle 69 condition Filler
+	setcycle 69 block A
+	setcycle 69 correct_response right
+	setcycle 70 stim "nirey-south"
+	setcycle 70 condition Filler
+	setcycle 70 block A
+	setcycle 70 correct_response right
+	setcycle 71 stim "honip-bee"
+	setcycle 71 condition Filler
+	setcycle 71 block A
+	setcycle 71 correct_response right
+	setcycle 72 stim "sconix-marble"
+	setcycle 72 condition Filler
+	setcycle 72 block A
+	setcycle 72 correct_response right
+	setcycle 73 stim "porry-cent"
+	setcycle 73 condition Filler
+	setcycle 73 block A
+	setcycle 73 correct_response right
+	run trial_sequence
+
+define loop experiment_loop_2
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 78
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 stim "wine-grapes"
+	setcycle 0 condition Related
+	setcycle 0 block B
+	setcycle 0 correct_response left
+	setcycle 1 stim "dance-waltz"
+	setcycle 1 condition Related
+	setcycle 1 block B
+	setcycle 1 correct_response left
+	setcycle 2 stim "fat-thin"
+	setcycle 2 condition Related
+	setcycle 2 block B
+	setcycle 2 correct_response left
+	setcycle 3 stim "peace-war"
+	setcycle 3 condition Related
+	setcycle 3 block B
+	setcycle 3 correct_response left
+	setcycle 4 stim "pen-ink"
+	setcycle 4 condition Related
+	setcycle 4 block B
+	setcycle 4 correct_response left
+	setcycle 5 stim "good-bad"
+	setcycle 5 condition Related
+	setcycle 5 block B
+	setcycle 5 correct_response left
+	setcycle 6 stim "hop-skip"
+	setcycle 6 condition Related
+	setcycle 6 block B
+	setcycle 6 correct_response left
+	setcycle 7 stim "rip-tear"
+	setcycle 7 condition Related
+	setcycle 7 block B
+	setcycle 7 correct_response left
+	setcycle 8 stim "hill-mountain"
+	setcycle 8 condition Related
+	setcycle 8 block B
+	setcycle 8 correct_response left
+	setcycle 9 stim "scissors-cut"
+	setcycle 9 condition Related
+	setcycle 9 block B
+	setcycle 9 correct_response left
+	setcycle 10 stim "health-sickness"
+	setcycle 10 condition Related
+	setcycle 10 block B
+	setcycle 10 correct_response left
+	setcycle 11 stim "add-subtract"
+	setcycle 11 condition Related
+	setcycle 11 block B
+	setcycle 11 correct_response left
+	setcycle 12 stim "blue-sky"
+	setcycle 12 condition Related
+	setcycle 12 block B
+	setcycle 12 correct_response left
+	setcycle 13 stim "dark-night"
+	setcycle 13 condition Related
+	setcycle 13 block B
+	setcycle 13 correct_response left
+	setcycle 14 stim "high-low"
+	setcycle 14 condition Related
+	setcycle 14 block B
+	setcycle 14 correct_response left
+	setcycle 15 stim "trout-fish"
+	setcycle 15 condition Related
+	setcycle 15 block B
+	setcycle 15 correct_response left
+	setcycle 16 stim "black-white"
+	setcycle 16 condition Related
+	setcycle 16 block B
+	setcycle 16 correct_response left
+	setcycle 17 stim "boy-girl"
+	setcycle 17 condition Related
+	setcycle 17 block B
+	setcycle 17 correct_response left
+	setcycle 18 stim "dog-cat"
+	setcycle 18 condition Related
+	setcycle 18 block B
+	setcycle 18 correct_response left
+	setcycle 19 stim "hard-soft"
+	setcycle 19 condition Related
+	setcycle 19 block B
+	setcycle 19 correct_response left
+	setcycle 20 stim "lean-stem"
+	setcycle 20 condition Unrelated
+	setcycle 20 block B
+	setcycle 20 correct_response right
+	setcycle 21 stim "fine-grapes"
+	setcycle 21 condition Unrelated
+	setcycle 21 block B
+	setcycle 21 correct_response right
+	setcycle 22 stim "ranch-waltz"
+	setcycle 22 condition Unrelated
+	setcycle 22 block B
+	setcycle 22 correct_response right
+	setcycle 23 stim "bat-thin"
+	setcycle 23 condition Unrelated
+	setcycle 23 block B
+	setcycle 23 correct_response right
+	setcycle 24 stim "peach-war"
+	setcycle 24 condition Unrelated
+	setcycle 24 block B
+	setcycle 24 correct_response right
+	setcycle 25 stim "men-ink"
+	setcycle 25 condition Unrelated
+	setcycle 25 block B
+	setcycle 25 correct_response right
+	setcycle 26 stim "gold-bad"
+	setcycle 26 condition Unrelated
+	setcycle 26 block B
+	setcycle 26 correct_response right
+	setcycle 27 stim "mop-skip"
+	setcycle 27 condition Unrelated
+	setcycle 27 block B
+	setcycle 27 correct_response right
+	setcycle 28 stim "rid-tear"
+	setcycle 28 condition Unrelated
+	setcycle 28 block B
+	setcycle 28 correct_response right
+	setcycle 29 stim "will-mountain"
+	setcycle 29 condition Unrelated
+	setcycle 29 block B
+	setcycle 29 correct_response right
+	setcycle 30 stim "scorpion-cut"
+	setcycle 30 condition Unrelated
+	setcycle 30 block B
+	setcycle 30 correct_response right
+	setcycle 31 stim "wealth-sickness"
+	setcycle 31 condition Unrelated
+	setcycle 31 block B
+	setcycle 31 correct_response right
+	setcycle 32 stim "age-subtract"
+	setcycle 32 condition Unrelated
+	setcycle 32 block B
+	setcycle 32 correct_response right
+	setcycle 33 stim "glue-sky"
+	setcycle 33 condition Unrelated
+	setcycle 33 block B
+	setcycle 33 correct_response right
+	setcycle 34 stim "park-night"
+	setcycle 34 condition Unrelated
+	setcycle 34 block B
+	setcycle 34 correct_response right
+	setcycle 35 stim "sigh-low"
+	setcycle 35 condition Unrelated
+	setcycle 35 block B
+	setcycle 35 correct_response right
+	setcycle 36 stim "treat-fish"
+	setcycle 36 condition Unrelated
+	setcycle 36 block B
+	setcycle 36 correct_response right
+	setcycle 37 stim "slack-white"
+	setcycle 37 condition Unrelated
+	setcycle 37 block B
+	setcycle 37 correct_response right
+	setcycle 38 stim "toy-girl"
+	setcycle 38 condition Unrelated
+	setcycle 38 block B
+	setcycle 38 correct_response right
+	setcycle 39 stim "dig-cat"
+	setcycle 39 condition Unrelated
+	setcycle 39 block B
+	setcycle 39 correct_response right
+	setcycle 40 stim "hoy-wappy"
+	setcycle 40 condition Nonword
+	setcycle 40 block B
+	setcycle 40 correct_response right
+	setcycle 41 stim "geaf-ster"
+	setcycle 41 condition Nonword
+	setcycle 41 block B
+	setcycle 41 correct_response right
+	setcycle 42 stim "wone-brapes"
+	setcycle 42 condition Nonword
+	setcycle 42 block B
+	setcycle 42 correct_response right
+	setcycle 43 stim "jance-maltz"
+	setcycle 43 condition Nonword
+	setcycle 43 block B
+	setcycle 43 correct_response right
+	setcycle 44 stim "fot-thip"
+	setcycle 44 condition Nonword
+	setcycle 44 block B
+	setcycle 44 correct_response right
+	setcycle 45 stim "ren-onk"
+	setcycle 45 condition Nonword
+	setcycle 45 block B
+	setcycle 45 correct_response right
+	setcycle 46 stim "goid-nad"
+	setcycle 46 condition Nonword
+	setcycle 46 block B
+	setcycle 46 correct_response right
+	setcycle 47 stim "fop-skup"
+	setcycle 47 condition Nonword
+	setcycle 47 block B
+	setcycle 47 correct_response right
+	setcycle 48 stim "rin-mear"
+	setcycle 48 condition Nonword
+	setcycle 48 block B
+	setcycle 48 correct_response right
+	setcycle 49 stim "hilp-bountain"
+	setcycle 49 condition Nonword
+	setcycle 49 block B
+	setcycle 49 correct_response right
+	setcycle 50 stim "scyssors-cet"
+	setcycle 50 condition Nonword
+	setcycle 50 block B
+	setcycle 50 correct_response right
+	setcycle 51 stim "dealth-fickness"
+	setcycle 51 condition Nonword
+	setcycle 51 block B
+	setcycle 51 correct_response right
+	setcycle 52 stim "ald-rubtract"
+	setcycle 52 condition Nonword
+	setcycle 52 block B
+	setcycle 52 correct_response right
+	setcycle 53 stim "darl-nighp"
+	setcycle 53 condition Nonword
+	setcycle 53 block B
+	setcycle 53 correct_response right
+	setcycle 54 stim "figh-lew"
+	setcycle 54 condition Nonword
+	setcycle 54 block B
+	setcycle 54 correct_response right
+	setcycle 55 stim "frout-hish"
+	setcycle 55 condition Nonword
+	setcycle 55 block B
+	setcycle 55 correct_response right
+	setcycle 56 stim "block-whote"
+	setcycle 56 condition Nonword
+	setcycle 56 block B
+	setcycle 56 correct_response right
+	setcycle 57 stim "bey-wirl"
+	setcycle 57 condition Nonword
+	setcycle 57 block B
+	setcycle 57 correct_response right
+	setcycle 58 stim "man-wotar"
+	setcycle 58 condition Filler
+	setcycle 58 block B
+	setcycle 58 correct_response right
+	setcycle 59 stim "rough-smoat"
+	setcycle 59 condition Filler
+	setcycle 59 block B
+	setcycle 59 correct_response right
+	setcycle 60 stim "bread-bottin"
+	setcycle 60 condition Filler
+	setcycle 60 block B
+	setcycle 60 correct_response right
+	setcycle 61 stim "bitter-sweax"
+	setcycle 61 condition Filler
+	setcycle 61 block B
+	setcycle 61 correct_response right
+	setcycle 62 stim "green-gliss"
+	setcycle 62 condition Filler
+	setcycle 62 block B
+	setcycle 62 correct_response right
+	setcycle 63 stim "large-smipo"
+	setcycle 63 condition Filler
+	setcycle 63 block B
+	setcycle 63 correct_response right
+	setcycle 64 stim "bed-slorg"
+	setcycle 64 condition Filler
+	setcycle 64 block B
+	setcycle 64 correct_response right
+	setcycle 65 stim "afraid-scobet"
+	setcycle 65 condition Filler
+	setcycle 65 block B
+	setcycle 65 correct_response right
+	setcycle 66 stim "cabbage-lottir"
+	setcycle 66 condition Filler
+	setcycle 66 block B
+	setcycle 66 correct_response right
+	setcycle 67 stim "door-wingew"
+	setcycle 67 condition Filler
+	setcycle 67 block B
+	setcycle 67 correct_response right
+	setcycle 68 stim "moship-father"
+	setcycle 68 condition Filler
+	setcycle 68 block B
+	setcycle 68 correct_response right
+	setcycle 69 stim "neibon-thread"
+	setcycle 69 condition Filler
+	setcycle 69 block B
+	setcycle 69 correct_response right
+	setcycle 70 stim "brothog-sister"
+	setcycle 70 condition Filler
+	setcycle 70 block B
+	setcycle 70 correct_response right
+	setcycle 71 stim "capsute-pill"
+	setcycle 71 condition Filler
+	setcycle 71 block B
+	setcycle 71 correct_response right
+	setcycle 72 stim "boeh-ale"
+	setcycle 72 condition Filler
+	setcycle 72 block B
+	setcycle 72 correct_response right
+	setcycle 73 stim "bosh-water"
+	setcycle 73 condition Filler
+	setcycle 73 block B
+	setcycle 73 correct_response right
+	setcycle 74 stim "nirey-south"
+	setcycle 74 condition Filler
+	setcycle 74 block B
+	setcycle 74 correct_response right
+	setcycle 75 stim "honip-bee"
+	setcycle 75 condition Filler
+	setcycle 75 block B
+	setcycle 75 correct_response right
+	setcycle 76 stim "sconix-marble"
+	setcycle 76 condition Filler
+	setcycle 76 block B
+	setcycle 76 correct_response right
+	setcycle 77 stim "porry-cent"
+	setcycle 77 condition Filler
+	setcycle 77 block B
+	setcycle 77 correct_response right
+	run trial_sequence
+
+define loop experiment_loop_3
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 80
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 stim "church-steeple"
+	setcycle 0 condition Related
+	setcycle 0 block C
+	setcycle 0 correct_response left
+	setcycle 1 stim "law-justice"
+	setcycle 1 condition Related
+	setcycle 1 block C
+	setcycle 1 correct_response left
+	setcycle 2 stim "sheep-lamb"
+	setcycle 2 condition Related
+	setcycle 2 block C
+	setcycle 2 correct_response left
+	setcycle 3 stim "eat-food"
+	setcycle 3 condition Related
+	setcycle 3 block C
+	setcycle 3 correct_response left
+	setcycle 4 stim "insect-bug"
+	setcycle 4 condition Related
+	setcycle 4 block C
+	setcycle 4 correct_response left
+	setcycle 5 stim "frown-smile"
+	setcycle 5 condition Related
+	setcycle 5 block C
+	setcycle 5 correct_response left
+	setcycle 6 stim "fruit-apple"
+	setcycle 6 condition Related
+	setcycle 6 block C
+	setcycle 6 correct_response left
+	setcycle 7 stim "square-box"
+	setcycle 7 condition Related
+	setcycle 7 block C
+	setcycle 7 correct_response left
+	setcycle 8 stim "village-town"
+	setcycle 8 condition Related
+	setcycle 8 block C
+	setcycle 8 correct_response left
+	setcycle 9 stim "hand-foot"
+	setcycle 9 condition Related
+	setcycle 9 block C
+	setcycle 9 correct_response left
+	setcycle 10 stim "ice-snow"
+	setcycle 10 condition Related
+	setcycle 10 block C
+	setcycle 10 correct_response left
+	setcycle 11 stim "baby-child"
+	setcycle 11 condition Related
+	setcycle 11 block C
+	setcycle 11 correct_response left
+	setcycle 12 stim "moon-star"
+	setcycle 12 condition Related
+	setcycle 12 block C
+	setcycle 12 correct_response left
+	setcycle 13 stim "oil-gas"
+	setcycle 13 condition Related
+	setcycle 13 block C
+	setcycle 13 correct_response left
+	setcycle 14 stim "thought-mind"
+	setcycle 14 condition Related
+	setcycle 14 block C
+	setcycle 14 correct_response left
+	setcycle 15 stim "play-work"
+	setcycle 15 condition Related
+	setcycle 15 block C
+	setcycle 15 correct_response left
+	setcycle 16 stim "shallow-deep"
+	setcycle 16 condition Related
+	setcycle 16 block C
+	setcycle 16 correct_response left
+	setcycle 17 stim "egg-yolk"
+	setcycle 17 condition Related
+	setcycle 17 block C
+	setcycle 17 correct_response left
+	setcycle 18 stim "pain-hurt"
+	setcycle 18 condition Related
+	setcycle 18 block C
+	setcycle 18 correct_response left
+	setcycle 19 stim "sharp-dull"
+	setcycle 19 condition Related
+	setcycle 19 block C
+	setcycle 19 correct_response left
+	setcycle 20 stim "weasel-bird"
+	setcycle 20 condition Unrelated
+	setcycle 20 block C
+	setcycle 20 correct_response right
+	setcycle 21 stim "churn-steeple"
+	setcycle 21 condition Unrelated
+	setcycle 21 block C
+	setcycle 21 correct_response right
+	setcycle 22 stim "paw-justice"
+	setcycle 22 condition Unrelated
+	setcycle 22 block C
+	setcycle 22 correct_response right
+	setcycle 23 stim "steep-lamb"
+	setcycle 23 condition Unrelated
+	setcycle 23 block C
+	setcycle 23 correct_response right
+	setcycle 24 stim "ear-food"
+	setcycle 24 condition Unrelated
+	setcycle 24 block C
+	setcycle 24 correct_response right
+	setcycle 25 stim "invest-bug"
+	setcycle 25 condition Unrelated
+	setcycle 25 block C
+	setcycle 25 correct_response right
+	setcycle 26 stim "brown-smile"
+	setcycle 26 condition Unrelated
+	setcycle 26 block C
+	setcycle 26 correct_response right
+	setcycle 27 stim "stout-apple"
+	setcycle 27 condition Unrelated
+	setcycle 27 block C
+	setcycle 27 correct_response right
+	setcycle 28 stim "squash-box"
+	setcycle 28 condition Unrelated
+	setcycle 28 block C
+	setcycle 28 correct_response right
+	setcycle 29 stim "pillage-town"
+	setcycle 29 condition Unrelated
+	setcycle 29 block C
+	setcycle 29 correct_response right
+	setcycle 30 stim "land-foot"
+	setcycle 30 condition Unrelated
+	setcycle 30 block C
+	setcycle 30 correct_response right
+	setcycle 31 stim "ace-snow"
+	setcycle 31 condition Unrelated
+	setcycle 31 block C
+	setcycle 31 correct_response right
+	setcycle 32 stim "busy-child"
+	setcycle 32 condition Unrelated
+	setcycle 32 block C
+	setcycle 32 correct_response right
+	setcycle 33 stim "mood-star"
+	setcycle 33 condition Unrelated
+	setcycle 33 block C
+	setcycle 33 correct_response right
+	setcycle 34 stim "foil-gas"
+	setcycle 34 condition Unrelated
+	setcycle 34 block C
+	setcycle 34 correct_response right
+	setcycle 35 stim "fought-mind"
+	setcycle 35 condition Unrelated
+	setcycle 35 block C
+	setcycle 35 correct_response right
+	setcycle 36 stim "slay-work"
+	setcycle 36 condition Unrelated
+	setcycle 36 block C
+	setcycle 36 correct_response right
+	setcycle 37 stim "hallow-deep"
+	setcycle 37 condition Unrelated
+	setcycle 37 block C
+	setcycle 37 correct_response right
+	setcycle 38 stim "peg-yolk"
+	setcycle 38 condition Unrelated
+	setcycle 38 block C
+	setcycle 38 correct_response right
+	setcycle 39 stim "gain-hurt"
+	setcycle 39 condition Unrelated
+	setcycle 39 block C
+	setcycle 39 correct_response right
+	setcycle 40 stim "hird-seft"
+	setcycle 40 condition Nonword
+	setcycle 40 block C
+	setcycle 40 correct_response right
+	setcycle 41 stim "eable-wird"
+	setcycle 41 condition Nonword
+	setcycle 41 block C
+	setcycle 41 correct_response right
+	setcycle 42 stim "chorch-steeble"
+	setcycle 42 condition Nonword
+	setcycle 42 block C
+	setcycle 42 correct_response right
+	setcycle 43 stim "liw-justoce"
+	setcycle 43 condition Nonword
+	setcycle 43 block C
+	setcycle 43 correct_response right
+	setcycle 44 stim "sheex-famb"
+	setcycle 44 condition Nonword
+	setcycle 44 block C
+	setcycle 44 correct_response right
+	setcycle 45 stim "eas-jood"
+	setcycle 45 condition Nonword
+	setcycle 45 block C
+	setcycle 45 correct_response right
+	setcycle 46 stim "onsect-fug"
+	setcycle 46 condition Nonword
+	setcycle 46 block C
+	setcycle 46 correct_response right
+	setcycle 47 stim "browt-smice"
+	setcycle 47 condition Nonword
+	setcycle 47 block C
+	setcycle 47 correct_response right
+	setcycle 48 stim "fruid-asple"
+	setcycle 48 condition Nonword
+	setcycle 48 block C
+	setcycle 48 correct_response right
+	setcycle 49 stim "squame-bor"
+	setcycle 49 condition Nonword
+	setcycle 49 block C
+	setcycle 49 correct_response right
+	setcycle 50 stim "villane-towp"
+	setcycle 50 condition Nonword
+	setcycle 50 block C
+	setcycle 50 correct_response right
+	setcycle 51 stim "yand-foox"
+	setcycle 51 condition Nonword
+	setcycle 51 block C
+	setcycle 51 correct_response right
+	setcycle 52 stim "oce-snaw"
+	setcycle 52 condition Nonword
+	setcycle 52 block C
+	setcycle 52 correct_response right
+	setcycle 53 stim "boby-shild"
+	setcycle 53 condition Nonword
+	setcycle 53 block C
+	setcycle 53 correct_response right
+	setcycle 54 stim "hoon-stad"
+	setcycle 54 condition Nonword
+	setcycle 54 block C
+	setcycle 54 correct_response right
+	setcycle 55 stim "oim-tas"
+	setcycle 55 condition Nonword
+	setcycle 55 block C
+	setcycle 55 correct_response right
+	setcycle 56 stim "thoughf-mand"
+	setcycle 56 condition Nonword
+	setcycle 56 block C
+	setcycle 56 correct_response right
+	setcycle 57 stim "galy-hork"
+	setcycle 57 condition Nonword
+	setcycle 57 block C
+	setcycle 57 correct_response right
+	setcycle 58 stim "shandow-meep"
+	setcycle 58 condition Nonword
+	setcycle 58 block C
+	setcycle 58 correct_response right
+	setcycle 59 stim "ege-bolk"
+	setcycle 59 condition Nonword
+	setcycle 59 block C
+	setcycle 59 correct_response right
+	setcycle 60 stim "man-wotar"
+	setcycle 60 condition Filler
+	setcycle 60 block C
+	setcycle 60 correct_response right
+	setcycle 61 stim "rough-smoat"
+	setcycle 61 condition Filler
+	setcycle 61 block C
+	setcycle 61 correct_response right
+	setcycle 62 stim "bread-bottin"
+	setcycle 62 condition Filler
+	setcycle 62 block C
+	setcycle 62 correct_response right
+	setcycle 63 stim "bitter-sweax"
+	setcycle 63 condition Filler
+	setcycle 63 block C
+	setcycle 63 correct_response right
+	setcycle 64 stim "green-gliss"
+	setcycle 64 condition Filler
+	setcycle 64 block C
+	setcycle 64 correct_response right
+	setcycle 65 stim "large-smipo"
+	setcycle 65 condition Filler
+	setcycle 65 block C
+	setcycle 65 correct_response right
+	setcycle 66 stim "bed-slorg"
+	setcycle 66 condition Filler
+	setcycle 66 block C
+	setcycle 66 correct_response right
+	setcycle 67 stim "afraid-scobet"
+	setcycle 67 condition Filler
+	setcycle 67 block C
+	setcycle 67 correct_response right
+	setcycle 68 stim "cabbage-lottir"
+	setcycle 68 condition Filler
+	setcycle 68 block C
+	setcycle 68 correct_response right
+	setcycle 69 stim "door-wingew"
+	setcycle 69 condition Filler
+	setcycle 69 block C
+	setcycle 69 correct_response right
+	setcycle 70 stim "moship-father"
+	setcycle 70 condition Filler
+	setcycle 70 block C
+	setcycle 70 correct_response right
+	setcycle 71 stim "neibon-thread"
+	setcycle 71 condition Filler
+	setcycle 71 block C
+	setcycle 71 correct_response right
+	setcycle 72 stim "brothog-sister"
+	setcycle 72 condition Filler
+	setcycle 72 block C
+	setcycle 72 correct_response right
+	setcycle 73 stim "capsute-pill"
+	setcycle 73 condition Filler
+	setcycle 73 block C
+	setcycle 73 correct_response right
+	setcycle 74 stim "boeh-ale"
+	setcycle 74 condition Filler
+	setcycle 74 block C
+	setcycle 74 correct_response right
+	setcycle 75 stim "bosh-water"
+	setcycle 75 condition Filler
+	setcycle 75 block C
+	setcycle 75 correct_response right
+	setcycle 76 stim "nirey-south"
+	setcycle 76 condition Filler
+	setcycle 76 block C
+	setcycle 76 correct_response right
+	setcycle 77 stim "honip-bee"
+	setcycle 77 condition Filler
+	setcycle 77 block C
+	setcycle 77 correct_response right
+	setcycle 78 stim "sconix-marble"
+	setcycle 78 condition Filler
+	setcycle 78 block C
+	setcycle 78 correct_response right
+	setcycle 79 stim "porry-cent"
+	setcycle 79 condition Filler
+	setcycle 79 block C
+	setcycle 79 correct_response right
+	run trial_sequence
+
+define sketchpad first_break
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="Time for a break!<br /><br />Press any key when you are ready to begin again.." x=0 y=0 z_index=0
+
+define sketchpad fixation
+	set duration 500
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define sketchpad instructions1
+	set start_response_interval no
+	set reset_variables no
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=serif font_italic=no font_size=32 html=yes show_if=always text="Welcome!<br /><br />In this experiment, you will see sets of words, like this:<br /><br />window-piano<br /><br /><br /><br />Press any key to continue..<br /><br />" x=0 y=0 z_index=0
+
+define sketchpad instructions2
+	set start_response_interval no
+	set reset_variables no
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=serif font_italic=no font_size=32 html=yes show_if=always text="Sometimes they will be real words, sometimes not.<br /><br />Sometimes there will be one real word<br />and one nonsense word, like this:<br /><br />window-blargo<br /><br /><br /><br />Press any key to continue..<br /><br />" x=0 y=0 z_index=0
+
+define sketchpad instructions3
+	set start_response_interval no
+	set reset_variables no
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=serif font_italic=no font_size=32 html=yes show_if=always text="Press the left arrow key<br />if both words are real words in English, like these:<br /><br />window-piano<br /><br /><br /><br />Press any key to continue..<br /><br />" x=0 y=0 z_index=0
+
+define sketchpad instructions4
+	set start_response_interval no
+	set reset_variables no
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=serif font_italic=no font_size=32 html=yes show_if=always text="Press the right arrow key if one or both of the words<br />is not a real word in English, like these:<br /><br />window-blargo<br /><br />or these:<br /><br />jupsal-clotop<br /><br /><br /><br />Press any key to continue..<br /><br />" x=0 y=0 z_index=0
+
+define sketchpad instructions5
+	set start_response_interval no
+	set reset_variables no
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=serif font_italic=no font_size=32 html=yes show_if=always text="Try not to make any mistakes, but <br />don't worry if you do make a few.<br />We all make mistakes!<br /><br /><br />Press any key to continue..<br /><br />" x=0 y=0 z_index=0
+
+define sketchpad instructions6
+	set start_response_interval no
+	set reset_variables no
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=serif font_italic=no font_size=32 html=yes show_if=always text="You will get two breaks during the experiment.<br /><br />The whole experiment take about<br />XXX minutes<br /><br /><br /><br />Press any key to continue..<br /><br />" x=0 y=0 z_index=0
+
+define sketchpad instructions7
+	set start_response_interval no
+	set reset_variables no
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=serif font_italic=no font_size=32 html=yes show_if=always text="First, let's try a practice round.<br /><br />Remember: <br /><br />left arrow = two real words<br />right arrow = one or two nonwords<br /><br />Press any key when you are ready to begin..<br /><br />" x=0 y=0 z_index=0
+
+define logger keyboard_logger
+	set description "Logs experimental data"
+	set auto_log yes
+
+define keyboard_response keyboard_response
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set correct_response "left;right"
+
+define loop practice_loop
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 6
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 stim "buy-sell"
+	setcycle 0 condition Related
+	setcycle 0 block practice
+	setcycle 1 stim "table-chair"
+	setcycle 1 condition Related
+	setcycle 1 block practice
+	setcycle 2 stim "shark-dull"
+	setcycle 2 condition Unrelated
+	setcycle 2 block practice
+	setcycle 3 stim "sand-pepper"
+	setcycle 3 condition Unrelated
+	setcycle 3 block practice
+	setcycle 4 stim "ip-bown"
+	setcycle 4 condition Nonword
+	setcycle 4 block practice
+	setcycle 5 stim "hort-sain"
+	setcycle 5 condition Nonword
+	setcycle 5 block practice
+	run trial_sequence
+
+define sketchpad second_break
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="Break time again!<br /><br />Press any key when you are ready for the last set.." x=0 y=0 z_index=0
+
+define sketchpad stimulus
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=40 html=yes show_if=always text="[stim]" x=0 y=0 z_index=0
+
+define sketchpad thank_you
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="All done!<br /><br />Thank you for participating!<br /><br />Press any key to finish." x=0 y=0 z_index=0
+
+define sequence trial_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run fixation always
+	run stimulus always
+	run keyboard_response always
+	run keyboard_logger always
+	run ISI always
+
