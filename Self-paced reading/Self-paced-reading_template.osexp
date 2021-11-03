@@ -1,0 +1,226 @@
+---
+API: 2.1
+OpenSesame: 3.3.11a1
+Platform: posix
+---
+set width 1024
+set uniform_coordinates yes
+set title "Extended template"
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set sampler_backend legacy
+set round_decimals 2
+set mouse_backend legacy
+set keyboard_backend legacy
+set height 768
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 18
+set font_italic no
+set font_family mono
+set font_bold no
+set experiment_path "/Users/ethan/Desktop"
+set disable_garbage_collection yes
+set description "A template containing a practice and an experimental phase"
+set coordinates uniform
+set compensation 0
+set color_backend legacy
+set clock_backend legacy
+set canvas_backend legacy
+set bidi yes
+set background black
+
+define form_multiple_choice age_form
+	set timeout infinite
+	set spacing 10
+	set question "Angiv venligst din alder"
+	__options__
+	Under 30
+	Mellem 30 og 50
+	Over 50
+	__end__
+	set margins "50;50;50;50"
+	set form_var response
+	set form_title "Form title"
+	set description "A simple multiple choice item"
+	set button_text Ok
+	set allow_multiple no
+	set advance_immediately yes
+	set _theme gray
+
+define loop block_loop
+	set source_file ""
+	set source table
+	set skip 0
+	set repeat 1
+	set order random
+	set offset no
+	set item trial_sequence
+	set description "A single block of trials"
+	set cycles 2
+	set continuous no
+	set column_order ""
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 U1 Christian
+	setcycle 0 U2 tog
+	setcycle 0 U3 hjem
+	setcycle 0 U4 fra
+	setcycle 0 U5 arbejde
+	setcycle 0 U6 fordi
+	setcycle 0 target de
+	setcycle 0 U8 var
+	setcycle 0 U9 blevet
+	setcycle 0 U10 "syg."
+	setcycle 0 Condition Target
+	setcycle 0 sentence_nr 1
+	setcycle 1 U1 ""
+	setcycle 1 U2 Ida
+	setcycle 1 U3 fik
+	setcycle 1 U4 en
+	setcycle 1 U5 gave
+	setcycle 1 U6 som
+	setcycle 1 target de
+	setcycle 1 U8 blevet
+	setcycle 1 U9 glad
+	setcycle 1 U10 "for."
+	setcycle 1 Condition Target
+	setcycle 1 sentence_nr 2
+	run trial_sequence
+
+define sequence block_sequence
+	set flush_keyboard yes
+	set description "A sequence containing a single block of trials followed by feedback to the participant"
+	run block_loop always
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "The main sequence of the experiment"
+	run experimental_loop always
+	run age_form always
+	run kommentar_form always
+
+define loop experimental_loop
+	set source_file ""
+	set source table
+	set skip 0
+	set repeat 1
+	set order random
+	set offset no
+	set item block_sequence
+	set description "A loop containing one or more experimental blocks"
+	set cycles 1
+	set continuous no
+	set column_order practice
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 empty_column ""
+	run block_sequence
+
+define keyboard_response keyboard_response
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define form_text_input kommentar_form
+	set timeout infinite
+	set spacing 10
+	set rows "1;1;6"
+	set only_render no
+	set margins "50;50;50;50"
+	set form_var response
+	set form_title Title
+	set form_question "Har du kommentarer?"
+	set description "A simple text input form"
+	set cols 1
+	set _theme gray
+	widget 0 0 1 1 label text="[form_title]"
+	widget 0 1 1 1 label center=no text="[form_question]"
+	widget 0 2 1 1 text_input focus=yes return_accepts=yes stub="" var="[form_var]"
+
+
+define logger logger
+	set description "Logs experimental data"
+	set auto_log no
+	log unit_content
+	log sentence_nr
+	log response_time
+
+define loop self_paced_reading_loop
+	set source_file ""
+	set source table
+	set repeat 1
+	set order sequential
+	set description "Repeatedly runs another item"
+	set cycles 10
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 unit_content "[U1]"
+	setcycle 0 unit_id 1
+	setcycle 0 sentence_id "[sentence_nr]"
+	setcycle 1 unit_content "[U2]"
+	setcycle 1 unit_id 2
+	setcycle 1 sentence_id "[sentence_nr]"
+	setcycle 2 unit_content "[U3]"
+	setcycle 2 unit_id 3
+	setcycle 2 sentence_id "[sentence_nr]"
+	setcycle 3 unit_content "[U4]"
+	setcycle 3 unit_id 4
+	setcycle 3 sentence_id "[sentence_nr]"
+	setcycle 4 unit_content "[U5]"
+	setcycle 4 unit_id 5
+	setcycle 4 sentence_id "[sentence_nr]"
+	setcycle 5 unit_content "[U6]"
+	setcycle 5 unit_id 6
+	setcycle 5 sentence_id "[sentence_nr]"
+	setcycle 6 unit_content "[target]"
+	setcycle 6 unit_id 7
+	setcycle 6 sentence_id "[sentence_nr]"
+	setcycle 7 unit_content "[U8]"
+	setcycle 7 unit_id 8
+	setcycle 7 sentence_id "[sentence_nr]"
+	setcycle 8 unit_content "[U9]"
+	setcycle 8 unit_id 9
+	setcycle 8 sentence_id "[sentence_nr]"
+	setcycle 9 unit_content "[U10]"
+	setcycle 9 unit_id 10
+	setcycle 9 sentence_id "[sentence_nr]"
+	run self_paced_reading_sequence
+
+define sequence self_paced_reading_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run trial_sketchpad "[unit_content] !=\"\""
+	run keyboard_response "[unit_content] != \"\""
+	run logger always
+
+define sequence trial_sequence
+	set flush_keyboard yes
+	set description "A single trial"
+	run self_paced_reading_loop always
+
+define sketchpad trial_sketchpad
+	set start_response_interval no
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=0 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if="[unit_id] = 1" text="[U1]" x=-400 y=-100 z_index=0
+	draw textline center=0 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if="[unit_id] = 2" text="[U1] [U2]" x=-400 y=-100 z_index=0
+	draw textline center=0 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if="[unit_id] = 3" text="[U1] [U2] [U3]" x=-400 y=-100 z_index=0
+	draw textline center=0 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if="[unit_id] = 4" text="[U1] [U2] [U3] [U4]" x=-400 y=-100 z_index=0
+	draw textline center=0 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if="[unit_id] = 5" text="[U1] [U2] [U3] [U4] [U5]" x=-400 y=-100 z_index=0
+	draw textline center=0 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if="[unit_id] = 6" text="[U1] [U2] [U3] [U4] [U5] [U6]" x=-400 y=-100 z_index=0
+	draw textline center=0 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if="[unit_id] = 7" text="[U1] [U2] [U3] [U4] [U5] [U6] [target]" x=-400 y=-100 z_index=0
+	draw textline center=0 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if="[unit_id] = 8" text="[U1] [U2] [U3] [U4] [U5] [U6] [target] [U8]" x=-400 y=-100 z_index=0
+	draw textline center=0 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if="[unit_id] = 9" text="[U1] [U2] [U3] [U4] [U5] [U6] [target] [U8] [U9]" x=-400 y=-100 z_index=0
+	draw textline center=0 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if="[unit_id] = 10" text="[U1] [U2] [U3] [U4] [U5] [U6] [target] [U8] [U9] [U10]" x=-400 y=-100 z_index=0
+
