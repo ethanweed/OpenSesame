@@ -1,0 +1,941 @@
+---
+API: 2.1
+OpenSesame: 3.3.11a1
+Platform: posix
+---
+set width 1024
+set uniform_coordinates yes
+set title Sentence_verification
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set sampler_backend legacy
+set round_decimals 2
+set mouse_backend legacy
+set keyboard_backend legacy
+set height 768
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 18
+set font_italic no
+set font_family mono
+set font_bold no
+set experiment_path "/Users/ethan/Documents/GitHub/OpenSesame/SentenceVerification"
+set disable_garbage_collection yes
+set description "The main experiment item"
+set coordinates uniform
+set compensation 0
+set color_backend legacy
+set clock_backend legacy
+set canvas_backend legacy
+set background black
+
+define sketchpad ISI
+	set duration 200
+	set description "Displays stimuli"
+
+define loop block_one
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 91
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 true_false FALSE
+	setcycle 0 condition P1
+	setcycle 0 stim "Ping Pong has baskets."
+	setcycle 0 correct_response "[false_response]"
+	setcycle 1 true_false FALSE
+	setcycle 1 condition P1
+	setcycle 1 stim "London has pig farms."
+	setcycle 1 correct_response "[false_response]"
+	setcycle 2 true_false FALSE
+	setcycle 2 condition P1
+	setcycle 2 stim "A daisy is black."
+	setcycle 2 correct_response "[false_response]"
+	setcycle 3 true_false FALSE
+	setcycle 3 condition P1
+	setcycle 3 stim "A banana has bones."
+	setcycle 3 correct_response "[false_response]"
+	setcycle 4 true_false FALSE
+	setcycle 4 condition P1
+	setcycle 4 stim "Mints are salty."
+	setcycle 4 correct_response "[false_response]"
+	setcycle 5 true_false FALSE
+	setcycle 5 condition P1
+	setcycle 5 stim "A shrimp can fly."
+	setcycle 5 correct_response "[false_response]"
+	setcycle 6 true_false FALSE
+	setcycle 6 condition P1
+	setcycle 6 stim "A canoe has a sail."
+	setcycle 6 correct_response "[false_response]"
+	setcycle 7 true_false FALSE
+	setcycle 7 condition P1
+	setcycle 7 stim "Japan has Biden."
+	setcycle 7 correct_response "[false_response]"
+	setcycle 8 true_false FALSE
+	setcycle 8 condition P1
+	setcycle 8 stim "A dove has fins."
+	setcycle 8 correct_response "[false_response]"
+	setcycle 9 true_false FALSE
+	setcycle 9 condition P1
+	setcycle 9 stim "Satin is rough."
+	setcycle 9 correct_response "[false_response]"
+	setcycle 10 true_false FALSE
+	setcycle 10 condition P2
+	setcycle 10 stim "A sycamore has fruit."
+	setcycle 10 correct_response "[false_response]"
+	setcycle 11 true_false FALSE
+	setcycle 11 condition P2
+	setcycle 11 stim "Bourbon is gritty."
+	setcycle 11 correct_response "[false_response]"
+	setcycle 12 true_false FALSE
+	setcycle 12 condition P2
+	setcycle 12 stim "A brigade can fly."
+	setcycle 12 correct_response "[false_response]"
+	setcycle 13 true_false FALSE
+	setcycle 13 condition PO
+	setcycle 13 stim "Checkers has pawns."
+	setcycle 13 correct_response "[false_response]"
+	setcycle 14 true_false FALSE
+	setcycle 14 condition PO
+	setcycle 14 stim "Miami has snow."
+	setcycle 14 correct_response "[false_response]"
+	setcycle 15 true_false FALSE
+	setcycle 15 condition PO
+	setcycle 15 stim "A rose has bark."
+	setcycle 15 correct_response "[false_response]"
+	setcycle 16 true_false FALSE
+	setcycle 16 condition PO
+	setcycle 16 stim "A berry is large."
+	setcycle 16 correct_response "[false_response]"
+	setcycle 17 true_false FALSE
+	setcycle 17 condition PO
+	setcycle 17 stim "Fudge is sour."
+	setcycle 17 correct_response "[false_response]"
+	setcycle 18 true_false FALSE
+	setcycle 18 condition PO
+	setcycle 18 stim "A tuna is purple."
+	setcycle 18 correct_response "[false_response]"
+	setcycle 19 true_false FALSE
+	setcycle 19 condition PO
+	setcycle 19 stim "A rowboat has a motor."
+	setcycle 19 correct_response "[false_response]"
+	setcycle 20 true_false FALSE
+	setcycle 20 condition PO
+	setcycle 20 stim "Russia is an island."
+	setcycle 20 correct_response "[false_response]"
+	setcycle 21 true_false FALSE
+	setcycle 21 condition PO
+	setcycle 21 stim "A crow is green."
+	setcycle 21 correct_response "[false_response]"
+	setcycle 22 true_false FALSE
+	setcycle 22 condition PO
+	setcycle 22 stim "Polyester is grown."
+	setcycle 22 correct_response "[false_response]"
+	setcycle 23 true_false FALSE
+	setcycle 23 condition S1
+	setcycle 23 stim "Football is a lottery."
+	setcycle 23 correct_response "[false_response]"
+	setcycle 24 true_false FALSE
+	setcycle 24 condition S1
+	setcycle 24 stim "Aarhus is a region."
+	setcycle 24 correct_response "[false_response]"
+	setcycle 25 true_false FALSE
+	setcycle 25 condition S1
+	setcycle 25 stim "A zinnia is a mammal."
+	setcycle 25 correct_response "[false_response]"
+	setcycle 26 true_false FALSE
+	setcycle 26 condition S1
+	setcycle 26 stim "An apple is a building."
+	setcycle 26 correct_response "[false_response]"
+	setcycle 27 true_false FALSE
+	setcycle 27 condition S1
+	setcycle 27 stim "Cremes are cookies."
+	setcycle 27 correct_response "[false_response]"
+	setcycle 28 true_false FALSE
+	setcycle 28 condition S1
+	setcycle 28 stim "A catfish is a whale."
+	setcycle 28 correct_response "[false_response]"
+	setcycle 29 true_false FALSE
+	setcycle 29 condition S1
+	setcycle 29 stim "A submarine is a car."
+	setcycle 29 correct_response "[false_response]"
+	setcycle 30 true_false FALSE
+	setcycle 30 condition S1
+	setcycle 30 stim "Peru is a city."
+	setcycle 30 correct_response "[false_response]"
+	setcycle 31 true_false FALSE
+	setcycle 31 condition S1
+	setcycle 31 stim "A mockingbird is a snake."
+	setcycle 31 correct_response "[false_response]"
+	setcycle 32 true_false FALSE
+	setcycle 32 condition S1
+	setcycle 32 stim "Denim is a food."
+	setcycle 32 correct_response "[false_response]"
+	setcycle 33 true_false FALSE
+	setcycle 33 condition S2
+	setcycle 33 stim "A mesquite is a mineral."
+	setcycle 33 correct_response "[false_response]"
+	setcycle 34 true_false FALSE
+	setcycle 34 condition S2
+	setcycle 34 stim "Cognac is gas."
+	setcycle 34 correct_response "[false_response]"
+	setcycle 35 true_false FALSE
+	setcycle 35 condition S2
+	setcycle 35 stim "A general is a monkey."
+	setcycle 35 correct_response "[false_response]"
+	setcycle 36 true_false FALSE
+	setcycle 36 condition SO
+	setcycle 36 stim "Hockey is a race."
+	setcycle 36 correct_response "[false_response]"
+	setcycle 37 true_false FALSE
+	setcycle 37 condition SO
+	setcycle 37 stim "Chicago is a state."
+	setcycle 37 correct_response "[false_response]"
+	setcycle 38 true_false FALSE
+	setcycle 38 condition SO
+	setcycle 38 stim "A petunia is thorny."
+	setcycle 38 correct_response "[false_response]"
+	setcycle 39 true_false FALSE
+	setcycle 39 condition SO
+	setcycle 39 stim "An apple is an orange."
+	setcycle 39 correct_response "[false_response]"
+	setcycle 40 true_false FALSE
+	setcycle 40 condition SO
+	setcycle 40 stim "Caramel is cotton candy."
+	setcycle 40 correct_response "[false_response]"
+	setcycle 41 true_false FALSE
+	setcycle 41 condition SO
+	setcycle 41 stim "A bass is a crab."
+	setcycle 41 correct_response "[false_response]"
+	setcycle 42 true_false FALSE
+	setcycle 42 condition SO
+	setcycle 42 stim "A raft is a destroyer."
+	setcycle 42 correct_response "[false_response]"
+	setcycle 43 true_false FALSE
+	setcycle 43 condition SO
+	setcycle 43 stim "Egypt is Europe."
+	setcycle 43 correct_response "[false_response]"
+	setcycle 44 true_false FALSE
+	setcycle 44 condition SO
+	setcycle 44 stim "A parakeet is an eagle."
+	setcycle 44 correct_response "[false_response]"
+	setcycle 45 true_false FALSE
+	setcycle 45 condition SO
+	setcycle 45 stim "Canvas is wool."
+	setcycle 45 correct_response "[false_response]"
+	setcycle 46 true_false TRUE
+	setcycle 46 condition P1
+	setcycle 46 stim "Basketball has rules. "
+	setcycle 46 correct_response "[true_response]"
+	setcycle 47 true_false TRUE
+	setcycle 47 condition P1
+	setcycle 47 stim "Pittsburg has people. "
+	setcycle 47 correct_response "[true_response]"
+	setcycle 48 true_false TRUE
+	setcycle 48 condition P1
+	setcycle 48 stim "A violet has a stem. "
+	setcycle 48 correct_response "[true_response]"
+	setcycle 49 true_false TRUE
+	setcycle 49 condition P1
+	setcycle 49 stim "A pistol can fire. "
+	setcycle 49 correct_response "[true_response]"
+	setcycle 50 true_false TRUE
+	setcycle 50 condition P1
+	setcycle 50 stim "Taffy is sweet. "
+	setcycle 50 correct_response "[true_response]"
+	setcycle 51 true_false TRUE
+	setcycle 51 condition P1
+	setcycle 51 stim "A shark has gills. "
+	setcycle 51 correct_response "[true_response]"
+	setcycle 52 true_false TRUE
+	setcycle 52 condition P1
+	setcycle 52 stim "A schooner has a rudder."
+	setcycle 52 correct_response "[true_response]"
+	setcycle 53 true_false TRUE
+	setcycle 53 condition P1
+	setcycle 53 stim "Italy has borders."
+	setcycle 53 correct_response "[true_response]"
+	setcycle 54 true_false TRUE
+	setcycle 54 condition P1
+	setcycle 54 stim "A wren can fly."
+	setcycle 54 correct_response "[true_response]"
+	setcycle 55 true_false TRUE
+	setcycle 55 condition P1
+	setcycle 55 stim "Silk is woven."
+	setcycle 55 correct_response "[true_response]"
+	setcycle 56 true_false TRUE
+	setcycle 56 condition P2
+	setcycle 56 stim "A birch has seeds."
+	setcycle 56 correct_response "[true_response]"
+	setcycle 57 true_false TRUE
+	setcycle 57 condition P2
+	setcycle 57 stim "Gin is wet."
+	setcycle 57 correct_response "[true_response]"
+	setcycle 58 true_false TRUE
+	setcycle 58 condition P2
+	setcycle 58 stim "A lieutenant can talk."
+	setcycle 58 correct_response "[true_response]"
+	setcycle 59 true_false TRUE
+	setcycle 59 condition PO
+	setcycle 59 stim "Football has goals. "
+	setcycle 59 correct_response "[true_response]"
+	setcycle 60 true_false TRUE
+	setcycle 60 condition PO
+	setcycle 60 stim "San Francisco has fog. "
+	setcycle 60 correct_response "[true_response]"
+	setcycle 61 true_false TRUE
+	setcycle 61 condition PO
+	setcycle 61 stim "A sunflower is yellow. "
+	setcycle 61 correct_response "[true_response]"
+	setcycle 62 true_false TRUE
+	setcycle 62 condition PO
+	setcycle 62 stim "A rifle is long. "
+	setcycle 62 correct_response "[true_response]"
+	setcycle 63 true_false TRUE
+	setcycle 63 condition PO
+	setcycle 63 stim "A lollypop has a stick. "
+	setcycle 63 correct_response "[true_response]"
+	setcycle 64 true_false TRUE
+	setcycle 64 condition PO
+	setcycle 64 stim "A salmon is pink. "
+	setcycle 64 correct_response "[true_response]"
+	setcycle 65 true_false TRUE
+	setcycle 65 condition PO
+	setcycle 65 stim "A tugboat can pull."
+	setcycle 65 correct_response "[true_response]"
+	setcycle 66 true_false TRUE
+	setcycle 66 condition PO
+	setcycle 66 stim "France has DeGaulle."
+	setcycle 66 correct_response "[true_response]"
+	setcycle 67 true_false TRUE
+	setcycle 67 condition PO
+	setcycle 67 stim "A canary can sing."
+	setcycle 67 correct_response "[true_response]"
+	setcycle 68 true_false TRUE
+	setcycle 68 condition PO
+	setcycle 68 stim "Nylon is smooth."
+	setcycle 68 correct_response "[true_response]"
+	setcycle 69 true_false TRUE
+	setcycle 69 condition S1
+	setcycle 69 stim "Tennis is a game"
+	setcycle 69 correct_response "[true_response]"
+	setcycle 70 true_false TRUE
+	setcycle 70 condition S1
+	setcycle 70 stim "Baltimore is a city."
+	setcycle 70 correct_response "[true_response]"
+	setcycle 71 true_false TRUE
+	setcycle 71 condition S1
+	setcycle 71 stim "An orchid is a flower."
+	setcycle 71 correct_response "[true_response]"
+	setcycle 72 true_false TRUE
+	setcycle 72 condition S1
+	setcycle 72 stim "A revolver is a gun."
+	setcycle 72 correct_response "[true_response]"
+	setcycle 73 true_false TRUE
+	setcycle 73 condition S1
+	setcycle 73 stim "A gumdrop is candy."
+	setcycle 73 correct_response "[true_response]"
+	setcycle 74 true_false TRUE
+	setcycle 74 condition S1
+	setcycle 74 stim "A trout is a fish."
+	setcycle 74 correct_response "[true_response]"
+	setcycle 75 true_false TRUE
+	setcycle 75 condition S1
+	setcycle 75 stim "An ocean liner is a boat."
+	setcycle 75 correct_response "[true_response]"
+	setcycle 76 true_false TRUE
+	setcycle 76 condition S1
+	setcycle 76 stim "Belgium is a nation."
+	setcycle 76 correct_response "[true_response]"
+	setcycle 77 true_false TRUE
+	setcycle 77 condition S1
+	setcycle 77 stim "A parrot is a bird."
+	setcycle 77 correct_response "[true_response]"
+	setcycle 78 true_false TRUE
+	setcycle 78 condition S1
+	setcycle 78 stim "Velvet is a fabric."
+	setcycle 78 correct_response "[true_response]"
+	setcycle 79 true_false TRUE
+	setcycle 79 condition S2
+	setcycle 79 stim "An elm is a plant."
+	setcycle 79 correct_response "[true_response]"
+	setcycle 80 true_false TRUE
+	setcycle 80 condition S2
+	setcycle 80 stim "Vermouth is liquid."
+	setcycle 80 correct_response "[true_response]"
+	setcycle 81 true_false TRUE
+	setcycle 81 condition S2
+	setcycle 81 stim "A corporal is a person."
+	setcycle 81 correct_response "[true_response]"
+	setcycle 82 true_false TRUE
+	setcycle 82 condition SO
+	setcycle 82 stim "Chess is chess. "
+	setcycle 82 correct_response "[true_response]"
+	setcycle 83 true_false TRUE
+	setcycle 83 condition SO
+	setcycle 83 stim "Boston is Boston. "
+	setcycle 83 correct_response "[true_response]"
+	setcycle 84 true_false TRUE
+	setcycle 84 condition SO
+	setcycle 84 stim "A gardenia is a gardenia. "
+	setcycle 84 correct_response "[true_response]"
+	setcycle 85 true_false TRUE
+	setcycle 85 condition SO
+	setcycle 85 stim "A shotgun is a shotgun. "
+	setcycle 85 correct_response "[true_response]"
+	setcycle 86 true_false TRUE
+	setcycle 86 condition SO
+	setcycle 86 stim "Licorice is licorice. "
+	setcycle 86 correct_response "[true_response]"
+	setcycle 87 true_false TRUE
+	setcycle 87 condition SO
+	setcycle 87 stim "A sardine is a sardine. "
+	setcycle 87 correct_response "[true_response]"
+	setcycle 88 true_false TRUE
+	setcycle 88 condition SO
+	setcycle 88 stim "A sailboat is a sailboat."
+	setcycle 88 correct_response "[true_response]"
+	setcycle 89 true_false TRUE
+	setcycle 89 condition SO
+	setcycle 89 stim "England is England."
+	setcycle 89 correct_response "[true_response]"
+	setcycle 90 true_false TRUE
+	setcycle 90 condition SO
+	setcycle 90 stim "A robin is a robin."
+	setcycle 90 correct_response "[true_response]"
+	run trial_sequence
+
+define loop block_two
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 108
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 true_false FALSE
+	setcycle 0 condition P1
+	setcycle 0 stim "A almond is square."
+	setcycle 0 correct_response "[false_response]"
+	setcycle 1 true_false FALSE
+	setcycle 1 condition P1
+	setcycle 1 stim "March is September."
+	setcycle 1 correct_response "[false_response]"
+	setcycle 2 true_false FALSE
+	setcycle 2 condition P1
+	setcycle 2 stim "An optometrist has a drill."
+	setcycle 2 correct_response "[false_response]"
+	setcycle 3 true_false FALSE
+	setcycle 3 condition P1
+	setcycle 3 stim "A tomato is born."
+	setcycle 3 correct_response "[false_response]"
+	setcycle 4 true_false FALSE
+	setcycle 4 condition P1
+	setcycle 4 stim "A cookbook has rhymes."
+	setcycle 4 correct_response "[false_response]"
+	setcycle 5 true_false FALSE
+	setcycle 5 condition P1
+	setcycle 5 stim "A bathroom has a refrigerator."
+	setcycle 5 correct_response "[false_response]"
+	setcycle 6 true_false FALSE
+	setcycle 6 condition P1
+	setcycle 6 stim "A mulberry has needles."
+	setcycle 6 correct_response "[false_response]"
+	setcycle 7 true_false FALSE
+	setcycle 7 condition P1
+	setcycle 7 stim "Vodka is a soft drink."
+	setcycle 7 correct_response "[false_response]"
+	setcycle 8 true_false FALSE
+	setcycle 8 condition P1
+	setcycle 8 stim "A infantryman has a rocket."
+	setcycle 8 correct_response "[false_response]"
+	setcycle 9 true_false FALSE
+	setcycle 9 condition P1
+	setcycle 9 stim "A boulder is small."
+	setcycle 9 correct_response "[false_response]"
+	setcycle 10 true_false FALSE
+	setcycle 10 condition P1
+	setcycle 10 stim "Hamburger has drumsticks."
+	setcycle 10 correct_response "[false_response]"
+	setcycle 11 true_false FALSE
+	setcycle 11 condition P1
+	setcycle 11 stim "A jeep has wings."
+	setcycle 11 correct_response "[false_response]"
+	setcycle 12 true_false FALSE
+	setcycle 12 condition P2
+	setcycle 12 stim "Sandstone is edible."
+	setcycle 12 correct_response "[false_response]"
+	setcycle 13 true_false FALSE
+	setcycle 13 condition P2
+	setcycle 13 stim "Steak is drinkable,"
+	setcycle 13 correct_response "[false_response]"
+	setcycle 14 true_false FALSE
+	setcycle 14 condition P2
+	setcycle 14 stim "A bus can walk."
+	setcycle 14 correct_response "[false_response]"
+	setcycle 15 true_false FALSE
+	setcycle 15 condition PO
+	setcycle 15 stim "A peanut is flat."
+	setcycle 15 correct_response "[false_response]"
+	setcycle 16 true_false FALSE
+	setcycle 16 condition PO
+	setcycle 16 stim "June has snow."
+	setcycle 16 correct_response "[false_response]"
+	setcycle 17 true_false FALSE
+	setcycle 17 condition PO
+	setcycle 17 stim "A dentist has fans."
+	setcycle 17 correct_response "[false_response]"
+	setcycle 18 true_false FALSE
+	setcycle 18 condition PO
+	setcycle 18 stim "Lettuce is white."
+	setcycle 18 correct_response "[false_response]"
+	setcycle 19 true_false FALSE
+	setcycle 19 condition PO
+	setcycle 19 stim "A directory has a story."
+	setcycle 19 correct_response "[false_response]"
+	setcycle 20 true_false FALSE
+	setcycle 20 condition PO
+	setcycle 20 stim "A den has a shower."
+	setcycle 20 correct_response "[false_response]"
+	setcycle 21 true_false FALSE
+	setcycle 21 condition PO
+	setcycle 21 stim "A sahuara has lemons."
+	setcycle 21 correct_response "[false_response]"
+	setcycle 22 true_false FALSE
+	setcycle 22 condition PO
+	setcycle 22 stim "Tequila is carbonated."
+	setcycle 22 correct_response "[false_response]"
+	setcycle 23 true_false FALSE
+	setcycle 23 condition PO
+	setcycle 23 stim "A private has authority."
+	setcycle 23 correct_response "[false_response]"
+	setcycle 24 true_false FALSE
+	setcycle 24 condition PO
+	setcycle 24 stim "Flint is soft."
+	setcycle 24 correct_response "[false_response]"
+	setcycle 25 true_false FALSE
+	setcycle 25 condition PO
+	setcycle 25 stim "Balogna is gray."
+	setcycle 25 correct_response "[false_response]"
+	setcycle 26 true_false FALSE
+	setcycle 26 condition PO
+	setcycle 26 stim "A compact is big."
+	setcycle 26 correct_response "[false_response]"
+	setcycle 27 true_false FALSE
+	setcycle 27 condition S1
+	setcycle 27 stim "A pistachio is a rodent."
+	setcycle 27 correct_response "[false_response]"
+	setcycle 28 true_false FALSE
+	setcycle 28 condition S1
+	setcycle 28 stim "May is a minute."
+	setcycle 28 correct_response "[false_response]"
+	setcycle 29 true_false FALSE
+	setcycle 29 condition S1
+	setcycle 29 stim "A chiropractor is a lawyer."
+	setcycle 29 correct_response "[false_response]"
+	setcycle 30 true_false FALSE
+	setcycle 30 condition S1
+	setcycle 30 stim "An onion is a tool."
+	setcycle 30 correct_response "[false_response]"
+	setcycle 31 true_false FALSE
+	setcycle 31 condition S1
+	setcycle 31 stim "The bible is a building."
+	setcycle 31 correct_response "[false_response]"
+	setcycle 32 true_false FALSE
+	setcycle 32 condition S1
+	setcycle 32 stim "A closet is a road."
+	setcycle 32 correct_response "[false_response]"
+	setcycle 33 true_false FALSE
+	setcycle 33 condition S1
+	setcycle 33 stim "A redwood is a cactus."
+	setcycle 33 correct_response "[false_response]"
+	setcycle 34 true_false FALSE
+	setcycle 34 condition S1
+	setcycle 34 stim "Chablis is beer."
+	setcycle 34 correct_response "[false_response]"
+	setcycle 35 true_false FALSE
+	setcycle 35 condition S1
+	setcycle 35 stim "A major is a captain."
+	setcycle 35 correct_response "[false_response]"
+	setcycle 36 true_false FALSE
+	setcycle 36 condition S1
+	setcycle 36 stim "Rock is wood."
+	setcycle 36 correct_response "[false_response]"
+	setcycle 37 true_false FALSE
+	setcycle 37 condition S1
+	setcycle 37 stim "Bacon is salad."
+	setcycle 37 correct_response "[false_response]"
+	setcycle 38 true_false FALSE
+	setcycle 38 condition S1
+	setcycle 38 stim "A corvette is an airplane."
+	setcycle 38 correct_response "[false_response]"
+	setcycle 39 true_false FALSE
+	setcycle 39 condition S2
+	setcycle 39 stim "Turquoise is fruit."
+	setcycle 39 correct_response "[false_response]"
+	setcycle 40 true_false FALSE
+	setcycle 40 condition S2
+	setcycle 40 stim "Roast is clothing."
+	setcycle 40 correct_response "[false_response]"
+	setcycle 41 true_false FALSE
+	setcycle 41 condition S2
+	setcycle 41 stim "A sedan is a store."
+	setcycle 41 correct_response "[false_response]"
+	setcycle 42 true_false FALSE
+	setcycle 42 condition SO
+	setcycle 42 stim "A hickory nut is a beetle nut."
+	setcycle 42 correct_response "[false_response]"
+	setcycle 43 true_false FALSE
+	setcycle 43 condition SO
+	setcycle 43 stim "November has years."
+	setcycle 43 correct_response "[false_response]"
+	setcycle 44 true_false FALSE
+	setcycle 44 condition SO
+	setcycle 44 stim "A podiatrist is a psychologist."
+	setcycle 44 correct_response "[false_response]"
+	setcycle 45 true_false FALSE
+	setcycle 45 condition SO
+	setcycle 45 stim "A radish is squash."
+	setcycle 45 correct_response "[false_response]"
+	setcycle 46 true_false FALSE
+	setcycle 46 condition SO
+	setcycle 46 stim "A diary is a thesaurus."
+	setcycle 46 correct_response "[false_response]"
+	setcycle 47 true_false FALSE
+	setcycle 47 condition SO
+	setcycle 47 stim "A study is a patio."
+	setcycle 47 correct_response "[false_response]"
+	setcycle 48 true_false FALSE
+	setcycle 48 condition SO
+	setcycle 48 stim "A pine is an ash."
+	setcycle 48 correct_response "[false_response]"
+	setcycle 49 true_false FALSE
+	setcycle 49 condition SO
+	setcycle 49 stim "Scotch is rum."
+	setcycle 49 correct_response "[false_response]"
+	setcycle 50 true_false FALSE
+	setcycle 50 condition SO
+	setcycle 50 stim "A soldier is a civilian."
+	setcycle 50 correct_response "[false_response]"
+	setcycle 51 true_false FALSE
+	setcycle 51 condition SO
+	setcycle 51 stim "Lava is quartz."
+	setcycle 51 correct_response "[false_response]"
+	setcycle 52 true_false FALSE
+	setcycle 52 condition SO
+	setcycle 52 stim "Chicken is beef."
+	setcycle 52 correct_response "[false_response]"
+	setcycle 53 true_false FALSE
+	setcycle 53 condition SO
+	setcycle 53 stim "A ford is a toyota."
+	setcycle 53 correct_response "[false_response]"
+	setcycle 54 true_false TRUE
+	setcycle 54 condition P1
+	setcycle 54 stim "A chestnut has a shell."
+	setcycle 54 correct_response "[true_response]"
+	setcycle 55 true_false TRUE
+	setcycle 55 condition P1
+	setcycle 55 stim "August has days."
+	setcycle 55 correct_response "[true_response]"
+	setcycle 56 true_false TRUE
+	setcycle 56 condition P1
+	setcycle 56 stim "An occulist has patients."
+	setcycle 56 correct_response "[true_response]"
+	setcycle 57 true_false TRUE
+	setcycle 57 condition P1
+	setcycle 57 stim "A bean is grown."
+	setcycle 57 correct_response "[true_response]"
+	setcycle 58 true_false TRUE
+	setcycle 58 condition P1
+	setcycle 58 stim "An encyclopedia has print."
+	setcycle 58 correct_response "[true_response]"
+	setcycle 59 true_false TRUE
+	setcycle 59 condition P1
+	setcycle 59 stim "A hall has a ceiling."
+	setcycle 59 correct_response "[true_response]"
+	setcycle 60 true_false TRUE
+	setcycle 60 condition P1
+	setcycle 60 stim "A fir has branches."
+	setcycle 60 correct_response "[true_response]"
+	setcycle 61 true_false TRUE
+	setcycle 61 condition P1
+	setcycle 61 stim "Chianti is alcoholic."
+	setcycle 61 correct_response "[true_response]"
+	setcycle 62 true_false TRUE
+	setcycle 62 condition P1
+	setcycle 62 stim "A sergeant has a uniform."
+	setcycle 62 correct_response "[true_response]"
+	setcycle 63 true_false TRUE
+	setcycle 63 condition P1
+	setcycle 63 stim "A pebble is solid."
+	setcycle 63 correct_response "[true_response]"
+	setcycle 64 true_false TRUE
+	setcycle 64 condition P1
+	setcycle 64 stim "Beans have protein."
+	setcycle 64 correct_response "[true_response]"
+	setcycle 65 true_false TRUE
+	setcycle 65 condition P1
+	setcycle 65 stim "A truck has wheels."
+	setcycle 65 correct_response "[true_response]"
+	setcycle 66 true_false TRUE
+	setcycle 66 condition P2
+	setcycle 66 stim "Granite is inorganic."
+	setcycle 66 correct_response "[true_response]"
+	setcycle 67 true_false TRUE
+	setcycle 67 condition P2
+	setcycle 67 stim "Bread is digestable."
+	setcycle 67 correct_response "[true_response]"
+	setcycle 68 true_false TRUE
+	setcycle 68 condition P2
+	setcycle 68 stim "A sedan is mobile."
+	setcycle 68 correct_response "[true_response]"
+	setcycle 69 true_false TRUE
+	setcycle 69 condition PO
+	setcycle 69 stim "A cashew is curved."
+	setcycle 69 correct_response "[true_response]"
+	setcycle 70 true_false TRUE
+	setcycle 70 condition PO
+	setcycle 70 stim "April has showers."
+	setcycle 70 correct_response "[true_response]"
+	setcycle 71 true_false TRUE
+	setcycle 71 condition PO
+	setcycle 71 stim "A surgeon has a scapel."
+	setcycle 71 correct_response "[true_response]"
+	setcycle 72 true_false TRUE
+	setcycle 72 condition PO
+	setcycle 72 stim "A pea is round."
+	setcycle 72 correct_response "[true_response]"
+	setcycle 73 true_false TRUE
+	setcycle 73 condition PO
+	setcycle 73 stim "A dictionary has definitions."
+	setcycle 73 correct_response "[true_response]"
+	setcycle 74 true_false TRUE
+	setcycle 74 condition PO
+	setcycle 74 stim "A pantry has shelves."
+	setcycle 74 correct_response "[true_response]"
+	setcycle 75 true_false TRUE
+	setcycle 75 condition PO
+	setcycle 75 stim "An oak has acorns."
+	setcycle 75 correct_response "[true_response]"
+	setcycle 76 true_false TRUE
+	setcycle 76 condition PO
+	setcycle 76 stim "Champagne is sparkling."
+	setcycle 76 correct_response "[true_response]"
+	setcycle 77 true_false TRUE
+	setcycle 77 condition PO
+	setcycle 77 stim "A general has command."
+	setcycle 77 correct_response "[true_response]"
+	setcycle 78 true_false TRUE
+	setcycle 78 condition PO
+	setcycle 78 stim "Marble is smooth."
+	setcycle 78 correct_response "[true_response]"
+	setcycle 79 true_false TRUE
+	setcycle 79 condition PO
+	setcycle 79 stim "Bananas are yellow."
+	setcycle 79 correct_response "[true_response]"
+	setcycle 80 true_false TRUE
+	setcycle 80 condition PO
+	setcycle 80 stim "A limousine is long."
+	setcycle 80 correct_response "[true_response]"
+	setcycle 81 true_false TRUE
+	setcycle 81 condition S1
+	setcycle 81 stim "February is a month."
+	setcycle 81 correct_response "[true_response]"
+	setcycle 82 true_false TRUE
+	setcycle 82 condition S1
+	setcycle 82 stim "A general practitioner is a doctor."
+	setcycle 82 correct_response "[true_response]"
+	setcycle 83 true_false TRUE
+	setcycle 83 condition S1
+	setcycle 83 stim "A carrot is a vegetable."
+	setcycle 83 correct_response "[true_response]"
+	setcycle 84 true_false TRUE
+	setcycle 84 condition S1
+	setcycle 84 stim "A biography is a book."
+	setcycle 84 correct_response "[true_response]"
+	setcycle 85 true_false TRUE
+	setcycle 85 condition S1
+	setcycle 85 stim "A kitchen is a room."
+	setcycle 85 correct_response "[true_response]"
+	setcycle 86 true_false TRUE
+	setcycle 86 condition S1
+	setcycle 86 stim "A cedar is a tree."
+	setcycle 86 correct_response "[true_response]"
+	setcycle 87 true_false TRUE
+	setcycle 87 condition S1
+	setcycle 87 stim "Sherry is wine."
+	setcycle 87 correct_response "[true_response]"
+	setcycle 88 true_false TRUE
+	setcycle 88 condition S1
+	setcycle 88 stim "A private is a soldier."
+	setcycle 88 correct_response "[true_response]"
+	setcycle 89 true_false TRUE
+	setcycle 89 condition S1
+	setcycle 89 stim "Gravel is stone."
+	setcycle 89 correct_response "[true_response]"
+	setcycle 90 true_false TRUE
+	setcycle 90 condition S1
+	setcycle 90 stim "Broccoli is a vegetable."
+	setcycle 90 correct_response "[true_response]"
+	setcycle 91 true_false TRUE
+	setcycle 91 condition S1
+	setcycle 91 stim "An Audi is a car"
+	setcycle 91 correct_response "[true_response]"
+	setcycle 92 true_false TRUE
+	setcycle 92 condition "S1."
+	setcycle 92 stim "A pecan is a nut."
+	setcycle 92 correct_response "[true_response]"
+	setcycle 93 true_false TRUE
+	setcycle 93 condition S2
+	setcycle 93 stim "Shale is mineral."
+	setcycle 93 correct_response "[true_response]"
+	setcycle 94 true_false TRUE
+	setcycle 94 condition S2
+	setcycle 94 stim "Apples are food."
+	setcycle 94 correct_response "[true_response]"
+	setcycle 95 true_false TRUE
+	setcycle 95 condition "S2."
+	setcycle 95 stim "A Tesla is a vehicle."
+	setcycle 95 correct_response "[true_response]"
+	setcycle 96 true_false TRUE
+	setcycle 96 condition SO
+	setcycle 96 stim "A walnut is a walnut."
+	setcycle 96 correct_response "[true_response]"
+	setcycle 97 true_false TRUE
+	setcycle 97 condition SO
+	setcycle 97 stim "July is July."
+	setcycle 97 correct_response "[true_response]"
+	setcycle 98 true_false TRUE
+	setcycle 98 condition SO
+	setcycle 98 stim "A neurologist is a neurologist."
+	setcycle 98 correct_response "[true_response]"
+	setcycle 99 true_false TRUE
+	setcycle 99 condition SO
+	setcycle 99 stim "Asparagus is asparagus."
+	setcycle 99 correct_response "[true_response]"
+	setcycle 100 true_false TRUE
+	setcycle 100 condition SO
+	setcycle 100 stim "A novel is a novel."
+	setcycle 100 correct_response "[true_response]"
+	setcycle 101 true_false TRUE
+	setcycle 101 condition SO
+	setcycle 101 stim "A bedroom is a bedroom."
+	setcycle 101 correct_response "[true_response]"
+	setcycle 102 true_false TRUE
+	setcycle 102 condition SO
+	setcycle 102 stim "A maple is a maple."
+	setcycle 102 correct_response "[true_response]"
+	setcycle 103 true_false TRUE
+	setcycle 103 condition SO
+	setcycle 103 stim "Brandy is brandy."
+	setcycle 103 correct_response "[true_response]"
+	setcycle 104 true_false TRUE
+	setcycle 104 condition SO
+	setcycle 104 stim "An artilleryman is an artilleryman."
+	setcycle 104 correct_response "[true_response]"
+	setcycle 105 true_false TRUE
+	setcycle 105 condition SO
+	setcycle 105 stim "Limestone is limestone."
+	setcycle 105 correct_response "[true_response]"
+	setcycle 106 true_false TRUE
+	setcycle 106 condition SO
+	setcycle 106 stim "Peas are peas."
+	setcycle 106 correct_response "[true_response]"
+	setcycle 107 true_false TRUE
+	setcycle 107 condition SO
+	setcycle 107 stim "A Chevrolet is a Chevrolet."
+	setcycle 107 correct_response "[true_response]"
+	run trial_sequence
+
+define sketchpad break
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Whew! Now you can take a break!<br /><br />Press any key when you are ready to start again." x=0 y=0 z_index=0
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run new_inline_javascript always
+	run instructions1 always
+	run instructions2 always
+	run instructions3 always
+	run instructions4 always
+	run block_one always
+	run break always
+	run block_two always
+
+define sketchpad fixation
+	set duration 500
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define sketchpad instructions1
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="In this experiment, you will read many sentences." x=0 y=0 z_index=0
+
+define sketchpad instructions2
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="After each sentence..<br /><br />Press [true_response] if the sentence is true.<br /><br />Press [false_response] if the sentence is false." x=0 y=0 z_index=0
+
+define sketchpad instructions3
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="You will have four seconds to read and respond to each sentence.<br /><br />Answer as quickly and accurately as possible.<br /><br />You will get a break halfway through the experiment." x=0 y=0 z_index=0
+
+define sketchpad instructions4
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Remember, after each sentence..<br /><br />Press [true_response] if the sentence is true.<br /><br />Press [false_response] if the sentence is false." x=0 y=0 z_index=0
+
+define keyboard_response keyboard_response
+	set timeout 1000
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses "z;m"
+
+define logger logger
+	set description "Logs experimental data"
+	set auto_log yes
+
+define inline_javascript new_inline_javascript
+	set description "Executes JavaScript code"
+	set _run ""
+	___prepare__
+	if (vars.subject_parity == 'odd') {
+	  vars.true_response = 'z';
+	  vars.false_response = 'm'
+	} else { 
+	  vars.true_response = 'm';
+	  vars.false_response = 'z'
+	}
+	__end__
+
+define sketchpad stim
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[stim]" x=0 y=0 z_index=0
+
+define sequence trial_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run stim always
+	run fixation always
+	run ISI always
+	run keyboard_response always
+	run logger always
+

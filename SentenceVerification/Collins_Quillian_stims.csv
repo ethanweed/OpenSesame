@@ -1,0 +1,200 @@
+﻿TRUE,PO,Football has goals. 
+TRUE,P1,Basketball has rules. 
+TRUE,SO,Chess is chess. 
+TRUE,S1,Tennis is a game
+TRUE,PO,San Francisco has fog. 
+TRUE,P1,Pittsburg has people. 
+TRUE,SO,Boston is Boston. 
+TRUE,S1,Baltimore is a city.
+TRUE,PO,A sunflower is yellow. 
+TRUE,P1,A violet has a stem. 
+TRUE,SO,A gardenia is a gardenia. 
+TRUE,S1,An orchid is a flower.
+TRUE,PO,A rifle is long. 
+TRUE,P1,A pistol can fire. 
+TRUE,SO,A shotgun is a shotgun. 
+TRUE,S1,A revolver is a gun.
+TRUE,PO,A lollypop has a stick. 
+TRUE,P1,Taffy is sweet. 
+TRUE,SO,Licorice is licorice. 
+TRUE,S1,A gumdrop is candy.
+TRUE,PO,A salmon is pink. 
+TRUE,P1,A shark has gills. 
+TRUE,SO,A sardine is a sardine. 
+TRUE,S1,A trout is a fish.
+TRUE,PO,A tugboat can pull.
+TRUE,P1,A schooner has a rudder.
+TRUE,SO,A sailboat is a sailboat.
+TRUE,S1,An ocean liner is a boat.
+TRUE,PO,France has DeGaulle.
+TRUE,P1,Italy has borders.
+TRUE,SO,England is England.
+TRUE,S1,Belgium is a nation.
+TRUE,PO,A canary can sing.
+TRUE,P1,A wren can fly.
+TRUE,SO,A robin is a robin.
+TRUE,S1,A parrot is a bird.
+TRUE,PO,Nylon is smooth.
+TRUE,P1,Silk is woven.
+TRUE,SO,Rayon is rayon.
+TRUE,S1,Velvet is a fabric.
+TRUE,PO,A cashew is curved.
+TRUE,P1,A chestnut has a shell.
+TRUE,SO,A walnut is a walnut.
+TRUE,S1.,A pecan is a nut.
+TRUE,PO,April has showers.
+TRUE,P1,August has days.
+TRUE,SO,July is July.
+TRUE,S1,February is a month.
+TRUE,PO,A surgeon has a scapel.
+TRUE,P1,An occulist has patients.
+TRUE,SO,A neurologist is a neurologist.
+TRUE,S1,A general practitioner is a doctor.
+TRUE,PO,A pea is round.
+TRUE,P1,A bean is grown.
+TRUE,SO,Asparagus is asparagus.
+TRUE,S1,A carrot is a vegetable.
+TRUE,PO,A dictionary has definitions.
+TRUE,P1,An encyclopedia has print.
+TRUE,SO,A novel is a novel.
+TRUE,S1,A biography is a book.
+TRUE,PO,A pantry has shelves.
+TRUE,P1,A hall has a ceiling.
+TRUE,SO,A bedroom is a bedroom.
+TRUE,S1,A kitchen is a room.
+TRUE,PO,An oak has acorns.
+TRUE,P1,A fir has branches.
+TRUE,P2,A birch has seeds.
+TRUE,SO,A maple is a maple.
+TRUE,S1,A cedar is a tree.
+TRUE,S2,An elm is a plant.
+TRUE,PO,Champagne is sparkling.
+TRUE,P1,Chianti is alcoholic.
+TRUE,P2,Gin is wet.
+TRUE,SO,Brandy is brandy.
+TRUE,S1,Sherry is wine.
+TRUE,S2,Vermouth is liquid.
+TRUE,PO,A general has command.
+TRUE,P1,A sergeant has a uniform.
+TRUE,P2,A lieutenant can talk.
+TRUE,SO,An artilleryman is an artilleryman.
+TRUE,S1,A private is a soldier.
+TRUE,S2,A corporal is a person.
+TRUE,PO,Marble is smooth.
+TRUE,P1,A pebble is solid.
+TRUE,P2,Granite is inorganic.
+TRUE,SO,Limestone is limestone.
+TRUE,S1,Gravel is stone.
+TRUE,S2,Shale is mineral.
+TRUE,PO,Bananas are yellow.
+TRUE,P1,Beans have protein.
+TRUE,P2,Bread is digestable.
+TRUE,SO,Peas are peas.
+TRUE,S1,Broccoli is a vegetable.
+TRUE,S2,Apples are food.
+TRUE,PO,A limousine is long.
+TRUE,P1,A truck has wheels.
+TRUE,P2,A sedan is mobile.
+TRUE,SO,A Chevrolet is a Chevrolet.
+TRUE,S1,An Audi is a car
+TRUE,S2.,A Tesla is a vehicle.
+FALSE,PO,Checkers has pawns.
+FALSE,P1,Ping Pong has baskets.
+FALSE,SO,Hockey is a race.
+FALSE,S1,Football is a lottery.
+FALSE,PO,Miami has snow.
+FALSE,P1,London has pig farms.
+FALSE,SO,Chicago is a state.
+FALSE,S1,Aarhus is a region.
+FALSE,PO,A rose has bark.
+FALSE,P1,A daisy is black.
+FALSE,SO,A petunia is thorny.
+FALSE,S1,A zinnia is a mammal.
+FALSE,PO,A berry is large.
+FALSE,P1,A banana has bones.
+FALSE,SO,An apple is an orange.
+FALSE,S1,An apple is a building.
+FALSE,PO,Fudge is sour.
+FALSE,P1,Mints are salty.
+FALSE,SO,Caramel is cotton candy.
+FALSE,S1,Cremes are cookies.
+FALSE,PO,A tuna is purple.
+FALSE,P1,A shrimp can fly.
+FALSE,SO,A bass is a crab.
+FALSE,S1,A catfish is a whale.
+FALSE,PO,A rowboat has a motor.
+FALSE,P1,A canoe has a sail.
+FALSE,SO,A raft is a destroyer.
+FALSE,S1,A submarine is a car.
+FALSE,PO,Russia is an island.
+FALSE,P1,Japan has Biden.
+FALSE,SO,Egypt is Europe.
+FALSE,S1,Peru is a city.
+FALSE,PO,A crow is green.
+FALSE,P1,A dove has fins.
+FALSE,SO,A parakeet is an eagle.
+FALSE,S1,A mockingbird is a snake.
+FALSE,PO,Polyester is grown.
+FALSE,P1,Satin is rough.
+FALSE,SO,Canvas is wool.
+FALSE,S1,Denim is a food.
+FALSE,PO,A peanut is flat.
+FALSE,P1,A almond is square.
+FALSE,SO,A hickory nut is a beetle nut.
+FALSE,S1,A pistachio is a rodent.
+FALSE,PO,June has snow.
+FALSE,P1,March is September.
+FALSE,SO,November has years.
+FALSE,S1,May is a minute.
+FALSE,PO,A dentist has fans.
+FALSE,P1,An optometrist has a drill.
+FALSE,SO,A podiatrist is a psychologist.
+FALSE,S1,A chiropractor is a lawyer.
+FALSE,PO,Lettuce is white.
+FALSE,P1,A tomato is born.
+FALSE,SO,A radish is squash.
+FALSE,S1,An onion is a tool.
+FALSE,PO,A directory has a story.
+FALSE,P1,A cookbook has rhymes.
+FALSE,SO,A diary is a thesaurus.
+FALSE,S1,The bible is a building.
+FALSE,PO,A den has a shower.
+FALSE,P1,A bathroom has a refrigerator.
+FALSE,SO,A study is a patio.
+FALSE,S1,A closet is a road.
+FALSE,PO,A sahuara has lemons.
+FALSE,P1,A mulberry has needles.
+FALSE,P2,A sycamore has fruit.
+FALSE,SO,A pine is an ash.
+FALSE,S1,A redwood is a cactus.
+FALSE,S2,A mesquite is a mineral.
+FALSE,PO,Tequila is carbonated.
+FALSE,P1,Vodka is a soft drink.
+FALSE,P2,Bourbon is gritty.
+FALSE,SO,Scotch is rum.
+FALSE,S1,Chablis is beer.
+FALSE,S2,Cognac is gas.
+FALSE,PO,A private has authority.
+FALSE,P1,A infantryman has a rocket.
+FALSE,P2,A brigade can fly.
+FALSE,SO,A soldier is a civilian.
+FALSE,S1,A major is a captain.
+FALSE,S2,A general is a monkey.
+FALSE,PO,Flint is soft.
+FALSE,P1,A boulder is small.
+FALSE,P2,Sandstone is edible.
+FALSE,SO,Lava is quartz.
+FALSE,S1,Rock is wood.
+FALSE,S2,Turquoise is fruit.
+FALSE,PO,Balogna is gray.
+FALSE,P1,Hamburger has drumsticks.
+FALSE,P2,"Steak is drinkable,"
+FALSE,SO,Chicken is beef.
+FALSE,S1,Bacon is salad.
+FALSE,S2,Roast is clothing.
+FALSE,PO,A compact is big.
+FALSE,P1,A jeep has wings.
+FALSE,P2,A bus can walk.
+FALSE,SO,A ford is a toyota.
+FALSE,S1,A corvette is an airplane.
+FALSE,S2,A sedan is a store.
