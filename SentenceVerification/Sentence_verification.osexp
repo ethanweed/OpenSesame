@@ -51,7 +51,7 @@ define loop block_one
 	set break_if never
 	setcycle 0 true_false FALSE
 	setcycle 0 condition P1
-	setcycle 0 stim "Ping Pong has baskets."
+	setcycle 0 stim "Table tennis has baskets."
 	setcycle 0 correct_response "[false_response]"
 	setcycle 1 true_false FALSE
 	setcycle 1 condition P1
@@ -151,7 +151,7 @@ define loop block_one
 	setcycle 24 correct_response "[false_response]"
 	setcycle 25 true_false FALSE
 	setcycle 25 condition S1
-	setcycle 25 stim "A zinnia is a mammal."
+	setcycle 25 stim "A violet is a mammal."
 	setcycle 25 correct_response "[false_response]"
 	setcycle 26 true_false FALSE
 	setcycle 26 condition S1
@@ -219,7 +219,7 @@ define loop block_one
 	setcycle 41 correct_response "[false_response]"
 	setcycle 42 true_false FALSE
 	setcycle 42 condition SO
-	setcycle 42 stim "A raft is a destroyer."
+	setcycle 42 stim "A raft is an aircraft carrier."
 	setcycle 42 correct_response "[false_response]"
 	setcycle 43 true_false FALSE
 	setcycle 43 condition SO
@@ -327,7 +327,7 @@ define loop block_one
 	setcycle 68 correct_response "[true_response]"
 	setcycle 69 true_false TRUE
 	setcycle 69 condition S1
-	setcycle 69 stim "Tennis is a game"
+	setcycle 69 stim "Tennis is a game."
 	setcycle 69 correct_response "[true_response]"
 	setcycle 70 true_false TRUE
 	setcycle 70 condition S1
@@ -426,7 +426,7 @@ define loop block_two
 	set break_if never
 	setcycle 0 true_false FALSE
 	setcycle 0 condition P1
-	setcycle 0 stim "A almond is square."
+	setcycle 0 stim "An almond is square."
 	setcycle 0 correct_response "[false_response]"
 	setcycle 1 true_false FALSE
 	setcycle 1 condition P1
@@ -450,7 +450,7 @@ define loop block_two
 	setcycle 5 correct_response "[false_response]"
 	setcycle 6 true_false FALSE
 	setcycle 6 condition P1
-	setcycle 6 stim "A mulberry has needles."
+	setcycle 6 stim "A daisy has needles."
 	setcycle 6 correct_response "[false_response]"
 	setcycle 7 true_false FALSE
 	setcycle 7 condition P1
@@ -458,7 +458,7 @@ define loop block_two
 	setcycle 7 correct_response "[false_response]"
 	setcycle 8 true_false FALSE
 	setcycle 8 condition P1
-	setcycle 8 stim "A infantryman has a rocket."
+	setcycle 8 stim "An infantryman has a rocket."
 	setcycle 8 correct_response "[false_response]"
 	setcycle 9 true_false FALSE
 	setcycle 9 condition P1
@@ -470,7 +470,7 @@ define loop block_two
 	setcycle 10 correct_response "[false_response]"
 	setcycle 11 true_false FALSE
 	setcycle 11 condition P1
-	setcycle 11 stim "A jeep has wings."
+	setcycle 11 stim "A Jeep has wings."
 	setcycle 11 correct_response "[false_response]"
 	setcycle 12 true_false FALSE
 	setcycle 12 condition P2
@@ -478,7 +478,7 @@ define loop block_two
 	setcycle 12 correct_response "[false_response]"
 	setcycle 13 true_false FALSE
 	setcycle 13 condition P2
-	setcycle 13 stim "Steak is drinkable,"
+	setcycle 13 stim "Steak is drinkable."
 	setcycle 13 correct_response "[false_response]"
 	setcycle 14 true_false FALSE
 	setcycle 14 condition P2
@@ -510,7 +510,7 @@ define loop block_two
 	setcycle 20 correct_response "[false_response]"
 	setcycle 21 true_false FALSE
 	setcycle 21 condition PO
-	setcycle 21 stim "A sahuara has lemons."
+	setcycle 21 stim "A palm has lemons."
 	setcycle 21 correct_response "[false_response]"
 	setcycle 22 true_false FALSE
 	setcycle 22 condition PO
@@ -526,11 +526,11 @@ define loop block_two
 	setcycle 24 correct_response "[false_response]"
 	setcycle 25 true_false FALSE
 	setcycle 25 condition PO
-	setcycle 25 stim "Balogna is gray."
+	setcycle 25 stim "Mozarella is gray."
 	setcycle 25 correct_response "[false_response]"
 	setcycle 26 true_false FALSE
 	setcycle 26 condition PO
-	setcycle 26 stim "A compact is big."
+	setcycle 26 stim "A lipstick is big."
 	setcycle 26 correct_response "[false_response]"
 	setcycle 27 true_false FALSE
 	setcycle 27 condition S1
@@ -578,7 +578,7 @@ define loop block_two
 	setcycle 37 correct_response "[false_response]"
 	setcycle 38 true_false FALSE
 	setcycle 38 condition S1
-	setcycle 38 stim "A corvette is an airplane."
+	setcycle 38 stim "A Porsche is an airplane."
 	setcycle 38 correct_response "[false_response]"
 	setcycle 39 true_false FALSE
 	setcycle 39 condition S2
@@ -638,7 +638,7 @@ define loop block_two
 	setcycle 52 correct_response "[false_response]"
 	setcycle 53 true_false FALSE
 	setcycle 53 condition SO
-	setcycle 53 stim "A ford is a toyota."
+	setcycle 53 stim "A Ford is a Toyota."
 	setcycle 53 correct_response "[false_response]"
 	setcycle 54 true_false TRUE
 	setcycle 54 condition P1
@@ -650,7 +650,7 @@ define loop block_two
 	setcycle 55 correct_response "[true_response]"
 	setcycle 56 true_false TRUE
 	setcycle 56 condition P1
-	setcycle 56 stim "An occulist has patients."
+	setcycle 56 stim "An ophthalmologist has patients."
 	setcycle 56 correct_response "[true_response]"
 	setcycle 57 true_false TRUE
 	setcycle 57 condition P1
@@ -893,7 +893,7 @@ define sketchpad instructions2
 define sketchpad instructions3
 	set duration keypress
 	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="You will have four seconds to read and respond to each sentence.<br /><br />Answer as quickly and accurately as possible.<br /><br />You will get a break halfway through the experiment." x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="There is no time limit, so just try to answer as quickly and accurately as possible.<br /><br />You will get a break halfway through the experiment." x=0 y=0 z_index=0
 
 define sketchpad instructions4
 	set duration keypress

@@ -17,7 +17,15 @@ A derringer is large. -> A berry is large
 A bazooka has arrows. -> A banana has bones.
 A mortar is a musket. -> An apple is an orange
 A cannon is a bomb. -> An apple is a building.
-Japan has Mao. -> Japan has Biden
+Japan has Mao. -> Japan has Biden.
+A mulberry has needles -> A daisy has needles.
+Bologna is gray -> Mozarella is gray.
+A compact is big. -> A lipstick is big.
+A corvette is an airplane. -> A Porsche is an airplane.
+An occulist has patients. -> An ophthalmologist has patients.
+Ping Pong has baskets. -> Table tennis has baskets.
+A zinnia is a mammal. -> A violet is a mammal.
+A raft is a destroyer. -> A raft is an aircraft carrier.
 
 
 
