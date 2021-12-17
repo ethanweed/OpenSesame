@@ -1,6 +1,18 @@
 Stimuli taken from: 
 Enríquez, M. Á. (1978). Mapping semantic memory for native English speakers, native Spanish speakers and Spanish-English bilinguals.
 
+Original experiments reported in Collins and Quillian (1969)
+
+Experiment recreated in OpenSesame, all details about server etc. the same some the previous experiments.
+
+---
+fixation point: 500 ms
+ISI (blank screen): 200 ms
+stimulus: no time limit: onscreen until the participant presses a key
+response buttons were counterbalanced: half the participants answered "m" for true and "z" for false, for the other half it was reversed.
+
+---------------------------------------- 
+
 Changed (outdated or unfamiliar references, assumptions):
 
 A corporal is a man. -A corporal is a person.
@@ -50,12 +62,7 @@ Broccoli is a vegetable.
 Apples are food.
 
 
----
 
-stimulus: 2000 ms
-ISI: 2000 ms
-timeout after total 2000 ms ISI
-counterbalance true button
 
 ---
 
