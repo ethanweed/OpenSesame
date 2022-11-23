@@ -30,3 +30,4 @@ def eng2leet(word, num_mod):
 #eng2leet('VINE', 0)
 #eng2leet('VINE', 1)
 #eng2leet('VINE', 2)
+#eng2leet('ETHAN', len('ETHAN'))
