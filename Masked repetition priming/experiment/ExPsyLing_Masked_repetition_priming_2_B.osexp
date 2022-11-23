@@ -1,0 +1,1095 @@
+---
+API: 2.1
+OpenSesame: 3.3.12
+Platform: posix
+---
+set width 1024
+set uniform_coordinates yes
+set title ExPsyLing_Masked_repetition_priming2_B
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set sampler_backend psycho
+set round_decimals 2
+set mouse_backend psycho
+set keyboard_backend psycho
+set height 768
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 18
+set font_italic no
+set font_family mono
+set font_bold no
+set experiment_path "/Users/ethan/Documents/GitHub/OpenSesame/Masked repetition priming/experiment"
+set disable_garbage_collection yes
+set description "The main experiment item"
+set coordinates uniform
+set compensation 0
+set color_backend psycho
+set clock_backend psycho
+set canvas_backend psycho
+set background black
+
+define sketchpad Thanks
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="All done!<br /><br />Thanks for participating!<br /><br />Please press any key to continue and save your data." x=0 y=0 z_index=0
+
+define sketchpad blank
+	set duration 80
+	set description "Displays stimuli"
+
+define sequence block_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run long_loop_B always
+	run break always
+	run short_loop_B always
+	run Thanks always
+
+define sketchpad break
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Break time!<br /><br />Press any key to begin the second half of the experiment.." x=0 y=0 z_index=0
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run instructions1 always
+	run instructions1a always
+	run instructions2 always
+	run instructions3 always
+	run instructions4 always
+	run practice_loop always
+	run instructions5 always
+	run block_sequence always
+
+define sketchpad fixation
+	set duration 539
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=serif font_italic=no font_size=30 html=yes show_if=always text="######" x=0 y=0 z_index=0
+
+define sketchpad instructions1
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="In this experiment, you will see some words, separated by #####.<br /><br />When you see the word, your job is to say whether it is something natural or man-made.<br /><br />Press the N key if it is natural<br /><br />Press the M key if it is man-made<br /><br />Press any key to continue.." x=0 y=0 z_index=0
+
+define sketchpad instructions1a
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Natural could be things like plants, animals, rocks.. <br />anything from the natural world.<br /><br />Man-made refers to anything produced by people: objects, tools, machines.. <br />anything that requires a person to make it.<br /><br />Press any key to continue.." x=0 y=0 z_index=0
+
+define sketchpad instructions2
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Try to respond as quickly and accurately as you can.<br /><br />You need to respond within two seconds.<br /><br />Sometimes, you will make a mistake. That's ok. <br /><br />Sometimes, you might be unsure what the word means. That's ok too.<br /><br />Just go on to the next one.<br /><br />Press any key to continue.." x=0 y=0 z_index=0
+
+define sketchpad instructions3
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="The whole experiment will take you around 6-7 minutes to complete.<br /><br />There is a break when you are halfway through.<br /><br />Press any key to continue.." x=0 y=0 z_index=0
+
+define sketchpad instructions4
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Before you start the real experiment, there is a quick practice round.<br /><br />Remember:<br /><br />press N if the word is something natural<br /><br />press M if the word is something man-made<br /><br />Press any key to start the practice round..<br />" x=0 y=0 z_index=0
+
+define sketchpad instructions5
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Practice complete!<br /><br />Now you are ready to start the real experiment.<br /><br />Remember to answer as quickly as you can, as you only have two seconds to respond.<br /><br />Enjoy!<br /><br />Press any key to begin.." x=0 y=0 z_index=0
+
+define keyboard_response keyboard_response_long
+	set timeout 2000
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response keyboard_response_short
+	set timeout 2000
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define logger logger
+	set description "Logs experimental data"
+	set auto_log no
+	log response_time
+	log condition
+	log congruence
+	log soa_condition
+	log prime
+	log target
+	log correct
+	log time_prime
+	log time_mask1
+	log time_mask2
+	log counterbalance
+
+define loop long_loop_B
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 60
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 prime crab
+	setcycle 0 target CRAB
+	setcycle 0 condition Con_Nat
+	setcycle 0 soa_condition long
+	setcycle 0 congruence congruent
+	setcycle 0 correct_response n
+	setcycle 0 counterbalance B
+	setcycle 1 prime swan
+	setcycle 1 target SWAN
+	setcycle 1 condition Con_Nat
+	setcycle 1 soa_condition long
+	setcycle 1 congruence congruent
+	setcycle 1 correct_response n
+	setcycle 1 counterbalance B
+	setcycle 2 prime slug
+	setcycle 2 target SLUG
+	setcycle 2 condition Con_Nat
+	setcycle 2 soa_condition long
+	setcycle 2 congruence congruent
+	setcycle 2 correct_response n
+	setcycle 2 counterbalance B
+	setcycle 3 prime peas
+	setcycle 3 target PEAS
+	setcycle 3 condition Con_Nat
+	setcycle 3 soa_condition long
+	setcycle 3 congruence congruent
+	setcycle 3 correct_response n
+	setcycle 3 counterbalance B
+	setcycle 4 prime reef
+	setcycle 4 target REEF
+	setcycle 4 condition Con_Nat
+	setcycle 4 soa_condition long
+	setcycle 4 congruence congruent
+	setcycle 4 correct_response n
+	setcycle 4 counterbalance B
+	setcycle 5 prime clam
+	setcycle 5 target CLAM
+	setcycle 5 condition Con_Nat
+	setcycle 5 soa_condition long
+	setcycle 5 congruence congruent
+	setcycle 5 correct_response n
+	setcycle 5 counterbalance B
+	setcycle 6 prime hare
+	setcycle 6 target HARE
+	setcycle 6 condition Con_Nat
+	setcycle 6 soa_condition long
+	setcycle 6 congruence congruent
+	setcycle 6 correct_response n
+	setcycle 6 counterbalance B
+	setcycle 7 prime plum
+	setcycle 7 target PLUM
+	setcycle 7 condition Con_Nat
+	setcycle 7 soa_condition long
+	setcycle 7 congruence congruent
+	setcycle 7 correct_response n
+	setcycle 7 counterbalance B
+	setcycle 8 prime moss
+	setcycle 8 target MOSS
+	setcycle 8 condition Con_Nat
+	setcycle 8 soa_condition long
+	setcycle 8 congruence congruent
+	setcycle 8 correct_response n
+	setcycle 8 counterbalance B
+	setcycle 9 prime boar
+	setcycle 9 target BOAR
+	setcycle 9 condition Con_Nat
+	setcycle 9 soa_condition long
+	setcycle 9 congruence congruent
+	setcycle 9 correct_response n
+	setcycle 9 counterbalance B
+	setcycle 10 prime wasp
+	setcycle 10 target WASP
+	setcycle 10 condition Con_Nat
+	setcycle 10 soa_condition long
+	setcycle 10 congruence congruent
+	setcycle 10 correct_response n
+	setcycle 10 counterbalance B
+	setcycle 11 prime pear
+	setcycle 11 target PEAR
+	setcycle 11 condition Con_Nat
+	setcycle 11 soa_condition long
+	setcycle 11 congruence congruent
+	setcycle 11 correct_response n
+	setcycle 11 counterbalance B
+	setcycle 12 prime earth
+	setcycle 12 target EARTH
+	setcycle 12 condition Con_Nat
+	setcycle 12 soa_condition long
+	setcycle 12 congruence congruent
+	setcycle 12 correct_response n
+	setcycle 12 counterbalance B
+	setcycle 13 prime stick
+	setcycle 13 target STICK
+	setcycle 13 condition Con_Nat
+	setcycle 13 soa_condition long
+	setcycle 13 congruence congruent
+	setcycle 13 correct_response n
+	setcycle 13 counterbalance B
+	setcycle 14 prime stone
+	setcycle 14 target STONE
+	setcycle 14 condition Con_Nat
+	setcycle 14 soa_condition long
+	setcycle 14 congruence congruent
+	setcycle 14 correct_response n
+	setcycle 14 counterbalance B
+	setcycle 15 prime arrow
+	setcycle 15 target ARROW
+	setcycle 15 condition Con_Synth
+	setcycle 15 soa_condition long
+	setcycle 15 congruence congruent
+	setcycle 15 correct_response m
+	setcycle 15 counterbalance B
+	setcycle 16 prime stove
+	setcycle 16 target STOVE
+	setcycle 16 condition Con_Synth
+	setcycle 16 soa_condition long
+	setcycle 16 congruence congruent
+	setcycle 16 correct_response m
+	setcycle 16 counterbalance B
+	setcycle 17 prime jeans
+	setcycle 17 target JEANS
+	setcycle 17 condition Con_Synth
+	setcycle 17 soa_condition long
+	setcycle 17 congruence congruent
+	setcycle 17 correct_response m
+	setcycle 17 counterbalance B
+	setcycle 18 prime ferry
+	setcycle 18 target FERRY
+	setcycle 18 condition Con_Synth
+	setcycle 18 soa_condition long
+	setcycle 18 congruence congruent
+	setcycle 18 correct_response m
+	setcycle 18 counterbalance B
+	setcycle 19 prime broom
+	setcycle 19 target BROOM
+	setcycle 19 condition Con_Synth
+	setcycle 19 soa_condition long
+	setcycle 19 congruence congruent
+	setcycle 19 correct_response m
+	setcycle 19 counterbalance B
+	setcycle 20 prime scarf
+	setcycle 20 target SCARF
+	setcycle 20 condition Con_Synth
+	setcycle 20 soa_condition long
+	setcycle 20 congruence congruent
+	setcycle 20 correct_response m
+	setcycle 20 counterbalance B
+	setcycle 21 prime crate
+	setcycle 21 target CRATE
+	setcycle 21 condition Con_Synth
+	setcycle 21 soa_condition long
+	setcycle 21 congruence congruent
+	setcycle 21 correct_response m
+	setcycle 21 counterbalance B
+	setcycle 22 prime canoe
+	setcycle 22 target CANOE
+	setcycle 22 condition Con_Synth
+	setcycle 22 soa_condition long
+	setcycle 22 congruence congruent
+	setcycle 22 correct_response m
+	setcycle 22 counterbalance B
+	setcycle 23 prime linen
+	setcycle 23 target LINEN
+	setcycle 23 condition Con_Synth
+	setcycle 23 soa_condition long
+	setcycle 23 congruence congruent
+	setcycle 23 correct_response m
+	setcycle 23 counterbalance B
+	setcycle 24 prime apron
+	setcycle 24 target APRON
+	setcycle 24 condition Con_Synth
+	setcycle 24 soa_condition long
+	setcycle 24 congruence congruent
+	setcycle 24 correct_response m
+	setcycle 24 counterbalance B
+	setcycle 25 prime flute
+	setcycle 25 target FLUTE
+	setcycle 25 condition Con_Synth
+	setcycle 25 soa_condition long
+	setcycle 25 congruence congruent
+	setcycle 25 correct_response m
+	setcycle 25 counterbalance B
+	setcycle 26 prime stair
+	setcycle 26 target STAIR
+	setcycle 26 condition Con_Synth
+	setcycle 26 soa_condition long
+	setcycle 26 congruence congruent
+	setcycle 26 correct_response m
+	setcycle 26 counterbalance B
+	setcycle 27 prime flask
+	setcycle 27 target FLASK
+	setcycle 27 condition Con_Synth
+	setcycle 27 soa_condition long
+	setcycle 27 congruence congruent
+	setcycle 27 correct_response m
+	setcycle 27 counterbalance B
+	setcycle 28 prime canon
+	setcycle 28 target CANON
+	setcycle 28 condition Con_Synth
+	setcycle 28 soa_condition long
+	setcycle 28 congruence congruent
+	setcycle 28 correct_response m
+	setcycle 28 counterbalance B
+	setcycle 29 prime tongs
+	setcycle 29 target TONGS
+	setcycle 29 condition Con_Synth
+	setcycle 29 soa_condition long
+	setcycle 29 congruence congruent
+	setcycle 29 correct_response m
+	setcycle 29 counterbalance B
+	setcycle 30 prime cake
+	setcycle 30 target TRASH
+	setcycle 30 condition Inc_Synth_Synth
+	setcycle 30 soa_condition long
+	setcycle 30 congruence incongruent
+	setcycle 30 correct_response m
+	setcycle 30 counterbalance B
+	setcycle 31 prime desk
+	setcycle 31 target CANDY
+	setcycle 31 condition Inc_Synth_Synth
+	setcycle 31 soa_condition long
+	setcycle 31 congruence incongruent
+	setcycle 31 correct_response m
+	setcycle 31 counterbalance B
+	setcycle 32 prime bell
+	setcycle 32 target WHEEL
+	setcycle 32 condition Inc_Synth_Synth
+	setcycle 32 soa_condition long
+	setcycle 32 congruence incongruent
+	setcycle 32 correct_response m
+	setcycle 32 counterbalance B
+	setcycle 33 prime roof
+	setcycle 33 target PIANO
+	setcycle 33 condition Inc_Synth_Synth
+	setcycle 33 soa_condition long
+	setcycle 33 congruence incongruent
+	setcycle 33 correct_response m
+	setcycle 33 counterbalance B
+	setcycle 34 prime shoe
+	setcycle 34 target COUCH
+	setcycle 34 condition Inc_Synth_Synth
+	setcycle 34 soa_condition long
+	setcycle 34 congruence incongruent
+	setcycle 34 correct_response m
+	setcycle 34 counterbalance B
+	setcycle 35 prime wire
+	setcycle 35 target CABIN
+	setcycle 35 condition Inc_Synth_Synth
+	setcycle 35 soa_condition long
+	setcycle 35 congruence incongruent
+	setcycle 35 correct_response m
+	setcycle 35 counterbalance B
+	setcycle 36 prime taxi
+	setcycle 36 target CHAIN
+	setcycle 36 condition Inc_Synth_Synth
+	setcycle 36 soa_condition long
+	setcycle 36 congruence incongruent
+	setcycle 36 correct_response m
+	setcycle 36 counterbalance B
+	setcycle 37 prime deck
+	setcycle 37 target PLATE
+	setcycle 37 condition Inc_Synth_Synth
+	setcycle 37 soa_condition long
+	setcycle 37 congruence incongruent
+	setcycle 37 correct_response m
+	setcycle 37 counterbalance B
+	setcycle 38 prime bowl
+	setcycle 38 target WOLF
+	setcycle 38 condition Inc_Synth_Nat
+	setcycle 38 soa_condition long
+	setcycle 38 congruence incongruent
+	setcycle 38 correct_response n
+	setcycle 38 counterbalance B
+	setcycle 39 prime pipe
+	setcycle 39 target LION
+	setcycle 39 condition Inc_Synth_Nat
+	setcycle 39 soa_condition long
+	setcycle 39 congruence incongruent
+	setcycle 39 correct_response n
+	setcycle 39 counterbalance B
+	setcycle 40 prime mall
+	setcycle 40 target BUSH
+	setcycle 40 condition Inc_Synth_Nat
+	setcycle 40 soa_condition long
+	setcycle 40 congruence incongruent
+	setcycle 40 correct_response n
+	setcycle 40 counterbalance B
+	setcycle 41 prime sink
+	setcycle 41 target LAMB
+	setcycle 41 condition Inc_Synth_Nat
+	setcycle 41 soa_condition long
+	setcycle 41 congruence incongruent
+	setcycle 41 correct_response n
+	setcycle 41 counterbalance B
+	setcycle 42 prime fort
+	setcycle 42 target GOAT
+	setcycle 42 condition Inc_Synth_Nat
+	setcycle 42 soa_condition long
+	setcycle 42 congruence incongruent
+	setcycle 42 correct_response n
+	setcycle 42 counterbalance B
+	setcycle 43 prime soap
+	setcycle 43 target PONY
+	setcycle 43 condition Inc_Synth_Nat
+	setcycle 43 soa_condition long
+	setcycle 43 congruence incongruent
+	setcycle 43 correct_response n
+	setcycle 43 counterbalance B
+	setcycle 44 prime barn
+	setcycle 44 target TUNA
+	setcycle 44 condition Inc_Synth_Nat
+	setcycle 44 soa_condition long
+	setcycle 44 congruence incongruent
+	setcycle 44 correct_response n
+	setcycle 44 counterbalance B
+	setcycle 45 prime storm
+	setcycle 45 target LAND
+	setcycle 45 condition Inc_Nat_Nat
+	setcycle 45 soa_condition long
+	setcycle 45 congruence incongruent
+	setcycle 45 correct_response n
+	setcycle 45 counterbalance B
+	setcycle 46 prime ocean
+	setcycle 46 target TREE
+	setcycle 46 condition Inc_Nat_Nat
+	setcycle 46 soa_condition long
+	setcycle 46 congruence incongruent
+	setcycle 46 correct_response n
+	setcycle 46 counterbalance B
+	setcycle 47 prime fruit
+	setcycle 47 target BEAR
+	setcycle 47 condition Inc_Nat_Nat
+	setcycle 47 soa_condition long
+	setcycle 47 congruence incongruent
+	setcycle 47 correct_response n
+	setcycle 47 counterbalance B
+	setcycle 48 prime bunny
+	setcycle 48 target ROSE
+	setcycle 48 condition Inc_Nat_Nat
+	setcycle 48 soa_condition long
+	setcycle 48 congruence incongruent
+	setcycle 48 correct_response n
+	setcycle 48 counterbalance B
+	setcycle 49 prime shark
+	setcycle 49 target HILL
+	setcycle 49 condition Inc_Nat_Nat
+	setcycle 49 soa_condition long
+	setcycle 49 congruence incongruent
+	setcycle 49 correct_response n
+	setcycle 49 counterbalance B
+	setcycle 50 prime sheep
+	setcycle 50 target BULL
+	setcycle 50 condition Inc_Nat_Nat
+	setcycle 50 soa_condition long
+	setcycle 50 congruence incongruent
+	setcycle 50 correct_response n
+	setcycle 50 counterbalance B
+	setcycle 51 prime shell
+	setcycle 51 target DIRT
+	setcycle 51 condition Inc_Nat_Nat
+	setcycle 51 soa_condition long
+	setcycle 51 congruence incongruent
+	setcycle 51 correct_response n
+	setcycle 51 counterbalance B
+	setcycle 52 prime lemon
+	setcycle 52 target DUCK
+	setcycle 52 condition Inc_Nat_Nat
+	setcycle 52 soa_condition long
+	setcycle 52 congruence incongruent
+	setcycle 52 correct_response n
+	setcycle 52 counterbalance B
+	setcycle 53 prime cloud
+	setcycle 53 target MOTEL
+	setcycle 53 condition Inc_Nat_Synth
+	setcycle 53 soa_condition long
+	setcycle 53 congruence incongruent
+	setcycle 53 correct_response m
+	setcycle 53 counterbalance B
+	setcycle 54 prime eagle
+	setcycle 54 target WAGON
+	setcycle 54 condition Inc_Nat_Synth
+	setcycle 54 soa_condition long
+	setcycle 54 congruence incongruent
+	setcycle 54 correct_response m
+	setcycle 54 counterbalance B
+	setcycle 55 prime swamp
+	setcycle 55 target DRILL
+	setcycle 55 condition Inc_Nat_Synth
+	setcycle 55 soa_condition long
+	setcycle 55 congruence incongruent
+	setcycle 55 correct_response m
+	setcycle 55 counterbalance B
+	setcycle 56 prime olive
+	setcycle 56 target MOTOR
+	setcycle 56 condition Inc_Nat_Synth
+	setcycle 56 soa_condition long
+	setcycle 56 congruence incongruent
+	setcycle 56 correct_response m
+	setcycle 56 counterbalance B
+	setcycle 57 prime wheat
+	setcycle 57 target BRICK
+	setcycle 57 condition Inc_Nat_Synth
+	setcycle 57 soa_condition long
+	setcycle 57 congruence incongruent
+	setcycle 57 correct_response m
+	setcycle 57 counterbalance B
+	setcycle 58 prime flood
+	setcycle 58 target SKIRT
+	setcycle 58 condition Inc_Nat_Synth
+	setcycle 58 soa_condition long
+	setcycle 58 congruence incongruent
+	setcycle 58 correct_response m
+	setcycle 58 counterbalance B
+	setcycle 59 prime moose
+	setcycle 59 target PORCH
+	setcycle 59 condition Inc_Nat_Synth
+	setcycle 59 soa_condition long
+	setcycle 59 congruence incongruent
+	setcycle 59 correct_response m
+	setcycle 59 counterbalance B
+	run long_sequence
+
+define sequence long_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run fixation always
+	run mask1 always
+	run prime always
+	run mask2 always
+	run blank always
+	run target_long always
+	run keyboard_response_long always
+	run logger always
+
+define sketchpad mask1
+	set duration 32
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=no show_if=always text="#####" x=0 y=0 z_index=0
+
+define sketchpad mask2
+	set duration 32
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=serif font_italic=no font_size=30 html=no show_if=always text="######" x=0 y=0 z_index=0
+
+define loop practice_loop
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 4
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 prime abjdhjs
+	setcycle 0 target HORSE
+	setcycle 0 condition practice
+	setcycle 0 soa_condition practice
+	setcycle 0 congruence practice
+	setcycle 0 correct_response n
+	setcycle 1 prime iweonf
+	setcycle 1 target BOAT
+	setcycle 1 condition practice
+	setcycle 1 soa_condition practice
+	setcycle 1 congruence practice
+	setcycle 1 correct_response m
+	setcycle 2 prime nvoiuh
+	setcycle 2 target HOUSE
+	setcycle 2 condition practice
+	setcycle 2 soa_condition practice
+	setcycle 2 congruence practice
+	setcycle 2 correct_response m
+	setcycle 3 prime snjghf
+	setcycle 3 target SHEEP
+	setcycle 3 condition practice
+	setcycle 3 soa_condition practice
+	setcycle 3 congruence practice
+	setcycle 3 correct_response n
+	run practice_sequence
+
+define sequence practice_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run fixation always
+	run mask1 always
+	run prime always
+	run mask2 always
+	run target_short always
+	run keyboard_response_short always
+	run logger always
+
+define sketchpad prime
+	set duration 32
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=serif font_italic=no font_size=30 html=no show_if=always text="[prime]" x=0 y=0 z_index=0
+
+define loop short_loop_B
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 60
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 prime seed
+	setcycle 0 target SEED
+	setcycle 0 condition Con_Nat
+	setcycle 0 soa_condition short
+	setcycle 0 congruence congruent
+	setcycle 0 correct_response n
+	setcycle 0 counterbalance B
+	setcycle 1 prime soil
+	setcycle 1 target SOIL
+	setcycle 1 condition Con_Nat
+	setcycle 1 soa_condition short
+	setcycle 1 congruence congruent
+	setcycle 1 correct_response n
+	setcycle 1 counterbalance B
+	setcycle 2 prime deer
+	setcycle 2 target DEER
+	setcycle 2 condition Con_Nat
+	setcycle 2 soa_condition short
+	setcycle 2 congruence congruent
+	setcycle 2 correct_response n
+	setcycle 2 counterbalance B
+	setcycle 3 prime creek
+	setcycle 3 target CREEK
+	setcycle 3 condition Con_Nat
+	setcycle 3 soa_condition short
+	setcycle 3 congruence congruent
+	setcycle 3 correct_response n
+	setcycle 3 counterbalance B
+	setcycle 4 prime worm
+	setcycle 4 target WORM
+	setcycle 4 condition Con_Nat
+	setcycle 4 soa_condition short
+	setcycle 4 congruence congruent
+	setcycle 4 correct_response n
+	setcycle 4 counterbalance B
+	setcycle 5 prime whale
+	setcycle 5 target WHALE
+	setcycle 5 condition Con_Nat
+	setcycle 5 soa_condition short
+	setcycle 5 congruence congruent
+	setcycle 5 correct_response n
+	setcycle 5 counterbalance B
+	setcycle 6 prime puppy
+	setcycle 6 target PUPPY
+	setcycle 6 condition Con_Nat
+	setcycle 6 soa_condition short
+	setcycle 6 congruence congruent
+	setcycle 6 correct_response n
+	setcycle 6 counterbalance B
+	setcycle 7 prime frog
+	setcycle 7 target FROG
+	setcycle 7 condition Con_Nat
+	setcycle 7 soa_condition short
+	setcycle 7 congruence congruent
+	setcycle 7 correct_response n
+	setcycle 7 counterbalance B
+	setcycle 8 prime hawk
+	setcycle 8 target HAWK
+	setcycle 8 condition Con_Nat
+	setcycle 8 soa_condition short
+	setcycle 8 congruence congruent
+	setcycle 8 correct_response n
+	setcycle 8 counterbalance B
+	setcycle 9 prime goose
+	setcycle 9 target GOOSE
+	setcycle 9 condition Con_Nat
+	setcycle 9 soa_condition short
+	setcycle 9 congruence congruent
+	setcycle 9 correct_response n
+	setcycle 9 counterbalance B
+	setcycle 10 prime daisy
+	setcycle 10 target DAISY
+	setcycle 10 condition Con_Nat
+	setcycle 10 soa_condition short
+	setcycle 10 congruence congruent
+	setcycle 10 correct_response n
+	setcycle 10 counterbalance B
+	setcycle 11 prime cave
+	setcycle 11 target CAVE
+	setcycle 11 condition Con_Nat
+	setcycle 11 soa_condition short
+	setcycle 11 congruence congruent
+	setcycle 11 correct_response n
+	setcycle 11 counterbalance B
+	setcycle 12 prime corn
+	setcycle 12 target CORN
+	setcycle 12 condition Con_Nat
+	setcycle 12 soa_condition short
+	setcycle 12 congruence congruent
+	setcycle 12 correct_response n
+	setcycle 12 counterbalance B
+	setcycle 13 prime grass
+	setcycle 13 target GRASS
+	setcycle 13 condition Con_Nat
+	setcycle 13 soa_condition short
+	setcycle 13 congruence congruent
+	setcycle 13 correct_response n
+	setcycle 13 counterbalance B
+	setcycle 14 prime tiger
+	setcycle 14 target TIGER
+	setcycle 14 condition Con_Nat
+	setcycle 14 soa_condition short
+	setcycle 14 congruence congruent
+	setcycle 14 correct_response n
+	setcycle 14 counterbalance B
+	setcycle 15 prime rope
+	setcycle 15 target ROPE
+	setcycle 15 condition Con_Synth
+	setcycle 15 soa_condition short
+	setcycle 15 congruence congruent
+	setcycle 15 correct_response m
+	setcycle 15 counterbalance B
+	setcycle 16 prime cable
+	setcycle 16 target CABLE
+	setcycle 16 condition Con_Synth
+	setcycle 16 soa_condition short
+	setcycle 16 congruence congruent
+	setcycle 16 correct_response m
+	setcycle 16 counterbalance B
+	setcycle 17 prime tower
+	setcycle 17 target TOWER
+	setcycle 17 condition Con_Synth
+	setcycle 17 soa_condition short
+	setcycle 17 congruence congruent
+	setcycle 17 correct_response m
+	setcycle 17 counterbalance B
+	setcycle 18 prime belt
+	setcycle 18 target BELT
+	setcycle 18 condition Con_Synth
+	setcycle 18 soa_condition short
+	setcycle 18 congruence congruent
+	setcycle 18 correct_response m
+	setcycle 18 counterbalance B
+	setcycle 19 prime doll
+	setcycle 19 target DOLL
+	setcycle 19 condition Con_Synth
+	setcycle 19 soa_condition short
+	setcycle 19 congruence congruent
+	setcycle 19 correct_response m
+	setcycle 19 counterbalance B
+	setcycle 20 prime tank
+	setcycle 20 target TANK
+	setcycle 20 condition Con_Synth
+	setcycle 20 soa_condition short
+	setcycle 20 congruence congruent
+	setcycle 20 correct_response m
+	setcycle 20 counterbalance B
+	setcycle 21 prime bike
+	setcycle 21 target BIKE
+	setcycle 21 condition Con_Synth
+	setcycle 21 soa_condition short
+	setcycle 21 congruence congruent
+	setcycle 21 correct_response m
+	setcycle 21 counterbalance B
+	setcycle 22 prime sword
+	setcycle 22 target SWORD
+	setcycle 22 condition Con_Synth
+	setcycle 22 soa_condition short
+	setcycle 22 congruence congruent
+	setcycle 22 correct_response m
+	setcycle 22 counterbalance B
+	setcycle 23 prime bread
+	setcycle 23 target BREAD
+	setcycle 23 condition Con_Synth
+	setcycle 23 soa_condition short
+	setcycle 23 congruence congruent
+	setcycle 23 correct_response m
+	setcycle 23 counterbalance B
+	setcycle 24 prime gate
+	setcycle 24 target GATE
+	setcycle 24 condition Con_Synth
+	setcycle 24 soa_condition short
+	setcycle 24 congruence congruent
+	setcycle 24 correct_response m
+	setcycle 24 counterbalance B
+	setcycle 25 prime toast
+	setcycle 25 target TOAST
+	setcycle 25 condition Con_Synth
+	setcycle 25 soa_condition short
+	setcycle 25 congruence congruent
+	setcycle 25 correct_response m
+	setcycle 25 counterbalance B
+	setcycle 26 prime mail
+	setcycle 26 target MAIL
+	setcycle 26 condition Con_Synth
+	setcycle 26 soa_condition short
+	setcycle 26 congruence congruent
+	setcycle 26 correct_response m
+	setcycle 26 counterbalance B
+	setcycle 27 prime paint
+	setcycle 27 target PAINT
+	setcycle 27 condition Con_Synth
+	setcycle 27 soa_condition short
+	setcycle 27 congruence congruent
+	setcycle 27 correct_response m
+	setcycle 27 counterbalance B
+	setcycle 28 prime coat
+	setcycle 28 target COAT
+	setcycle 28 condition Con_Synth
+	setcycle 28 soa_condition short
+	setcycle 28 congruence congruent
+	setcycle 28 correct_response m
+	setcycle 28 counterbalance B
+	setcycle 29 prime drug
+	setcycle 29 target DRUG
+	setcycle 29 condition Con_Synth
+	setcycle 29 soa_condition short
+	setcycle 29 congruence congruent
+	setcycle 29 correct_response m
+	setcycle 29 counterbalance B
+	setcycle 30 prime kiosk
+	setcycle 30 target SOFA
+	setcycle 30 condition Inc_Synth_Synth
+	setcycle 30 soa_condition short
+	setcycle 30 congruence incongruent
+	setcycle 30 correct_response m
+	setcycle 30 counterbalance B
+	setcycle 31 prime ladle
+	setcycle 31 target "CAFÉ"
+	setcycle 31 condition Inc_Synth_Synth
+	setcycle 31 soa_condition short
+	setcycle 31 congruence incongruent
+	setcycle 31 correct_response m
+	setcycle 31 counterbalance B
+	setcycle 32 prime silo
+	setcycle 32 target PLAZA
+	setcycle 32 condition Inc_Synth_Synth
+	setcycle 32 soa_condition short
+	setcycle 32 congruence incongruent
+	setcycle 32 correct_response m
+	setcycle 32 counterbalance B
+	setcycle 33 prime sash
+	setcycle 33 target CLOTH
+	setcycle 33 condition Inc_Synth_Synth
+	setcycle 33 soa_condition short
+	setcycle 33 congruence incongruent
+	setcycle 33 correct_response m
+	setcycle 33 counterbalance B
+	setcycle 34 prime wharf
+	setcycle 34 target RAZOR
+	setcycle 34 condition Inc_Synth_Synth
+	setcycle 34 soa_condition short
+	setcycle 34 congruence incongruent
+	setcycle 34 correct_response m
+	setcycle 34 counterbalance B
+	setcycle 35 prime spade
+	setcycle 35 target SHELF
+	setcycle 35 condition Inc_Synth_Synth
+	setcycle 35 soa_condition short
+	setcycle 35 congruence incongruent
+	setcycle 35 correct_response m
+	setcycle 35 counterbalance B
+	setcycle 36 prime patio
+	setcycle 36 target SPOON
+	setcycle 36 condition Inc_Synth_Synth
+	setcycle 36 soa_condition short
+	setcycle 36 congruence incongruent
+	setcycle 36 correct_response m
+	setcycle 36 counterbalance B
+	setcycle 37 prime harp
+	setcycle 37 target SNAIL
+	setcycle 37 condition Inc_Synth_Nat
+	setcycle 37 soa_condition short
+	setcycle 37 congruence incongruent
+	setcycle 37 correct_response n
+	setcycle 37 counterbalance B
+	setcycle 38 prime rake
+	setcycle 38 target HUSKY
+	setcycle 38 condition Inc_Synth_Nat
+	setcycle 38 soa_condition short
+	setcycle 38 congruence incongruent
+	setcycle 38 correct_response n
+	setcycle 38 counterbalance B
+	setcycle 39 prime ruler
+	setcycle 39 target PANSY
+	setcycle 39 condition Inc_Synth_Nat
+	setcycle 39 soa_condition short
+	setcycle 39 congruence incongruent
+	setcycle 39 correct_response n
+	setcycle 39 counterbalance B
+	setcycle 40 prime arena
+	setcycle 40 target VINE
+	setcycle 40 condition Inc_Synth_Nat
+	setcycle 40 soa_condition short
+	setcycle 40 congruence incongruent
+	setcycle 40 correct_response n
+	setcycle 40 counterbalance B
+	setcycle 41 prime spear
+	setcycle 41 target MOTH
+	setcycle 41 condition Inc_Synth_Nat
+	setcycle 41 soa_condition short
+	setcycle 41 congruence incongruent
+	setcycle 41 correct_response n
+	setcycle 41 counterbalance B
+	setcycle 42 prime rail
+	setcycle 42 target SQUID
+	setcycle 42 condition Inc_Synth_Nat
+	setcycle 42 soa_condition short
+	setcycle 42 congruence incongruent
+	setcycle 42 correct_response n
+	setcycle 42 counterbalance B
+	setcycle 43 prime sewer
+	setcycle 43 target CORAL
+	setcycle 43 condition Inc_Synth_Nat
+	setcycle 43 soa_condition short
+	setcycle 43 congruence incongruent
+	setcycle 43 correct_response n
+	setcycle 43 counterbalance B
+	setcycle 44 prime torch
+	setcycle 44 target CHIMP
+	setcycle 44 condition Inc_Synth_Nat
+	setcycle 44 soa_condition short
+	setcycle 44 congruence incongruent
+	setcycle 44 correct_response n
+	setcycle 44 counterbalance B
+	setcycle 45 prime fern
+	setcycle 45 target PETAL
+	setcycle 45 condition Inc_Nat_Nat
+	setcycle 45 soa_condition short
+	setcycle 45 congruence incongruent
+	setcycle 45 correct_response n
+	setcycle 45 counterbalance B
+	setcycle 46 prime lime
+	setcycle 46 target GULLY
+	setcycle 46 condition Inc_Nat_Nat
+	setcycle 46 soa_condition short
+	setcycle 46 congruence incongruent
+	setcycle 46 correct_response n
+	setcycle 46 counterbalance B
+	setcycle 47 prime berry
+	setcycle 47 target OTTER
+	setcycle 47 condition Inc_Nat_Nat
+	setcycle 47 soa_condition short
+	setcycle 47 congruence incongruent
+	setcycle 47 correct_response n
+	setcycle 47 counterbalance B
+	setcycle 48 prime poppy
+	setcycle 48 target DINGO
+	setcycle 48 condition Inc_Nat_Nat
+	setcycle 48 soa_condition short
+	setcycle 48 congruence incongruent
+	setcycle 48 correct_response n
+	setcycle 48 counterbalance B
+	setcycle 49 prime cobra
+	setcycle 49 target TWIG
+	setcycle 49 condition Inc_Nat_Nat
+	setcycle 49 soa_condition short
+	setcycle 49 congruence incongruent
+	setcycle 49 correct_response n
+	setcycle 49 counterbalance B
+	setcycle 50 prime grape
+	setcycle 50 target LLAMA
+	setcycle 50 condition Inc_Nat_Nat
+	setcycle 50 soa_condition short
+	setcycle 50 congruence incongruent
+	setcycle 50 correct_response n
+	setcycle 50 counterbalance B
+	setcycle 51 prime finch
+	setcycle 51 target SLOTH
+	setcycle 51 condition Nat_Nat_Synth
+	setcycle 51 soa_condition short
+	setcycle 51 congruence incongruent
+	setcycle 51 correct_response m
+	setcycle 51 counterbalance B
+	setcycle 52 prime melon
+	setcycle 52 target HOSE
+	setcycle 52 condition Inc_Nat_Synth
+	setcycle 52 soa_condition short
+	setcycle 52 congruence incongruent
+	setcycle 52 correct_response m
+	setcycle 52 counterbalance B
+	setcycle 53 prime crow
+	setcycle 53 target YACHT
+	setcycle 53 condition Inc_Nat_Synth
+	setcycle 53 soa_condition short
+	setcycle 53 congruence incongruent
+	setcycle 53 correct_response m
+	setcycle 53 counterbalance B
+	setcycle 54 prime camel
+	setcycle 54 target BENCH
+	setcycle 54 condition Inc_Nat_Synth
+	setcycle 54 soa_condition short
+	setcycle 54 congruence incongruent
+	setcycle 54 correct_response m
+	setcycle 54 counterbalance B
+	setcycle 55 prime leaf
+	setcycle 55 target COIN
+	setcycle 55 condition Inc_Nat_Synth
+	setcycle 55 soa_condition short
+	setcycle 55 congruence incongruent
+	setcycle 55 correct_response m
+	setcycle 55 counterbalance B
+	setcycle 56 prime toad
+	setcycle 56 target GLOVE
+	setcycle 56 condition Inc_Nat_Synth
+	setcycle 56 soa_condition short
+	setcycle 56 congruence incongruent
+	setcycle 56 correct_response m
+	setcycle 56 counterbalance B
+	setcycle 57 prime peach
+	setcycle 57 target SHED
+	setcycle 57 condition Inc_Nat_Synth
+	setcycle 57 soa_condition short
+	setcycle 57 congruence incongruent
+	setcycle 57 correct_response m
+	setcycle 57 counterbalance B
+	setcycle 58 prime mice
+	setcycle 58 target TOOLS
+	setcycle 58 condition Inc_Nat_Synth
+	setcycle 58 soa_condition short
+	setcycle 58 congruence incongruent
+	setcycle 58 correct_response m
+	setcycle 58 counterbalance B
+	setcycle 59 prime water
+	setcycle 59 target MEDAL
+	setcycle 59 condition Inc_Nat_Synth
+	setcycle 59 soa_condition short
+	setcycle 59 congruence incongruent
+	setcycle 59 correct_response m
+	setcycle 59 counterbalance B
+	run short_sequence
+
+define sequence short_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run fixation always
+	run mask1 always
+	run prime always
+	run mask2 always
+	run target_short always
+	run keyboard_response_short always
+	run logger always
+
+define sketchpad target_long
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=serif font_italic=no font_size=30 html=yes show_if=always text="[target]" x=0 y=0 z_index=0
+
+define sketchpad target_short
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=serif font_italic=no font_size=30 html=yes show_if=always text="[target]" x=0 y=0 z_index=0
+

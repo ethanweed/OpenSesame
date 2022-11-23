@@ -1,0 +1,168 @@
+---
+API: 2.1
+OpenSesame: 3.3.12
+Platform: posix
+---
+set width 1024
+set uniform_coordinates yes
+set title "New experiment"
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set round_decimals 2
+set height 768
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 18
+set font_italic no
+set font_family mono
+set font_bold no
+set experiment_path "/Users/ethan/Documents/GitHub/OpenSesame"
+set disable_garbage_collection yes
+set description "The main experiment item"
+set coordinates uniform
+set compensation 0
+set canvas_backend psycho
+set background black
+
+define sketchpad corsi
+	set duration 1000
+	set description "Displays stimuli"
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-448 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-288 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-128 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=32 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=192 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=352 y=-64 z_index=0
+	draw rect color=blue fill=1 h=96 penwidth=1 show_if=always w=96 x="[block_position]" y=-64 z_index=0
+
+define sketchpad corsi4
+	set duration keypress
+	set description "Displays stimuli"
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-448 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-288 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-128 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=32 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=192 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=352 y=-64 z_index=0
+
+define sketchpad corsi5
+	set duration keypress
+	set description "Displays stimuli"
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-448 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-288 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-128 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=32 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=192 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=352 y=-64 z_index=0
+
+define sketchpad corsi6
+	set duration keypress
+	set description "Displays stimuli"
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-448 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-288 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-128 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=32 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=192 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=352 y=-64 z_index=0
+
+define sketchpad corsi_isa
+	set duration 1000
+	set description "Displays stimuli"
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-448 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-288 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-128 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=32 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=192 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=352 y=-64 z_index=0
+
+define loop corsi_response_sequence
+	set source table
+	set repeat 6
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 empty_column ""
+	run new_sequence_1
+
+define sequence corsi_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run corsi_isa always
+	run corsi always
+	run new_logger always
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run instructions always
+	run new_loop always
+	run corsi_response_sequence always
+
+define sketchpad instructions
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="You will see six boxes.<br /><br />The boxes will flash blue.<br /><br />Remember the sequence.<br /><br />When the boxes are done flashing, click them in the order they flashed." x=0 y=0 z_index=0
+
+define logger logger
+	set description "Logs experimental data"
+	set auto_log yes
+
+define logger new_logger
+	set description "Logs experimental data"
+	set auto_log yes
+
+define loop new_loop
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 6
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 block_position -448
+	setcycle 1 block_position -288
+	setcycle 2 block_position -128
+	setcycle 3 block_position 32
+	setcycle 4 block_position 192
+	setcycle 5 block_position 352
+	run corsi_sequence
+
+define mouse_response new_mouse_response
+	set timeout infinite
+	set show_cursor yes
+	set linked_sketchpad ""
+	set flush yes
+	set event_type mouseclick
+	set duration mouseclick
+	set description "Collects mouse responses"
+
+define sequence new_sequence_1
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run new_sketchpad always
+	run new_mouse_response always
+	run new_logger always
+
+define sketchpad new_sketchpad
+	set duration 0
+	set description "Displays stimuli"
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-448 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-288 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-128 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=32 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=192 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=352 y=-64 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Click the boxes with in the order that they flashed." x=0 y=-192 z_index=0
+

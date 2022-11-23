@@ -1,0 +1,862 @@
+---
+API: 2.1
+OpenSesame: 3.3.12
+Platform: posix
+---
+set width 1024
+set uniform_coordinates yes
+set title "Dual-task_Reading_Comprehension"
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set sampler_backend psycho
+set round_decimals 2
+set mouse_backend psycho
+set keyboard_backend psycho
+set height 768
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 18
+set font_italic no
+set font_family mono
+set font_bold no
+set experiment_path "/Users/ethan/Documents/GitHub/OpenSesame/Dual-task_Reading_Comprehension"
+set disable_garbage_collection yes
+set description "The main experiment item"
+set coordinates uniform
+set compensation 0
+set color_backend psycho
+set clock_backend psycho
+set canvas_backend psycho
+set background black
+
+define sketchpad Question
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[Question]<br /><br />Tryk J for ja<br />Tryk N for nej" x=0 y=0 z_index=0
+
+define sketchpad S1
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[S1]" x=0 y=0 z_index=0
+
+define sketchpad S2A
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[S2A]" x=0 y=0 z_index=0
+
+define sketchpad S2B
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[S2B]" x=0 y=0 z_index=0
+
+define sketchpad S3
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[S3]" x=0 y=0 z_index=0
+
+define sketchpad S4
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[S4]" x=0 y=0 z_index=0
+
+define sketchpad S5
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[S5]" x=0 y=0 z_index=0
+
+define sketchpad S6
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[S6]" x=0 y=0 z_index=0
+
+define inline_javascript define_variables
+	set description "Executes JavaScript code"
+	___run__
+	vars.numtime = 1000
+	vars.nums_isi = 500
+	__end__
+	set _prepare ""
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run define_variables always
+	run trials_loop always
+
+define inline_javascript genrate_random_numbers
+	set description "Executes JavaScript code"
+	___run__
+	
+	
+	vars.num1 = Math.floor(Math.random() * (9 - 1 + 1) + 1).toString()
+	vars.num2 = Math.floor(Math.random() * (9 - 1 + 1) + 1).toString()
+	vars.num3 = Math.floor(Math.random() * (9 - 1 + 1) + 1).toString()
+	vars.num4 = Math.floor(Math.random() * (9 - 1 + 1) + 1).toString()
+	vars.num5 = Math.floor(Math.random() * (9 - 1 + 1) + 1).toString()
+	vars.num6 = Math.floor(Math.random() * (9 - 1 + 1) + 1).toString()
+	__end__
+	___prepare__
+	//vars.num1 = Math.floor(Math.random() * (9 - 5 + 1) + 5).toString()
+	vars.num1 = Math.floor(Math.random() * (9 - 1 + 1)).toString()
+	vars.num2 = Math.floor(Math.random() * (9 - 1 + 1)).toString()
+	vars.num3 = Math.floor(Math.random() * (9 - 1 + 1)).toString()
+	vars.num4 = Math.floor(Math.random() * (9 - 1 + 1)).toString()
+	vars.num5 = Math.floor(Math.random() * (9 - 1 + 1)).toString()
+	vars.num6 = Math.floor(Math.random() * (9 - 1 + 1)).toString()
+	__end__
+
+define keyboard_response keyboard_Question
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response keyboard_S1
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response keyboard_S2A
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response keyboard_S2B
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response keyboard_S3
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response keyboard_S4
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response keyboard_S5
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response keyboard_S6
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define logger logger
+	set description "Logs experimental data"
+	set auto_log yes
+
+define sketchpad number_1
+	set duration "[numtime]"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[num1]" x=0 y=0 z_index=0
+
+define sketchpad number_2
+	set duration "[numtime]"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[num2]" x=0 y=0 z_index=0
+
+define sketchpad number_3
+	set duration "[numtime]"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[num3]" x=0 y=0 z_index=0
+
+define sketchpad number_4
+	set duration "[numtime]"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[num4]" x=0 y=0 z_index=0
+
+define sketchpad number_5
+	set duration "[numtime]"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[num5]" x=0 y=0 z_index=0
+
+define sketchpad number_6
+	set duration "[numtime]"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[num6]" x=0 y=0 z_index=0
+
+define form_text_input number_quiz
+	set timeout infinite
+	set spacing 10
+	set rows "1;1;6"
+	set only_render no
+	set margins "50;50;50;50"
+	set form_var response
+	set form_title "Hvilke tal kan du huske?"
+	set form_question "Indtast de tal du husker, i den rigtige rækkefølge."
+	set description "A simple text input form"
+	set cols 1
+	set _theme gray
+	widget 0 0 1 1 label text="[form_title]"
+	widget 0 1 1 1 label center=no text="[form_question]"
+	widget 0 2 1 1 text_input focus=yes return_accepts=yes stub="" var="[form_var]"
+
+
+define sketchpad nums_isi
+	set duration "[nums_isi]"
+	set description "Displays stimuli"
+
+define inline_javascript randomize_congruency
+	set description "Executes JavaScript code"
+	___run__
+	
+	
+	if (Math.random() < 0.5) {
+	  vars.picker = 0;
+	} else {
+	  vars.picker = 1;
+	}
+	__end__
+	set _prepare ""
+
+define loop trials_loop
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 64
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 S1 "Jonas kan lide at se på stjerner"
+	setcycle 0 S2A "Jonas’ familie kan også lide at se på stjerner "
+	setcycle 0 S2B "Jonas’ familie kan ikke lide at se på stjerner "
+	setcycle 0 S3 "I aften bliver det en klar aften"
+	setcycle 0 S4 "Jonas vil holde sig vågen for at se på stjerner "
+	setcycle 0 S5 "Han sætter et teleskop op i haven"
+	setcycle 0 S6 "Jonas’ bror er astronom og ser også på "
+	setcycle 0 Question "Er det en klar aften?"
+	setcycle 0 correct_response ""
+	setcycle 1 S1 "Lukas er på sidste år i folkeskolen"
+	setcycle 1 S2A "Han vil holde et pool party for sine klassekammerater"
+	setcycle 1 S2B "Han vil holde en sodavandsfest for sine klassekammerater"
+	setcycle 1 S3 "Lukas’ forældre synes, at det er en god idé"
+	setcycle 1 S4 "Sammen laver de nogle smukke invitationer til klassekammeraterne"
+	setcycle 1 S5 "Næste dag deler Lukas invitationer ud i klassen"
+	setcycle 1 S6 "Sofie får ikke en invitation, for hun kan ikke svømme"
+	setcycle 1 Question "Hjælper Lukas’ forældre med invitationerne?"
+	setcycle 1 correct_response ""
+	setcycle 2 S1 "Mikkels far har arbejdet som brandmand i mange år"
+	setcycle 2 S2A "Mikkel synes, at hans fars arbejde er sejt "
+	setcycle 2 S2B "Mikkel synes, at hans fars arbejde er dumt "
+	setcycle 2 S3 "Skolelæreren spørger, om Mikkels far vil fortælle om sit arbejde i skolen"
+	setcycle 2 S4 "På den måde kan børnene lære, hvad en brandmand laver"
+	setcycle 2 S5 "Mikkels far tager dem også med hen på brandstationen"
+	setcycle 2 S6 "Mikkel elsker at være med sin far på arbejde"
+	setcycle 2 Question "Mikkels far har ikke været brandmand så længe?"
+	setcycle 2 correct_response ""
+	setcycle 3 S1 "I sin fritid kan Dan godt lide at lege udenfor med sine venner"
+	setcycle 3 S2A "Han bor i en stille gade i nærheden af en stor skov"
+	setcycle 3 S2B "Han bor i en hyggelig gade midt i en storby"
+	setcycle 3 S3 "Hans bedste venner, Julie og Joakim bor i samme gade"
+	setcycle 3 S4 "De er sammen næsten hver dag og leger tit gemmeleg"
+	setcycle 3 S5 "I går gemte Julie sig så godt, at Dan og Joakim næsten ikke kunne finde hende"
+	setcycle 3 S6 "De måtte lede i skoven i flere timer, før de fandt hende"
+	setcycle 3 Question "Ser Dan sjældent sine to venner?"
+	setcycle 3 correct_response ""
+	setcycle 4 S1 "Tims hobby er at samle på modelfly"
+	setcycle 4 S2A "Hans onkel er pilot og tog engang Tim med på sit eget fly"
+	setcycle 4 S2B "Desværre har Tim aldrig været på et rigtigt fly"
+	setcycle 4 S3 "Tim har omkring halvtreds modelfly på sit værelse"
+	setcycle 4 S4 "Hans venner kommer ofte over for at se på dem"
+	setcycle 4 S5 "Tim skriver en artikel i skoleavisen om sin hobby"
+	setcycle 4 S6 "Han skriver, at hans hobby startede, da han selv var på et rigtigt fly "
+	setcycle 4 Question "Kan Tims venner også lide modelfly?"
+	setcycle 4 correct_response ""
+	setcycle 5 S1 "Louise skal flytte til en ny by"
+	setcycle 5 S2A "Hun er ked af at forlade sin gamle klasse og søde klassekammerater"
+	setcycle 5 S2B "Hun er glad for at komme væk fra sin gamle klasse, for hun kan ikke lide sine klassekammerater"
+	setcycle 5 S3 "Skolelæreren arrangerer en afskedsfest for Louise"
+	setcycle 5 S4 "Efter sommerferien starter Louise på sin nye skole"
+	setcycle 5 S5 "Louises nye klassekammerater er søde"
+	setcycle 5 S6 "Hun savner dog stadig sine gamle klassekammerater og tænker ofte på dem"
+	setcycle 5 Question "Flytter Louise til en ny by?"
+	setcycle 5 correct_response ""
+	setcycle 6 S1 "Emma deltager i skolens læsekonkurrence"
+	setcycle 6 S2A "Det er første gang, hun deltager i konkurrencen"
+	setcycle 6 S2B "Sidste år vandt hun konkurrencen"
+	setcycle 6 S3 "Emma læser for sin lillebror hver aften"
+	setcycle 6 S4 "Hun elsker at læse og læser ofte to bøger om ugen"
+	setcycle 6 S5 "Hendes mor læser også tit for hende"
+	setcycle 6 S6 "Emma er meget nervøs, fordi hun aldrig har været med i en læsekonkurrence før"
+	setcycle 6 Question "Er Emma enebarn?"
+	setcycle 6 correct_response ""
+	setcycle 7 S1 "Lotte har boet på en gård på landet hele sit liv"
+	setcycle 7 S2A "Hendes forældre er meget religiøse og har opdraget hende strengt"
+	setcycle 7 S2B "Hendes forældre er ikke religiøse og har opdraget hende frit"
+	setcycle 7 S3 "Der skal snart være en stor fest i byen"
+	setcycle 7 S4 "Mange piger fra nabolaget har købt korte nederdele til festen"
+	setcycle 7 S5 "Lotte vil også købe en kort nederdel til festen"
+	setcycle 7 S6 "Men det synes Lottes forældre ikke er en god idé på grund af deres tro"
+	setcycle 7 Question "Bor Lotte på landet?"
+	setcycle 7 correct_response ""
+	setcycle 8 S1 "Thomas’ legetøjsbil er gået i stykker"
+	setcycle 8 S2A "Hjulene er gået i stykker"
+	setcycle 8 S2B "Dørene er gået i stykker"
+	setcycle 8 S3 "Thomas er rigtig ked af det"
+	setcycle 8 S4 "Thomas’ far prøver at ordne det, men kan ikke"
+	setcycle 8 S5 "Til sidst tager de legetøjsbilen med til legetøjsbutikken"
+	setcycle 8 S6 "I legetøjsbutikken, sætter de nye hjul på bilen"
+	setcycle 8 Question "Reparerede Thomas’ far legetøjsbilen?"
+	setcycle 8 correct_response ""
+	setcycle 9 S1 "Theis’ mor vil gerne have, at Theis bliver god til engelsk"
+	setcycle 9 S2A "Theis kan ikke lide sprog og synes, at det er nyttesløst at lære engelsk"
+	setcycle 9 S2B "Theis elsker sprog og vil meget gerne lære engelsk"
+	setcycle 9 S3 "Theis’ lærer sørger altid for, at engelsktimerne er interessante"
+	setcycle 9 S4 "Hun kan mange forskellige engelske ordspil"
+	setcycle 9 S5 "Nogle gange sætter hun en engelsk tv-serie på"
+	setcycle 9 S6 "Men Theis’ deltager ikke i undervisningen, for han synes det er dumt"
+	setcycle 9 Question "Kan læreren mange ordspil på engelsk?"
+	setcycle 9 correct_response ""
+	setcycle 10 S1 "Jakob går i syvende klasse"
+	setcycle 10 S2A "Han har altid meget travlt og forstyrrer ofte timerne"
+	setcycle 10 S2B "Han er altid rolig og deltager godt i undervisningen"
+	setcycle 10 S3 "I dag har de en lektion om planter"
+	setcycle 10 S4 "Læreren har taget blomster og planter med"
+	setcycle 10 S5 "Jakob fniser og nyser pludseligt"
+	setcycle 10 S6 "Læreren er træt af, at Jakob altid er irriterende, så han sender Jakob udenfor døren"
+	setcycle 10 Question "Medbragte læreren også insekter til lektionen?"
+	setcycle 10 correct_response ""
+	setcycle 11 S1 "Lukas er god til karate"
+	setcycle 11 S2A "Han startede til karate efter at have set en karate-film på tv"
+	setcycle 11 S2B "Han startede til karate efter at have set sin søsters karate kamp"
+	setcycle 11 S3 "Han træner hårdt og har nu det grønne bælte"
+	setcycle 11 S4 "Hans mål er at få det blå bælte i år"
+	setcycle 11 S5 "Lukas vil også gerne øve karate med nogen derhjemme"
+	setcycle 11 S6 "Desværre kan Lukas’ søster ikke lide karate "
+	setcycle 11 Question "Har Lukas det sorte bælte i karate?"
+	setcycle 11 correct_response ""
+	setcycle 12 S1 "Josefine vil gerne være model"
+	setcycle 12 S2A "Hun synes, at det er et hårdt arbejde, som kræver meget øvelse"
+	setcycle 12 S2B "Hun synes, at det er et nemt arbejde, som ikke kræver øvelse"
+	setcycle 12 S3 "Josefines mor støtter hende i drømmen"
+	setcycle 12 S4 "Hun har meldt Josefine til en modelkonkurrence"
+	setcycle 12 S5 "Josefine vil gerne vinde konkurrence"
+	setcycle 12 S6 "Josefine øver sig rigtig hårdt "
+	setcycle 12 Question "Støtter Josefines mor hende i sin drøm?"
+	setcycle 12 correct_response ""
+	setcycle 13 S1 "Stine ønskede sig et musikinstrument til sin fødselsdag"
+	setcycle 13 S2A "Hun fik et trommesæt af sine forældre"
+	setcycle 13 S2B "Hun fik et klaver af sine forældre"
+	setcycle 13 S3 "Hun blev rigtig glad for det"
+	setcycle 13 S4 "Hver dag øvede hun sig en halv time på det"
+	setcycle 13 S5 "Men Stines naboer var utilfredse"
+	setcycle 13 S6 "De kan ikke lide støjen fra trommerne"
+	setcycle 13 Question "Blev Stine glad for sin gave?"
+	setcycle 13 correct_response ""
+	setcycle 14 S1 "Lisa er 16 år og har et særligt talent"
+	setcycle 14 S2A "Hun designer sit eget tøj"
+	setcycle 14 S2B "Hun opfinder sine egne madopskrifter"
+	setcycle 14 S3 "Lisas mor er meget stolt af Lisa"
+	setcycle 14 S4 "Lisa blev for nyligt interviewet til en lokal tv-kanal"
+	setcycle 14 S5 "Lisas mor optog udsendelsen"
+	setcycle 14 S6 "Lisas tøjdesign så rigtig smukt ud på tv"
+	setcycle 14 Question "Er Lisa 18 år?"
+	setcycle 14 correct_response ""
+	setcycle 15 S1 "Robert har lavet en liste over alle de bøger, han gerne vil læse"
+	setcycle 15 S2A "Han låner bøgerne på biblioteket"
+	setcycle 15 S2B "Han køber bøgerne i boghandelen"
+	setcycle 15 S3 "En af bøgerne lyder virkelig spændende"
+	setcycle 15 S4 "Historien handler om indianere og cowboys"
+	setcycle 15 S5 "Robert fantaserer nogle gange om, at han også er indianer"
+	setcycle 15 S6 "Derfor beslutter han sig for ikke at aflevere bogen på biblioteket igen"
+	setcycle 15 Question "Fantaserer Robert nogle gange om at være indianer?"
+	setcycle 15 correct_response ""
+	setcycle 16 S1 "Det er snart Lines fødselsdag"
+	setcycle 16 S2A "Hun ønsker sig en ny cykel"
+	setcycle 16 S2B "Hun ønsker sig et par nye sko"
+	setcycle 16 S3 "Lines fødselsdagsfest er i næste uge"
+	setcycle 16 S4 "Så skal de i zoologisk have og bagefter i svømmehallen"
+	setcycle 16 S5 "Lines glæder sig rigtig meget"
+	setcycle 16 S6 "Bagefter får hun nemlig lov til at vælge sin gave i cykelforretningen"
+	setcycle 16 Question "Er Lines fødselsdagsfest i næste uge?"
+	setcycle 16 correct_response ""
+	setcycle 17 S1 "Lars går på kostskole"
+	setcycle 17 S2A "Han går der med alle sine brødre "
+	setcycle 17 S2B "Han savner sine forældre og sine brødre"
+	setcycle 17 S3 "Der dyrkes meget sport på kostskolen"
+	setcycle 17 S4 "Lars er målmand for skolens fodboldhold"
+	setcycle 17 S5 "De træner hver dag i to timer efter undervisning"
+	setcycle 17 S6 "Hans brødre er forsvarsspillere på holdet"
+	setcycle 17 Question "Er Lars angriber på fodboldholdet?"
+	setcycle 17 correct_response ""
+	setcycle 18 S1 "Sandra og Nora er bedste veninder"
+	setcycle 18 S2A "Når de er sammen, snakker og larmer de altid meget"
+	setcycle 18 S2B "Når de er sammen, er de altid rolige og søde"
+	setcycle 18 S3 "Sandra og Nora går i samme klasse"
+	setcycle 18 S4 "I dag får de lov at sidde ved siden af hinanden"
+	setcycle 18 S5 "De skal på skift læse i en bog"
+	setcycle 18 S6 "Men læreren må skille dem ad til sidst, fordi de snakker så højt og forstyrrer de andre"
+	setcycle 18 Question "Er Sandra og Nora søskende?"
+	setcycle 18 correct_response ""
+	setcycle 19 S1 "Frederik brækkede benet, mens han legede"
+	setcycle 19 S2A "Det er sommer, og Frederik keder sig, fordi han ikke kan lege udenfor"
+	setcycle 19 S2B "Det er vinter, og Frederik keder sig, fordi han ikke kan lege udenfor"
+	setcycle 19 S3 "Frederik bor i Nordjylland med sine forældre"
+	setcycle 19 S4 "De bor i en lille landsby, hvor alle kender hinanden"
+	setcycle 19 S5 "Frederiks nabo, Mikkel, er hans bedste ven"
+	setcycle 19 S6 "Mikkel skal ud at bade i søen i dag, men Frederik kan ikke komme med"
+	setcycle 19 Question "Bor Frederik i Nordjylland?"
+	setcycle 19 correct_response ""
+	setcycle 20 S1 "Julian skal snart flyve for første gang"
+	setcycle 20 S2A "Han skal til Paris med sin mor"
+	setcycle 20 S2B "Han skal til Paris med sin bror"
+	setcycle 20 S3 "Julian har forberedt sig til turen"
+	setcycle 20 S4 "Han har købt et kort og en fransk ordbog"
+	setcycle 20 S5 "Han har allerede pakket sin kuffert"
+	setcycle 20 S6 "Hans bror er misundelig over, at han ikke kan komme med"
+	setcycle 20 Question "Har Julian forberedt sig til turen?"
+	setcycle 20 correct_response ""
+	setcycle 21 S1 "Anna bor sammen med sin mor i et stort hus"
+	setcycle 21 S2A "Det er vigtigt for Annas mor, at huset bliver holdt pænt og rent"
+	setcycle 21 S2B "Huset roder meget, for Annas mor går så meget ikke op i rengøring"
+	setcycle 21 S3 "Anna får sine venner på besøg på hendes fødselsdag"
+	setcycle 21 S4 "De efterlader legetøj overalt"
+	setcycle 21 S5 "Der er endda legetøj i haven bagefter"
+	setcycle 21 S6 "Annas mor synes, at det er meget irriterende med rodet"
+	setcycle 21 Question "Bor Anna i lejlighed?"
+	setcycle 21 correct_response ""
+	setcycle 22 S1 "Mathias skal besøge sin mormor og morfar i weekenden"
+	setcycle 22 S2A "Hans bedsteforældre bor i en storby "
+	setcycle 22 S2B "Hans bedsteforældre bor i en lille landsby "
+	setcycle 22 S3 "Mathias elsker at besøge sin mormor og morfar"
+	setcycle 22 S4 "De laver altid en masse sjove ting sammen"
+	setcycle 22 S5 "Den første aften spiser de altid på Mathias’ yndlingsrestaurant"
+	setcycle 22 S6 "De skal altid tage metroen for at komme hen til restauranten"
+	setcycle 22 Question "Kan Mathias lide at besøge sine bedsteforældre?"
+	setcycle 22 correct_response ""
+	setcycle 23 S1 "Ida elsker at spille computer"
+	setcycle 23 S2A "Idas forældre bryder sig ikke om, at hun bruger meget tid på computeren"
+	setcycle 23 S2B "Idas forældre har ikke noget imod, at hun bruger meget tid på computeren"
+	setcycle 23 S3 "I dag er Idas forældre ikke hjemme"
+	setcycle 23 S4 "Ida laver først sine lektier, og bagefter spiller hun computer"
+	setcycle 23 S5 "Hun bruger resten af eftermiddagen på at spille på computeren"
+	setcycle 23 S6 "Da hendes forældre kommer hjem, er de vrede over, at Ida sidder ved computeren"
+	setcycle 23 Question "Har Ida lavet lektier?"
+	setcycle 23 correct_response ""
+	setcycle 24 S1 "Svends cykel er blevet stjålet i skolegården"
+	setcycle 24 S2A "Derfor går Svend hen til politistationen"
+	setcycle 24 S2B "Desværre har politistationen lukket"
+	setcycle 24 S3 "Svend har fået cyklen i fødselsdagsgave"
+	setcycle 24 S4 "Det var en meget flot racercykel"
+	setcycle 24 S5 "Nu må Svend gå i skole hver dag"
+	setcycle 24 S6 "Politibetjentene spørger, om Svends cykel har været låst"
+	setcycle 24 Question "Fik Svend cyklen i fødselsdagsgave?"
+	setcycle 24 correct_response ""
+	setcycle 25 S1 "Frida har sin egen kat"
+	setcycle 25 S2A "Hun har fået katten fra et internat"
+	setcycle 25 S2B "Hun har fået katten af en ven"
+	setcycle 25 S3 "Fridas forældre har givet hende lov til at beholde katten på nogle betingelser"
+	setcycle 25 S4 "Frida skal selv passe katten"
+	setcycle 25 S5 "Hun skal børste og fodre den"
+	setcycle 25 S6 "Hvis Frida ikke gør det, så skal katten afleveres tilbage til internatet"
+	setcycle 25 Question "Fodrer Fridas mor katten?"
+	setcycle 25 correct_response ""
+	setcycle 26 S1 "Laura og Tines skole skal snart holde et talentshow"
+	setcycle 26 S2A "Laura og Tine beslutter sig for at stille op med en sang sammen"
+	setcycle 26 S2B "Laura og Tine beslutter sig for at stille op med en dans sammen"
+	setcycle 26 S3 "Alle kan tilmelde sig, også lærerne"
+	setcycle 26 S4 "Laura og Tine vil gerne komme i finalen"
+	setcycle 26 S5 "Laura og Tine øver sig meget hårdt hver dag"
+	setcycle 26 S6 "Men desværre brækker Tine sin fod, så de ikke kan deltage alligevel"
+	setcycle 26 Question "Er det kun eleverne, der må deltage i talentshowet?"
+	setcycle 26 correct_response ""
+	setcycle 27 S1 "Max har ikke været i skole i dag"
+	setcycle 27 S2A "I går slog han nemlig hovedet, mens han legede udenfor"
+	setcycle 27 S2B "I går blev han nemlig utilpas under frokosten"
+	setcycle 27 S3 "Hans venner besøger ham efter skole"
+	setcycle 27 S4 "De fortæller ham om dagens lektioner"
+	setcycle 27 S5 "Max bliver skuffet, da vennerne fortæller, at han gik glip af en film om hajer i skolen"
+	setcycle 27 S6 "Næste gang vil han passe bedre på, når han leger udenfor"
+	setcycle 27 Question "Gik Max glip af en film om hvaler?"
+	setcycle 27 correct_response ""
+	setcycle 28 S1 "Gustav er den bedste elev i klassen"
+	setcycle 28 S2A "Han er også en dygtig fodboldsspiller"
+	setcycle 28 S2B "Han er også en dygtig tennisspiller"
+	setcycle 28 S3 "Gustav forbereder sig på en vigtig kamp"
+	setcycle 28 S4 "Ifølge hans træner, har Gustav en chance for at vinde"
+	setcycle 28 S5 "Gustav er nervøs, fordi der kommer mange tilskuere "
+	setcycle 28 S6 "En af dommerne er endda hans yndlingsfodboldspiller"
+	setcycle 28 Question "Har Gustav en chance for at vinde?"
+	setcycle 28 correct_response ""
+	setcycle 29 S1 "Sara har et stort problem"
+	setcycle 29 S2A "Hun har fået sit karakterpapir og har dumpet matematik"
+	setcycle 29 S2B "Hun har mistet sit karakterpapir"
+	setcycle 29 S3 "Sara overvejer, hvordan hun skal sige det til sine forældre"
+	setcycle 29 S4 "Hun er bange for at få stuearrest, så hun finder på undskyldninger"
+	setcycle 29 S5 "Til sidst beslutter hun sig for at fortælle sandheden"
+	setcycle 29 S6 "Hendes forældre bliver ikke vrede, men foreslår at Sara kan få en matematiktutor, så hun kan bestå matematik"
+	setcycle 29 Question "Fortalte Sara sandheden til sine forældre?"
+	setcycle 29 correct_response ""
+	setcycle 30 S1 "Liam skal på tur med sin skole næste weekend"
+	setcycle 30 S2A "Der er varslet dårligt vejr med sne og hård vind"
+	setcycle 30 S2B "Der er spået varmt vejr med blå himmel og sol"
+	setcycle 30 S3 "Liam begynder at pakke et par dage før"
+	setcycle 30 S4 "Hans mor hjælper ham og gør hans tøj klar"
+	setcycle 30 S5 "De kommer til at lave en masse sjove ting på turen"
+	setcycle 30 S6 "På turen er Liam glad for, at han har husket at tage en varm hue med"
+	setcycle 30 Question "Pakkede Liam sin taske alene?"
+	setcycle 30 correct_response ""
+	setcycle 31 S1 "Rose og Marie skal hen til deres moster med tog"
+	setcycle 31 S2A "De synes, at det er meget spændende, for de rejser aldrig med tog"
+	setcycle 31 S2B "De synes, at det er kedeligt, for de rejser tit med tog"
+	setcycle 31 S3 "Deres mor afleverer dem på stationen om eftermiddagen"
+	setcycle 31 S4 "Rose og Marie går hen til toget, som venter på perronen"
+	setcycle 31 S5 "Konduktøren tjekker deres billetter, så snart de er på toget"
+	setcycle 31 S6 "Da toget begynder at køre, får Rose og Marie sommerfugle i maven af spænding"
+	setcycle 31 Question "Tjekker konduktøren deres billetter?"
+	setcycle 31 correct_response ""
+	setcycle 32 S1 "Jasmin og Freja går til bageren sammen"
+	setcycle 32 S2A "Frejas mor har spurgt, om de vil købe en kage med"
+	setcycle 32 S2B "Frejas mor har spurgt, om de vil købe et brød med"
+	setcycle 32 S3 "De skal stå i kø i lang tid, for der er travlt i butikken"
+	setcycle 32 S4 "Bagefter tager de direkte hjem"
+	setcycle 32 S5 "På vejen hjem går de gennem parken"
+	setcycle 32 S6 "Hjemme hos Freja, nyder de alle sammen den lækre kage "
+	setcycle 32 Question "Er der travlt i bageren?"
+	setcycle 32 correct_response ""
+	setcycle 33 S1 "Thorbjørn indsamler penge til velgørenhed med sin klasse"
+	setcycle 33 S2A "Skolen har arrangeret et sponsoreret løb for at samle penge"
+	setcycle 33 S2B "Skolen har arrangeret et loppemarked for at samle penge"
+	setcycle 33 S3 "Hvert år går pengene til et nyt formål"
+	setcycle 33 S4 "I år går pengene til et hospital i Afrika"
+	setcycle 33 S5 "Hele klassen har travlt med at forberede sig"
+	setcycle 33 S6 "De skal træne hårdt for at kunne løbe så mange omgange som muligt"
+	setcycle 33 Question "Går velgørenheden til det samme hvert år?"
+	setcycle 33 correct_response ""
+	setcycle 34 S1 "Sofie skal købe en gave til sin mor"
+	setcycle 34 S2A "Hun vil gerne overraske moren med nogle smukke blomster"
+	setcycle 34 S2B "Hun vil gerne overraske moren med nogle smukke øreringe"
+	setcycle 34 S3 "Det er Sofies mors fødselsdag i morgen, og hun fortjener en fin gave"
+	setcycle 34 S4 "Sofie tager sin far med for at købe gaven"
+	setcycle 34 S5 "Han ved præcis, hvad Sofies mor kan lide"
+	setcycle 34 S6 "Da de kommer hjem, sætter Sofie blomsterne i vasen med det samme"
+	setcycle 34 Question "Har Sofie selv lavet gaven?"
+	setcycle 34 correct_response ""
+	setcycle 35 S1 "Nicklas er meget musikalsk og kan spille på flere instrumenter"
+	setcycle 35 S2A "Af alle instrumenter, er trompeten hans favorit"
+	setcycle 35 S2B "Af alle instrumenter, er klaver hans favorit"
+	setcycle 35 S3 "Han har fået musikundervisning siden han var barn"
+	setcycle 35 S4 "Nicklas’ far spillet i orkester i årevis"
+	setcycle 35 S5 "Nicklas drømmer om at spille musik resten af sit liv"
+	setcycle 35 S6 "Han ville allerhelst være berømt med sin trompet "
+	setcycle 35 Question "Kan Nicklas spille flere instrumenter?"
+	setcycle 35 correct_response ""
+	setcycle 36 S1 "Annika er på hospitalet"
+	setcycle 36 S2A "Hun skal opereres i sit knæ"
+	setcycle 36 S2B "Hun skal opereres i armen"
+	setcycle 36 S3 "Annika får besøg af sin bedstemor på hospitalet"
+	setcycle 36 S4 "Hendes bedstemor fortæller altid smukke historier, som Annika elsker at lytte til"
+	setcycle 36 S5 "Efter en uge, må Annika komme hjem fra hospitalet"
+	setcycle 36 S6 "Det tager lidt tid, før Annika må gå på sit nye knæ"
+	setcycle 36 Question "Får Annika besøg af sin bedstemor på hospitalet?"
+	setcycle 36 correct_response ""
+	setcycle 37 S1 "Isabella køber en is efter skole"
+	setcycle 37 S2A "Hun vælger en stor jordbæris"
+	setcycle 37 S2B "Hun vælger en stor chokoladeis"
+	setcycle 37 S3 "Hun går hjem med isen i hånden"
+	setcycle 37 S4 "Solen skinner, og det er meget varmt"
+	setcycle 37 S5 "Hun må skynde sig hjem, før isen smelter"
+	setcycle 37 S6 "Da hun kommer hjem, har hun fået en stor, rød plet på hendes skjorte"
+	setcycle 37 Question "Er det meget koldt udenfor?"
+	setcycle 37 correct_response ""
+	setcycle 38 S1 "Jan kan godt lide at lege med sin nabo, Dan"
+	setcycle 38 S2A "De kan bedst lide at bygge huler sammen i skoven"
+	setcycle 38 S2B "De kan bedst lide at spille computerspil sammen"
+	setcycle 38 S3 "De går på forskellige skoler"
+	setcycle 38 S4 "Derfor plejer de at ses i weekenden"
+	setcycle 38 S5 "Så leger de tit sammen hele dagen"
+	setcycle 38 S6 "Selv når det regner, elsker de at lege udenfor i skoven"
+	setcycle 38 Question "Går Jan og Dan i skole sammen?"
+	setcycle 38 correct_response ""
+	setcycle 39 S1 "Naja har fri fra skole i næste uge"
+	setcycle 39 S2A "Hun skal i zoologisk have med en veninde"
+	setcycle 39 S2B "Hun skal i forlystespark med en veninde"
+	setcycle 39 S3 "Naja og hendes veninde går i klasse sammen"
+	setcycle 39 S4 "De laver ofte sjove ting sammen og har kendt hinanden længe"
+	setcycle 39 S5 "De glæder sig begge rigtig meget til deres fridag"
+	setcycle 39 S6 "De elsker nemlig begge at gå i zoologisk have"
+	setcycle 39 Question "Har Naja og hendes veninde kendt hinanden længe?"
+	setcycle 39 correct_response ""
+	setcycle 40 S1 "Daniel har fødselsdag og må selv vælge, hvilken mad han vil have"
+	setcycle 40 S2A "Daniel har valgt at få pomfritter fra grillbaren"
+	setcycle 40 S2B "Daniel har valgt at få leveret pizza fra et pizzeria"
+	setcycle 40 S3 "Om eftermiddagen kommer hans venner, og han får en masse gaver"
+	setcycle 40 S4 "Daniels mor spørger, om vennerne vil blive til middag"
+	setcycle 40 S5 "Det vil de meget gerne, siger de"
+	setcycle 40 S6 "Vennerne vil også meget gerne have pomfritter fra grillbaren"
+	setcycle 40 Question "Får Daniel mange gaver?"
+	setcycle 40 correct_response ""
+	setcycle 41 S1 "Frederikke kan rigtig godt lide at gå i skole"
+	setcycle 41 S2A "Efter skoletid, bliver Frederikke altid hentet af sin mor"
+	setcycle 41 S2B "Efter skoletid, bliver Frederikke altid hentet af sin storebror"
+	setcycle 41 S3 "De fleste dage slutter skolen kl tre"
+	setcycle 41 S4 "Frederikke spiser for det meste frokost i skolen"
+	setcycle 41 S5 "Undtagen om onsdagen, hvor hun har tidligere fri"
+	setcycle 41 S6 "Når skolens klokker ringer, venter Frederikkes mor altid udenfor"
+	setcycle 41 Question "Har Frederikke fri kl tre om onsdagen?"
+	setcycle 41 correct_response ""
+	setcycle 42 S1 "Beate er otte år og kommer fra en meget musikalsk familie"
+	setcycle 42 S2A "Beate spiller klaver og går til klaverundervisning om aftenen"
+	setcycle 42 S2B "Beate spiller blokføjte og går til blokfløjteundervisning om aftenen"
+	setcycle 42 S3 "Når hun kommer hjem fra skole, øver hun på sit værelse"
+	setcycle 42 S4 "Egentlig burde hun øve hver dag, men det gør hun for det meste ikke"
+	setcycle 42 S5 "Hun synes, at den musik, hun skal øve sig på, er lidt kedelig"
+	setcycle 42 S6 "Beate håber, at hendes klaverlærer ikke lægger mærke til det"
+	setcycle 42 Question "Øver Beate sig hver dag?"
+	setcycle 42 correct_response ""
+	setcycle 43 S1 "Luna vil købe en is i iskiosken"
+	setcycle 43 S2A "Hun elsker banan is, men hun kan også lide andre smagsvarianter"
+	setcycle 43 S2B "Hun kan ikke lide banan is, men hun kan lide andre smagsvarianter"
+	setcycle 43 S3 "Der er meget travlt i iskiosken"
+	setcycle 43 S4 "Mens hun venter, overvejer Luna hvilken is, hun vil købe"
+	setcycle 43 S5 "Da det bliver Lunas tur, bestiller hun med det samme"
+	setcycle 43 S6 "Hun vælger to kugler banan is med flødeskum"
+	setcycle 43 Question "Er der travlt i iskiosken?"
+	setcycle 43 correct_response ""
+	setcycle 44 S1 "Rasmus vågner lørdag morgen"
+	setcycle 44 S2A "Det er isnende koldt udenfor, så han tænder hurtigt for varmen"
+	setcycle 44 S2B "Det er bagende varmt udenfor, så han tænder hurtigt for blæseren"
+	setcycle 44 S3 "Rasmus laver en sandwich til morgenmad"
+	setcycle 44 S4 "Mens han spiser, tænker han på, hvad han skal lave i dag"
+	setcycle 44 S5 "Han beslutter sig for at gå en dejlig tur i skoven"
+	setcycle 44 S6 "Han tager en tyk sweater på mod kulden og går udenfor"
+	setcycle 44 Question "Laver Rasmus et spejlæg til morgenmad?"
+	setcycle 44 correct_response ""
+	setcycle 45 S1 "Tom får sin rapport med hjem før ferien"
+	setcycle 45 S2A "Han elsker at læse og er rigtig god til det"
+	setcycle 45 S2B "Han kan ikke lide at læse og er ikke særlig god til det"
+	setcycle 45 S3 "Da han kommer hjem, viser han rapporten til sin mor"
+	setcycle 45 S4 "Toms mor synes, at det er vigtigt, at Tom læser en masse bøger"
+	setcycle 45 S5 "Hun vil købe nogle læsebøger til ham"
+	setcycle 45 S6 "Tom synes også, at det er en god idé, for han elsker at læse"
+	setcycle 45 Question "Gemte Tom sin rapport for sin mor?"
+	setcycle 45 correct_response ""
+	setcycle 46 S1 "Kasper skal ud at sejle i dag med sine forældre på en båd"
+	setcycle 46 S2A "Kasper har allerede fået sit svømmediplom og er god til at svømme"
+	setcycle 46 S2B "Kasper har endnu ikke fået sit svømmediplom og kan ikke svømme"
+	setcycle 46 S3 "Kaspers mor sejler båden, og Kasper hjælper hende"
+	setcycle 46 S4 "Når de kommer til et godt sted, vil de kaste anker"
+	setcycle 46 S5 "Efter de har kastet anker, kan de slappe af og læse bøger"
+	setcycle 46 S6 "Og Kasper kan svømme og dykke i havet lige så meget, som han vil"
+	setcycle 46 Question "Hjælper Kasper med at sejle båden?"
+	setcycle 46 correct_response ""
+	setcycle 47 S1 "Amalie vil rigtig gerne have et kæledyr"
+	setcycle 47 S2A "Hun elsker dyr, især katte"
+	setcycle 47 S2B "Hun elsker dyr, men er allergisk overfor katte"
+	setcycle 47 S3 "Amalie og hendes forældre er lige flyttet i et hus med have"
+	setcycle 47 S4 "Hun skal opdagelse i kvarteret sammen med sin mor"
+	setcycle 47 S5 "Det første Amalie ser, er dyrebutikken henne på hjørnet"
+	setcycle 47 S6 "Amalie og hendes mor beslutter dig derfor for at købe en lille kattekilling til det nye hus"
+	setcycle 47 Question "Har Amalies nye hus en have?"
+	setcycle 47 correct_response ""
+	setcycle 48 S1 "Tobias er ude at spise på restaurant med sine forældre og sin bror i aften"
+	setcycle 48 S2A "Tobias kan lide næsten alt, men han spiser ikke fisk"
+	setcycle 48 S2B "Tobias kan lide næsten alt, men han spiser ikke kylling"
+	setcycle 48 S3 "De er ude at spise for at fejre Tobias’ fødselsdag"
+	setcycle 48 S4 "Ved bordet fortæller Tobias om, at han vil holde en fødselsdagsfest"
+	setcycle 48 S5 "Mens de snakker, kommer tjeneren for at tage deres bestilling"
+	setcycle 48 S6 "Tobias vælger kylling med pommes frites og æblemos "
+	setcycle 48 Question "Har Tobias en bror?"
+	setcycle 48 correct_response ""
+	setcycle 49 S1 "Milles mor har født en ny baby på hospitalet"
+	setcycle 49 S2A "Det er en dreng, og han er helt rask"
+	setcycle 49 S2B "Det er en pige, og hun er helt rask"
+	setcycle 49 S3 "I morgen kommer mor og den lille nye baby hjem"
+	setcycle 49 S4 "Mille er meget glad for, at hun endelig kan se babyen"
+	setcycle 49 S5 "Dagen efter glæder Mille sig til at komme i skole"
+	setcycle 49 S6 "Hun fortæller stolt sine klassekammerater om sin lille nye bror"
+	setcycle 49 Question "Blev babyen født derhjemme?"
+	setcycle 49 correct_response ""
+	setcycle 50 S1 "Nanna havde sidste skoledag i går"
+	setcycle 50 S2A "I dag er det første dag i sommerferien"
+	setcycle 50 S2B "I dag er det første dag i juleferien"
+	setcycle 50 S3 "Hun skal på besøg hos sine bedsteforældre i næste weekend"
+	setcycle 50 S4 "Så tager de hende med i zoologisk have"
+	setcycle 50 S5 "Nanna er spændt på at se løverne"
+	setcycle 50 S6 "Hun glæder sig til alle de sjove ting, hun skal lave i sommerferien"
+	setcycle 50 Question "Skal Nanna på besøg hos sin tante og onkel i næste weekend?"
+	setcycle 50 correct_response ""
+	setcycle 51 S1 "Jesper faldt af klatrestativet i frikvarteret"
+	setcycle 51 S2A "Nu gør hans arm meget ondt"
+	setcycle 51 S2B "Nu gør hans ben meget ondt"
+	setcycle 51 S3 "Han tager på hospitalet for at få taget røntgenbilleder"
+	setcycle 51 S4 "Lægen ser på billedet og siger, at knoglen er brækket"
+	setcycle 51 S5 "Han lægger straks gips omkring den"
+	setcycle 51 S6 "I skolen kan Jespers venner skrive på gipsen om hans arm"
+	setcycle 51 Question "Faldt Jesper af klatrestativet?"
+	setcycle 51 correct_response ""
+	setcycle 52 S1 "Laura har længe ønsket sig et kæledyr og får endelig lov til det"
+	setcycle 52 S2A "I dyrebutikken vælger hun en lille hundehvalp"
+	setcycle 52 S2B "I dyrebutikken vælger hun en lille kattekilling"
+	setcycle 52 S3 "Hun kalder ham Sorte, fordi han har sort pels"
+	setcycle 52 S4 "Derhjemme skal Sorte først vænne sig til det nye hus"
+	setcycle 52 S5 "Efter et stykke tid, er han ikke længere bange og kan sidde roligt på Lauras skød"
+	setcycle 52 S6 "Laura er så glad for sin lille, nye hund"
+	setcycle 52 Question "Finder Laura Sorte i dyrebutikken?"
+	setcycle 52 correct_response ""
+	setcycle 53 S1 "Marie går i sjette klasse og skal holde en fremlæggelse"
+	setcycle 53 S2A "Hun glæder sig og kan ikke vente med at fortælle om sit emne"
+	setcycle 53 S2B "Hun har ikke lyst og vil gerne udskyde det så længe som muligt"
+	setcycle 53 S3 "I dag bestemmer læreren, hvornår fremlæggelserne skal holdes"
+	setcycle 53 S4 "Læreren laver en navneliste"
+	setcycle 53 S5 "Hun spørger, hvem af eleverne, der vil starte først"
+	setcycle 53 S6 "Marie håber, at hun kan blive den første og rækker ivrigt hånden op"
+	setcycle 53 Question "Går Marie i ottende klasse?"
+	setcycle 53 correct_response ""
+	setcycle 54 S1 "Vera har en storebror, som hun leger meget med"
+	setcycle 54 S2A "Desværre er søster stadig for lille at lege med"
+	setcycle 54 S2B "Desværre har Vera ikke en søster"
+	setcycle 54 S3 "I dag skal Veras bror bygge et træhytten i haven"
+	setcycle 54 S4 "Vera hjælper, og de har travlt med at bygge hele dagen"
+	setcycle 54 S5 "Sidst på dagen, står træhytten færdig"
+	setcycle 54 S6 "Så kommer Veras far ned i haven med Veras søster for at se træhytten"
+	setcycle 54 Question "Har Vera en lillebror?"
+	setcycle 54 correct_response ""
+	setcycle 55 S1 "Christian elsker at være udenfor"
+	setcycle 55 S2A "Han elsker vinteren, især sneen"
+	setcycle 55 S2B "Men han hader vinteren, især sneen"
+	setcycle 55 S3 "I eftermiddag skal Christian gå tur med sin hund i skoven"
+	setcycle 55 S4 "Hans ven Emil går med, og sammen går de tur i en halv time"
+	setcycle 55 S5 "Imens taler de om deres yndlingssport"
+	setcycle 55 S6 "Christian fortæller, at hans yndlingssport er skiløb"
+	setcycle 55 Question "Går Christian tur med sin ven?"
+	setcycle 55 correct_response ""
+	setcycle 56 S1 "Daniella foretrækker at lave lektier på sit værelse"
+	setcycle 56 S2A "Hendes værelse er dog altid rodet, og hun mister tit sine ting"
+	setcycle 56 S2B "Hendes værelse er altid pæn, og hun ved præcis, hvor alting er"
+	setcycle 56 S3 "Daniella skrev en opgave om heste i sidste uge"
+	setcycle 56 S4 "I morgen skal hun aflevere opgaven i skolen"
+	setcycle 56 S5 "Derfor går hun ind på sit værelse for at hente opgaven"
+	setcycle 56 S6 "Men hun kan ikke finde sin opgave mellem alt rodet på værelset"
+	setcycle 56 Question "Handler Daniellas opgave om heste?"
+	setcycle 56 correct_response ""
+	setcycle 57 S1 "Bos far skal til udlandet i en måned for at arbejde"
+	setcycle 57 S2A "Hans far skal til Tyskland, så han har øvet sig meget på at tale tysk"
+	setcycle 57 S2B "Hans far skal til Frankrig, så han har øvet sig meget på at tale fransk"
+	setcycle 57 S3 "Bo har hjulpet ham med at lære nogle ord"
+	setcycle 57 S4 "Han er bange for at komme til at savne sin far rigtig meget"
+	setcycle 57 S5 "Bos far lover at ringe og sende et postkort hver uge"
+	setcycle 57 S6 "Den dag hans far rejser til Tyskland, er Bo meget ked af det"
+	setcycle 57 Question "Skal Bos far til udlandet i et halvt år?"
+	setcycle 57 correct_response ""
+	setcycle 58 S1 "Maiken tager en ven med hjem for at lege"
+	setcycle 58 S2A "Maiken bor i et hus med en stor have"
+	setcycle 58 S2B "Maiken bor på sjette sal og har ingen have"
+	setcycle 58 S3 "Vennerne bager småkager sammen Maikens mor"
+	setcycle 58 S4 "Det er småkager med chokolade i"
+	setcycle 58 S5 "Efter 15 minutter i ovnen er de klar"
+	setcycle 58 S6 "Bagefter sætter de sig ud i haven for at nyde småkager derude"
+	setcycle 58 Question "Bager vennerne en kage?"
+	setcycle 58 correct_response ""
+	setcycle 59 S1 "Elise skal hjælpe med opvasken hver dag"
+	setcycle 59 S2A "Der kan heldigvis være meget i opvaskemaskinen"
+	setcycle 59 S2B "Desværre har Elises familie ikke en opvaskemaskine"
+	setcycle 59 S3 "I dag lavede Elises far en rigtig god middag"
+	setcycle 59 S4 "Først fik de en suppe, så pasta og is til dessert"
+	setcycle 59 S5 "Derfor er der en stor opvask bagefter"
+	setcycle 59 S6 "Efter middagen fylder Elise opvaskemaskinen med alle de snavsede tallerkener"
+	setcycle 59 Question "Lavede Elises far mad i dag?"
+	setcycle 59 correct_response ""
+	setcycle 60 S1 "Klara får lov af sine forældre til at male sit værelse i en ny farve"
+	setcycle 60 S2A "Hun køber en stor bøtte rød maling sammen med sin far"
+	setcycle 60 S2B "Hun køber en stor bøtte gul maling sammen med sin far"
+	setcycle 60 S3 "Klaras mor lægger aviser på gulvet, så det ikke bliver plettet"
+	setcycle 60 S4 "Så maler de alle væggene i den nye farve"
+	setcycle 60 S5 "Klara synes, at det bliver rigtig flot"
+	setcycle 60 S6 "Det bliver lige så smukt med den røde farve, som Klara havde håbet"
+	setcycle 60 Question "Køber Klara malingen sammen med sin far?"
+	setcycle 60 correct_response ""
+	setcycle 61 S1 "William kan lide at bruge sine morgener udendørs"
+	setcycle 61 S2A "William er lige fyldt tyve og træner til et maraton"
+	setcycle 61 S2B "William er lige fyldt firs og er for nylig begyndt at gå med stok"
+	setcycle 61 S3 "Denne morgen taler han lidt med sin nabo"
+	setcycle 61 S4 "Mens de taler, ser han en lille dreng ligge på gaden"
+	setcycle 61 S5 "Han er faldet på cykel og har slået sit knæ"
+	setcycle 61 S6 "William løber hen til ham og løfter ham op på fortovet"
+	setcycle 61 Question "Kan William lide at være udendørs?"
+	setcycle 61 correct_response ""
+	setcycle 62 S1 "Sebastian har fået guitarundervisning i et par år"
+	setcycle 62 S2A "I øjeblikket har han ingen undervisning, fordi hans guitarlærer er syg"
+	setcycle 62 S2B "I øjeblikket har han ingen undervisning, fordi han brækkede sin hånd"
+	setcycle 62 S3 "Han har også spillet musik med tre venner i et år nu"
+	setcycle 62 S4 "De har allerede optrådt et par gange på musikskolen"
+	setcycle 62 S5 "Der er en forestilling i næste uge"
+	setcycle 62 S6 "Derfor øver Sebastian hårdt til forestillingen med sine venner"
+	setcycle 62 Question "Er Sebastian lige startet til guitarundervisning?"
+	setcycle 62 correct_response ""
+	setcycle 63 S1 "Ella skal på ferie til England med sine forældre denne sommer"
+	setcycle 63 S2A "Ella er god til at tale engelsk og kan forstå det meste"
+	setcycle 63 S2B "Ella taler ikke engelsk og kan ikke forstå et ord"
+	setcycle 63 S3 "Ella og hendes forældre rejser til England med en båd"
+	setcycle 63 S4 "I England tager de på camping og går mange ture "
+	setcycle 63 S5 "På en campingplads møder Ella en engelsk pige på sin egen alder"
+	setcycle 63 S6 "Ella vil gerne lege med hende, så derfor taler hun med hende på engelsk"
+	setcycle 63 Question "Rejser Ella og hendes forældre til England med en båd?"
+	setcycle 63 correct_response ""
+	run trials_sequence
+
+define sequence trials_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run randomize_congruency always
+	run genrate_random_numbers always
+	run number_1 always
+	run nums_isi always
+	run number_2 always
+	run nums_isi always
+	run number_3 always
+	run nums_isi always
+	run number_4 always
+	run nums_isi always
+	run number_5 always
+	run nums_isi always
+	run number_6 always
+	run nums_isi always
+	run S1 always
+	run keyboard_S1 always
+	run S2A "[picker] = 0"
+	run keyboard_S2A "[picker] = 0"
+	run S2B "[picker] = 1"
+	run keyboard_S2B "[picker] = 1"
+	run S3 always
+	run keyboard_S3 always
+	run S4 always
+	run keyboard_S4 always
+	run S5 always
+	run keyboard_S5 always
+	run S6 always
+	run keyboard_S6 always
+	run Question always
+	run keyboard_Question always
+	run number_quiz always
+	run logger always
+
