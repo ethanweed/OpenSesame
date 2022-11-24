@@ -5,7 +5,7 @@ Platform: posix
 ---
 set width 1024
 set uniform_coordinates yes
-set title "New experiment"
+set title ExPsyLing2022_Class1
 set subject_parity even
 set subject_nr 0
 set start experiment
@@ -13,7 +13,10 @@ set sound_sample_size -16
 set sound_freq 48000
 set sound_channels 2
 set sound_buf_size 1024
+set sampler_backend psycho
 set round_decimals 2
+set mouse_backend psycho
+set keyboard_backend psycho
 set height 768
 set fullscreen no
 set form_clicks no
@@ -28,6 +31,8 @@ set disable_garbage_collection yes
 set description "The main experiment item"
 set coordinates uniform
 set compensation 0
+set color_backend psycho
+set clock_backend psycho
 set canvas_backend psycho
 set background black
 
@@ -140,8 +145,8 @@ define loop block_1
 	setcycle 13 condition identical
 	setcycle 13 num_letters 8
 	setcycle 13 type animal
-	setcycle 13 prime kangoroo
-	setcycle 13 target kangoroo
+	setcycle 13 prime kangaroo
+	setcycle 13 target kangaroo
 	setcycle 13 correct_response a
 	setcycle 13 block block1
 	setcycle 14 condition identical
@@ -1076,8 +1081,8 @@ define loop block_2
 	setcycle 65 condition "fully-scrambled"
 	setcycle 65 num_letters 8
 	setcycle 65 type animal
-	setcycle 65 prime ooarkong
-	setcycle 65 target kangoroo
+	setcycle 65 prime ooarkang
+	setcycle 65 target kangaroo
 	setcycle 65 correct_response a
 	setcycle 65 block block2
 	setcycle 66 condition "fully-scrambled"
@@ -1466,8 +1471,8 @@ define loop block_3
 	setcycle 39 condition "semi-scrambled"
 	setcycle 39 num_letters 8
 	setcycle 39 type animal
-	setcycle 39 prime knroaogo
-	setcycle 39 target kangoroo
+	setcycle 39 prime knroaoga
+	setcycle 39 target kangaroo
 	setcycle 39 correct_response a
 	setcycle 39 block block3
 	setcycle 40 condition "semi-scrambled"
@@ -1755,7 +1760,12 @@ define loop block_3
 define sketchpad break
 	set duration keypress
 	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="Halfway!<br /><br />Time for a break!<br />" x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="Half-way!<br /><br />Time for a break.<br /><br />Press any key to start the final part of the experiment..<br />" x=0 y=0 z_index=0
+
+define sketchpad correct
+	set duration 1000
+	set description "Displays stimuli"
+	draw textline center=1 color=green font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="Correct!" x=0 y=0 z_index=0
 
 define inline_javascript counter_balance
 	set description "Executes JavaScript code"
@@ -1774,8 +1784,12 @@ define sequence experiment
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
 	run counter_balance always
-	run instructions always
+	run instructions_1 always
+	run instructions_2 always
+	run instructions_3 always
 	run start always
+	run practice_loop always
+	run instructions_4 always
 	run block_1 "[block_picker] = 1"
 	run block_2 "[block_picker] = 2"
 	run block_3 "[block_picker] = 3"
@@ -1790,13 +1804,38 @@ define sketchpad forward_mask
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="********" x=0 y=0 z_index=0
 
+define sketchpad incorrect
+	set duration 1000
+	set description "Displays stimuli"
+	draw textline center=1 color=red font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="Incorrect!" x=0 y=0 z_index=0
+
 define sketchpad instructions
 	set duration keypress
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="When you see a word, decide if it is an animal or a fruit/vegetable.<br /><br />Press a for animal<br />Press f for fruit/vegetable<br /><br />Press any key to continue.." x=0 y=0 z_index=0
 
+define sketchpad instructions_1
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="In this experiment, you will see some words, separated by +.<br />When you see a word, decide if it is an animal or a fruit/vegetable.<br />Press the A key if it is an animal<br />Press the F key if it is a fruit or vegetable<br />After each word, you will receive feedback as to whether you responded correctly or incorrectly.<br />Try to respond as quickly and accurately as you can.<br />Press any key to continue…<br />" x=0 y=0 z_index=0
+
+define sketchpad instructions_2
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="The whole experiment will take around 5 minutes to complete.<br />There will be a break halfway through the experiment.<br />Press any key to continue…<br /><br />" x=0 y=0 z_index=0
+
+define sketchpad instructions_3
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="First there will be a short test round. <br />Press any key to continue…<br />" x=0 y=0 z_index=0
+
+define sketchpad instructions_4
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="Now the test round is finished and the real experiment will begin.<br />Remember to respond as quickly and accurately as you can. <br />If you make a mistake, don’t worry, just continue to the next word.<br />Press any key to begin the experiment…<br />" x=0 y=0 z_index=0
+
 define keyboard_response keyboard_response
-	set timeout infinite
+	set timeout 2000
 	set flush yes
 	set event_type keypress
 	set duration keypress
@@ -1806,12 +1845,7 @@ define logger logger
 	set description "Logs experimental data"
 	set auto_log yes
 
-define sequence new_sequence
-	set flush_keyboard yes
-	set description "Runs a number of items in sequence"
-
 define loop practice_loop
-	set source_file ""
 	set source table
 	set repeat 1
 	set order random
@@ -1820,8 +1854,14 @@ define loop practice_loop
 	set continuous no
 	set break_if_on_first yes
 	set break_if never
-	setcycle 0 empty_column ""
-	run new_sequence
+	setcycle 0 condition ""
+	setcycle 0 num_letters ""
+	setcycle 0 type ""
+	setcycle 0 prime ""
+	setcycle 0 target ""
+	setcycle 0 correct_response ""
+	setcycle 0 block ""
+	run trials
 
 define sketchpad prime
 	set duration 30
@@ -1849,4 +1889,6 @@ define sequence trials
 	run target always
 	run keyboard_response always
 	run logger always
+	run incorrect "[correct] = 0"
+	run correct "[correct] = 1"
 
