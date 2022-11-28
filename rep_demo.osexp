@@ -1,0 +1,162 @@
+---
+API: 2.1
+OpenSesame: 3.3.12
+Platform: posix
+---
+set width 1024
+set uniform_coordinates yes
+set title "New experiment"
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set round_decimals 2
+set height 768
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 18
+set font_italic no
+set font_family mono
+set font_bold no
+set experiment_path None
+set disable_garbage_collection yes
+set description "The main experiment item"
+set coordinates uniform
+set compensation 0
+set canvas_backend psycho
+set background black
+
+define sketchpad backward_mask
+	set duration 32
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="********" x=0 y=0 z_index=0
+
+define sketchpad break
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="Half-way!<br /><br />Time for a break.<br /><br />Press any key to start the final part of the experiment..<br />" x=0 y=0 z_index=0
+
+define sketchpad correct
+	set duration 500
+	set description "Displays stimuli"
+	draw textline center=1 color=green font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="Correct!" x=0 y=0 z_index=0
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run instructions always
+	run practice_loop always
+
+define sketchpad fix
+	set duration 650
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=60 html=yes show_if=always text="+" x=0 y=0 z_index=0
+
+define sketchpad forward_mask
+	set duration 32
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="********" x=0 y=0 z_index=0
+
+define sketchpad incorrect
+	set duration 500
+	set description "Displays stimuli"
+	draw textline center=1 color=red font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="Incorrect!" x=0 y=0 z_index=0
+
+define sketchpad instructions
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Press A if the word is an animal<br />Priess F if the word is a fruit or vegetable <br /><br />Press any key to begin<br />" x=0 y=0 z_index=0
+
+define keyboard_response keyboard_response
+	set timeout 2000
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define logger logger
+	set description "Logs experimental data"
+	set auto_log yes
+
+define loop practice_loop
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 6
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 condition practice
+	setcycle 0 num_letters 5
+	setcycle 0 type fruit_veg
+	setcycle 0 prime "#####"
+	setcycle 0 target apple
+	setcycle 0 correct_response f
+	setcycle 0 block practice
+	setcycle 1 condition practice
+	setcycle 1 num_letters 4
+	setcycle 1 type animal
+	setcycle 1 prime "#####"
+	setcycle 1 target wolf
+	setcycle 1 correct_response a
+	setcycle 1 block practice
+	setcycle 2 condition practice
+	setcycle 2 num_letters 5
+	setcycle 2 type fruit_veg
+	setcycle 2 prime "#####"
+	setcycle 2 target melon
+	setcycle 2 correct_response f
+	setcycle 2 block practice
+	setcycle 3 condition practice
+	setcycle 3 num_letters 5
+	setcycle 3 type animal
+	setcycle 3 prime "#####"
+	setcycle 3 target hound
+	setcycle 3 correct_response a
+	setcycle 3 block practice
+	setcycle 4 condition practice
+	setcycle 4 num_letters 6
+	setcycle 4 type fruit_veg
+	setcycle 4 prime "#####"
+	setcycle 4 target tomato
+	setcycle 4 correct_response f
+	setcycle 4 block practice
+	setcycle 5 condition practice
+	setcycle 5 num_letters 6
+	setcycle 5 type animal
+	setcycle 5 prime "#####"
+	setcycle 5 target spider
+	setcycle 5 correct_response a
+	setcycle 5 block practice
+	run trials
+
+define sketchpad prime
+	set duration 30
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="[prime]" x=0 y=0 z_index=0
+
+define sketchpad target
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="[target]" x=0 y=0 z_index=0
+
+define sequence trials
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run break "[count_break] = 40"
+	run fix always
+	run forward_mask always
+	run prime always
+	run backward_mask always
+	run target always
+	run keyboard_response always
+	run logger always
+	run incorrect "[correct] = 0"
+	run correct "[correct] = 1"
+

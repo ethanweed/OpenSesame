@@ -5,7 +5,7 @@ Platform: posix
 ---
 set width 1024
 set uniform_coordinates yes
-set title "New experiment"
+set title CorsiBlockDemo
 set subject_parity even
 set subject_nr 0
 set start experiment
@@ -13,7 +13,10 @@ set sound_sample_size -16
 set sound_freq 48000
 set sound_channels 2
 set sound_buf_size 1024
+set sampler_backend psycho
 set round_decimals 2
+set mouse_backend psycho
+set keyboard_backend psycho
 set height 768
 set fullscreen no
 set form_clicks no
@@ -23,11 +26,13 @@ set font_size 18
 set font_italic no
 set font_family mono
 set font_bold no
-set experiment_path "/Users/ethan/Documents/GitHub/OpenSesame"
+set experiment_path "/Users/ethan/Documents/GitHub/OpenSesame/Dual-task_Reading_Comprehension"
 set disable_garbage_collection yes
 set description "The main experiment item"
 set coordinates uniform
 set compensation 0
+set color_backend psycho
+set clock_backend psycho
 set canvas_backend psycho
 set background black
 

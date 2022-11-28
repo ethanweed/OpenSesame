@@ -1763,20 +1763,18 @@ define sketchpad break
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="Half-way!<br /><br />Time for a break.<br /><br />Press any key to start the final part of the experiment..<br />" x=0 y=0 z_index=0
 
 define sketchpad correct
-	set duration 1000
+	set duration 500
 	set description "Displays stimuli"
 	draw textline center=1 color=green font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="Correct!" x=0 y=0 z_index=0
 
 define inline_javascript counter_balance
 	set description "Executes JavaScript code"
 	___run__
-	Array.prototype.random = function () {
-	  return this[Math.floor((Math.random()*this.length))];
-	}
+	
+	
 	
 	var list = [1,2,3]
-	
-	vars.block_picker = list.random()
+	vars.block_picker  = random.pick(list);
 	__end__
 	set _prepare ""
 
@@ -1787,7 +1785,6 @@ define sequence experiment
 	run instructions_1 always
 	run instructions_2 always
 	run instructions_3 always
-	run start always
 	run practice_loop always
 	run instructions_4 always
 	run block_1 "[block_picker] = 1"
@@ -1795,7 +1792,7 @@ define sequence experiment
 	run block_3 "[block_picker] = 3"
 
 define sketchpad fix
-	set duration 1000
+	set duration 650
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=60 html=yes show_if=always text="+" x=0 y=0 z_index=0
 
@@ -1805,34 +1802,29 @@ define sketchpad forward_mask
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="********" x=0 y=0 z_index=0
 
 define sketchpad incorrect
-	set duration 1000
+	set duration 500
 	set description "Displays stimuli"
 	draw textline center=1 color=red font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="Incorrect!" x=0 y=0 z_index=0
-
-define sketchpad instructions
-	set duration keypress
-	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="When you see a word, decide if it is an animal or a fruit/vegetable.<br /><br />Press a for animal<br />Press f for fruit/vegetable<br /><br />Press any key to continue.." x=0 y=0 z_index=0
 
 define sketchpad instructions_1
 	set duration keypress
 	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="In this experiment, you will see some words, separated by +.<br />When you see a word, decide if it is an animal or a fruit/vegetable.<br />Press the A key if it is an animal<br />Press the F key if it is a fruit or vegetable<br />After each word, you will receive feedback as to whether you responded correctly or incorrectly.<br />Try to respond as quickly and accurately as you can.<br />Press any key to continue…<br />" x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="In this experiment, you will see some words, separated by +.<br /><br />When you see a word, decide if it is an animal or a fruit/vegetable.<br /><br />Press the A key if it is an animal<br /><br />Press the F key if it is a fruit or vegetable<br /><br />After each word, you will receive feedback as to whether<br /> you responded correctly or incorrectly.<br /><br />Try to respond as quickly and accurately as you can.<br /><br />If you take too long, the experiment will continue automatically.<br /><br />Press any key to continue…<br />" x=0 y=0 z_index=0
 
 define sketchpad instructions_2
 	set duration keypress
 	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="The whole experiment will take around 5 minutes to complete.<br />There will be a break halfway through the experiment.<br />Press any key to continue…<br /><br />" x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="The whole experiment will take around 5 minutes to complete.<br /><br />There will be a break halfway through the experiment.<br /><br />Press any key to continue…<br /><br />" x=0 y=0 z_index=0
 
 define sketchpad instructions_3
 	set duration keypress
 	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="First there will be a short test round. <br />Press any key to continue…<br />" x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="First there will be a short test round. <br /><br />Press any key to begin…<br />" x=0 y=0 z_index=0
 
 define sketchpad instructions_4
 	set duration keypress
 	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="Now the test round is finished and the real experiment will begin.<br />Remember to respond as quickly and accurately as you can. <br />If you make a mistake, don’t worry, just continue to the next word.<br />Press any key to begin the experiment…<br />" x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="Now the test round is finished and the real experiment will begin.<br /><br />Remember to respond as quickly and accurately as you can. <br /><br />If you make a mistake, don’t worry, just continue to the next word.<br /><br />Remember: <br /><br />Fress A for animal and press F for fruit or vegetable.<br /><br />Press any key to begin the experiment…<br />" x=0 y=0 z_index=0
 
 define keyboard_response keyboard_response
 	set timeout 2000
@@ -1846,32 +1838,63 @@ define logger logger
 	set auto_log yes
 
 define loop practice_loop
+	set source_file ""
 	set source table
 	set repeat 1
-	set order random
+	set order sequential
 	set description "Repeatedly runs another item"
-	set cycles 1
+	set cycles 6
 	set continuous no
 	set break_if_on_first yes
 	set break_if never
-	setcycle 0 condition ""
-	setcycle 0 num_letters ""
-	setcycle 0 type ""
-	setcycle 0 prime ""
-	setcycle 0 target ""
-	setcycle 0 correct_response ""
-	setcycle 0 block ""
+	setcycle 0 condition practice
+	setcycle 0 num_letters 5
+	setcycle 0 type fruit_veg
+	setcycle 0 prime "#####"
+	setcycle 0 target apple
+	setcycle 0 correct_response f
+	setcycle 0 block practice
+	setcycle 1 condition practice
+	setcycle 1 num_letters 4
+	setcycle 1 type animal
+	setcycle 1 prime "#####"
+	setcycle 1 target wolf
+	setcycle 1 correct_response a
+	setcycle 1 block practice
+	setcycle 2 condition practice
+	setcycle 2 num_letters 5
+	setcycle 2 type fruit_veg
+	setcycle 2 prime "#####"
+	setcycle 2 target melon
+	setcycle 2 correct_response f
+	setcycle 2 block practice
+	setcycle 3 condition practice
+	setcycle 3 num_letters 5
+	setcycle 3 type animal
+	setcycle 3 prime "#####"
+	setcycle 3 target hound
+	setcycle 3 correct_response a
+	setcycle 3 block practice
+	setcycle 4 condition practice
+	setcycle 4 num_letters 6
+	setcycle 4 type fruit_veg
+	setcycle 4 prime "#####"
+	setcycle 4 target tomato
+	setcycle 4 correct_response f
+	setcycle 4 block practice
+	setcycle 5 condition practice
+	setcycle 5 num_letters 6
+	setcycle 5 type animal
+	setcycle 5 prime "#####"
+	setcycle 5 target spider
+	setcycle 5 correct_response a
+	setcycle 5 block practice
 	run trials
 
 define sketchpad prime
 	set duration 30
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="[prime]" x=0 y=0 z_index=0
-
-define sketchpad start
-	set duration keypress
-	set description "Displays stimuli"
-	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Press any key to start the experiment." x=0 y=0 z_index=0
 
 define sketchpad target
 	set duration 0
@@ -1881,7 +1904,7 @@ define sketchpad target
 define sequence trials
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
-	run break "[count_break] = 40"
+	run break "[count_trials] = 40"
 	run fix always
 	run forward_mask always
 	run prime always
