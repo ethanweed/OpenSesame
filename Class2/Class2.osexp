@@ -1,0 +1,1744 @@
+---
+API: 2.1
+OpenSesame: 3.3.12
+Platform: posix
+---
+set width 1024
+set uniform_coordinates yes
+set title ExPsyLing2022_Class2
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set sampler_backend psycho
+set round_decimals 2
+set mouse_backend psycho
+set keyboard_backend psycho
+set height 768
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 18
+set font_italic no
+set font_family mono
+set font_bold no
+set experiment_path "/Users/ethan/Documents/GitHub/OpenSesame/Class2"
+set disable_garbage_collection yes
+set description "The main experiment item"
+set coordinates uniform
+set compensation 0
+set color_backend psycho
+set clock_backend psycho
+set canvas_backend psycho
+set background black
+
+define loop block1
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 52
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 Mod_level unrelated
+	setcycle 0 Prime_word SHOE
+	setcycle 0 target WALL
+	setcycle 0 Category manmade
+	setcycle 0 correct_response M
+	setcycle 0 word_length 4
+	setcycle 0 Block block1
+	setcycle 1 Mod_level unrelated
+	setcycle 1 Prime_word KNEE
+	setcycle 1 target CAKE
+	setcycle 1 Category manmade
+	setcycle 1 correct_response M
+	setcycle 1 word_length 4
+	setcycle 1 Block block1
+	setcycle 2 Mod_level unrelated
+	setcycle 2 Prime_word BUNS
+	setcycle 2 target LIST
+	setcycle 2 Category manmade
+	setcycle 2 correct_response M
+	setcycle 2 word_length 4
+	setcycle 2 Block block1
+	setcycle 3 Mod_level unrelated
+	setcycle 3 Prime_word CANNY
+	setcycle 3 target CANDY
+	setcycle 3 Category manmade
+	setcycle 3 correct_response M
+	setcycle 3 word_length 5
+	setcycle 3 Block block1
+	setcycle 4 Mod_level unrelated
+	setcycle 4 Prime_word BOOK
+	setcycle 4 target LOCK
+	setcycle 4 Category manmade
+	setcycle 4 correct_response M
+	setcycle 4 word_length 4
+	setcycle 4 Block block1
+	setcycle 5 Mod_level unrelated
+	setcycle 5 Prime_word JEANS
+	setcycle 5 target PHONE
+	setcycle 5 Category manmade
+	setcycle 5 correct_response M
+	setcycle 5 word_length 5
+	setcycle 5 Block block1
+	setcycle 6 Mod_level unrelated
+	setcycle 6 Prime_word TRAP
+	setcycle 6 target TOYS
+	setcycle 6 Category manmade
+	setcycle 6 correct_response M
+	setcycle 6 word_length 4
+	setcycle 6 Block block1
+	setcycle 7 Mod_level exact
+	setcycle 7 Prime_word BALL
+	setcycle 7 target BALL
+	setcycle 7 Category manmade
+	setcycle 7 correct_response M
+	setcycle 7 word_length 4
+	setcycle 7 Block block1
+	setcycle 8 Mod_level exact
+	setcycle 8 Prime_word TRUCK
+	setcycle 8 target TRUCK
+	setcycle 8 Category manmade
+	setcycle 8 correct_response M
+	setcycle 8 word_length 5
+	setcycle 8 Block block1
+	setcycle 9 Mod_level exact
+	setcycle 9 Prime_word PAGE
+	setcycle 9 target PAGE
+	setcycle 9 Category manmade
+	setcycle 9 correct_response M
+	setcycle 9 word_length 4
+	setcycle 9 Block block1
+	setcycle 10 Mod_level exact
+	setcycle 10 Prime_word DESK
+	setcycle 10 target DESK
+	setcycle 10 Category manmade
+	setcycle 10 correct_response M
+	setcycle 10 word_length 4
+	setcycle 10 Block block1
+	setcycle 11 Mod_level exact
+	setcycle 11 Prime_word MAIL
+	setcycle 11 target MAIL
+	setcycle 11 Category manmade
+	setcycle 11 correct_response M
+	setcycle 11 word_length 4
+	setcycle 11 Block block1
+	setcycle 12 Mod_level exact
+	setcycle 12 Prime_word PIZZA
+	setcycle 12 target PIZZA
+	setcycle 12 Category manmade
+	setcycle 12 correct_response M
+	setcycle 12 word_length 5
+	setcycle 12 Block block1
+	setcycle 13 Mod_level exact
+	setcycle 13 Prime_word VASE
+	setcycle 13 target VASE
+	setcycle 13 Category manmade
+	setcycle 13 correct_response M
+	setcycle 13 word_length 4
+	setcycle 13 Block block1
+	setcycle 14 Mod_level one_modification
+	setcycle 14 Prime_word "[OAT"
+	setcycle 14 target COAT
+	setcycle 14 Category manmade
+	setcycle 14 correct_response M
+	setcycle 14 word_length 4
+	setcycle 14 Block block1
+	setcycle 15 Mod_level one_modification
+	setcycle 15 Prime_word BR3AD
+	setcycle 15 target BREAD
+	setcycle 15 Category manmade
+	setcycle 15 correct_response M
+	setcycle 15 word_length 5
+	setcycle 15 Block block1
+	setcycle 16 Mod_level one_modification
+	setcycle 16 Prime_word 13OOK
+	setcycle 16 target BOOK
+	setcycle 16 Category manmade
+	setcycle 16 correct_response M
+	setcycle 16 word_length 4
+	setcycle 16 Block block1
+	setcycle 17 Mod_level one_modification
+	setcycle 17 Prime_word DI5H
+	setcycle 17 target DISH
+	setcycle 17 Category manmade
+	setcycle 17 correct_response M
+	setcycle 17 word_length 4
+	setcycle 17 Block block1
+	setcycle 18 Mod_level one_modification
+	setcycle 18 Prime_word 0VEN
+	setcycle 18 target OVEN
+	setcycle 18 Category manmade
+	setcycle 18 correct_response M
+	setcycle 18 word_length 4
+	setcycle 18 Block block1
+	setcycle 19 Mod_level one_modification
+	setcycle 19 Prime_word SHO3
+	setcycle 19 target SHOE
+	setcycle 19 Category manmade
+	setcycle 19 correct_response M
+	setcycle 19 word_length 4
+	setcycle 19 Block block1
+	setcycle 20 Mod_level two_modifications
+	setcycle 20 Prime_word "L4M|*"
+	setcycle 20 target LAMP
+	setcycle 20 Category manmade
+	setcycle 20 correct_response M
+	setcycle 20 word_length 4
+	setcycle 20 Block block1
+	setcycle 21 Mod_level two_modifications
+	setcycle 21 Prime_word T00L
+	setcycle 21 target TOOL
+	setcycle 21 Category manmade
+	setcycle 21 correct_response M
+	setcycle 21 word_length 4
+	setcycle 21 Block block1
+	setcycle 22 Mod_level two_modifications
+	setcycle 22 Prime_word C46E
+	setcycle 22 target CAGE
+	setcycle 22 Category manmade
+	setcycle 22 correct_response M
+	setcycle 22 word_length 4
+	setcycle 22 Block block1
+	setcycle 23 Mod_level two_modifications
+	setcycle 23 Prime_word "K|\\|iF‚Ç¨"
+	setcycle 23 target KNIFE
+	setcycle 23 Category manmade
+	setcycle 23 correct_response M
+	setcycle 23 word_length 5
+	setcycle 23 Block block1
+	setcycle 24 Mod_level two_modifications
+	setcycle 24 Prime_word P4P3R
+	setcycle 24 target PAPER
+	setcycle 24 Category manmade
+	setcycle 24 correct_response M
+	setcycle 24 word_length 5
+	setcycle 24 Block block1
+	setcycle 25 Mod_level two_modifications
+	setcycle 25 Prime_word "S1N>|"
+	setcycle 25 target SINK
+	setcycle 25 Category manmade
+	setcycle 25 correct_response M
+	setcycle 25 word_length 4
+	setcycle 25 Block block1
+	setcycle 26 Mod_level unrelated
+	setcycle 26 Prime_word NOIR
+	setcycle 26 target NUTS
+	setcycle 26 Category natural
+	setcycle 26 correct_response N
+	setcycle 26 word_length 4
+	setcycle 26 Block block1
+	setcycle 27 Mod_level unrelated
+	setcycle 27 Prime_word MOUSE
+	setcycle 27 target WATER
+	setcycle 27 Category natural
+	setcycle 27 correct_response N
+	setcycle 27 word_length 5
+	setcycle 27 Block block1
+	setcycle 28 Mod_level unrelated
+	setcycle 28 Prime_word TOYS
+	setcycle 28 target BIRD
+	setcycle 28 Category natural
+	setcycle 28 correct_response N
+	setcycle 28 word_length 4
+	setcycle 28 Block block1
+	setcycle 29 Mod_level unrelated
+	setcycle 29 Prime_word TREE
+	setcycle 29 target CATS
+	setcycle 29 Category natural
+	setcycle 29 correct_response N
+	setcycle 29 word_length 4
+	setcycle 29 Block block1
+	setcycle 30 Mod_level unrelated
+	setcycle 30 Prime_word ROCK
+	setcycle 30 target LAMB
+	setcycle 30 Category natural
+	setcycle 30 correct_response N
+	setcycle 30 word_length 4
+	setcycle 30 Block block1
+	setcycle 31 Mod_level unrelated
+	setcycle 31 Prime_word LEGS
+	setcycle 31 target PLUM
+	setcycle 31 Category natural
+	setcycle 31 correct_response N
+	setcycle 31 word_length 4
+	setcycle 31 Block block1
+	setcycle 32 Mod_level unrelated
+	setcycle 32 Prime_word LOUSE
+	setcycle 32 target TIGER
+	setcycle 32 Category natural
+	setcycle 32 correct_response N
+	setcycle 32 word_length 5
+	setcycle 32 Block block1
+	setcycle 33 Mod_level exact
+	setcycle 33 Prime_word RAIN
+	setcycle 33 target RAIN
+	setcycle 33 Category natural
+	setcycle 33 correct_response N
+	setcycle 33 word_length 4
+	setcycle 33 Block block1
+	setcycle 34 Mod_level exact
+	setcycle 34 Prime_word DUCK
+	setcycle 34 target DUCK
+	setcycle 34 Category natural
+	setcycle 34 correct_response N
+	setcycle 34 word_length 4
+	setcycle 34 Block block1
+	setcycle 35 Mod_level exact
+	setcycle 35 Prime_word PONY
+	setcycle 35 target PONY
+	setcycle 35 Category natural
+	setcycle 35 correct_response N
+	setcycle 35 word_length 4
+	setcycle 35 Block block1
+	setcycle 36 Mod_level exact
+	setcycle 36 Prime_word STORM
+	setcycle 36 target STORM
+	setcycle 36 Category natural
+	setcycle 36 correct_response N
+	setcycle 36 word_length 4
+	setcycle 36 Block block1
+	setcycle 37 Mod_level exact
+	setcycle 37 Prime_word LEAF
+	setcycle 37 target LEAF
+	setcycle 37 Category natural
+	setcycle 37 correct_response N
+	setcycle 37 word_length 4
+	setcycle 37 Block block1
+	setcycle 38 Mod_level exact
+	setcycle 38 Prime_word SNAIL
+	setcycle 38 target SNAIL
+	setcycle 38 Category natural
+	setcycle 38 correct_response N
+	setcycle 38 word_length 5
+	setcycle 38 Block block1
+	setcycle 39 Mod_level exact
+	setcycle 39 Prime_word TUNA
+	setcycle 39 target TUNA
+	setcycle 39 Category natural
+	setcycle 39 correct_response N
+	setcycle 39 word_length 4
+	setcycle 39 Block block1
+	setcycle 40 Mod_level one_modification
+	setcycle 40 Prime_word "SHEE|*"
+	setcycle 40 target SHEEP
+	setcycle 40 Category natural
+	setcycle 40 correct_response N
+	setcycle 40 word_length 5
+	setcycle 40 Block block1
+	setcycle 41 Mod_level one_modification
+	setcycle 41 Prime_word DOG5
+	setcycle 41 target DOGS
+	setcycle 41 Category natural
+	setcycle 41 correct_response N
+	setcycle 41 word_length 4
+	setcycle 41 Block block1
+	setcycle 42 Mod_level one_modification
+	setcycle 42 Prime_word I3EAK
+	setcycle 42 target BEAK
+	setcycle 42 Category natural
+	setcycle 42 correct_response N
+	setcycle 42 word_length 4
+	setcycle 42 Block block1
+	setcycle 43 Mod_level one_modification
+	setcycle 43 Prime_word CR0W
+	setcycle 43 target CROW
+	setcycle 43 Category natural
+	setcycle 43 correct_response N
+	setcycle 43 word_length 4
+	setcycle 43 Block block1
+	setcycle 44 Mod_level one_modification
+	setcycle 44 Prime_word "MOO–ò"
+	setcycle 44 target MOON
+	setcycle 44 Category natural
+	setcycle 44 correct_response N
+	setcycle 44 word_length 4
+	setcycle 44 Block block1
+	setcycle 45 Mod_level one_modification
+	setcycle 45 Prime_word 5N0W
+	setcycle 45 target SNOW
+	setcycle 45 Category natural
+	setcycle 45 correct_response N
+	setcycle 45 word_length 4
+	setcycle 45 Block block1
+	setcycle 46 Mod_level two_modifications
+	setcycle 46 Prime_word 4PPL3
+	setcycle 46 target APPLE
+	setcycle 46 Category natural
+	setcycle 46 correct_response N
+	setcycle 46 word_length 5
+	setcycle 46 Block block1
+	setcycle 47 Mod_level two_modifications
+	setcycle 47 Prime_word "WO1|="
+	setcycle 47 target WOLF
+	setcycle 47 Category natural
+	setcycle 47 correct_response N
+	setcycle 47 word_length 4
+	setcycle 47 Block block1
+	setcycle 48 Mod_level two_modifications
+	setcycle 48 Prime_word CAM31
+	setcycle 48 target CAMEL
+	setcycle 48 Category natural
+	setcycle 48 correct_response N
+	setcycle 48 word_length 5
+	setcycle 48 Block block1
+	setcycle 49 Mod_level two_modifications
+	setcycle 49 Prime_word 3GG5
+	setcycle 49 target EGGS
+	setcycle 49 Category natural
+	setcycle 49 correct_response N
+	setcycle 49 word_length 4
+	setcycle 49 Block block1
+	setcycle 50 Mod_level two_modifications
+	setcycle 50 Prime_word "P‚Ç¨/\\R"
+	setcycle 50 target PEAR
+	setcycle 50 Category natural
+	setcycle 50 correct_response N
+	setcycle 50 word_length 4
+	setcycle 50 Block block1
+	setcycle 51 Mod_level two_modifications
+	setcycle 51 Prime_word 57ONE
+	setcycle 51 target STONE
+	setcycle 51 Category natural
+	setcycle 51 correct_response N
+	setcycle 51 word_length 5
+	setcycle 51 Block block1
+	run trial_sequence
+
+define loop block2
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 52
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 Mod_level unrelated
+	setcycle 0 Prime_word BATH
+	setcycle 0 target BALL
+	setcycle 0 Category manmade
+	setcycle 0 correct_response M
+	setcycle 0 word_length 4
+	setcycle 0 Block block2
+	setcycle 1 Mod_level unrelated
+	setcycle 1 Prime_word MOOSE
+	setcycle 1 target TRUCK
+	setcycle 1 Category manmade
+	setcycle 1 correct_response M
+	setcycle 1 word_length 5
+	setcycle 1 Block block2
+	setcycle 2 Mod_level unrelated
+	setcycle 2 Prime_word BREAD
+	setcycle 2 target PAGE
+	setcycle 2 Category manmade
+	setcycle 2 correct_response M
+	setcycle 2 word_length 4
+	setcycle 2 Block block2
+	setcycle 3 Mod_level unrelated
+	setcycle 3 Prime_word CRAB
+	setcycle 3 target DESK
+	setcycle 3 Category manmade
+	setcycle 3 correct_response M
+	setcycle 3 word_length 4
+	setcycle 3 Block block2
+	setcycle 4 Mod_level unrelated
+	setcycle 4 Prime_word STAR
+	setcycle 4 target MAIL
+	setcycle 4 Category manmade
+	setcycle 4 correct_response M
+	setcycle 4 word_length 4
+	setcycle 4 Block block2
+	setcycle 5 Mod_level unrelated
+	setcycle 5 Prime_word PRUNE
+	setcycle 5 target PIZZA
+	setcycle 5 Category manmade
+	setcycle 5 correct_response M
+	setcycle 5 word_length 5
+	setcycle 5 Block block2
+	setcycle 6 Mod_level unrelated
+	setcycle 6 Prime_word LION
+	setcycle 6 target VASE
+	setcycle 6 Category manmade
+	setcycle 6 correct_response M
+	setcycle 6 word_length 4
+	setcycle 6 Block block2
+	setcycle 7 Mod_level exact
+	setcycle 7 Prime_word COAT
+	setcycle 7 target COAT
+	setcycle 7 Category manmade
+	setcycle 7 correct_response M
+	setcycle 7 word_length 4
+	setcycle 7 Block block2
+	setcycle 8 Mod_level exact
+	setcycle 8 Prime_word BREAD
+	setcycle 8 target BREAD
+	setcycle 8 Category manmade
+	setcycle 8 correct_response M
+	setcycle 8 word_length 5
+	setcycle 8 Block block2
+	setcycle 9 Mod_level exact
+	setcycle 9 Prime_word BOOK
+	setcycle 9 target BOOK
+	setcycle 9 Category manmade
+	setcycle 9 correct_response M
+	setcycle 9 word_length 4
+	setcycle 9 Block block2
+	setcycle 10 Mod_level exact
+	setcycle 10 Prime_word DISH
+	setcycle 10 target DISH
+	setcycle 10 Category manmade
+	setcycle 10 correct_response M
+	setcycle 10 word_length 4
+	setcycle 10 Block block2
+	setcycle 11 Mod_level exact
+	setcycle 11 Prime_word OVEN
+	setcycle 11 target OVEN
+	setcycle 11 Category manmade
+	setcycle 11 correct_response M
+	setcycle 11 word_length 4
+	setcycle 11 Block block2
+	setcycle 12 Mod_level exact
+	setcycle 12 Prime_word SHOE
+	setcycle 12 target SHOE
+	setcycle 12 Category manmade
+	setcycle 12 correct_response M
+	setcycle 12 word_length 4
+	setcycle 12 Block block2
+	setcycle 13 Mod_level one_modification
+	setcycle 13 Prime_word "LAM|*"
+	setcycle 13 target LAMP
+	setcycle 13 Category manmade
+	setcycle 13 correct_response M
+	setcycle 13 word_length 4
+	setcycle 13 Block block2
+	setcycle 14 Mod_level one_modification
+	setcycle 14 Prime_word TOO1
+	setcycle 14 target TOOL
+	setcycle 14 Category manmade
+	setcycle 14 correct_response M
+	setcycle 14 word_length 4
+	setcycle 14 Block block2
+	setcycle 15 Mod_level one_modification
+	setcycle 15 Prime_word C4GE
+	setcycle 15 target CAGE
+	setcycle 15 Category manmade
+	setcycle 15 correct_response M
+	setcycle 15 word_length 4
+	setcycle 15 Block block2
+	setcycle 16 Mod_level one_modification
+	setcycle 16 Prime_word "K|\\|iFE"
+	setcycle 16 target KNIFE
+	setcycle 16 Category manmade
+	setcycle 16 correct_response M
+	setcycle 16 word_length 5
+	setcycle 16 Block block2
+	setcycle 17 Mod_level one_modification
+	setcycle 17 Prime_word P4PER
+	setcycle 17 target PAPER
+	setcycle 17 Category manmade
+	setcycle 17 correct_response M
+	setcycle 17 word_length 5
+	setcycle 17 Block block2
+	setcycle 18 Mod_level one_modification
+	setcycle 18 Prime_word 5INK
+	setcycle 18 target SINK
+	setcycle 18 Category manmade
+	setcycle 18 correct_response M
+	setcycle 18 word_length 4
+	setcycle 18 Block block2
+	setcycle 19 Mod_level two_modifications
+	setcycle 19 Prime_word "\\\\/\\\\/4LL"
+	setcycle 19 target WALL
+	setcycle 19 Category manmade
+	setcycle 19 correct_response M
+	setcycle 19 word_length 4
+	setcycle 19 Block block2
+	setcycle 20 Mod_level two_modifications
+	setcycle 20 Prime_word "[AK3"
+	setcycle 20 target CAKE
+	setcycle 20 Category manmade
+	setcycle 20 correct_response M
+	setcycle 20 word_length 4
+	setcycle 20 Block block2
+	setcycle 21 Mod_level two_modifications
+	setcycle 21 Prime_word "LI$7"
+	setcycle 21 target LIST
+	setcycle 21 Category manmade
+	setcycle 21 correct_response M
+	setcycle 21 word_length 4
+	setcycle 21 Block block2
+	setcycle 22 Mod_level two_modifications
+	setcycle 22 Prime_word "C4N)Y"
+	setcycle 22 target CANDY
+	setcycle 22 Category manmade
+	setcycle 22 correct_response M
+	setcycle 22 word_length 5
+	setcycle 22 Block block2
+	setcycle 23 Mod_level two_modifications
+	setcycle 23 Prime_word "1O[K"
+	setcycle 23 target LOCK
+	setcycle 23 Category manmade
+	setcycle 23 correct_response M
+	setcycle 23 word_length 4
+	setcycle 23 Block block2
+	setcycle 24 Mod_level two_modifications
+	setcycle 24 Prime_word "|*H0NE"
+	setcycle 24 target PHONE
+	setcycle 24 Category manmade
+	setcycle 24 correct_response M
+	setcycle 24 word_length 5
+	setcycle 24 Block block2
+	setcycle 25 Mod_level two_modifications
+	setcycle 25 Prime_word 7OY5
+	setcycle 25 target TOYS
+	setcycle 25 Category manmade
+	setcycle 25 correct_response M
+	setcycle 25 word_length 4
+	setcycle 25 Block block2
+	setcycle 26 Mod_level unrelated
+	setcycle 26 Prime_word RUNE
+	setcycle 26 target RAIN
+	setcycle 26 Category natural
+	setcycle 26 correct_response N
+	setcycle 26 word_length 4
+	setcycle 26 Block block2
+	setcycle 27 Mod_level unrelated
+	setcycle 27 Prime_word DRUM
+	setcycle 27 target DUCK
+	setcycle 27 Category natural
+	setcycle 27 correct_response N
+	setcycle 27 word_length 4
+	setcycle 27 Block block2
+	setcycle 28 Mod_level unrelated
+	setcycle 28 Prime_word ROCK
+	setcycle 28 target PONY
+	setcycle 28 Category natural
+	setcycle 28 correct_response N
+	setcycle 28 word_length 4
+	setcycle 28 Block block2
+	setcycle 29 Mod_level unrelated
+	setcycle 29 Prime_word TROOP
+	setcycle 29 target STORM
+	setcycle 29 Category natural
+	setcycle 29 correct_response N
+	setcycle 29 word_length 4
+	setcycle 29 Block block2
+	setcycle 30 Mod_level unrelated
+	setcycle 30 Prime_word CAKE
+	setcycle 30 target LEAF
+	setcycle 30 Category natural
+	setcycle 30 correct_response N
+	setcycle 30 word_length 4
+	setcycle 30 Block block2
+	setcycle 31 Mod_level unrelated
+	setcycle 31 Prime_word HOUSE
+	setcycle 31 target SNAIL
+	setcycle 31 Category natural
+	setcycle 31 correct_response N
+	setcycle 31 word_length 5
+	setcycle 31 Block block2
+	setcycle 32 Mod_level unrelated
+	setcycle 32 Prime_word WOOD
+	setcycle 32 target TUNA
+	setcycle 32 Category natural
+	setcycle 32 correct_response N
+	setcycle 32 word_length 4
+	setcycle 32 Block block2
+	setcycle 33 Mod_level exact
+	setcycle 33 Prime_word SHEEP
+	setcycle 33 target SHEEP
+	setcycle 33 Category natural
+	setcycle 33 correct_response N
+	setcycle 33 word_length 5
+	setcycle 33 Block block2
+	setcycle 34 Mod_level exact
+	setcycle 34 Prime_word DOGS
+	setcycle 34 target DOGS
+	setcycle 34 Category natural
+	setcycle 34 correct_response N
+	setcycle 34 word_length 4
+	setcycle 34 Block block2
+	setcycle 35 Mod_level exact
+	setcycle 35 Prime_word BEAK
+	setcycle 35 target BEAK
+	setcycle 35 Category natural
+	setcycle 35 correct_response N
+	setcycle 35 word_length 4
+	setcycle 35 Block block2
+	setcycle 36 Mod_level exact
+	setcycle 36 Prime_word CROW
+	setcycle 36 target CROW
+	setcycle 36 Category natural
+	setcycle 36 correct_response N
+	setcycle 36 word_length 4
+	setcycle 36 Block block2
+	setcycle 37 Mod_level exact
+	setcycle 37 Prime_word MOON
+	setcycle 37 target MOON
+	setcycle 37 Category natural
+	setcycle 37 correct_response N
+	setcycle 37 word_length 4
+	setcycle 37 Block block2
+	setcycle 38 Mod_level exact
+	setcycle 38 Prime_word SNOW
+	setcycle 38 target SNOW
+	setcycle 38 Category natural
+	setcycle 38 correct_response N
+	setcycle 38 word_length 4
+	setcycle 38 Block block2
+	setcycle 39 Mod_level one_modification
+	setcycle 39 Prime_word "A|*PLE"
+	setcycle 39 target APPLE
+	setcycle 39 Category natural
+	setcycle 39 correct_response N
+	setcycle 39 word_length 5
+	setcycle 39 Block block2
+	setcycle 40 Mod_level one_modification
+	setcycle 40 Prime_word "\\\\/\\\\/OLF"
+	setcycle 40 target WOLF
+	setcycle 40 Category natural
+	setcycle 40 correct_response N
+	setcycle 40 word_length 4
+	setcycle 40 Block block2
+	setcycle 41 Mod_level one_modification
+	setcycle 41 Prime_word CAM3L
+	setcycle 41 target CAMEL
+	setcycle 41 Category natural
+	setcycle 41 correct_response N
+	setcycle 41 word_length 5
+	setcycle 41 Block block2
+	setcycle 42 Mod_level one_modification
+	setcycle 42 Prime_word EGG5
+	setcycle 42 target EGGS
+	setcycle 42 Category natural
+	setcycle 42 correct_response N
+	setcycle 42 word_length 4
+	setcycle 42 Block block2
+	setcycle 43 Mod_level one_modification
+	setcycle 43 Prime_word "P‚Ç¨AR"
+	setcycle 43 target PEAR
+	setcycle 43 Category natural
+	setcycle 43 correct_response N
+	setcycle 43 word_length 4
+	setcycle 43 Block block2
+	setcycle 44 Mod_level one_modification
+	setcycle 44 Prime_word ST0NE
+	setcycle 44 target STONE
+	setcycle 44 Category natural
+	setcycle 44 correct_response N
+	setcycle 44 word_length 5
+	setcycle 44 Block block2
+	setcycle 45 Mod_level two_modifications
+	setcycle 45 Prime_word NU75
+	setcycle 45 target NUTS
+	setcycle 45 Category natural
+	setcycle 45 correct_response N
+	setcycle 45 word_length 4
+	setcycle 45 Block block2
+	setcycle 46 Mod_level two_modifications
+	setcycle 46 Prime_word W4T3R
+	setcycle 46 target WATER
+	setcycle 46 Category natural
+	setcycle 46 correct_response N
+	setcycle 46 word_length 5
+	setcycle 46 Block block2
+	setcycle 47 Mod_level two_modifications
+	setcycle 47 Prime_word "I3IR)"
+	setcycle 47 target BIRD
+	setcycle 47 Category natural
+	setcycle 47 correct_response N
+	setcycle 47 word_length 4
+	setcycle 47 Block block2
+	setcycle 48 Mod_level two_modifications
+	setcycle 48 Prime_word C4T5
+	setcycle 48 target CATS
+	setcycle 48 Category natural
+	setcycle 48 correct_response N
+	setcycle 48 word_length 4
+	setcycle 48 Block block2
+	setcycle 49 Mod_level two_modifications
+	setcycle 49 Prime_word L4MI3
+	setcycle 49 target LAMB
+	setcycle 49 Category natural
+	setcycle 49 correct_response N
+	setcycle 49 word_length 4
+	setcycle 49 Block block2
+	setcycle 50 Mod_level two_modifications
+	setcycle 50 Prime_word "|*1UM"
+	setcycle 50 target PLUM
+	setcycle 50 Category natural
+	setcycle 50 correct_response N
+	setcycle 50 word_length 4
+	setcycle 50 Block block2
+	setcycle 51 Mod_level two_modifications
+	setcycle 51 Prime_word 7IG3R
+	setcycle 51 target TIGER
+	setcycle 51 Category natural
+	setcycle 51 correct_response N
+	setcycle 51 word_length 5
+	setcycle 51 Block block2
+	run trial_sequence
+
+define loop block3
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 52
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 Mod_level unrelated
+	setcycle 0 Prime_word HOME
+	setcycle 0 target COAT
+	setcycle 0 Category manmade
+	setcycle 0 correct_response M
+	setcycle 0 word_length 4
+	setcycle 0 Block block3
+	setcycle 1 Mod_level unrelated
+	setcycle 1 Prime_word TRICK
+	setcycle 1 target BREAD
+	setcycle 1 Category manmade
+	setcycle 1 correct_response M
+	setcycle 1 word_length 5
+	setcycle 1 Block block3
+	setcycle 2 Mod_level unrelated
+	setcycle 2 Prime_word SOCK
+	setcycle 2 target BOOK
+	setcycle 2 Category manmade
+	setcycle 2 correct_response M
+	setcycle 2 word_length 4
+	setcycle 2 Block block3
+	setcycle 3 Mod_level unrelated
+	setcycle 3 Prime_word BOOT
+	setcycle 3 target DISH
+	setcycle 3 Category manmade
+	setcycle 3 correct_response M
+	setcycle 3 word_length 4
+	setcycle 3 Block block3
+	setcycle 4 Mod_level unrelated
+	setcycle 4 Prime_word TOMB
+	setcycle 4 target OVEN
+	setcycle 4 Category manmade
+	setcycle 4 correct_response M
+	setcycle 4 word_length 4
+	setcycle 4 Block block3
+	setcycle 5 Mod_level unrelated
+	setcycle 5 Prime_word TENT
+	setcycle 5 target SHOE
+	setcycle 5 Category manmade
+	setcycle 5 correct_response M
+	setcycle 5 word_length 4
+	setcycle 5 Block block3
+	setcycle 6 Mod_level exact
+	setcycle 6 Prime_word LAMP
+	setcycle 6 target LAMP
+	setcycle 6 Category manmade
+	setcycle 6 correct_response M
+	setcycle 6 word_length 4
+	setcycle 6 Block block3
+	setcycle 7 Mod_level exact
+	setcycle 7 Prime_word TOOL
+	setcycle 7 target TOOL
+	setcycle 7 Category manmade
+	setcycle 7 correct_response M
+	setcycle 7 word_length 4
+	setcycle 7 Block block3
+	setcycle 8 Mod_level exact
+	setcycle 8 Prime_word CAGE
+	setcycle 8 target CAGE
+	setcycle 8 Category manmade
+	setcycle 8 correct_response M
+	setcycle 8 word_length 4
+	setcycle 8 Block block3
+	setcycle 9 Mod_level exact
+	setcycle 9 Prime_word KNIFE
+	setcycle 9 target KNIFE
+	setcycle 9 Category manmade
+	setcycle 9 correct_response M
+	setcycle 9 word_length 5
+	setcycle 9 Block block3
+	setcycle 10 Mod_level exact
+	setcycle 10 Prime_word PAPER
+	setcycle 10 target PAPER
+	setcycle 10 Category manmade
+	setcycle 10 correct_response M
+	setcycle 10 word_length 5
+	setcycle 10 Block block3
+	setcycle 11 Mod_level exact
+	setcycle 11 Prime_word SINK
+	setcycle 11 target SINK
+	setcycle 11 Category manmade
+	setcycle 11 correct_response M
+	setcycle 11 word_length 4
+	setcycle 11 Block block3
+	setcycle 12 Mod_level one_modification
+	setcycle 12 Prime_word W4LL
+	setcycle 12 target WALL
+	setcycle 12 Category manmade
+	setcycle 12 correct_response M
+	setcycle 12 word_length 4
+	setcycle 12 Block block3
+	setcycle 13 Mod_level one_modification
+	setcycle 13 Prime_word CAK3
+	setcycle 13 target CAKE
+	setcycle 13 Category manmade
+	setcycle 13 correct_response M
+	setcycle 13 word_length 4
+	setcycle 13 Block block3
+	setcycle 14 Mod_level one_modification
+	setcycle 14 Prime_word "LI$T"
+	setcycle 14 target LIST
+	setcycle 14 Category manmade
+	setcycle 14 correct_response M
+	setcycle 14 word_length 4
+	setcycle 14 Block block3
+	setcycle 15 Mod_level one_modification
+	setcycle 15 Prime_word C4NDY
+	setcycle 15 target CANDY
+	setcycle 15 Category manmade
+	setcycle 15 correct_response M
+	setcycle 15 word_length 5
+	setcycle 15 Block block3
+	setcycle 16 Mod_level one_modification
+	setcycle 16 Prime_word 1OCK
+	setcycle 16 target LOCK
+	setcycle 16 Category manmade
+	setcycle 16 correct_response M
+	setcycle 16 word_length 4
+	setcycle 16 Block block3
+	setcycle 17 Mod_level one_modification
+	setcycle 17 Prime_word "P#ONE"
+	setcycle 17 target PHONE
+	setcycle 17 Category manmade
+	setcycle 17 correct_response M
+	setcycle 17 word_length 5
+	setcycle 17 Block block3
+	setcycle 18 Mod_level one_modification
+	setcycle 18 Prime_word TOjS
+	setcycle 18 target TOYS
+	setcycle 18 Category manmade
+	setcycle 18 correct_response M
+	setcycle 18 word_length 4
+	setcycle 18 Block block3
+	setcycle 19 Mod_level two_modifications
+	setcycle 19 Prime_word B411
+	setcycle 19 target BALL
+	setcycle 19 Category manmade
+	setcycle 19 correct_response M
+	setcycle 19 word_length 4
+	setcycle 19 Block block3
+	setcycle 20 Mod_level two_modifications
+	setcycle 20 Prime_word "TI2UC>|"
+	setcycle 20 target TRUCK
+	setcycle 20 Category manmade
+	setcycle 20 correct_response M
+	setcycle 20 word_length 5
+	setcycle 20 Block block3
+	setcycle 21 Mod_level two_modifications
+	setcycle 21 Prime_word P46E
+	setcycle 21 target PAGE
+	setcycle 21 Category manmade
+	setcycle 21 correct_response M
+	setcycle 21 word_length 4
+	setcycle 21 Block block3
+	setcycle 22 Mod_level two_modifications
+	setcycle 22 Prime_word ")E5K"
+	setcycle 22 target DESK
+	setcycle 22 Category manmade
+	setcycle 22 correct_response M
+	setcycle 22 word_length 4
+	setcycle 22 Block block3
+	setcycle 23 Mod_level two_modifications
+	setcycle 23 Prime_word "/\\\\/\\\\A1L"
+	setcycle 23 target MAIL
+	setcycle 23 Category manmade
+	setcycle 23 correct_response M
+	setcycle 23 word_length 4
+	setcycle 23 Block block3
+	setcycle 24 Mod_level two_modifications
+	setcycle 24 Prime_word "|*1ZZA"
+	setcycle 24 target PIZZA
+	setcycle 24 Category manmade
+	setcycle 24 correct_response M
+	setcycle 24 word_length 5
+	setcycle 24 Block block3
+	setcycle 25 Mod_level two_modifications
+	setcycle 25 Prime_word V4S3
+	setcycle 25 target VASE
+	setcycle 25 Category manmade
+	setcycle 25 correct_response M
+	setcycle 25 word_length 4
+	setcycle 25 Block block3
+	setcycle 26 Mod_level unrelated
+	setcycle 26 Prime_word RIGHT
+	setcycle 26 target SHEEP
+	setcycle 26 Category natural
+	setcycle 26 correct_response N
+	setcycle 26 word_length 5
+	setcycle 26 Block block3
+	setcycle 27 Mod_level unrelated
+	setcycle 27 Prime_word BREAD
+	setcycle 27 target DOGS
+	setcycle 27 Category natural
+	setcycle 27 correct_response N
+	setcycle 27 word_length 4
+	setcycle 27 Block block3
+	setcycle 28 Mod_level unrelated
+	setcycle 28 Prime_word PLOT
+	setcycle 28 target BEAK
+	setcycle 28 Category natural
+	setcycle 28 correct_response N
+	setcycle 28 word_length 4
+	setcycle 28 Block block3
+	setcycle 29 Mod_level unrelated
+	setcycle 29 Prime_word DEER
+	setcycle 29 target CROW
+	setcycle 29 Category natural
+	setcycle 29 correct_response N
+	setcycle 29 word_length 4
+	setcycle 29 Block block3
+	setcycle 30 Mod_level unrelated
+	setcycle 30 Prime_word CATS
+	setcycle 30 target MOON
+	setcycle 30 Category natural
+	setcycle 30 correct_response N
+	setcycle 30 word_length 4
+	setcycle 30 Block block3
+	setcycle 31 Mod_level unrelated
+	setcycle 31 Prime_word FROG
+	setcycle 31 target SNOW
+	setcycle 31 Category natural
+	setcycle 31 correct_response N
+	setcycle 31 word_length 4
+	setcycle 31 Block block3
+	setcycle 32 Mod_level exact
+	setcycle 32 Prime_word APPLE
+	setcycle 32 target APPLE
+	setcycle 32 Category natural
+	setcycle 32 correct_response N
+	setcycle 32 word_length 5
+	setcycle 32 Block block3
+	setcycle 33 Mod_level exact
+	setcycle 33 Prime_word WOLF
+	setcycle 33 target WOLF
+	setcycle 33 Category natural
+	setcycle 33 correct_response N
+	setcycle 33 word_length 4
+	setcycle 33 Block block3
+	setcycle 34 Mod_level exact
+	setcycle 34 Prime_word CAMEL
+	setcycle 34 target CAMEL
+	setcycle 34 Category natural
+	setcycle 34 correct_response N
+	setcycle 34 word_length 5
+	setcycle 34 Block block3
+	setcycle 35 Mod_level exact
+	setcycle 35 Prime_word EGGS
+	setcycle 35 target EGGS
+	setcycle 35 Category natural
+	setcycle 35 correct_response N
+	setcycle 35 word_length 4
+	setcycle 35 Block block3
+	setcycle 36 Mod_level exact
+	setcycle 36 Prime_word PEAR
+	setcycle 36 target PEAR
+	setcycle 36 Category natural
+	setcycle 36 correct_response N
+	setcycle 36 word_length 4
+	setcycle 36 Block block3
+	setcycle 37 Mod_level exact
+	setcycle 37 Prime_word STONE
+	setcycle 37 target STONE
+	setcycle 37 Category natural
+	setcycle 37 correct_response N
+	setcycle 37 word_length 5
+	setcycle 37 Block block3
+	setcycle 38 Mod_level one_modification
+	setcycle 38 Prime_word "^/UTS"
+	setcycle 38 target NUTS
+	setcycle 38 Category natural
+	setcycle 38 correct_response N
+	setcycle 38 word_length 4
+	setcycle 38 Block block3
+	setcycle 39 Mod_level one_modification
+	setcycle 39 Prime_word W4TER
+	setcycle 39 target WATER
+	setcycle 39 Category natural
+	setcycle 39 correct_response N
+	setcycle 39 word_length 5
+	setcycle 39 Block block3
+	setcycle 40 Mod_level one_modification
+	setcycle 40 Prime_word B1RD
+	setcycle 40 target BIRD
+	setcycle 40 Category natural
+	setcycle 40 correct_response N
+	setcycle 40 word_length 4
+	setcycle 40 Block block3
+	setcycle 41 Mod_level one_modification
+	setcycle 41 Prime_word CA7S
+	setcycle 41 target CATS
+	setcycle 41 Category natural
+	setcycle 41 correct_response N
+	setcycle 41 word_length 4
+	setcycle 41 Block block3
+	setcycle 42 Mod_level one_modification
+	setcycle 42 Prime_word 1AMB
+	setcycle 42 target LAMB
+	setcycle 42 Category natural
+	setcycle 42 correct_response N
+	setcycle 42 word_length 4
+	setcycle 42 Block block3
+	setcycle 43 Mod_level one_modification
+	setcycle 43 Prime_word "|*LUM"
+	setcycle 43 target PLUM
+	setcycle 43 Category natural
+	setcycle 43 correct_response N
+	setcycle 43 word_length 4
+	setcycle 43 Block block3
+	setcycle 44 Mod_level one_modification
+	setcycle 44 Prime_word TIG3R
+	setcycle 44 target TIGER
+	setcycle 44 Category natural
+	setcycle 44 correct_response N
+	setcycle 44 word_length 5
+	setcycle 44 Block block3
+	setcycle 45 Mod_level two_modifications
+	setcycle 45 Prime_word "RA1^/"
+	setcycle 45 target RAIN
+	setcycle 45 Category natural
+	setcycle 45 correct_response N
+	setcycle 45 word_length 4
+	setcycle 45 Block block3
+	setcycle 46 Mod_level two_modifications
+	setcycle 46 Prime_word ")U[K"
+	setcycle 46 target DUCK
+	setcycle 46 Category natural
+	setcycle 46 correct_response N
+	setcycle 46 word_length 4
+	setcycle 46 Block block3
+	setcycle 47 Mod_level two_modifications
+	setcycle 47 Prime_word "P0–òY"
+	setcycle 47 target PONY
+	setcycle 47 Category natural
+	setcycle 47 correct_response N
+	setcycle 47 word_length 4
+	setcycle 47 Block block3
+	setcycle 48 Mod_level two_modifications
+	setcycle 48 Prime_word "S7OR/\\/\\"
+	setcycle 48 target STORM
+	setcycle 48 Category natural
+	setcycle 48 correct_response N
+	setcycle 48 word_length 4
+	setcycle 48 Block block3
+	setcycle 49 Mod_level two_modifications
+	setcycle 49 Prime_word "LE4|="
+	setcycle 49 target LEAF
+	setcycle 49 Category natural
+	setcycle 49 correct_response N
+	setcycle 49 word_length 4
+	setcycle 49 Block block3
+	setcycle 50 Mod_level two_modifications
+	setcycle 50 Prime_word 5N4IL
+	setcycle 50 target SNAIL
+	setcycle 50 Category natural
+	setcycle 50 correct_response N
+	setcycle 50 word_length 5
+	setcycle 50 Block block3
+	setcycle 51 Mod_level two_modifications
+	setcycle 51 Prime_word "T(_)N4"
+	setcycle 51 target TUNA
+	setcycle 51 Category natural
+	setcycle 51 correct_response N
+	setcycle 51 word_length 4
+	setcycle 51 Block block3
+	run trial_sequence
+
+define loop block4
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 52
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 Mod_level unrelated
+	setcycle 0 Prime_word FROG
+	setcycle 0 target LAMP
+	setcycle 0 Category manmade
+	setcycle 0 correct_response M
+	setcycle 0 word_length 4
+	setcycle 0 Block block4
+	setcycle 1 Mod_level unrelated
+	setcycle 1 Prime_word APLE
+	setcycle 1 target TOOL
+	setcycle 1 Category manmade
+	setcycle 1 correct_response M
+	setcycle 1 word_length 4
+	setcycle 1 Block block4
+	setcycle 2 Mod_level unrelated
+	setcycle 2 Prime_word FLAG
+	setcycle 2 target CAGE
+	setcycle 2 Category manmade
+	setcycle 2 correct_response M
+	setcycle 2 word_length 4
+	setcycle 2 Block block4
+	setcycle 3 Mod_level unrelated
+	setcycle 3 Prime_word KNACK
+	setcycle 3 target KNIFE
+	setcycle 3 Category manmade
+	setcycle 3 correct_response M
+	setcycle 3 word_length 5
+	setcycle 3 Block block4
+	setcycle 4 Mod_level unrelated
+	setcycle 4 Prime_word MOOSE
+	setcycle 4 target PAPER
+	setcycle 4 Category manmade
+	setcycle 4 correct_response M
+	setcycle 4 word_length 5
+	setcycle 4 Block block4
+	setcycle 5 Mod_level unrelated
+	setcycle 5 Prime_word TYRE
+	setcycle 5 target SINK
+	setcycle 5 Category manmade
+	setcycle 5 correct_response M
+	setcycle 5 word_length 4
+	setcycle 5 Block block4
+	setcycle 6 Mod_level exact
+	setcycle 6 Prime_word WALL
+	setcycle 6 target WALL
+	setcycle 6 Category manmade
+	setcycle 6 correct_response M
+	setcycle 6 word_length 4
+	setcycle 6 Block block4
+	setcycle 7 Mod_level exact
+	setcycle 7 Prime_word CAKE
+	setcycle 7 target CAKE
+	setcycle 7 Category manmade
+	setcycle 7 correct_response M
+	setcycle 7 word_length 4
+	setcycle 7 Block block4
+	setcycle 8 Mod_level exact
+	setcycle 8 Prime_word LIST
+	setcycle 8 target LIST
+	setcycle 8 Category manmade
+	setcycle 8 correct_response M
+	setcycle 8 word_length 4
+	setcycle 8 Block block4
+	setcycle 9 Mod_level exact
+	setcycle 9 Prime_word CANDY
+	setcycle 9 target CANDY
+	setcycle 9 Category manmade
+	setcycle 9 correct_response M
+	setcycle 9 word_length 5
+	setcycle 9 Block block4
+	setcycle 10 Mod_level exact
+	setcycle 10 Prime_word LOCK
+	setcycle 10 target LOCK
+	setcycle 10 Category manmade
+	setcycle 10 correct_response M
+	setcycle 10 word_length 4
+	setcycle 10 Block block4
+	setcycle 11 Mod_level exact
+	setcycle 11 Prime_word PHONE
+	setcycle 11 target PHONE
+	setcycle 11 Category manmade
+	setcycle 11 correct_response M
+	setcycle 11 word_length 5
+	setcycle 11 Block block4
+	setcycle 12 Mod_level exact
+	setcycle 12 Prime_word TOYS
+	setcycle 12 target TOYS
+	setcycle 12 Category manmade
+	setcycle 12 correct_response M
+	setcycle 12 word_length 4
+	setcycle 12 Block block4
+	setcycle 13 Mod_level one_modification
+	setcycle 13 Prime_word I3ALL
+	setcycle 13 target BALL
+	setcycle 13 Category manmade
+	setcycle 13 correct_response M
+	setcycle 13 word_length 4
+	setcycle 13 Block block4
+	setcycle 14 Mod_level one_modification
+	setcycle 14 Prime_word "TR(_)CK"
+	setcycle 14 target TRUCK
+	setcycle 14 Category manmade
+	setcycle 14 correct_response M
+	setcycle 14 word_length 5
+	setcycle 14 Block block4
+	setcycle 15 Mod_level one_modification
+	setcycle 15 Prime_word "|*AGE"
+	setcycle 15 target PAGE
+	setcycle 15 Category manmade
+	setcycle 15 correct_response M
+	setcycle 15 word_length 4
+	setcycle 15 Block block4
+	setcycle 16 Mod_level one_modification
+	setcycle 16 Prime_word ")ESK"
+	setcycle 16 target DESK
+	setcycle 16 Category manmade
+	setcycle 16 correct_response M
+	setcycle 16 word_length 4
+	setcycle 16 Block block4
+	setcycle 17 Mod_level one_modification
+	setcycle 17 Prime_word MA1L
+	setcycle 17 target MAIL
+	setcycle 17 Category manmade
+	setcycle 17 correct_response M
+	setcycle 17 word_length 4
+	setcycle 17 Block block4
+	setcycle 18 Mod_level one_modification
+	setcycle 18 Prime_word "|*IZZA"
+	setcycle 18 target PIZZA
+	setcycle 18 Category manmade
+	setcycle 18 correct_response M
+	setcycle 18 word_length 5
+	setcycle 18 Block block4
+	setcycle 19 Mod_level one_modification
+	setcycle 19 Prime_word "\\\\/ASE"
+	setcycle 19 target VASE
+	setcycle 19 Category manmade
+	setcycle 19 correct_response M
+	setcycle 19 word_length 4
+	setcycle 19 Block block4
+	setcycle 20 Mod_level two_modifications
+	setcycle 20 Prime_word C04T
+	setcycle 20 target COAT
+	setcycle 20 Category manmade
+	setcycle 20 correct_response M
+	setcycle 20 word_length 4
+	setcycle 20 Block block4
+	setcycle 21 Mod_level two_modifications
+	setcycle 21 Prime_word I3RE4D
+	setcycle 21 target BREAD
+	setcycle 21 Category manmade
+	setcycle 21 correct_response M
+	setcycle 21 word_length 5
+	setcycle 21 Block block4
+	setcycle 22 Mod_level two_modifications
+	setcycle 22 Prime_word 13O0K
+	setcycle 22 target BOOK
+	setcycle 22 Category manmade
+	setcycle 22 correct_response M
+	setcycle 22 word_length 4
+	setcycle 22 Block block4
+	setcycle 23 Mod_level two_modifications
+	setcycle 23 Prime_word ")1SH"
+	setcycle 23 target DISH
+	setcycle 23 Category manmade
+	setcycle 23 correct_response M
+	setcycle 23 word_length 4
+	setcycle 23 Block block4
+	setcycle 24 Mod_level two_modifications
+	setcycle 24 Prime_word "OV3–ò"
+	setcycle 24 target OVEN
+	setcycle 24 Category manmade
+	setcycle 24 correct_response M
+	setcycle 24 word_length 4
+	setcycle 24 Block block4
+	setcycle 25 Mod_level two_modifications
+	setcycle 25 Prime_word "S#0E"
+	setcycle 25 target SHOE
+	setcycle 25 Category manmade
+	setcycle 25 correct_response M
+	setcycle 25 word_length 4
+	setcycle 25 Block block4
+	setcycle 26 Mod_level unrelated
+	setcycle 26 Prime_word BIRDS
+	setcycle 26 target APPLE
+	setcycle 26 Category natural
+	setcycle 26 correct_response N
+	setcycle 26 word_length 5
+	setcycle 26 Block block4
+	setcycle 27 Mod_level unrelated
+	setcycle 27 Prime_word DOOR
+	setcycle 27 target WOLF
+	setcycle 27 Category natural
+	setcycle 27 correct_response N
+	setcycle 27 word_length 4
+	setcycle 27 Block block4
+	setcycle 28 Mod_level unrelated
+	setcycle 28 Prime_word CHEAT
+	setcycle 28 target CAMEL
+	setcycle 28 Category natural
+	setcycle 28 correct_response N
+	setcycle 28 word_length 5
+	setcycle 28 Block block4
+	setcycle 29 Mod_level unrelated
+	setcycle 29 Prime_word BEAST
+	setcycle 29 target EGGS
+	setcycle 29 Category natural
+	setcycle 29 correct_response N
+	setcycle 29 word_length 4
+	setcycle 29 Block block4
+	setcycle 30 Mod_level unrelated
+	setcycle 30 Prime_word BEAD
+	setcycle 30 target PEAR
+	setcycle 30 Category natural
+	setcycle 30 correct_response N
+	setcycle 30 word_length 4
+	setcycle 30 Block block4
+	setcycle 31 Mod_level unrelated
+	setcycle 31 Prime_word WATER
+	setcycle 31 target STONE
+	setcycle 31 Category natural
+	setcycle 31 correct_response N
+	setcycle 31 word_length 5
+	setcycle 31 Block block4
+	setcycle 32 Mod_level exact
+	setcycle 32 Prime_word NUTS
+	setcycle 32 target NUTS
+	setcycle 32 Category natural
+	setcycle 32 correct_response N
+	setcycle 32 word_length 4
+	setcycle 32 Block block4
+	setcycle 33 Mod_level exact
+	setcycle 33 Prime_word WATER
+	setcycle 33 target WATER
+	setcycle 33 Category natural
+	setcycle 33 correct_response N
+	setcycle 33 word_length 5
+	setcycle 33 Block block4
+	setcycle 34 Mod_level exact
+	setcycle 34 Prime_word BIRD
+	setcycle 34 target BIRD
+	setcycle 34 Category natural
+	setcycle 34 correct_response N
+	setcycle 34 word_length 4
+	setcycle 34 Block block4
+	setcycle 35 Mod_level exact
+	setcycle 35 Prime_word CATS
+	setcycle 35 target CATS
+	setcycle 35 Category natural
+	setcycle 35 correct_response N
+	setcycle 35 word_length 4
+	setcycle 35 Block block4
+	setcycle 36 Mod_level exact
+	setcycle 36 Prime_word LAMB
+	setcycle 36 target LAMB
+	setcycle 36 Category natural
+	setcycle 36 correct_response N
+	setcycle 36 word_length 4
+	setcycle 36 Block block4
+	setcycle 37 Mod_level exact
+	setcycle 37 Prime_word PLUM
+	setcycle 37 target PLUM
+	setcycle 37 Category natural
+	setcycle 37 correct_response N
+	setcycle 37 word_length 4
+	setcycle 37 Block block4
+	setcycle 38 Mod_level exact
+	setcycle 38 Prime_word TIGER
+	setcycle 38 target TIGER
+	setcycle 38 Category natural
+	setcycle 38 correct_response N
+	setcycle 38 word_length 5
+	setcycle 38 Block block4
+	setcycle 39 Mod_level one_modification
+	setcycle 39 Prime_word R4IN
+	setcycle 39 target RAIN
+	setcycle 39 Category natural
+	setcycle 39 correct_response N
+	setcycle 39 word_length 4
+	setcycle 39 Block block4
+	setcycle 40 Mod_level one_modification
+	setcycle 40 Prime_word ")UCK"
+	setcycle 40 target DUCK
+	setcycle 40 Category natural
+	setcycle 40 correct_response N
+	setcycle 40 word_length 4
+	setcycle 40 Block block4
+	setcycle 41 Mod_level one_modification
+	setcycle 41 Prime_word "|*ONY"
+	setcycle 41 target PONY
+	setcycle 41 Category natural
+	setcycle 41 correct_response N
+	setcycle 41 word_length 4
+	setcycle 41 Block block4
+	setcycle 42 Mod_level one_modification
+	setcycle 42 Prime_word ST0RM
+	setcycle 42 target STORM
+	setcycle 42 Category natural
+	setcycle 42 correct_response N
+	setcycle 42 word_length 4
+	setcycle 42 Block block4
+	setcycle 43 Mod_level one_modification
+	setcycle 43 Prime_word 1EAF
+	setcycle 43 target LEAF
+	setcycle 43 Category natural
+	setcycle 43 correct_response N
+	setcycle 43 word_length 4
+	setcycle 43 Block block4
+	setcycle 44 Mod_level one_modification
+	setcycle 44 Prime_word 5NAIL
+	setcycle 44 target SNAIL
+	setcycle 44 Category natural
+	setcycle 44 correct_response N
+	setcycle 44 word_length 5
+	setcycle 44 Block block4
+	setcycle 45 Mod_level one_modification
+	setcycle 45 Prime_word TUN4
+	setcycle 45 target TUNA
+	setcycle 45 Category natural
+	setcycle 45 correct_response N
+	setcycle 45 word_length 4
+	setcycle 45 Block block4
+	setcycle 46 Mod_level two_modifications
+	setcycle 46 Prime_word SH33P
+	setcycle 46 target SHEEP
+	setcycle 46 Category natural
+	setcycle 46 correct_response N
+	setcycle 46 word_length 5
+	setcycle 46 Block block4
+	setcycle 47 Mod_level two_modifications
+	setcycle 47 Prime_word ")OG5"
+	setcycle 47 target DOGS
+	setcycle 47 Category natural
+	setcycle 47 correct_response N
+	setcycle 47 word_length 4
+	setcycle 47 Block block4
+	setcycle 48 Mod_level two_modifications
+	setcycle 48 Prime_word I3E4K
+	setcycle 48 target BEAK
+	setcycle 48 Category natural
+	setcycle 48 correct_response N
+	setcycle 48 word_length 4
+	setcycle 48 Block block4
+	setcycle 49 Mod_level two_modifications
+	setcycle 49 Prime_word "[R0W"
+	setcycle 49 target CROW
+	setcycle 49 Category natural
+	setcycle 49 correct_response N
+	setcycle 49 word_length 4
+	setcycle 49 Block block4
+	setcycle 50 Mod_level two_modifications
+	setcycle 50 Prime_word M00N
+	setcycle 50 target MOON
+	setcycle 50 Category natural
+	setcycle 50 correct_response N
+	setcycle 50 word_length 4
+	setcycle 50 Block block4
+	setcycle 51 Mod_level two_modifications
+	setcycle 51 Prime_word "S–ò0W"
+	setcycle 51 target SNOW
+	setcycle 51 Category natural
+	setcycle 51 correct_response N
+	setcycle 51 word_length 4
+	setcycle 51 Block block4
+	run trial_sequence
+
+define loop block_1
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 empty_column ""
+	run ""
+
+define loop block_2
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 empty_column ""
+	run ""
+
+define loop block_3
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 empty_column ""
+	run ""
+
+define loop block_4
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 empty_column ""
+	run ""
+
+define sketchpad correct
+	set duration 500
+	set description "Displays stimuli"
+	draw textline center=1 color=green font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="Correct!" x=0 y=0 z_index=0
+
+define inline_javascript counter_balance
+	set description "Executes JavaScript code"
+	___run__
+	var list = [1,2,3,4]
+	vars.block_picker  = random.pick(list);
+	__end__
+	set _prepare ""
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run counter_balance always
+	run instructions1 always
+	run instructions2 always
+	run practice always
+	run instructions3 always
+	run block1 "[block_picker] = 1"
+	run block2 "[block_picker] = 2"
+	run block3 "[block_picker] = 3"
+	run block4 "[block_picker] = 4"
+	run thanks always
+
+define sketchpad fixation
+	set duration 650
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="+" x=0 y=0 z_index=0
+
+define sketchpad incorrect
+	set duration 500
+	set description "Displays stimuli"
+	draw textline center=1 color=red font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="Incorrect!" x=0 y=0 z_index=0
+
+define sketchpad instructions1
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="Thank you for participating in this study!<br /><br />Following this message, you will be presented with a word. <br /><br />Your task is to choose if it is of natural origin, or of man-made origin. <br /><br />If the word is of natural origin, you need to press “N”. <br /><br />If it is man-made, you need to press “M”.<br /><br />Press any key to continue..." x=0 y=0 z_index=0
+
+define sketchpad instructions2
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="Let’s start with a practice round. <br /><br />After that round, we will inform you so that you get ready.<br /><br />Press any key to start." x=0 y=0 z_index=0
+
+define sketchpad instructions3
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="That was the practice. Ready for the experiment? <br /><br />Press any key to start.<br /><br />Thanks a lot for taking your time 😊<br />" x=0 y=0 z_index=0
+
+define sketchpad instructions4
+	set duration keypress
+	set description "Displays stimuli"
+
+define sketchpad instructions_4
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=red font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="incorrect!" x=0 y=0 z_index=0
+
+define keyboard_response keyboard_response
+	set timeout 2000
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define logger logger
+	set description "Logs experimental data"
+	set auto_log yes
+
+define sketchpad mask1
+	set duration 32
+	set description "Displays stimuli"
+	draw gabor bgmode=avg color1=white color2=black env=gaussian freq=0.1 orient=0 phase=0 show_if=always size=400 stdev=50 x=0 y=0 z_index=0
+
+define sketchpad mask2
+	set duration 32
+	set description "Displays stimuli"
+	draw gabor bgmode=avg color1=white color2=black env=gaussian freq=0.1 orient=0 phase=0 show_if=always size=400 stdev=50 x=0 y=0 z_index=0
+
+define loop practice
+	set source_file ""
+	set source table
+	set repeat 1
+	set order sequential
+	set description "Repeatedly runs another item"
+	set cycles 4
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 Mod_level practice
+	setcycle 0 prime "*****"
+	setcycle 0 target VINE
+	setcycle 0 category natural
+	setcycle 0 correct_response N
+	setcycle 0 word_length 4
+	setcycle 0 Block practice
+	setcycle 1 Mod_level practice
+	setcycle 1 prime "*****"
+	setcycle 1 target BOAT
+	setcycle 1 category manmade
+	setcycle 1 correct_response M
+	setcycle 1 word_length 4
+	setcycle 1 Block practice
+	setcycle 2 Mod_level practice
+	setcycle 2 prime "*****"
+	setcycle 2 target STAIRS
+	setcycle 2 category manmade
+	setcycle 2 correct_response M
+	setcycle 2 word_length 6
+	setcycle 2 Block practice
+	setcycle 3 Mod_level practice
+	setcycle 3 prime "*****"
+	setcycle 3 target ZEBRA
+	setcycle 3 category natural
+	setcycle 3 correct_response N
+	setcycle 3 word_length 5
+	setcycle 3 Block practice
+	run trial_sequence
+
+define sketchpad prime
+	set duration 30
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="[prime]" x=0 y=0 z_index=0
+
+define sketchpad target
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="[target]" x=0 y=0 z_index=0
+
+define sketchpad thanks
+	set duration 1000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="This is the end of the trial.<br />Thank you for your participation !<br /><br />Please press any key to save your results :-)<br />" x=0 y=0 z_index=0
+
+define sequence trial_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run fixation always
+	run mask1 always
+	run prime always
+	run mask2 always
+	run target always
+	run keyboard_response always
+	run logger always
+	run correct "[correct] = 1"
+	run incorrect "[correct] = 0"
+

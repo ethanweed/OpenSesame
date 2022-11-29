@@ -1,7 +1,7 @@
 ---
 API: 2.1
 Description: A simple word/ nonword categorization
-OpenSesame: 3.3.11a3
+OpenSesame: 3.3.12
 Platform: posix
 Title: Lexical-decision task
 ---
@@ -126,7 +126,7 @@ define sequence block_sequence
 	run block_loop always
 	run feedback always
 
-define inline_javascript countervalance_javascript
+define inline_javascript counterbalance_javascript
 	set description "Executes JavaScript code"
 	set _run ""
 	___prepare__
@@ -149,7 +149,7 @@ define sequence experiment
 	set flush_keyboard yes
 	set description "Runs a number of items in sequence"
 	run about_this_example always
-	run countervalance_javascript always
+	run counterbalance_javascript always
 	run instructions always
 	run practice_loop always
 	run goodbye always
@@ -173,7 +173,7 @@ define loop experimental_loop
 
 define feedback feedback
 	set reset_variables yes
-	set duration 4000
+	set duration keypress
 	set description "Provides feedback to the participant"
 	draw textline center=1 color=white font_bold=no font_family=sans font_italic=no font_size=32 html=yes show_if=always text="End of block [=var.count_block_sequence+1]<br /><br />Your average response time was [avg_rt] ms<br />Your accuracy was [acc] %<br /><br />Press any key to continue" x=0 y=0 z_index=0
 
@@ -185,7 +185,7 @@ define sketchpad fixation
 	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=32 y2=32 z_index=0
 
 define sketchpad goodbye
-	set duration keypress
+	set duration 2000
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=32 html=yes show_if=always text="The experiment is finished<br />Thank you for participating<br /><br />Press any key to exit" x=0 y=0 z_index=0
 

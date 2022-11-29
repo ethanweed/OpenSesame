@@ -1,0 +1,953 @@
+---
+API: 2.1
+Description: A simple word/ nonword categorization
+OpenSesame: 3.3.12
+Platform: posix
+Title: Lexical-decision task
+---
+set width 1024
+set uniform_coordinates no
+set title Response_time_timing
+set synth_backend legacy
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set sampler_backend legacy
+set round_decimals 2
+set mouse_backend legacy
+set keyboard_backend legacy
+set height 768
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 32
+set font_italic no
+set font_family mono
+set font_bold no
+set experiment_path "/Users/ethan/Documents/GitHub/OpenSesame/Response_time_timing"
+set disable_garbage_collection yes
+set description "A simple lexical-decision example experiment"
+set coordinates relative
+set compensation 0
+set color_backend legacy
+set clock_backend legacy
+set canvas_backend legacy
+set bidi no
+set background gray
+
+define loop WM_load
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 empty_column ""
+	run WM_sequence
+
+define sequence WM_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run new_reset_feedback_3 always
+	run WM_trials_loop always
+	run feedback_1 always
+
+define loop WM_trials_loop
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 20
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 condition WM
+	setcycle 0 category food
+	setcycle 0 target cake
+	setcycle 0 correct_response f
+	setcycle 1 condition WM
+	setcycle 1 category food
+	setcycle 1 target biscuit
+	setcycle 1 correct_response f
+	setcycle 2 condition WM
+	setcycle 2 category food
+	setcycle 2 target bread
+	setcycle 2 correct_response f
+	setcycle 3 condition WM
+	setcycle 3 category food
+	setcycle 3 target pastry
+	setcycle 3 correct_response f
+	setcycle 4 condition WM
+	setcycle 4 category food
+	setcycle 4 target soup
+	setcycle 4 correct_response f
+	setcycle 5 condition WM
+	setcycle 5 category food
+	setcycle 5 target pasta
+	setcycle 5 correct_response f
+	setcycle 6 condition WM
+	setcycle 6 category food
+	setcycle 6 target salads
+	setcycle 6 correct_response f
+	setcycle 7 condition WM
+	setcycle 7 category food
+	setcycle 7 target pickles
+	setcycle 7 correct_response f
+	setcycle 8 condition WM
+	setcycle 8 category food
+	setcycle 8 target cheese
+	setcycle 8 correct_response f
+	setcycle 9 condition WM
+	setcycle 9 category food
+	setcycle 9 target milk
+	setcycle 9 correct_response f
+	setcycle 10 condition WM
+	setcycle 10 category tool
+	setcycle 10 target hammer
+	setcycle 10 correct_response t
+	setcycle 11 condition WM
+	setcycle 11 category tool
+	setcycle 11 target saw
+	setcycle 11 correct_response t
+	setcycle 12 condition WM
+	setcycle 12 category tool
+	setcycle 12 target pliers
+	setcycle 12 correct_response t
+	setcycle 13 condition WM
+	setcycle 13 category tool
+	setcycle 13 target drill
+	setcycle 13 correct_response t
+	setcycle 14 condition WM
+	setcycle 14 category tool
+	setcycle 14 target wrench
+	setcycle 14 correct_response t
+	setcycle 15 condition WM
+	setcycle 15 category tool
+	setcycle 15 target scissors
+	setcycle 15 correct_response t
+	setcycle 16 condition WM
+	setcycle 16 category tool
+	setcycle 16 target brush
+	setcycle 16 correct_response t
+	setcycle 17 condition WM
+	setcycle 17 category tool
+	setcycle 17 target broom
+	setcycle 17 correct_response t
+	setcycle 18 condition WM
+	setcycle 18 category tool
+	setcycle 18 target rake
+	setcycle 18 correct_response t
+	setcycle 19 condition WM
+	setcycle 19 category tool
+	setcycle 19 target shovel
+	setcycle 19 correct_response t
+	run WM_trials_sequence
+
+define sequence WM_trials_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run pick_numbers always
+	run fixation_1 always
+	run letter_target_1 always
+	run letter_target_2 always
+	run keyboard_response_1 always
+	run incorrect_1 "[correct]=0"
+	run correct_1 "[correct]=1"
+	run logger always
+
+define loop block_loop
+	set source_file ""
+	set source table
+	set skip 0
+	set repeat 1
+	set order random
+	set offset no
+	set item trial_sequence
+	set description "A single block of trials"
+	set cycles 18
+	set continuous no
+	set column_order "correct_response;target;category"
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 correct_response n
+	setcycle 0 category number
+	setcycle 0 target 1
+	setcycle 0 condition letter_vs_number
+	setcycle 1 correct_response n
+	setcycle 1 category number
+	setcycle 1 target 2
+	setcycle 1 condition letter_vs_number
+	setcycle 2 correct_response n
+	setcycle 2 category number
+	setcycle 2 target 3
+	setcycle 2 condition letter_vs_number
+	setcycle 3 correct_response n
+	setcycle 3 category number
+	setcycle 3 target 4
+	setcycle 3 condition letter_vs_number
+	setcycle 4 correct_response n
+	setcycle 4 category number
+	setcycle 4 target 5
+	setcycle 4 condition letter_vs_number
+	setcycle 5 correct_response n
+	setcycle 5 category number
+	setcycle 5 target 6
+	setcycle 5 condition letter_vs_number
+	setcycle 6 correct_response n
+	setcycle 6 category number
+	setcycle 6 target 7
+	setcycle 6 condition letter_vs_number
+	setcycle 7 correct_response n
+	setcycle 7 category number
+	setcycle 7 target 8
+	setcycle 7 condition letter_vs_number
+	setcycle 8 correct_response n
+	setcycle 8 category number
+	setcycle 8 target 9
+	setcycle 8 condition letter_vs_number
+	setcycle 9 correct_response l
+	setcycle 9 category letter
+	setcycle 9 target A
+	setcycle 9 condition letter_vs_number
+	setcycle 10 correct_response l
+	setcycle 10 category letter
+	setcycle 10 target B
+	setcycle 10 condition letter_vs_number
+	setcycle 11 correct_response l
+	setcycle 11 category letter
+	setcycle 11 target C
+	setcycle 11 condition letter_vs_number
+	setcycle 12 correct_response l
+	setcycle 12 category letter
+	setcycle 12 target D
+	setcycle 12 condition letter_vs_number
+	setcycle 13 correct_response l
+	setcycle 13 category letter
+	setcycle 13 target E
+	setcycle 13 condition letter_vs_number
+	setcycle 14 correct_response l
+	setcycle 14 category letter
+	setcycle 14 target F
+	setcycle 14 condition letter_vs_number
+	setcycle 15 correct_response l
+	setcycle 15 category letter
+	setcycle 15 target G
+	setcycle 15 condition letter_vs_number
+	setcycle 16 correct_response l
+	setcycle 16 category letter
+	setcycle 16 target H
+	setcycle 16 condition letter_vs_number
+	setcycle 17 correct_response l
+	setcycle 17 category letter
+	setcycle 17 target J
+	setcycle 17 condition letter_vs_number
+	run trial_sequence
+
+define sequence block_sequence
+	set flush_keyboard yes
+	set description "A sequence containging a single block of trials followed by feedback to the participant"
+	run reset_feedback always
+	run block_loop always
+	run feedback always
+
+define loop color_block_loop
+	set source table
+	set repeat 10
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 2
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 condition "color_1/2"
+	setcycle 0 color blue
+	setcycle 0 correct_response b
+	setcycle 1 condition "color_1/2"
+	setcycle 1 color red
+	setcycle 1 correct_response z
+	run color_trial_sequence
+
+define loop color_choice
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 empty_column ""
+	run color_sequence
+
+define loop color_choice_multi
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 empty_column ""
+	run color_multi_sequence
+
+define sequence color_choice_multi_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run set_soa always
+	run fixation_color always
+	run color_target_1 always
+	run keyboard_response_1 always
+	run incorrect_1 "[correct]=0"
+	run isa_1 always
+	run logger always
+
+define loop color_multi_loop
+	set source table
+	set repeat 5
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 4
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 condition "color_1/4"
+	setcycle 0 color blue
+	setcycle 0 correct_response b
+	setcycle 1 condition "color_1/4"
+	setcycle 1 color red
+	setcycle 1 correct_response z
+	setcycle 2 condition "color_1/4"
+	setcycle 2 color yellow
+	setcycle 2 correct_response z
+	setcycle 3 condition "color_1/4"
+	setcycle 3 color white
+	setcycle 3 correct_response z
+	run color_choice_multi_sequence
+
+define sequence color_multi_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run new_reset_feedback_1 always
+	run color_multi_loop always
+	run feedback_1 always
+
+define sequence color_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run reset_feedback always
+	run color_block_loop always
+	run feedback_1 always
+
+define sketchpad color_target_1
+	set duration 0
+	set description "Displays stimuli"
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=-32 y2=-32 z_index=0
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=32 y2=32 z_index=0
+	draw circle color="[color]" fill=1 penwidth=1 r=32 show_if=always x=0 y=0 z_index=0
+
+define sketchpad color_target_1_1
+	set duration 0
+	set description "Displays stimuli"
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=-32 y2=-32 z_index=0
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=32 y2=32 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=32 html=yes show_if=always text="[color]" x=0 y=0 z_index=0
+
+define sequence color_trial_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run set_soa always
+	run soa always
+	run color_target_1 always
+	run keyboard_response_1 alway
+	run incorrect_1 "[correct]=0"
+	run isa_1 always
+	run logger always
+
+define loop color_word_id
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 empty_column ""
+	run color_word_id_sequence
+
+define sequence color_word_id_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run new_reset_feedback_2 always
+	run color_word_id_trial_loop always
+	run feedback_1 always
+
+define loop color_word_id_trial_loop
+	set source table
+	set repeat 5
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 4
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 condition color_words
+	setcycle 0 color blue
+	setcycle 0 correct_response b
+	setcycle 1 condition color_words
+	setcycle 1 color red
+	setcycle 1 correct_response z
+	setcycle 2 condition color_words
+	setcycle 2 color yellow
+	setcycle 2 correct_response z
+	setcycle 3 condition color_words
+	setcycle 3 color white
+	setcycle 3 correct_response z
+	run color_word_id_trial_sequence
+
+define sequence color_word_id_trial_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run set_soa always
+	run fixation_color always
+	run color_target_1_1 always
+	run keyboard_response_1 always
+	run incorrect_1 "[correct]=0"
+	run isa_1 always
+	run logger always
+
+define sketchpad correct_1
+	set duration 500
+	set description "Displays stimuli"
+	draw textline center=1 color=green font_bold=no font_family=mono font_italic=no font_size=100 html=yes show_if=always text="Correct!" x=0 y=0 z_index=0
+
+define inline_javascript counterbalance_javascript
+	set description "Executes JavaScript code"
+	set _run ""
+	___prepare__
+	vars.counterbalance = Math.floor(Math.random() * 10) + 1;
+	
+	if (vars.subject_parity <= 5) {
+	    vars.letter_response = "z"
+	    vars.number_response = "b"
+	}
+	else {
+	    vars.letter_response = "b"
+	    vars.number_response = "z"
+	}
+	__end__
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run counterbalance_javascript never
+	run instructions0 always
+	run instructions1 always
+	run pure_response always
+	run instructions2 never
+	run color_choice never
+	run instructions2 always
+	run color_choice_multi always
+	run instructions2 always
+	run color_word_id always
+	run instructions always
+	run letter_number_loop always
+	run instructions_1 always
+	run food_tools_loop always
+	run instructions_WM_1 always
+	run instructions_WM_2 always
+	run instructions_WM_3 always
+	run WM_load always
+	run goodbye always
+
+define feedback feedback
+	set reset_variables yes
+	set duration keypress
+	set description "Provides feedback to the participant"
+	draw textline center=1 color=white font_bold=no font_family=sans font_italic=no font_size=32 html=yes show_if=always text="Nice!<br /><br />Your average response time was [avg_rt] ms<br /><br />Your accuracy was [acc] %<br /><br />Press any key to continue" x=0 y=0 z_index=0
+
+define feedback feedback_1
+	set reset_variables yes
+	set duration keypress
+	set description "Provides feedback to the participant"
+	draw textline center=1 color=white font_bold=no font_family=sans font_italic=no font_size=32 html=yes show_if=always text="Nice!<br /><br />Your average response time was [avg_rt] ms<br /><br />Your accuracy was [acc]%<br /><br /><br />Press any key to continue" x=0 y=0 z_index=0
+
+define feedback feedback_1_1
+	set reset_variables yes
+	set duration keypress
+	set description "Provides feedback to the participant"
+	draw textline center=1 color=white font_bold=no font_family=sans font_italic=no font_size=32 html=yes show_if=always text="Nice!<br /><br />Your average response time was [avg_rt] ms<br /><br /><br /><br /><br />Press any key to continue" x=0 y=0 z_index=0
+
+define feedback feedback_rt
+	set reset_variables yes
+	set duration keypress
+	set description "Provides feedback to the participant"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=32 html=yes show_if=always text="Nice!<br /><br />Your average response time was [avg_rt] ms<br /><br /><br />Press any key to continue" x=0 y=0 z_index=0
+
+define sketchpad fixation
+	set start_response_interval no
+	set duration "[soa]"
+	set description "Displays stimuli"
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=-32 y2=-32 z_index=0
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=32 y2=32 z_index=0
+
+define sketchpad fixation_1
+	set start_response_interval no
+	set duration 500
+	set description "Displays stimuli"
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=-32 y2=-32 z_index=0
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=32 y2=32 z_index=0
+
+define sketchpad fixation_color
+	set start_response_interval no
+	set duration "[soa]"
+	set description "Displays stimuli"
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=-32 y2=-32 z_index=0
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=32 y2=32 z_index=0
+
+define sketchpad fixation_food_tools
+	set start_response_interval no
+	set duration "[soa]"
+	set description "Displays stimuli"
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=-32 y2=-32 z_index=0
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=32 y2=32 z_index=0
+
+define loop food_tools_loop
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 empty_column ""
+	run new_sequence
+
+define loop food_tools_trial_loop
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 20
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 condition food_tools
+	setcycle 0 category food
+	setcycle 0 target cake
+	setcycle 0 correct_response f
+	setcycle 1 condition food_tools
+	setcycle 1 category food
+	setcycle 1 target biscuit
+	setcycle 1 correct_response f
+	setcycle 2 condition food_tools
+	setcycle 2 category food
+	setcycle 2 target bread
+	setcycle 2 correct_response f
+	setcycle 3 condition food_tools
+	setcycle 3 category food
+	setcycle 3 target pastry
+	setcycle 3 correct_response f
+	setcycle 4 condition food_tools
+	setcycle 4 category food
+	setcycle 4 target soup
+	setcycle 4 correct_response f
+	setcycle 5 condition food_tools
+	setcycle 5 category food
+	setcycle 5 target pasta
+	setcycle 5 correct_response f
+	setcycle 6 condition food_tools
+	setcycle 6 category food
+	setcycle 6 target salads
+	setcycle 6 correct_response f
+	setcycle 7 condition food_tools
+	setcycle 7 category food
+	setcycle 7 target pickles
+	setcycle 7 correct_response f
+	setcycle 8 condition food_tools
+	setcycle 8 category food
+	setcycle 8 target cheese
+	setcycle 8 correct_response f
+	setcycle 9 condition food_tools
+	setcycle 9 category food
+	setcycle 9 target milk
+	setcycle 9 correct_response f
+	setcycle 10 condition food_tools
+	setcycle 10 category tool
+	setcycle 10 target hammer
+	setcycle 10 correct_response t
+	setcycle 11 condition food_tools
+	setcycle 11 category tool
+	setcycle 11 target saw
+	setcycle 11 correct_response t
+	setcycle 12 condition food_tools
+	setcycle 12 category tool
+	setcycle 12 target pliers
+	setcycle 12 correct_response t
+	setcycle 13 condition food_tools
+	setcycle 13 category tool
+	setcycle 13 target drill
+	setcycle 13 correct_response t
+	setcycle 14 condition food_tools
+	setcycle 14 category tool
+	setcycle 14 target wrench
+	setcycle 14 correct_response t
+	setcycle 15 condition food_tools
+	setcycle 15 category tool
+	setcycle 15 target scissors
+	setcycle 15 correct_response t
+	setcycle 16 condition food_tools
+	setcycle 16 category tool
+	setcycle 16 target brush
+	setcycle 16 correct_response t
+	setcycle 17 condition food_tools
+	setcycle 17 category tool
+	setcycle 17 target broom
+	setcycle 17 correct_response t
+	setcycle 18 condition food_tools
+	setcycle 18 category tool
+	setcycle 18 target rake
+	setcycle 18 correct_response t
+	setcycle 19 condition food_tools
+	setcycle 19 category tool
+	setcycle 19 target shovel
+	setcycle 19 correct_response t
+	run food_tools_trial_sequence
+
+define sequence food_tools_trial_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run set_soa always
+	run fixation_food_tools always
+	run symbol_1 always
+	run keyboard_response_1 always
+	run incorrect_1 "[correct]=0"
+	run logger always
+
+define sketchpad goodbye
+	set duration 2000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=32 html=yes show_if=always text="The experiment is finished<br />Thank you for participating<br /><br />Press any key to exit" x=0 y=0 z_index=0
+
+define sketchpad incorrect_1
+	set duration 500
+	set description "Displays stimuli"
+	draw textline center=1 color=red font_bold=no font_family=mono font_italic=no font_size=100 html=yes show_if=always text="Incorrect!" x=-1.0 y=-41.0 z_index=0
+
+define sketchpad instructions
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=sans font_italic=no font_size=32 html=yes show_if=always text="Instructions<br /><br /><br />You will see either a letter or a number.<br /><br /><br />If you see a letter, press L<br />If you see a number, press N<br /><br /><br />Press a key to start" x=0 y=0 z_index=0
+
+define sketchpad instructions0
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=32 html=yes show_if=always text="Welcome!<br /><br />There are six mini-experiments<br />in this experiment.<br /><br />" x=0 y=0 z_index=0
+
+define sketchpad instructions1
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=32 html=yes show_if=always text="Press B as soon as you see the blue circle" x=0 y=0 z_index=0
+
+define sketchpad instructions2
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=32 html=yes show_if=always text="Press B for blue.<br /><br />Press Z for a different color" x=0 y=0 z_index=0
+
+define sketchpad instructions_1
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=sans font_italic=no font_size=32 html=yes show_if=always text="Instructions<br /><br /><br />You will see either a food or a tool.<br /><br />If you see a food, press F<br />If you see a tool, press T<br /><br /><br />Press a key to start" x=0 y=0 z_index=0
+
+define sketchpad instructions_WM_1
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=32 html=yes show_if=always text="First you will see a letter.<br /><br />Then you will see another letter.<br /><br />If the second letter comes<br />immediately before the first letter<br />in the alphabet, press Y<br /><br />If the second letter does NOT<br />come immediately before <br />the first letter in the alphabet, press N<br /><br />Press any key to continue..." x=0 y=0 z_index=0
+
+define sketchpad instructions_WM_2
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=32 html=yes show_if=always text="For example, if you see <br /><br />P then O, press Y, because <br />O comes immediately before P<br />in the alphabet.<br /><br />But if you see P then L,<br />press N, because L does<br />not come immediately before P<br />in the alphabet.<br /><br />Press any key to continue..." x=0 y=0 z_index=0
+
+define sketchpad instructions_WM_3
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=32 html=yes show_if=always text="Press Y or N as soon<br />as you see the second letter.<br /><br />Press any key to start." x=0 y=0 z_index=0
+
+define sketchpad isa
+	set duration 50
+	set description "Displays stimuli"
+
+define sketchpad isa_1
+	set duration 50
+	set description "Displays stimuli"
+
+define keyboard_response keyboard_response_1
+	set timeout 5000
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define loop letter_number_loop
+	set source_file ""
+	set source table
+	set skip 0
+	set repeat 1
+	set order random
+	set offset no
+	set item block_sequence
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set column_order practice
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 practice yes
+	run block_sequence
+
+define sketchpad letter_target_1
+	set start_response_interval no
+	set duration 1000
+	set description "Displays stimuli"
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=-32 y2=-32 z_index=0
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=32 y2=32 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=32 html=yes show_if=always text="[letter1]" x=0 y=0 z_index=0
+
+define sketchpad letter_target_2
+	set start_response_interval no
+	set duration 0
+	set description "Displays stimuli"
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=-32 y2=-32 z_index=0
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=32 y2=32 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=32 html=yes show_if=always text="[letter2]" x=0 y=0 z_index=0
+
+define logger logger
+	set description "Logs experimental data"
+	set auto_log yes
+
+define reset_feedback new_reset_feedback_1
+	set description "Resets the feedback variables, such as 'avg_rt' and 'acc'"
+
+define reset_feedback new_reset_feedback_2
+	set description "Resets the feedback variables, such as 'avg_rt' and 'acc'"
+
+define reset_feedback new_reset_feedback_3
+	set description "Resets the feedback variables, such as 'avg_rt' and 'acc'"
+
+define sequence new_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run reset_feedback always
+	run food_tools_trial_loop always
+	run feedback_1 always
+
+define inline_javascript pick_numbers
+	set description "Executes JavaScript code"
+	set _run ""
+	___prepare__
+	vars.num = Math.floor(Math.random() * (18 - 1 + 1) + 1).toString()
+	
+	
+	
+	
+	if (vars.num == 1) {
+	    vars.letter1 = "B"
+	    vars.letter2 = "A"
+	    vars.correct_response = "y"
+	}
+	else if (vars.num == 2){
+	    vars.letter1 = "C"
+	    vars.letter2 = "B"
+	    vars.correct_response = "y"
+	}
+	else if (vars.num == 3){
+	    vars.letter1 = "D"
+	    vars.letter2 = "C"
+	    vars.correct_response = "y"
+	}
+	else if (vars.num == 4){
+	    vars.letter1 = "E"
+	    vars.letter2 = "D"
+	    vars.correct_response = "y"
+	}
+	else if (vars.num == 5){
+	    vars.letter1 = "F"
+	    vars.letter2 = "E"
+	    vars.correct_response = "y"
+	}
+	else if (vars.num == 6){
+	    vars.letter1 = "G"
+	    vars.letter2 = "F"
+	    vars.correct_response = "y"
+	}
+	else if (vars.num == 7){
+	    vars.letter1 = "H"
+	    vars.letter2 = "G"
+	    vars.correct_response = "y"
+	}
+	else if (vars.num == 8){
+	    vars.letter1 = "I"
+	    vars.letter2 = "H"
+	    vars.correct_response = "y"
+	}
+	else if (vars.num == 9){ 
+	    vars.letter1 = "J"
+	    vars.letter2 = "I"
+	    vars.correct_response = "y"
+	}
+	else if (vars.num == 10){
+	    vars.letter1 = "A"
+	    vars.letter2 = "C"
+	    vars.correct_response = "n"
+	}
+	else if (vars.num == 11){
+	    vars.letter1 = "B"
+	    vars.letter2 = "D"
+	    vars.correct_response = "n"
+	}
+	else if (vars.num == 12){
+	    vars.letter1 = "C"
+	    vars.letter2 = "E"
+	    vars.correct_response = "n"
+	}
+	else if (vars.num == 13){
+	    vars.letter1 = "D"
+	    vars.letter2 = "F"
+	    vars.correct_response = "n"
+	}
+	else if (vars.num == 14){
+	    vars.letter1 = "E"
+	    vars.letter2 = "G"
+	    vars.correct_response = "n"
+	}
+	else if (vars.num == 15){
+	    vars.letter1 = "F"
+	    vars.letter2 = "H"
+	    vars.correct_response = "n"
+	}
+	else if (vars.num == 16){
+	    vars.letter1 = "G"
+	    vars.letter2 = "I"
+	    vars.correct_response = "n"
+	}
+	else if (vars.num == 17){
+	    vars.letter1 = "H"
+	    vars.letter2 = "J"
+	    vars.correct_response = "n"
+	}
+	else if (vars.num == 18) {
+	    vars.letter1 = "I"
+	    vars.letter2 = "K"
+	    vars.correct_response = "n"
+	}
+	__end__
+
+define loop pure_response
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 empty_column ""
+	run pure_response_sequence
+
+define sequence pure_response_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run reset_feedback always
+	run rt_block_loop always
+	run feedback_1_1 always
+
+define reset_feedback reset_feedback
+	set description "Resets the feedback variables, such as 'avg_rt' and 'acc'"
+
+define loop rt_block_loop
+	set source table
+	set repeat 20
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 condition pure_rt
+	setcycle 0 color blue
+	setcycle 0 correct_response b
+	run rt_trial_sequence
+
+define sketchpad rt_target
+	set duration 0
+	set description "Displays stimuli"
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=-32 y2=-32 z_index=0
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=32 y2=32 z_index=0
+	draw circle color=blue fill=1 penwidth=1 r=32 show_if=always x=0 y=0 z_index=0
+
+define sequence rt_trial_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run set_soa always
+	run soa always
+	run rt_target always
+	run keyboard_response_1 always
+	run isa always
+	run logger always
+
+define inline_javascript set_soa
+	set description "Executes JavaScript code"
+	set _run ""
+	set _prepare "vars.soa = Math.floor(Math.random() * 1500) + 500;"
+
+define sketchpad soa
+	set start_response_interval no
+	set duration "[soa]"
+	set description "Displays stimuli"
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=-32 y2=-32 z_index=0
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=32 y2=32 z_index=0
+
+define sketchpad symbol
+	set start_response_interval no
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=32 html=yes show_if=always text="[target]" x=0 y=0 z_index=0
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=-32 y2=-32 z_index=0
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=32 y2=32 z_index=0
+
+define sketchpad symbol_1
+	set start_response_interval no
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=32 html=yes show_if=always text="[target]" x=0 y=0 z_index=0
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=-32 y2=-32 z_index=0
+	draw line color=white penwidth=2 show_if=always x1=-32 x2=32 y1=32 y2=32 z_index=0
+
+define sequence trial_sequence
+	set flush_keyboard yes
+	set description "A single trial"
+	run set_soa always
+	run fixation always
+	run symbol always
+	run keyboard_response_1 always
+	run incorrect_1 "[correct]=0"
+	run logger always
+
