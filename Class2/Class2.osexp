@@ -1687,28 +1687,28 @@ define loop practice
 	setcycle 0 Mod_level practice
 	setcycle 0 prime "*****"
 	setcycle 0 target VINE
-	setcycle 0 category natural
+	setcycle 0 Category natural
 	setcycle 0 correct_response N
 	setcycle 0 word_length 4
 	setcycle 0 Block practice
 	setcycle 1 Mod_level practice
 	setcycle 1 prime "*****"
 	setcycle 1 target BOAT
-	setcycle 1 category manmade
+	setcycle 1 Category manmade
 	setcycle 1 correct_response M
 	setcycle 1 word_length 4
 	setcycle 1 Block practice
 	setcycle 2 Mod_level practice
 	setcycle 2 prime "*****"
 	setcycle 2 target STAIRS
-	setcycle 2 category manmade
+	setcycle 2 Category manmade
 	setcycle 2 correct_response M
 	setcycle 2 word_length 6
 	setcycle 2 Block practice
 	setcycle 3 Mod_level practice
 	setcycle 3 prime "*****"
 	setcycle 3 target ZEBRA
-	setcycle 3 category natural
+	setcycle 3 Category natural
 	setcycle 3 correct_response N
 	setcycle 3 word_length 5
 	setcycle 3 Block practice
