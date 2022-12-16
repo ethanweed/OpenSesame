@@ -48,6 +48,7 @@ define sketchpad corsi
 	draw rect color=blue fill=1 h=96 penwidth=1 show_if=always w=96 x="[block_position]" y=-64 z_index=0
 
 define loop corsi_display_sequence
+	set source_file ""
 	set source table
 	set repeat 1
 	set order random
@@ -57,11 +58,17 @@ define loop corsi_display_sequence
 	set break_if_on_first yes
 	set break_if never
 	setcycle 0 block_position -448
+	setcycle 0 block_name box1
 	setcycle 1 block_position -288
+	setcycle 1 block_name box2
 	setcycle 2 block_position -128
+	setcycle 2 block_name box3
 	setcycle 3 block_position 32
+	setcycle 3 block_name box4
 	setcycle 4 block_position 192
+	setcycle 4 block_name box5
 	setcycle 5 block_position 352
+	setcycle 5 block_name box6
 	run corsi_sequence
 
 define sketchpad corsi_isa
@@ -77,7 +84,7 @@ define sketchpad corsi_isa
 define loop corsi_response_sequence
 	set source table
 	set repeat 6
-	set order random
+	set order sequential
 	set description "Repeatedly runs another item"
 	set cycles 1
 	set continuous no
@@ -171,9 +178,111 @@ define sketchpad instructions
 	set description "Displays stimuli"
 	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="You will see six boxes.<br /><br />The boxes will flash blue.<br /><br />Remember the sequence.<br /><br />When the boxes are done flashing, click them in the order they flashed." x=0 y=0 z_index=0
 
+define feedback new_feedback
+	set reset_variables yes
+	set duration 500
+	set description "Displays stimuli"
+	draw rect color=blue fill=1 h=96 penwidth=1 show_if=always w=96 x=-448 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-288 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-128 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=32 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=192 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=352 y=-64 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Click the boxes with in the order that they flashed." x=0 y=-192 z_index=0
+
+define feedback new_feedback_1
+	set reset_variables yes
+	set duration 500
+	set description "Displays stimuli"
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-448 y=-64 z_index=0
+	draw rect color=blue fill=1 h=96 penwidth=1 show_if=always w=96 x=-288 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-128 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=32 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=192 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=352 y=-64 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Click the boxes with in the order that they flashed." x=0 y=-192 z_index=0
+
+define feedback new_feedback_2
+	set reset_variables yes
+	set duration 500
+	set description "Displays stimuli"
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-448 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-288 y=-64 z_index=0
+	draw rect color=blue fill=1 h=96 penwidth=1 show_if=always w=96 x=-128 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=32 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=192 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=352 y=-64 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Click the boxes with in the order that they flashed." x=0 y=-192 z_index=0
+
+define feedback new_feedback_3
+	set reset_variables yes
+	set duration 500
+	set description "Displays stimuli"
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-448 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-288 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-128 y=-64 z_index=0
+	draw rect color=blue fill=1 h=96 penwidth=1 show_if=always w=96 x=32 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=192 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=352 y=-64 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Click the boxes with in the order that they flashed." x=0 y=-192 z_index=0
+
+define feedback new_feedback_4
+	set reset_variables yes
+	set duration 500
+	set description "Displays stimuli"
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-448 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-288 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-128 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=32 y=-64 z_index=0
+	draw rect color=blue fill=1 h=96 penwidth=1 show_if=always w=96 x=192 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=352 y=-64 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Click the boxes with in the order that they flashed." x=0 y=-192 z_index=0
+
+define feedback new_feedback_5
+	set reset_variables yes
+	set duration 500
+	set description "Displays stimuli"
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-448 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-288 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-128 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=32 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=192 y=-64 z_index=0
+	draw rect color=blue fill=1 h=96 penwidth=1 show_if=always w=96 x=352 y=-64 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Click the boxes with in the order that they flashed." x=0 y=-192 z_index=0
+
+define feedback new_feedback_6
+	set reset_variables yes
+	set duration mouseclick
+	set description "Provides feedback to the participant"
+	draw rect color=white fill=1 h=96 name=box1 penwidth=1 show_if=always w=96 x=-448 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 name=box2 penwidth=1 show_if=always w=96 x=-288 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 name=box3 penwidth=1 show_if=always w=96 x=-128 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 name=box4 penwidth=1 show_if=always w=96 x=32 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 name=box5 penwidth=1 show_if=always w=96 x=192 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 name=box6 penwidth=1 show_if=always w=96 x=352 y=-64 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Click the boxes with in the order that they flashed." x=0 y=-192 z_index=0
+	draw circle color=blue fill=1 penwidth=1 r=45.254833995939045 show_if=always x="[cursor_x]" y=-64 z_index=0
+
+define inline_javascript new_inline_javascript
+	set description "Executes JavaScript code"
+	set _run ""
+	set _prepare ""
+
 define logger new_logger
 	set description "Logs experimental data"
 	set auto_log yes
+
+define loop new_loop
+	set source table
+	set repeat 2
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 empty_column ""
+	run new_sequence
 
 define mouse_response new_mouse_response
 	set timeout infinite
@@ -193,7 +302,34 @@ define mouse_response new_mouse_response_1
 	set duration mouseclick
 	set description "Collects mouse responses"
 
+define mouse_response new_mouse_response_2
+	set timeout infinite
+	set show_cursor yes
+	set linked_sketchpad new_feedback_6
+	set flush yes
+	set event_type mouseclick
+	set duration mouseclick
+	set description "Collects mouse responses"
+
+define sequence new_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run prompt_1 always
+	run new_mouse_response_2 always
+	run new_feedback_6 always
+
 define sketchpad prompt
+	set duration 0
+	set description "Displays stimuli"
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-448 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-288 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-128 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=32 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=192 y=-64 z_index=0
+	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=352 y=-64 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Click the boxes with in the order that they flashed." x=0 y=-192 z_index=0
+
+define sketchpad prompt_1
 	set duration 0
 	set description "Displays stimuli"
 	draw rect color=white fill=1 h=96 penwidth=1 show_if=always w=96 x=-448 y=-64 z_index=0
@@ -209,11 +345,12 @@ define sequence response_sequence
 	set description "Runs a number of items in sequence"
 	run prompt always
 	run new_mouse_response always
-	run highlight_1 "[cursor_x ] > -448 & [cursor_x] <  -352"
-	run highlight_2 "[cursor_x] > -288 & [cursor_x ] <  -192"
-	run highlight_3 "[cursor_x] > -128 & [cursor_x ] <  -32"
-	run highlight_4 "[cursor_x] > 32 & [cursor_x ] <  128"
-	run highlight_5 "[cursor_x] >  192 & [cursor_x ] <  288"
-	run highlight_6 "[cursor_x] > 352 & [cursor_x ] <  448"
+	run new_inline_javascript always
+	run new_feedback "[cursor_x] > -448 & [cursor_x] < -352"
+	run new_feedback_1 "[cursor_x] > -352 & [cursor_x] < - 192"
+	run new_feedback_2 "[cursor_x] > -192 & [cursor_x] < -32"
+	run new_feedback_3 "[cursor_x] > 32 & [cursor_x]< 128"
+	run new_feedback_4 "[cursor_x] > 128 & [cursor_x] < 288"
+	run new_feedback_5 "[cursor_x] > 288 & [cursor_x] < 448"
 	run new_logger always
 

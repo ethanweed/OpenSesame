@@ -1,0 +1,1517 @@
+---
+API: 2.1
+OpenSesame: 3.3.12
+Platform: posix
+---
+set width 1024
+set uniform_coordinates yes
+set title "Dual-task_Reading_Comprehension"
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set sampler_backend psycho
+set round_decimals 2
+set mouse_backend psycho
+set keyboard_backend psycho
+set height 768
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 18
+set font_italic no
+set font_family mono
+set font_bold no
+set experiment_path "/Users/ethan/Documents/GitHub/OpenSesame/Dual-task_Reading_Comprehension"
+set disable_garbage_collection yes
+set description "The main experiment item"
+set coordinates uniform
+set compensation 0
+set color_backend psycho
+set clock_backend psycho
+set canvas_backend psycho
+set background grey
+
+define sketchpad Greeting
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Tak fordi du har valgt at deltage i undersøgelsen. <br /><br />Inden undersøgelsen bedes du besvare følgende spørgsmål. Alle besvarelser er anonyme. <br /><br /><br />Tryk på mellemrum for at fortsætte." x=0 y=0 z_index=0
+
+define sketchpad Intro_1
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Du vil blive præsenteret for en række historier<br /><br />En sætning vil blive vist ad gangen. <br /><br />Brug mellemrumstasten efter hver sætning for at gå videre til den næste. <br /><br /><br /><br />Tryk på mellemrum for at fortsætte" x=0 y=0 z_index=0
+
+define sketchpad Intro_2
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Efter hver historie, vil der komme et ja/nej spørgsmål.<br /><br />Inden nogle af historierne, vil du blive præsenteret <br />for enten en talkombination eller en billedkombination.<br /><br />Forsøg så godt du kan at huske denne kombination. Nogle gange er <br />der ingen kombination du skal huske.<br /><br /><br /><br />Tryk på mellemrum for at fortsætte." x=0 y=0 z_index=0
+
+define sketchpad Intro_3
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Efter afslutningen af hver historie, <br />vil du blive bedt om at svare på et spørgsmål og evt. gengive kombinationen.<br /><br />Vi starter med en øvelsesrunde.<br /><br /><br />Tryk på mellemrum for at fortsætte.<br /><br /><br />" x=0 y=0 z_index=0
+
+define sketchpad Question
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[Question]<br /><br />Tryk J for ja<br />Tryk N for nej" x=0 y=0 z_index=0
+
+define sketchpad Question_1
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[Question]<br /><br />Tryk J for ja<br />Tryk N for nej" x=0 y=0 z_index=0
+
+define sketchpad S1
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[S1]" x=0 y=0 z_index=0
+
+define sketchpad S1_1
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[S1]" x=0 y=0 z_index=0
+
+define sketchpad S2A
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[S2A]" x=0 y=0 z_index=0
+
+define sketchpad S2A_1
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[S2A]" x=0 y=0 z_index=0
+
+define sketchpad S2B
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[S2B]" x=0 y=0 z_index=0
+
+define sketchpad S2B_1
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[S2B]" x=0 y=0 z_index=0
+
+define sketchpad S3
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[S3]" x=0 y=0 z_index=0
+
+define sketchpad S3_1
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[S3]" x=0 y=0 z_index=0
+
+define sketchpad S4
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[S4]" x=0 y=0 z_index=0
+
+define sketchpad S4_1
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[S4]" x=0 y=0 z_index=0
+
+define sketchpad S5
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[S5]" x=0 y=0 z_index=0
+
+define sketchpad S5_1
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[S5]" x=0 y=0 z_index=0
+
+define sketchpad S6
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[S6]" x=0 y=0 z_index=0
+
+define sketchpad S6_1
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[S6]" x=0 y=0 z_index=0
+
+define loop corsi_loop
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 6
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 xcoor -448
+	setcycle 0 ycoor -320
+	setcycle 1 xcoor -448
+	setcycle 1 ycoor 320
+	setcycle 2 xcoor 448
+	setcycle 2 ycoor -320
+	setcycle 3 xcoor 448
+	setcycle 3 ycoor 320
+	setcycle 4 xcoor -192
+	setcycle 4 ycoor 0
+	setcycle 5 xcoor 224
+	setcycle 5 ycoor 0
+	run corsi_sequence_1
+
+define loop corsi_loop_1
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 6
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 xcoor -448
+	setcycle 0 ycoor -320
+	setcycle 1 xcoor -448
+	setcycle 1 ycoor 320
+	setcycle 2 xcoor 448
+	setcycle 2 ycoor -320
+	setcycle 3 xcoor 448
+	setcycle 3 ycoor 320
+	setcycle 4 xcoor -192
+	setcycle 4 ycoor 0
+	setcycle 5 xcoor 224
+	setcycle 5 ycoor 0
+	run corsi_sequence_1_1
+
+define sequence corsi_sequence_1
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run corsi_sketchpad always
+	run logger_visual_stimulus always
+
+define sequence corsi_sequence_1_1
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run corsi_sketchpad_1 always
+
+define sketchpad corsi_sketchpad
+	set duration 1000
+	set description "Displays stimuli"
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=-448 y=-320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=-448 y=320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=448 y=-320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=448 y=320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=-192 y=0 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=224 y=0 z_index=0
+	draw circle color=blue fill=1 penwidth=1 r=45.254833995939045 show_if=always x="[xcoor]" y="[ycoor]" z_index=0
+
+define sketchpad corsi_sketchpad_1
+	set duration 1000
+	set description "Displays stimuli"
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=-448 y=-320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=-448 y=320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=448 y=-320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=448 y=320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=-192 y=0 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=224 y=0 z_index=0
+	draw circle color=blue fill=1 penwidth=1 r=45.254833995939045 show_if=always x="[xcoor]" y="[ycoor]" z_index=0
+
+define inline_javascript define_variables
+	set description "Executes JavaScript code"
+	___run__
+	vars.numtime = 1000
+	vars.nums_isi = 500
+	
+	vars.practice_round = 1
+	vars.trial_round = 1
+	__end__
+	set _prepare ""
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run define_variables always
+	run Greeting always
+	run form_multiple_choice_age always
+	run form_multiple_choice_L1 always
+	run form_multiple_choice_diagnose always
+	run Intro_1 always
+	run Intro_2 always
+	run Intro_3 always
+	run practice_loop always
+	run start always
+	run trials_loop always
+
+define feedback fix_practice
+	set reset_variables yes
+	set duration 2000
+	set description "Provides feedback to the participant"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=50 html=yes show_if=always text="Øvelsesrunde [practice_round] af 4" x=0 y=0 z_index=0
+
+define feedback fix_trials
+	set reset_variables yes
+	set duration 2000
+	set description "Provides feedback to the participant"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=50 html=yes show_if=always text="Runde [trial_round] af 30" x=1 y=-69 z_index=0
+
+define form_multiple_choice form_multiple_choice_L1
+	set timeout infinite
+	set spacing 10
+	set question "Er dansk dit modersmål?"
+	__options__
+	Ja
+	Nej
+	__end__
+	set margins "50;50;50;50"
+	set form_var response
+	set form_title "Form title"
+	set description "A simple multiple choice item"
+	set button_text Ok
+	set allow_multiple no
+	set advance_immediately yes
+	set _theme gray
+
+define form_multiple_choice form_multiple_choice_age
+	set timeout infinite
+	set spacing 10
+	__question__
+	Hvad er din alder?
+	__end__
+	__options__
+	Under 15 år
+	15-20 år
+	21-30 år
+	31-40 år
+	Over 40 år
+	__end__
+	set margins "50;50;50;50"
+	set form_var response
+	set form_title "Form title"
+	set description "A simple multiple choice item"
+	set button_text Ok
+	set allow_multiple no
+	set advance_immediately yes
+	set _theme gray
+
+define form_multiple_choice form_multiple_choice_diagnose
+	set timeout infinite
+	set spacing 10
+	set question "Har du en diagnose, som indebærer opmærksomhedsforstyrrelser?"
+	__options__
+	Ja
+	Nej
+	Ønsker ikke at svare
+	__end__
+	set margins "50;50;50;50"
+	set form_var response
+	set form_title "Form title"
+	set description "A simple multiple choice item"
+	set button_text Ok
+	set allow_multiple no
+	set advance_immediately yes
+	set _theme gray
+
+define inline_javascript genrate_random_numbers
+	set description "Executes JavaScript code"
+	___run__
+	
+	
+	//vars.num1 = Math.floor(Math.random() * (9 - 1 + 1) + 1).toString()
+	//vars.num2 = Math.floor(Math.random() * (9 - 1 + 1) + 1).toString()
+	//vars.num3 = Math.floor(Math.random() * (9 - 1 + 1) + 1).toString()
+	//vars.num4 = Math.floor(Math.random() * (9 - 1 + 1) + 1).toString()
+	//vars.num5 = Math.floor(Math.random() * (9 - 1 + 1) + 1).toString()
+	//vars.num6 = Math.floor(Math.random() * (9 - 1 + 1) + 1).toString()
+	
+	vars.number_answer = (Math.random()*10000000).toString().slice(0,6)
+	
+	vars.num1 = number_answer.slice(0)
+	vars.num2 = number_answer.slice(1)
+	vars.num3 = number_answer.slice(2)
+	vars.num4 = number_answer.slice(3)
+	vars.num5 = number_answer.slice(4)
+	vars.num6 = number_answer.slice(5)
+	__end__
+	___prepare__
+	//vars.num1 = Math.floor(Math.random() * (9 - 5 + 1) + 5).toString()
+	vars.num1 = Math.floor(Math.random() * (9 - 1 + 1)).toString()
+	vars.num2 = Math.floor(Math.random() * (9 - 1 + 1)).toString()
+	vars.num3 = Math.floor(Math.random() * (9 - 1 + 1)).toString()
+	vars.num4 = Math.floor(Math.random() * (9 - 1 + 1)).toString()
+	vars.num5 = Math.floor(Math.random() * (9 - 1 + 1)).toString()
+	vars.num6 = Math.floor(Math.random() * (9 - 1 + 1)).toString()
+	__end__
+
+define inline_javascript genrate_random_numbers_1
+	set description "Executes JavaScript code"
+	___run__
+	
+	
+	vars.num1 = Math.floor(Math.random() * (9 - 1 + 1) + 1).toString()
+	vars.num2 = Math.floor(Math.random() * (9 - 1 + 1) + 1).toString()
+	vars.num3 = Math.floor(Math.random() * (9 - 1 + 1) + 1).toString()
+	vars.num4 = Math.floor(Math.random() * (9 - 1 + 1) + 1).toString()
+	vars.num5 = Math.floor(Math.random() * (9 - 1 + 1) + 1).toString()
+	vars.num6 = Math.floor(Math.random() * (9 - 1 + 1) + 1).toString()
+	__end__
+	___prepare__
+	//vars.num1 = Math.floor(Math.random() * (9 - 5 + 1) + 5).toString()
+	vars.num1 = Math.floor(Math.random() * (9 - 1 + 1)).toString()
+	vars.num2 = Math.floor(Math.random() * (9 - 1 + 1)).toString()
+	vars.num3 = Math.floor(Math.random() * (9 - 1 + 1)).toString()
+	vars.num4 = Math.floor(Math.random() * (9 - 1 + 1)).toString()
+	vars.num5 = Math.floor(Math.random() * (9 - 1 + 1)).toString()
+	vars.num6 = Math.floor(Math.random() * (9 - 1 + 1)).toString()
+	__end__
+
+define inline_javascript increment_practice_round_counter
+	set description "Executes JavaScript code"
+	set _run "vars.practice_round = vars.practice_round + 1"
+	set _prepare ""
+
+define inline_javascript increment_trial_round_counter
+	set description "Executes JavaScript code"
+	set _run "vars.trial_round = vars.trial_round + 1"
+	set _prepare ""
+
+define keyboard_response keyboard_Question
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response keyboard_Question_practice
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response keyboard_S1
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response keyboard_S1_1
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response keyboard_S2A
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response keyboard_S2A_1
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response keyboard_S2B
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response keyboard_S2B_1
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response keyboard_S3
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response keyboard_S3_1
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response keyboard_S4
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response keyboard_S4_1
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response keyboard_S5
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response keyboard_S5_1
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response keyboard_S6
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response keyboard_S6_1
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define logger logger
+	set description "Logs experimental data"
+	set auto_log yes
+
+define logger logger_narrative
+	set description "Logs experimental data"
+	set auto_log yes
+
+define logger logger_phono
+	set description "Logs experimental data"
+	set auto_log yes
+
+define logger logger_visual_response
+	set description "Logs experimental data"
+	set auto_log yes
+
+define logger logger_visual_stimulus
+	set description "Logs experimental data"
+	set auto_log yes
+
+define sequence narrative_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run S1 always
+	run keyboard_S1 always
+	run S2A "[picker] = 0"
+	run keyboard_S2A "[picker] = 0"
+	run S2B "[picker] = 1"
+	run keyboard_S2B "[picker] = 1"
+	run S3 always
+	run keyboard_S3 always
+	run S4 always
+	run keyboard_S4 always
+	run S5 always
+	run keyboard_S5 always
+	run S6 always
+	run keyboard_S6 always
+	run Question always
+	run keyboard_Question always
+	run logger_narrative always
+
+define sequence narrative_sequence_1
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run S1_1 always
+	run keyboard_S1_1 always
+	run S2A_1 "[picker] = 0"
+	run keyboard_S2A_1 "[picker] = 0"
+	run S2B_1 "[picker] = 1"
+	run keyboard_S2B_1 "[picker] = 1"
+	run S3_1 always
+	run keyboard_S3_1 always
+	run S4_1 always
+	run keyboard_S4_1 always
+	run S5_1 always
+	run keyboard_S5_1 always
+	run S6_1 always
+	run keyboard_S6_1 always
+	run Question_1 always
+	run keyboard_Question_practice always
+
+define feedback new_feedback
+	set reset_variables yes
+	set duration 0
+	set description "Provides feedback to the participant"
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=-448 y=-320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=-448 y=320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=448 y=-320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=448 y=320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=-192 y=0 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=224 y=0 z_index=0
+
+define feedback new_feedback_1
+	set reset_variables yes
+	set duration 50
+	set description "Provides feedback to the participant"
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=-448 y=-320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=-448 y=320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=448 y=-320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=448 y=320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=-192 y=0 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=224 y=0 z_index=0
+	draw circle color=blue fill=1 penwidth=1 r=45.254833995939045 show_if=always x="[cursor_x]" y="[cursor_y]" z_index=0
+
+define feedback new_feedback_1_1
+	set reset_variables yes
+	set duration 50
+	set description "Provides feedback to the participant"
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=-448 y=-320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=-448 y=320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=448 y=-320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=448 y=320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=-192 y=0 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=224 y=0 z_index=0
+	draw circle color=blue fill=1 penwidth=1 r=45.254833995939045 show_if=always x="[cursor_x]" y="[cursor_y]" z_index=0
+
+define feedback new_feedback_2
+	set reset_variables yes
+	set duration 0
+	set description "Provides feedback to the participant"
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=-448 y=-320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=-448 y=320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=448 y=-320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=448 y=320 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=-192 y=0 z_index=0
+	draw circle color=white fill=1 penwidth=1 r=45.254833995939045 show_if=always x=224 y=0 z_index=0
+
+define loop new_loop
+	set source table
+	set repeat 6
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 empty_column ""
+	run new_sequence_1
+
+define loop new_loop_1
+	set source table
+	set repeat 6
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 empty_column ""
+	run new_sequence_1_1
+
+define mouse_response new_mouse_response
+	set timeout infinite
+	set show_cursor yes
+	set linked_sketchpad ""
+	set flush yes
+	set event_type mouseclick
+	set duration mouseclick
+	set description "Collects mouse responses"
+
+define mouse_response new_mouse_response_1
+	set timeout infinite
+	set show_cursor yes
+	set linked_sketchpad ""
+	set flush yes
+	set event_type mouseclick
+	set duration mouseclick
+	set description "Collects mouse responses"
+
+define sequence new_sequence_1
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run new_feedback always
+	run new_mouse_response always
+	run new_feedback_1 always
+	run logger_visual_response always
+
+define sequence new_sequence_1_1
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run new_feedback_2 always
+	run new_mouse_response_1 always
+	run new_feedback_1_1 always
+
+define sketchpad number_1
+	set duration "[numtime]"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[num1]" x=0 y=0 z_index=0
+
+define sketchpad number_1_1
+	set duration "[numtime]"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="[num1]" x=0 y=0 z_index=0
+
+define sketchpad number_2
+	set duration "[numtime]"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[num2]" x=0 y=0 z_index=0
+
+define sketchpad number_2_1
+	set duration "[numtime]"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="[num2]" x=0 y=0 z_index=0
+
+define sketchpad number_3
+	set duration "[numtime]"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[num3]" x=0 y=0 z_index=0
+
+define sketchpad number_3_1
+	set duration "[numtime]"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="[num3]" x=0 y=0 z_index=0
+
+define sketchpad number_4
+	set duration "[numtime]"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[num4]" x=0 y=0 z_index=0
+
+define sketchpad number_4_1
+	set duration "[numtime]"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="[num4]" x=0 y=0 z_index=0
+
+define sketchpad number_5
+	set duration "[numtime]"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[num5]" x=0 y=0 z_index=0
+
+define sketchpad number_5_1
+	set duration "[numtime]"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="[num5]" x=0 y=0 z_index=0
+
+define sketchpad number_6
+	set duration "[numtime]"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="[num6]" x=0 y=0 z_index=0
+
+define sketchpad number_6_1
+	set duration "[numtime]"
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=20 html=yes show_if=always text="[num6]" x=0 y=0 z_index=0
+
+define form_text_input number_quiz
+	set timeout infinite
+	set spacing 10
+	set rows "1;1;6"
+	set only_render no
+	set margins "50;50;50;50"
+	set form_var response
+	set form_title "Hvilke tal kan du huske?"
+	set form_question "Indtast de tal du husker, i den rigtige rækkefølge."
+	set description "A simple text input form"
+	set cols 1
+	set _theme gray
+	widget 0 0 1 1 label text="[form_title]"
+	widget 0 1 1 1 label center=no text="[form_question]"
+	widget 0 2 1 1 text_input focus=yes return_accepts=yes stub="" var="[form_var]"
+
+
+define form_text_input number_quiz_1
+	set timeout infinite
+	set spacing 10
+	set rows "1;1;6"
+	set only_render no
+	set margins "50;50;50;50"
+	set form_var response
+	set form_title "Hvilke tal kan du huske?"
+	set form_question "Indtast de tal du husker, i den rigtige rækkefølge."
+	set description "A simple text input form"
+	set cols 1
+	set _theme gray
+	widget 0 0 1 1 label text="[form_title]"
+	widget 0 1 1 1 label center=no text="[form_question]"
+	widget 0 2 1 1 text_input focus=yes return_accepts=yes stub="" var="[form_var]"
+
+
+define sketchpad nums_isi
+	set duration "[nums_isi]"
+	set description "Displays stimuli"
+
+define sketchpad nums_isi_1
+	set duration "[nums_isi]"
+	set description "Displays stimuli"
+
+define sketchpad pause
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Så er det tid til en pause!!<br /><br /><br />Tryk på mellemrum, når du er klar til at førtsætte." x=0 y=0 z_index=0
+
+define sequence phono_response_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run number_quiz always
+	run logger_phono always
+
+define sequence phono_response_sequence_1
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run number_quiz_1 always
+
+define sequence phono_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run number_1 always
+	run nums_isi always
+	run number_2 always
+	run nums_isi always
+	run number_3 always
+	run nums_isi always
+	run number_4 always
+	run nums_isi always
+	run number_5 always
+	run nums_isi always
+	run number_6 always
+	run nums_isi always
+
+define sequence phono_sequence_1
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run genrate_random_numbers_1 always
+	run number_1_1 always
+	run nums_isi_1 always
+	run number_2_1 always
+	run nums_isi_1 always
+	run number_3_1 always
+	run nums_isi_1 always
+	run number_4_1 always
+	run nums_isi_1 always
+	run number_5_1 always
+	run nums_isi_1 always
+	run number_6_1 always
+	run nums_isi_1 always
+
+define loop practice_loop
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 4
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 S1 "Theis’ mor vil gerne have, at Theis bliver god til engelsk "
+	setcycle 0 S2A "Theis kan ikke lide sprog og synes, at det er nyttesløst at lære engelsk"
+	setcycle 0 S2B "Theis elsker sprog og vil meget gerne lære engelsk"
+	setcycle 0 S3 "Theis’ lærer sørger altid for, at engelsktimerne er interessante"
+	setcycle 0 S4 "Hun kan mange forskellige engelske ordspil"
+	setcycle 0 S5 "Nogle gange sætter hun en engelsk tv-serie på"
+	setcycle 0 S6 "Men Theis’ deltager ikke i undervisningen, for han synes det er dumt"
+	setcycle 0 Question "Kan læreren mange ordspil på engelsk?"
+	setcycle 0 WM_condition no_task
+	setcycle 0 answer j
+	setcycle 0 block practice
+	setcycle 0 num1 7
+	setcycle 0 num2 8
+	setcycle 0 num3 4
+	setcycle 0 num4 6
+	setcycle 0 num5 5
+	setcycle 0 num6 1
+	setcycle 0 number_answer 784651
+	setcycle 1 S1 "Jakob går i syvende klasse"
+	setcycle 1 S2A "Han har altid meget travlt og forstyrrer ofte timerne"
+	setcycle 1 S2B "Han er altid rolig og deltager godt i undervisningen"
+	setcycle 1 S3 "I dag har de en lektion om planter"
+	setcycle 1 S4 "Læreren har taget blomster og planter med"
+	setcycle 1 S5 "Jakob fniser og nyser pludseligt"
+	setcycle 1 S6 "Læreren er træt af, at Jakob altid irriterer og sender ham udenfor døren"
+	setcycle 1 Question "Medbragte læreren også insekter til lektionen?"
+	setcycle 1 WM_condition phono
+	setcycle 1 answer n
+	setcycle 1 block practice
+	setcycle 1 num1 7
+	setcycle 1 num2 7
+	setcycle 1 num3 3
+	setcycle 1 num4 5
+	setcycle 1 num5 7
+	setcycle 1 num6 5
+	setcycle 1 number_answer 773575
+	setcycle 2 S1 "Sandra og Nora er bedste veninder"
+	setcycle 2 S2A "Når de er sammen, snakker og larmer de altid meget"
+	setcycle 2 S2B "Når de er sammen, er de altid rolige og søde"
+	setcycle 2 S3 "Sandra og Nora går i samme klasse"
+	setcycle 2 S4 "I dag får de lov at sidde ved siden af hinanden"
+	setcycle 2 S5 "De skal på skift læse i en bog"
+	setcycle 2 S6 "Men læreren må skille dem ad til sidst, fordi de forstyrrer de andre"
+	setcycle 2 Question "Er Sandra og Nora søskende?"
+	setcycle 2 WM_condition visual
+	setcycle 2 answer n
+	setcycle 2 block practice
+	setcycle 2 num1 0
+	setcycle 2 num2 7
+	setcycle 2 num3 0
+	setcycle 2 num4 7
+	setcycle 2 num5 1
+	setcycle 2 num6 8
+	setcycle 2 number_answer 70718
+	setcycle 3 S1 "Robert har lavet en liste over alle de bøger, han gerne vil læse"
+	setcycle 3 S2A "Han låner bøgerne på biblioteket"
+	setcycle 3 S2B "Han køber bøgerne i boghandelen"
+	setcycle 3 S3 "En af bøgerne lyder virkelig spændende"
+	setcycle 3 S4 "Historien handler om indianere og cowboys"
+	setcycle 3 S5 "Robert fantaserer nogle gange om, at han også er indianer"
+	setcycle 3 S6 "Derfor beslutter han sig for ikke at aflevere bogen på biblioteket igen"
+	setcycle 3 Question "Fantaserer Robert nogle gange om at være indianer?"
+	setcycle 3 WM_condition phono
+	setcycle 3 answer j
+	setcycle 3 block practice
+	setcycle 3 num1 4
+	setcycle 3 num2 4
+	setcycle 3 num3 1
+	setcycle 3 num4 9
+	setcycle 3 num5 9
+	setcycle 3 num6 0
+	setcycle 3 number_answer 441990
+	run trials_sequence_1
+
+define inline_javascript randomize_congruency
+	set description "Executes JavaScript code"
+	___run__
+	
+	
+	if (Math.random() < 0.5) {
+	  vars.picker = 0;
+	} else {
+	  vars.picker = 1;
+	}
+	__end__
+	set _prepare ""
+
+define inline_javascript randomize_congruency_1
+	set description "Executes JavaScript code"
+	___run__
+	
+	
+	if (Math.random() < 0.5) {
+	  vars.picker = 0;
+	} else {
+	  vars.picker = 1;
+	}
+	__end__
+	set _prepare ""
+
+define sketchpad start
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="Øvelesesrunden er færdig, og det er tid til at starte forsøget.<br /><br />Hele forsøget tager ca 15 minutter, og der er lagt en pause når du er nået halvejs.<br /><br /><br />Tryk mellemrum for at begynde." x=0 y=0 z_index=0
+
+define loop trials_loop
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 30
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 S1 "Jonas kan lide at se på stjerner"
+	setcycle 0 S2A "Jonas’ familie kan også lide at se på stjerner "
+	setcycle 0 S2B "Jonas’ familie kan ikke lide at se på stjerner "
+	setcycle 0 S3 "I aften bliver det en klar aften"
+	setcycle 0 S4 "Jonas vil holde sig vågen for at se på stjerner "
+	setcycle 0 S5 "Han sætter et teleskop op i haven"
+	setcycle 0 S6 "Jonas’ bror er astronom og ser også på "
+	setcycle 0 Question "Er det en klar aften?"
+	setcycle 0 WM_condition phono
+	setcycle 0 answer j
+	setcycle 0 block experiment
+	setcycle 0 num1 7
+	setcycle 0 num2 8
+	setcycle 0 num3 4
+	setcycle 0 num4 6
+	setcycle 0 num5 5
+	setcycle 0 num6 1
+	setcycle 0 number_answer 784651
+	setcycle 1 S1 "I sin fritid kan Dan godt lide at lege udenfor med sine venner"
+	setcycle 1 S2A "Han bor i en stille gade i nærheden af en stor skov"
+	setcycle 1 S2B "Han bor i en hyggelig gade midt i en storby"
+	setcycle 1 S3 "Hans bedste venner, Julie og Joakim bor i samme gade"
+	setcycle 1 S4 "De er sammen næsten hver dag og leger tit gemmeleg"
+	setcycle 1 S5 "I går gemte Julie sig så godt, at Dan og Joakim ikke kunne finde hende"
+	setcycle 1 S6 "De måtte lede i skoven i flere timer, før de fandt hende"
+	setcycle 1 Question "Ser Dan sjældent sine to venner?"
+	setcycle 1 WM_condition phono
+	setcycle 1 answer n
+	setcycle 1 block experiment
+	setcycle 1 num1 7
+	setcycle 1 num2 7
+	setcycle 1 num3 3
+	setcycle 1 num4 5
+	setcycle 1 num5 7
+	setcycle 1 num6 5
+	setcycle 1 number_answer 773575
+	setcycle 2 S1 "Lukas er på sidste år i folkeskolen"
+	setcycle 2 S2A "Han vil holde et pool party for sine klassekammerater"
+	setcycle 2 S2B "Han vil holde en sodavandsfest for sine klassekammerater"
+	setcycle 2 S3 "Lukas’ forældre synes, at det er en god idé"
+	setcycle 2 S4 "Sammen laver de nogle smukke invitationer til klassekammeraterne"
+	setcycle 2 S5 "Næste dag deler Lukas invitationer ud i klassen"
+	setcycle 2 S6 "Sofie får ikke en invitation, for hun kan ikke svømme"
+	setcycle 2 Question "Hjælper Lukas’ forældre med invitationerne?"
+	setcycle 2 WM_condition phono
+	setcycle 2 answer j
+	setcycle 2 block experiment
+	setcycle 2 num1 0
+	setcycle 2 num2 7
+	setcycle 2 num3 0
+	setcycle 2 num4 7
+	setcycle 2 num5 1
+	setcycle 2 num6 8
+	setcycle 2 number_answer 70718
+	setcycle 3 S1 "Laura og Tines skole skal snart holde et talentshow"
+	setcycle 3 S2A "Laura og Tine beslutter sig for at stille op med en sang sammen"
+	setcycle 3 S2B "Laura og Tine beslutter sig for at stille op med en dans sammen"
+	setcycle 3 S3 "Alle kan tilmelde sig, også lærerne"
+	setcycle 3 S4 "Laura og Tine vil gerne komme i finalen"
+	setcycle 3 S5 "Laura og Tine øver sig meget hårdt hver dag"
+	setcycle 3 S6 "Men desværre brækker Tine sin fod, så de ikke kan deltage alligevel"
+	setcycle 3 Question "Er det kun eleverne, der må deltage i talentshowet?"
+	setcycle 3 WM_condition phono
+	setcycle 3 answer n
+	setcycle 3 block experiment
+	setcycle 3 num1 4
+	setcycle 3 num2 4
+	setcycle 3 num3 1
+	setcycle 3 num4 9
+	setcycle 3 num5 9
+	setcycle 3 num6 0
+	setcycle 3 number_answer 441990
+	setcycle 4 S1 "Svends cykel er blevet stjålet i skolegården"
+	setcycle 4 S2A "Derfor går Svend hen til politistationen"
+	setcycle 4 S2B "Desværre har politistationen lukket"
+	setcycle 4 S3 "Svend har fået cyklen i fødselsdagsgave"
+	setcycle 4 S4 "Det var en meget flot racercykel"
+	setcycle 4 S5 "Nu må Svend gå i skole hver dag"
+	setcycle 4 S6 "Politibetjentene spørger, om Svends cykel har været låst"
+	setcycle 4 Question "Fik Svend cyklen i fødselsdagsgave?"
+	setcycle 4 WM_condition phono
+	setcycle 4 answer j
+	setcycle 4 block experiment
+	setcycle 4 num1 4
+	setcycle 4 num2 1
+	setcycle 4 num3 4
+	setcycle 4 num4 0
+	setcycle 4 num5 4
+	setcycle 4 num6 5
+	setcycle 4 number_answer 414045
+	setcycle 5 S1 "Thorbjørn indsamler penge til velgørenhed med sin klasse"
+	setcycle 5 S2A "Skolen har arrangeret et sponsoreret løb for at samle penge"
+	setcycle 5 S2B "Skolen har arrangeret et loppemarked for at samle penge"
+	setcycle 5 S3 "Hvert år går pengene til et nyt formål"
+	setcycle 5 S4 "I år går pengene til et hospital i Afrika"
+	setcycle 5 S5 "Hele klassen har travlt med at forberede sig"
+	setcycle 5 S6 "De skal træne hårdt for at kunne løbe så mange omgange som muligt"
+	setcycle 5 Question "Går velgørenheden til det samme hvert år?"
+	setcycle 5 WM_condition phono
+	setcycle 5 answer n
+	setcycle 5 block experiment
+	setcycle 5 num1 5
+	setcycle 5 num2 2
+	setcycle 5 num3 0
+	setcycle 5 num4 7
+	setcycle 5 num5 9
+	setcycle 5 num6 2
+	setcycle 5 number_answer 520792
+	setcycle 6 S1 "Naja har fri fra skole i næste uge"
+	setcycle 6 S2A "Hun skal i zoologisk have med en veninde"
+	setcycle 6 S2B "Hun skal i forlystespark med en veninde"
+	setcycle 6 S3 "Naja og hendes veninde går i klasse sammen"
+	setcycle 6 S4 "De laver ofte sjove ting sammen og har kendt hinanden længe"
+	setcycle 6 S5 "De glæder sig begge rigtig meget til deres fridag"
+	setcycle 6 S6 "De elsker nemlig begge at gå i zoologisk have"
+	setcycle 6 Question "Har Naja og hendes veninde kendt hinanden længe?"
+	setcycle 6 WM_condition phono
+	setcycle 6 answer j
+	setcycle 6 block experiment
+	setcycle 6 num1 3
+	setcycle 6 num2 6
+	setcycle 6 num3 4
+	setcycle 6 num4 5
+	setcycle 6 num5 1
+	setcycle 6 num6 3
+	setcycle 6 number_answer 364513
+	setcycle 7 S1 "Beate er otte år og kommer fra en meget musikalsk familie"
+	setcycle 7 S2A "Beate spiller klaver og går til klaverundervisning om aftenen"
+	setcycle 7 S2B "Beate spiller blokføjte og går til blokfløjteundervisning om aftenen"
+	setcycle 7 S3 "Når hun kommer hjem fra skole, øver hun på sit værelse"
+	setcycle 7 S4 "Egentlig burde hun øve hver dag, men det gør hun for det meste ikke"
+	setcycle 7 S5 "Hun synes, at den musik, hun skal øve sig på, er lidt kedelig"
+	setcycle 7 S6 "Beate håber, at hendes klaverlærer ikke lægger mærke til det"
+	setcycle 7 Question "Øver Beate sig hver dag?"
+	setcycle 7 WM_condition phono
+	setcycle 7 answer n
+	setcycle 7 block experiment
+	setcycle 7 num1 2
+	setcycle 7 num2 3
+	setcycle 7 num3 2
+	setcycle 7 num4 5
+	setcycle 7 num5 2
+	setcycle 7 num6 6
+	setcycle 7 number_answer 232526
+	setcycle 8 S1 "Emma deltager i skolens læsekonkurrence"
+	setcycle 8 S2A "Det er første gang, hun deltager i konkurrencen"
+	setcycle 8 S2B "Sidste år vandt hun konkurrencen"
+	setcycle 8 S3 "Emma læser for sin lillebror hver aften"
+	setcycle 8 S4 "Hun elsker at læse og læser ofte to bøger om ugen"
+	setcycle 8 S5 "Hendes mor læser også tit for hende"
+	setcycle 8 S6 "Emma er nervøs, fordi hun aldrig har været med i en læsekonkurrence før"
+	setcycle 8 Question "Er Emma enebarn?"
+	setcycle 8 WM_condition phono
+	setcycle 8 answer n
+	setcycle 8 block experiment
+	setcycle 8 num1 4
+	setcycle 8 num2 4
+	setcycle 8 num3 1
+	setcycle 8 num4 6
+	setcycle 8 num5 2
+	setcycle 8 num6 7
+	setcycle 8 number_answer 441627
+	setcycle 9 S1 "Josefine vil gerne være model"
+	setcycle 9 S2A "Hun synes, at det er et hårdt arbejde, som kræver meget øvelse"
+	setcycle 9 S2B "Hun synes, at det er et nemt arbejde, som ikke kræver øvelse"
+	setcycle 9 S3 "Josefines mor støtter hende i drømmen"
+	setcycle 9 S4 "Hun har meldt Josefine til en modelkonkurrence"
+	setcycle 9 S5 "Josefine vil gerne vinde konkurrencen"
+	setcycle 9 S6 "Josefine øver sig rigtig hårdt "
+	setcycle 9 Question "Støtter Josefines mor hende i sin drøm?"
+	setcycle 9 WM_condition phono
+	setcycle 9 answer j
+	setcycle 9 block experiment
+	setcycle 9 num1 2
+	setcycle 9 num2 1
+	setcycle 9 num3 4
+	setcycle 9 num4 0
+	setcycle 9 num5 1
+	setcycle 9 num6 8
+	setcycle 9 number_answer 214018
+	setcycle 10 S1 "Stine ønskede sig et musikinstrument til sin fødselsdag"
+	setcycle 10 S2A "Hun fik et trommesæt af sine forældre"
+	setcycle 10 S2B "Hun fik et klaver af sine forældre"
+	setcycle 10 S3 "Hun blev rigtig glad for det"
+	setcycle 10 S4 "Hver dag øvede hun sig en halv time på det"
+	setcycle 10 S5 "Men Stines naboer var utilfredse"
+	setcycle 10 S6 "De kan ikke lide støjen fra trommerne"
+	setcycle 10 Question "Blev Stine glad for sin gave?"
+	setcycle 10 WM_condition visual
+	setcycle 10 answer j
+	setcycle 10 block experiment
+	setcycle 10 num1 7
+	setcycle 10 num2 4
+	setcycle 10 num3 4
+	setcycle 10 num4 9
+	setcycle 10 num5 2
+	setcycle 10 num6 9
+	setcycle 10 number_answer 744929
+	setcycle 11 S1 "Lars går på kostskole"
+	setcycle 11 S2A "Han går der med alle sine brødre "
+	setcycle 11 S2B "Han savner sine forældre og sine brødre"
+	setcycle 11 S3 "Der dyrkes meget sport på kostskolen"
+	setcycle 11 S4 "Lars er målmand for skolens fodboldhold"
+	setcycle 11 S5 "De træner hver dag i to timer efter undervisning"
+	setcycle 11 S6 "Hans brødre er forsvarsspillere på holdet"
+	setcycle 11 Question "Er Lars angriber på fodboldholdet?"
+	setcycle 11 WM_condition visual
+	setcycle 11 answer n
+	setcycle 11 block experiment
+	setcycle 11 num1 2
+	setcycle 11 num2 7
+	setcycle 11 num3 7
+	setcycle 11 num4 0
+	setcycle 11 num5 4
+	setcycle 11 num6 9
+	setcycle 11 number_answer 277049
+	setcycle 12 S1 "Frederik brækkede benet, mens han legede"
+	setcycle 12 S2A "Det er sommer, og Frederik keder sig, fordi han ikke kan lege udenfor"
+	setcycle 12 S2B "Det er vinter, og Frederik keder sig, fordi han ikke kan lege udenfor"
+	setcycle 12 S3 "Frederik bor i Nordjylland med sine forældre"
+	setcycle 12 S4 "De bor i en lille landsby, hvor alle kender hinanden"
+	setcycle 12 S5 "Frederiks nabo, Mikkel, er hans bedste ven"
+	setcycle 12 S6 "Mikkel skal ud at bade i søen i dag, men Frederik kan ikke komme med"
+	setcycle 12 Question "Bor Frederik i Nordjylland?"
+	setcycle 12 WM_condition visual
+	setcycle 12 answer j
+	setcycle 12 block experiment
+	setcycle 12 num1 1
+	setcycle 12 num2 6
+	setcycle 12 num3 6
+	setcycle 12 num4 4
+	setcycle 12 num5 9
+	setcycle 12 num6 3
+	setcycle 12 number_answer 166493
+	setcycle 13 S1 "Anna bor sammen med sin mor i et stort hus"
+	setcycle 13 S2A "Det er vigtigt for Annas mor, at huset bliver holdt pænt og rent"
+	setcycle 13 S2B "Huset roder meget, for Annas mor går så meget ikke op i rengøring"
+	setcycle 13 S3 "Anna får sine venner på besøg på hendes fødselsdag"
+	setcycle 13 S4 "De efterlader legetøj overalt"
+	setcycle 13 S5 "Der er endda legetøj i haven bagefter"
+	setcycle 13 S6 "Annas mor synes, at det er meget irriterende med rodet"
+	setcycle 13 Question "Bor Anna i lejlighed?"
+	setcycle 13 WM_condition visual
+	setcycle 13 answer n
+	setcycle 13 block experiment
+	setcycle 13 num1 2
+	setcycle 13 num2 2
+	setcycle 13 num3 4
+	setcycle 13 num4 0
+	setcycle 13 num5 7
+	setcycle 13 num6 5
+	setcycle 13 number_answer 224075
+	setcycle 14 S1 "Ida elsker at spille computer"
+	setcycle 14 S2A "Idas forældre bryder sig ikke om, at hun bruger meget tid på computeren"
+	setcycle 14 S2B "Idas forældre har ikke noget imod, at hun bruger meget tid på computeren"
+	setcycle 14 S3 "I dag er Idas forældre ikke hjemme"
+	setcycle 14 S4 "Ida laver først sine lektier, og bagefter spiller hun computer"
+	setcycle 14 S5 "Hun bruger resten af eftermiddagen på at spille på computeren"
+	setcycle 14 S6 "Da hendes forældre kommer hjem, er de vrede over, at Ida sidder ved computeren"
+	setcycle 14 Question "Har Ida lavet lektier?"
+	setcycle 14 WM_condition visual
+	setcycle 14 answer j
+	setcycle 14 block experiment
+	setcycle 14 num1 9
+	setcycle 14 num2 3
+	setcycle 14 num3 9
+	setcycle 14 num4 7
+	setcycle 14 num5 6
+	setcycle 14 num6 8
+	setcycle 14 number_answer 939768
+	setcycle 15 S1 "Frida har sin egen kat"
+	setcycle 15 S2A "Hun har fået katten fra et internat"
+	setcycle 15 S2B "Hun har fået katten af en ven"
+	setcycle 15 S3 "Fridas forældre har givet hende lov til at beholde katten på nogle betingelser"
+	setcycle 15 S4 "Frida skal selv passe katten"
+	setcycle 15 S5 "Hun skal børste og fodre den"
+	setcycle 15 S6 "Hvis Frida ikke gør det, så skal katten afleveres tilbage til internatet"
+	setcycle 15 Question "Fodrer Fridas mor katten?"
+	setcycle 15 WM_condition visual
+	setcycle 15 answer n
+	setcycle 15 block experiment
+	setcycle 15 num1 1
+	setcycle 15 num2 1
+	setcycle 15 num3 8
+	setcycle 15 num4 7
+	setcycle 15 num5 1
+	setcycle 15 num6 1
+	setcycle 15 number_answer 118711
+	setcycle 16 S1 "Gustav er den bedste elev i klassen"
+	setcycle 16 S2A "Han er også en dygtig fodboldsspiller"
+	setcycle 16 S2B "Han er også en dygtig tennisspiller"
+	setcycle 16 S3 "Gustav forbereder sig på en vigtig kamp"
+	setcycle 16 S4 "Ifølge hans træner, har Gustav en chance for at vinde"
+	setcycle 16 S5 "Gustav er nervøs, fordi der kommer mange tilskuere "
+	setcycle 16 S6 "En af dommerne er endda hans yndlingsfodboldspiller"
+	setcycle 16 Question "Har Gustav en chance for at vinde?"
+	setcycle 16 WM_condition visual
+	setcycle 16 answer j
+	setcycle 16 block experiment
+	setcycle 16 num1 7
+	setcycle 16 num2 4
+	setcycle 16 num3 8
+	setcycle 16 num4 2
+	setcycle 16 num5 9
+	setcycle 16 num6 0
+	setcycle 16 number_answer 748290
+	setcycle 17 S1 "Liam skal på tur med sin skole næste weekend"
+	setcycle 17 S2A "Der er varslet dårligt vejr med sne og hård vind"
+	setcycle 17 S2B "Der er spået varmt vejr med blå himmel og sol"
+	setcycle 17 S3 "Liam begynder at pakke et par dage før"
+	setcycle 17 S4 "Hans mor hjælper ham og gør hans tøj klar"
+	setcycle 17 S5 "De kommer til at lave en masse sjove ting på turen"
+	setcycle 17 S6 "På turen er Liam glad for, at han har husket at tage en varm hue med"
+	setcycle 17 Question "Pakkede Liam sin taske alene?"
+	setcycle 17 WM_condition visual
+	setcycle 17 answer n
+	setcycle 17 block experiment
+	setcycle 17 num1 2
+	setcycle 17 num2 2
+	setcycle 17 num3 0
+	setcycle 17 num4 1
+	setcycle 17 num5 1
+	setcycle 17 num6 9
+	setcycle 17 number_answer 220119
+	setcycle 18 S1 "Rose og Marie skal hen til deres moster med tog"
+	setcycle 18 S2A "De synes, at det er meget spændende, for de rejser aldrig med tog"
+	setcycle 18 S2B "De synes, at det er kedeligt, for de rejser tit med tog"
+	setcycle 18 S3 "Deres mor afleverer dem på stationen om eftermiddagen"
+	setcycle 18 S4 "Rose og Marie går hen til toget, som venter på perronen"
+	setcycle 18 S5 "Konduktøren tjekker deres billetter, så snart de er på toget"
+	setcycle 18 S6 "Da toget begynder at køre, får Rose og Marie sommerfugle i maven af spænding"
+	setcycle 18 Question "Tjekker konduktøren deres billetter?"
+	setcycle 18 WM_condition visual
+	setcycle 18 answer j
+	setcycle 18 block experiment
+	setcycle 18 num1 5
+	setcycle 18 num2 6
+	setcycle 18 num3 1
+	setcycle 18 num4 2
+	setcycle 18 num5 6
+	setcycle 18 num6 2
+	setcycle 18 number_answer 561262
+	setcycle 19 S1 "Sofie skal købe en gave til sin mor"
+	setcycle 19 S2A "Hun vil gerne overraske moren med nogle smukke blomster"
+	setcycle 19 S2B "Hun vil gerne overraske moren med nogle smukke øreringe"
+	setcycle 19 S3 "Det er Sofies mors fødselsdag i morgen, og hun fortjener en fin gave"
+	setcycle 19 S4 "Sofie tager sin far med for at købe gaven"
+	setcycle 19 S5 "Han ved præcis, hvad Sofies mor kan lide"
+	setcycle 19 S6 "Da de kommer hjem, sætter Sofie blomsterne i vasen med det samme"
+	setcycle 19 Question "Har Sofie selv lavet gaven?"
+	setcycle 19 WM_condition visual
+	setcycle 19 answer n
+	setcycle 19 block experiment
+	setcycle 19 num1 4
+	setcycle 19 num2 1
+	setcycle 19 num3 2
+	setcycle 19 num4 9
+	setcycle 19 num5 7
+	setcycle 19 num6 2
+	setcycle 19 number_answer 412972
+	setcycle 20 S1 "Nicklas er meget musikalsk og kan spille på flere instrumenter"
+	setcycle 20 S2A "Af alle instrumenter, er trompeten hans favorit"
+	setcycle 20 S2B "Af alle instrumenter, er klaver hans favorit"
+	setcycle 20 S3 "Han har fået musikundervisning siden han var barn"
+	setcycle 20 S4 "Nicklas’ far har spillet i orkester i årevis"
+	setcycle 20 S5 "Nicklas drømmer om at spille musik resten af sit liv"
+	setcycle 20 S6 "Han ville allerhelst være berømt med sin trompet "
+	setcycle 20 Question "Kan Nicklas spille flere instrumenter?"
+	setcycle 20 WM_condition no_task
+	setcycle 20 answer j
+	setcycle 20 block experiment
+	setcycle 20 num1 9
+	setcycle 20 num2 5
+	setcycle 20 num3 6
+	setcycle 20 num4 2
+	setcycle 20 num5 3
+	setcycle 20 num6 6
+	setcycle 20 number_answer 956236
+	setcycle 21 S1 "Annika er på hospitalet"
+	setcycle 21 S2A "Hun skal opereres i sit knæ"
+	setcycle 21 S2B "Hun skal opereres i armen"
+	setcycle 21 S3 "Annika får besøg af sin bedstemor på hospitalet"
+	setcycle 21 S4 "Hendes bedstemor fortæller altid historier, som Annika elsker at lytte til"
+	setcycle 21 S5 "Efter en uge, må Annika komme hjem fra hospitalet"
+	setcycle 21 S6 "Det tager lidt tid, før Annika må gå på sit nye knæ"
+	setcycle 21 Question "Får Annika besøg af sin bedstemor på hospitalet?"
+	setcycle 21 WM_condition no_task
+	setcycle 21 answer j
+	setcycle 21 block experiment
+	setcycle 21 num1 0
+	setcycle 21 num2 9
+	setcycle 21 num3 4
+	setcycle 21 num4 0
+	setcycle 21 num5 5
+	setcycle 21 num6 3
+	setcycle 21 number_answer 94053
+	setcycle 22 S1 "Isabella køber en is efter skole"
+	setcycle 22 S2A "Hun vælger en stor jordbæris"
+	setcycle 22 S2B "Hun vælger en stor chokoladeis"
+	setcycle 22 S3 "Hun går hjem med isen i hånden"
+	setcycle 22 S4 "Solen skinner, og det er meget varmt"
+	setcycle 22 S5 "Hun må skynde sig hjem, før isen smelter"
+	setcycle 22 S6 "Da hun kommer hjem, har hun fået en stor, rød plet på hendes skjorte"
+	setcycle 22 Question "Er det meget koldt udenfor?"
+	setcycle 22 WM_condition no_task
+	setcycle 22 answer n
+	setcycle 22 block experiment
+	setcycle 22 num1 3
+	setcycle 22 num2 8
+	setcycle 22 num3 9
+	setcycle 22 num4 7
+	setcycle 22 num5 5
+	setcycle 22 num6 6
+	setcycle 22 number_answer 389756
+	setcycle 23 S1 "Jan kan godt lide at lege med sin nabo, Dan"
+	setcycle 23 S2A "De kan bedst lide at bygge huler sammen i skoven"
+	setcycle 23 S2B "De kan bedst lide at spille computerspil sammen"
+	setcycle 23 S3 "De går på forskellige skoler"
+	setcycle 23 S4 "Derfor plejer de at ses i weekenden"
+	setcycle 23 S5 "Så leger de tit sammen hele dagen"
+	setcycle 23 S6 "Selv når det regner, elsker de at lege udenfor i skoven"
+	setcycle 23 Question "Går Jan og Dan i skole sammen?"
+	setcycle 23 WM_condition no_task
+	setcycle 23 answer n
+	setcycle 23 block experiment
+	setcycle 23 num1 1
+	setcycle 23 num2 3
+	setcycle 23 num3 1
+	setcycle 23 num4 7
+	setcycle 23 num5 6
+	setcycle 23 num6 1
+	setcycle 23 number_answer 131761
+	setcycle 24 S1 "Daniel har fødselsdag og må selv vælge, hvilken mad han vil have"
+	setcycle 24 S2A "Daniel har valgt at få pomfritter fra grillbaren"
+	setcycle 24 S2B "Daniel har valgt at få leveret pizza fra et pizzeria"
+	setcycle 24 S3 "Om eftermiddagen kommer hans venner, og han får en masse gaver"
+	setcycle 24 S4 "Daniels mor spørger, om vennerne vil blive til middag"
+	setcycle 24 S5 "Det vil de meget gerne, siger de"
+	setcycle 24 S6 "Vennerne vil også meget gerne have pomfritter fra grillbaren"
+	setcycle 24 Question "Får Daniel mange gaver?"
+	setcycle 24 WM_condition no_task
+	setcycle 24 answer j
+	setcycle 24 block experiment
+	setcycle 24 num1 6
+	setcycle 24 num2 9
+	setcycle 24 num3 1
+	setcycle 24 num4 7
+	setcycle 24 num5 6
+	setcycle 24 num6 9
+	setcycle 24 number_answer 691769
+	setcycle 25 S1 "Nanna havde sidste skoledag i går"
+	setcycle 25 S2A "I dag er det første dag i sommerferien"
+	setcycle 25 S2B "I dag er det første dag i juleferien"
+	setcycle 25 S3 "Hun skal på besøg hos sine bedsteforældre i næste weekend"
+	setcycle 25 S4 "Så tager de hende med i zoologisk have"
+	setcycle 25 S5 "Nanna er spændt på at se løverne"
+	setcycle 25 S6 "Hun glæder sig til alle de sjove ting, hun skal lave i sommerferien"
+	setcycle 25 Question "Skal Nanna på besøg hos sin tante og onkel i næste weekend?"
+	setcycle 25 WM_condition no_task
+	setcycle 25 answer n
+	setcycle 25 block experiment
+	setcycle 25 num1 1
+	setcycle 25 num2 0
+	setcycle 25 num3 0
+	setcycle 25 num4 5
+	setcycle 25 num5 6
+	setcycle 25 num6 4
+	setcycle 25 number_answer 100564
+	setcycle 26 S1 "Jesper faldt af klatrestativet i frikvarteret"
+	setcycle 26 S2A "Nu gør hans arm meget ondt"
+	setcycle 26 S2B "Nu gør hans ben meget ondt"
+	setcycle 26 S3 "Han tager på hospitalet for at få taget røntgenbilleder"
+	setcycle 26 S4 "Lægen ser på billedet og siger, at knoglen er brækket"
+	setcycle 26 S5 "Han lægger straks gips omkring den"
+	setcycle 26 S6 "I skolen kan Jespers venner skrive på gipsen om hans arm"
+	setcycle 26 Question "Faldt Jesper af klatrestativet?"
+	setcycle 26 WM_condition no_task
+	setcycle 26 answer j
+	setcycle 26 block experiment
+	setcycle 26 num1 7
+	setcycle 26 num2 3
+	setcycle 26 num3 8
+	setcycle 26 num4 9
+	setcycle 26 num5 0
+	setcycle 26 num6 1
+	setcycle 26 number_answer 738901
+	setcycle 27 S1 "Maiken tager en ven med hjem for at lege"
+	setcycle 27 S2A "Maiken bor i et hus med en stor have"
+	setcycle 27 S2B "Maiken bor på sjette sal og har ingen have"
+	setcycle 27 S3 "Vennerne bager småkager sammen Maikens mor"
+	setcycle 27 S4 "Det er småkager med chokolade i"
+	setcycle 27 S5 "Efter 15 minutter i ovnen er de klar"
+	setcycle 27 S6 "Bagefter sætter de sig ud i haven for at nyde småkagerne derude"
+	setcycle 27 Question "Bager vennerne en kage?"
+	setcycle 27 WM_condition no_task
+	setcycle 27 answer n
+	setcycle 27 block experiment
+	setcycle 27 num1 1
+	setcycle 27 num2 4
+	setcycle 27 num3 2
+	setcycle 27 num4 5
+	setcycle 27 num5 1
+	setcycle 27 num6 1
+	setcycle 27 number_answer 142511
+	setcycle 28 S1 "William kan lide at bruge sine morgener udendørs"
+	setcycle 28 S2A "William er lige fyldt tyve og træner til et maraton"
+	setcycle 28 S2B "William er lige fyldt firs og er for nylig begyndt at gå med stok"
+	setcycle 28 S3 "Denne morgen taler han lidt med sin nabo"
+	setcycle 28 S4 "Mens de taler, ser han en lille dreng ligge på gaden"
+	setcycle 28 S5 "Han er faldet på cykel og har slået sit knæ"
+	setcycle 28 S6 "William løber hen til ham og løfter ham op på fortovet"
+	setcycle 28 Question "Kan William lide at være udendørs?"
+	setcycle 28 WM_condition no_task
+	setcycle 28 answer j
+	setcycle 28 block experiment
+	setcycle 28 num1 7
+	setcycle 28 num2 3
+	setcycle 28 num3 1
+	setcycle 28 num4 5
+	setcycle 28 num5 1
+	setcycle 28 num6 1
+	setcycle 28 number_answer 731511
+	setcycle 29 S1 "Sebastian har fået guitarundervisning i et par år"
+	setcycle 29 S2A "I øjeblikket har han ingen undervisning, fordi hans guitarlærer er syg"
+	setcycle 29 S2B "I øjeblikket har han ingen undervisning, fordi han brækkede sin hånd"
+	setcycle 29 S3 "Han har også spillet musik med tre venner i et år nu"
+	setcycle 29 S4 "De har allerede optrådt et par gange på musikskolen"
+	setcycle 29 S5 "Der er en forestilling i næste uge"
+	setcycle 29 S6 "Derfor øver Sebastian hårdt til forestillingen med sine venner"
+	setcycle 29 Question "Er Sebastian lige startet til guitarundervisning?"
+	setcycle 29 WM_condition no_task
+	setcycle 29 answer n
+	setcycle 29 block experiment
+	setcycle 29 num1 7
+	setcycle 29 num2 9
+	setcycle 29 num3 3
+	setcycle 29 num4 8
+	setcycle 29 num5 8
+	setcycle 29 num6 8
+	setcycle 29 number_answer 793888
+	run trials_sequence
+
+define sequence trials_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run pause "[count_trials_sequence] = 15"
+	run randomize_congruency always
+	run fix_trials always
+	run phono_sequence "[WM_condition]=phono"
+	run visual_sequence "[WM_condition]=visual"
+	run narrative_sequence always
+	run phono_response_sequence "[WM_condition]=phono"
+	run visual_response_sequence "[WM_condition]=visual"
+	run increment_trial_round_counter always
+	run logger always
+
+define sequence trials_sequence_1
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run randomize_congruency_1 always
+	run fix_practice always
+	run phono_sequence_1 "[WM_condition]=phono"
+	run visual_sequence_1 "[WM_condition]=visual"
+	run narrative_sequence_1 always
+	run phono_response_sequence_1 "[WM_condition]=phono"
+	run visual_response_sequence_1 "[WM_condition]=visual"
+	run increment_practice_round_counter always
+	run logger always
+
+define sequence visual_response_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run new_loop always
+
+define sequence visual_response_sequence_1
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run new_loop_1 always
+
+define sequence visual_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run corsi_loop always
+
+define sequence visual_sequence_1
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run corsi_loop_1 always
+

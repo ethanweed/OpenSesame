@@ -1,0 +1,123 @@
+---
+API: 2.1
+OpenSesame: 3.3.12
+Platform: posix
+---
+set width 1024
+set uniform_coordinates yes
+set title "New experiment"
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set sampler_backend psycho
+set round_decimals 2
+set mouse_backend psycho
+set keyboard_backend psycho
+set height 768
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 30
+set font_italic no
+set font_family mono
+set font_bold no
+set experiment_path None
+set disable_garbage_collection yes
+set description "The main experiment item"
+set coordinates uniform
+set compensation 0
+set color_backend psycho
+set clock_backend psycho
+set canvas_backend psycho
+set background black
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run new_loop always
+
+define loop new_loop
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 8
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 condition genstandsord
+	setcycle 0 S1 "Mia er ude at handle."
+	setcycle 0 S2 "Hun skal købe fredagsguf. "
+	setcycle 0 S3 "Mia køber chokolade "
+	setcycle 0 question "Fik Mia købt det, hun skulle handle? "
+	setcycle 1 condition genstandsord
+	setcycle 1 S1 "Marius keder sig"
+	setcycle 1 S2 "Han skal finde på noget at lave."
+	setcycle 1 S3 "Marius ser fjernsyn"
+	setcycle 1 question "Hvorfor gør Marius det?  "
+	setcycle 2 condition genstandsemoji
+	setcycle 2 S1 "Mia er ude at handle. "
+	setcycle 2 S2 "Hun skal købe fredagsguf. "
+	setcycle 2 S3 "Mia køber 🍫"
+	setcycle 2 question "Fik Mia købt det, hun skulle handle?"
+	setcycle 3 condition genstandsemoji
+	setcycle 3 S1 "Marius keder sig. "
+	setcycle 3 S2 "Han skal finde på noget at lave."
+	setcycle 3 S3 "Marius ser 📺"
+	setcycle 3 question "Hvorfor gør Marius det? "
+	setcycle 4 condition "følelsesord"
+	setcycle 4 S1 "Karl skal prøve den nye rutsjebane i forlystelsesparken. "
+	setcycle 4 S2 "Der er ingen kø."
+	setcycle 4 S3 "Karl er glad"
+	setcycle 4 question "Hvad skulle Karl?"
+	setcycle 5 condition "følelsesord"
+	setcycle 5 S1 "Emma er til konkurrence. "
+	setcycle 5 S2 "Hun vinder i sin disciplin. "
+	setcycle 5 S3 "Emma er stolt"
+	setcycle 5 question "Hvor er Emma? "
+	setcycle 6 condition "følelsesemoji "
+	setcycle 6 S1 "Karl skal prøve den nye rutsjebane i forlystelsesparken. "
+	setcycle 6 S2 "Der er ingen kø."
+	setcycle 6 S3 "Karl er 🙂"
+	setcycle 6 question "Hvad skulle Karl?"
+	setcycle 7 condition "følelsesemoji "
+	setcycle 7 S1 "Emma er til konkurrence. "
+	setcycle 7 S2 "Hun vinder i sin disciplin. "
+	setcycle 7 S3 "Emma er 🤩"
+	setcycle 7 question "Hvor er Emma? "
+	run new_sequence
+
+define sequence new_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run new_sketchpad always
+	run new_sketchpad_1 always
+	run new_sketchpad_2 always
+	run new_sketchpad_3 always
+
+define sketchpad new_sketchpad
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="[S1]" x=0 y=0 z_index=0
+
+define sketchpad new_sketchpad_1
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="[S2]" x=0 y=0 z_index=0
+
+define sketchpad new_sketchpad_2
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="[S3]" x=0 y=0 z_index=0
+
+define sketchpad new_sketchpad_3
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=30 html=yes show_if=always text="[question]" x=0 y=0 z_index=0
+
